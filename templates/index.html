@@ -13,6 +13,7 @@
             font-family:Arial;
             color:white;
             text-align:center;
+            background:#f5e6c8;
         }
 
         .fondo{
@@ -26,21 +27,28 @@
         }
 
         .contenido{
-            background:rgba(0,0,0,0.2);
+            background:rgba(0,0,0,0.35);
             padding:40px;
             border-radius:20px;
+            width:90%;
+            max-width:500px;
         }
 
         h1{
-            font-size:70px;
+            font-size:60px;
             color:#ffae00;
+            margin-bottom:10px;
+        }
+
+        h2{
+            margin-bottom:30px;
         }
 
         a{
             text-decoration:none;
         }
 
-        button{
+        .idioma-btn{
             padding:15px 30px;
             border:none;
             border-radius:10px;
@@ -49,6 +57,38 @@
             background:#ff8800;
             color:white;
             font-weight:bold;
+            margin-top:20px;
+        }
+
+        .categoria-img{
+            position:relative;
+            cursor:pointer;
+            overflow:hidden;
+            border-radius:20px;
+            margin-top:25px;
+        }
+
+        .categoria-img img{
+            width:100%;
+            height:220px;
+            object-fit:cover;
+            display:block;
+        }
+
+        .overlay{
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background:rgba(0,0,0,0.45);
+            color:white;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            font-size:34px;
+            font-weight:bold;
+            text-align:center;
         }
 
     </style>
@@ -68,7 +108,25 @@
             <p>Seleccione su idioma</p>
 
             <a href="/menu_es">
-                <button>🇦🇷 Español</button>
+                <button class="idioma-btn">
+                    🇦🇷 Español
+                </button>
+            </a>
+
+            <a href="/regionales">
+
+                <div class="categoria-img">
+
+                    <img src="/static/categorias/regionales.jpg">
+
+                    <div class="overlay">
+
+                        🦙 Platos Regionales
+
+                    </div>
+
+                </div>
+
             </a>
 
         </div>
