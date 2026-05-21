@@ -23,31 +23,46 @@
         }
 
         .categoria{
-            background:white;
-            padding:20px;
             margin-bottom:25px;
-            border-radius:15px;
-            box-shadow:0px 0px 10px rgba(0,0,0,0.2);
         }
 
-        .acordeon{
-            background:#8b4513;
-            color:white;
+        .categoria-img{
+            position:relative;
             cursor:pointer;
-            padding:18px;
+            overflow:hidden;
+            border-radius:20px;
+            box-shadow:0px 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .categoria-img img{
             width:100%;
-            border:none;
-            text-align:left;
-            font-size:24px;
-            border-radius:15px;
-            margin-top:10px;
+            height:230px;
+            object-fit:cover;
+            display:block;
+        }
+
+        .overlay{
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background:rgba(0,0,0,0.45);
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            color:white;
+            font-size:36px;
             font-weight:bold;
+            text-align:center;
         }
 
         .panel{
-            padding:0 10px;
+            background:white;
+            padding:20px;
             display:none;
-            overflow:hidden;
+            border-radius:0px 0px 20px 20px;
+            box-shadow:0px 5px 15px rgba(0,0,0,0.2);
         }
 
         .item{
@@ -131,11 +146,21 @@
 
     <h1>🇦🇷 La Peña de Marito</h1>
 
+    <!-- REGIONALES -->
+
     <div class="categoria">
 
-        <button class="acordeon">
-            🦙 Platos Regionales
-        </button>
+        <div class="categoria-img acordeon">
+
+            <img src="/static/categorias/regionales.jpg">
+
+            <div class="overlay">
+
+                🦙 Platos Regionales
+
+            </div>
+
+        </div>
 
         <div class="panel">
 
@@ -161,18 +186,26 @@
             <div class="item"><span>Asado de Cordero</span><span>$27500</span></div>
             <div class="item"><span>Asado de Cabrito</span><span>$27500</span></div>
             <div class="item"><span>Llama al Malbec</span><span>$19000</span></div>
-            <div class="item"><span>Cazuela de Llama</span><span>$16500</span></div>
-            <div class="item"><span>Cazuela de Cabrito</span><span>$16500</span></div>
 
         </div>
 
     </div>
 
+    <!-- TRADICIONALES -->
+
     <div class="categoria">
 
-        <button class="acordeon">
-            🍽️ Platos Tradicionales
-        </button>
+        <div class="categoria-img acordeon">
+
+            <img src="/static/categorias/regionales.jpg">
+
+            <div class="overlay">
+
+                🍽️ Platos Tradicionales
+
+            </div>
+
+        </div>
 
         <div class="panel">
 
@@ -184,11 +217,21 @@
 
     </div>
 
+    <!-- PASTAS -->
+
     <div class="categoria">
 
-        <button class="acordeon">
-            🍝 Pastas
-        </button>
+        <div class="categoria-img acordeon">
+
+            <img src="/static/categorias/regionales.jpg">
+
+            <div class="overlay">
+
+                🍝 Pastas
+
+            </div>
+
+        </div>
 
         <div class="panel">
 
@@ -199,11 +242,21 @@
 
     </div>
 
+    <!-- ENTRADAS -->
+
     <div class="categoria">
 
-        <button class="acordeon">
-            🥟 Entradas
-        </button>
+        <div class="categoria-img acordeon">
+
+            <img src="/static/categorias/regionales.jpg">
+
+            <div class="overlay">
+
+                🥟 Entradas
+
+            </div>
+
+        </div>
 
         <div class="panel">
 
@@ -214,11 +267,21 @@
 
     </div>
 
+    <!-- POSTRES -->
+
     <div class="categoria">
 
-        <button class="acordeon">
-            🍰 Postres
-        </button>
+        <div class="categoria-img acordeon">
+
+            <img src="/static/categorias/regionales.jpg">
+
+            <div class="overlay">
+
+                🍰 Postres
+
+            </div>
+
+        </div>
 
         <div class="panel">
 
@@ -229,11 +292,21 @@
 
     </div>
 
+    <!-- BEBIDAS -->
+
     <div class="categoria">
 
-        <button class="acordeon">
-            🥤 Bebidas
-        </button>
+        <div class="categoria-img acordeon">
+
+            <img src="/static/categorias/regionales.jpg">
+
+            <div class="overlay">
+
+                🥤 Bebidas
+
+            </div>
+
+        </div>
 
         <div class="panel">
 
@@ -244,11 +317,21 @@
 
     </div>
 
+    <!-- CERVEZAS -->
+
     <div class="categoria">
 
-        <button class="acordeon">
-            🍺 Cervezas
-        </button>
+        <div class="categoria-img acordeon">
+
+            <img src="/static/categorias/regionales.jpg">
+
+            <div class="overlay">
+
+                🍺 Cervezas
+
+            </div>
+
+        </div>
 
         <div class="panel">
 
@@ -259,11 +342,21 @@
 
     </div>
 
+    <!-- VINOS -->
+
     <div class="categoria">
 
-        <button class="acordeon">
-            🍷 Vinos
-        </button>
+        <div class="categoria-img acordeon">
+
+            <img src="/static/categorias/regionales.jpg">
+
+            <div class="overlay">
+
+                🍷 Vinos
+
+            </div>
+
+        </div>
 
         <div class="panel">
 
@@ -273,6 +366,8 @@
         </div>
 
     </div>
+
+    <!-- VISOR IMAGEN -->
 
     <div id="visor" class="visor" onclick="cerrarImagen()">
 
@@ -287,8 +382,6 @@
         for (var i = 0; i < acc.length; i++) {
 
             acc[i].addEventListener("click", function() {
-
-                this.classList.toggle("active");
 
                 var panel = this.nextElementSibling;
 
