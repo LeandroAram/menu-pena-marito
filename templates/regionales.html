@@ -5,11 +5,13 @@
 
     <title>Platos Regionales</title>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <style>
 
         body{
             margin:0;
-            padding:20px;
+            padding:15px;
             font-family:Arial;
             background:#f5e6c8;
         }
@@ -17,75 +19,79 @@
         h1{
             text-align:center;
             color:#8b4513;
-            font-size:45px;
+            font-size:38px;
+            margin-bottom:25px;
         }
 
         .volver{
             display:inline-block;
-            margin-bottom:20px;
+            margin-bottom:25px;
             text-decoration:none;
             background:#8b4513;
             color:white;
-            padding:12px 20px;
+            padding:14px 22px;
             border-radius:12px;
             font-weight:bold;
+            font-size:18px;
         }
 
         .card-comida{
             background:white;
-            border-radius:20px;
-            margin-top:20px;
+            border-radius:22px;
+            margin-top:25px;
             box-shadow:0px 5px 15px rgba(0,0,0,0.2);
-            display:flex;
             overflow:hidden;
-            align-items:center;
         }
 
         .card-comida img{
-            width:160px;
-            height:160px;
+            width:100%;
+            height:260px;
             object-fit:cover;
+            display:block;
             cursor:pointer;
         }
 
         .info{
-            padding:15px;
+            padding:20px;
         }
 
         .info h3{
             margin:0;
             color:#8b4513;
-            font-size:28px;
+            font-size:34px;
         }
 
         .info p{
             color:#555;
-            font-size:16px;
-            margin-top:10px;
+            font-size:22px;
+            margin-top:15px;
+            line-height:1.6;
         }
 
         .info h4{
             color:#b22222;
-            font-size:26px;
+            font-size:34px;
+            margin-top:20px;
+            margin-bottom:0;
         }
 
         .visor{
             display:none;
             position:fixed;
             z-index:5000;
-            padding-top:50px;
+            padding-top:40px;
             left:0;
             top:0;
             width:100%;
             height:100%;
-            background:rgba(0,0,0,0.9);
+            background:rgba(0,0,0,0.92);
         }
 
         .visor img{
             margin:auto;
             display:block;
-            width:90%;
-            max-width:700px;
+            width:92%;
+            max-width:800px;
             border-radius:20px;
         }
 
@@ -112,8 +118,8 @@
             <h3>🦙 Locro Norteño</h3>
 
             <p>
-                Tradicional guiso norteño a base de maíz blanco, 
-                zapallo plomo, carne vacuna, panceta y embutidos, 
+                Tradicional guiso norteño a base de maíz blanco,
+                zapallo plomo, carne vacuna, panceta y embutidos,
                 sazonado con comino y pimentón regional.
             </p>
 
@@ -122,26 +128,6 @@
         </div>
 
     </div>
-    <!-- LLAMA AL MALBEC -->
-
-<div class="card-comida">
-
-    <img src="/static/comidas/llama-malbec.jpg" onclick="abrirImagen(this.src)">
-
-    <div class="info">
-
-        <h3>🍷 Llama al Malbec</h3>
-
-        <p>
-            Trozos de llama tiernizados en reducción de vino Malbec, 
-            acompañados con papines andinos.
-        </p>
-
-        <h4>$19000</h4>
-
-    </div>
-
-</div>
 
     <!-- ASADO DE CABRITO -->
 
@@ -154,12 +140,34 @@
             <h3>🔥 Asado de Cabrito</h3>
 
             <p>
-                Tierno cabrito al horno de barro, 
-                acompañado de papines al romero y ensalada mixta tradicional 
+                Tierno cabrito al horno de barro,
+                acompañado de papines al romero y ensalada mixta tradicional
                 con queso de cabra regional.
             </p>
 
             <h4>$27500</h4>
+
+        </div>
+
+    </div>
+
+    <!-- LLAMA AL MALBEC -->
+
+    <div class="card-comida">
+
+        <img src="/static/comidas/llama-malbec.jpg" onclick="abrirImagen(this.src)">
+
+        <div class="info">
+
+            <h3>🍷 Llama al Malbec</h3>
+
+            <p>
+                Tiernos medallones de llama cocidos lentamente
+                en reducción de vino Malbec,
+                acompañados con papines andinos y quinoa regional.
+            </p>
+
+            <h4>$19000</h4>
 
         </div>
 
@@ -176,7 +184,7 @@
             <h3>🦙 Lomo de Llama a la Salsa Blanca</h3>
 
             <p>
-                Lomo de llama en su punto con salsa blanca, 
+                Lomo de llama en su punto con salsa blanca,
                 acompañado de quinoa de la región y papines salteados al romero.
             </p>
 
@@ -198,7 +206,7 @@
 
             <p>
                 Milanesa de llama acompañada con papas fritas
-                 y ensalada mixta tradicional.
+                y ensalada mixta tradicional.
             </p>
 
             <h4>$17000</h4>
@@ -218,8 +226,9 @@
             <h3>🍲 Cazuela de Cabrito</h3>
 
             <p>
-                Cazuela de cabrito norteña cocida en su caldo con especias regionales,
-                 servida con papines salteados al romero..
+                Cazuela de cabrito norteña cocida en su caldo
+                con especias regionales,
+                servida con papines salteados al romero.
             </p>
 
             <h4>$16500</h4>
@@ -239,7 +248,8 @@
             <h3>🍲 Cazuela de Llama</h3>
 
             <p>
-                Cazuela de llama norteña cocida lentamente en su caldo con especias regionales,
+                Cazuela de llama norteña cocida lentamente
+                en su caldo con especias regionales,
                 servida con papines salteados al romero.
             </p>
 
@@ -260,8 +270,9 @@
             <h3>🍲 Cazuela de Cordero</h3>
 
             <p>
-                Cazuela de cordero norteña cocida lentamente en su caldo con especias regionales,
-                 servida con papines salteados al romero.
+                Cazuela de cordero norteña cocida lentamente
+                en su caldo con especias regionales,
+                servida con papines salteados al romero.
             </p>
 
             <h4>$17500</h4>
