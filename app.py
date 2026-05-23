@@ -31,17 +31,9 @@ def entradas():
 def postres():
     return render_template('postres.html')
 
-@app.route('/bebidas')
-def bebidas():
-    return render_template('bebidas.html')
-
-@app.route('/cervezas')
-def cervezas():
-    return render_template('cervezas.html')
-
-@app.route('/vinos')
-def vinos():
-    return render_template('vinos.html')
+@app.route('/menu-dia')
+def menu_dia():
+    return render_template('menu-dia.html')
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
