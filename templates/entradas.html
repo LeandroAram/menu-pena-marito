@@ -11,14 +11,14 @@
 
         body{
             margin:0;
-            padding:15px;
+            padding:20px;
             font-family:Arial;
-            background:#f5e6c8;
+            background:#ede3d1;
         }
 
         h1{
             text-align:center;
-            color:#8b4513;
+            color:#6b3e1f;
             font-size:34px;
             margin-bottom:25px;
         }
@@ -27,7 +27,7 @@
             display:inline-block;
             margin-bottom:20px;
             text-decoration:none;
-            background:#8b4513;
+            background:#6b3e1f;
             color:white;
             padding:12px 18px;
             border-radius:10px;
@@ -36,47 +36,57 @@
         }
 
         .card-comida{
-            background:white;
-            border-radius:18px;
-            margin-top:18px;
-            box-shadow:0px 3px 10px rgba(0,0,0,0.12);
+            background:#fffaf3;
+            border-radius:20px;
+            margin-top:20px;
+            box-shadow:0px 3px 10px rgba(0,0,0,0.10);
             overflow:hidden;
             display:flex;
             align-items:center;
+            padding:12px;
+            gap:16px;
+            border:1px solid #e6d5bb;
         }
 
         .card-comida img{
             width:38%;
             height:145px;
             object-fit:cover;
-            display:block;
+            border-radius:14px;
             cursor:pointer;
+            flex-shrink:0;
         }
 
         .info{
-            padding:16px;
             width:62%;
+        }
+
+        .top-info{
+            display:flex;
+            justify-content:space-between;
+            align-items:flex-start;
+            gap:10px;
         }
 
         .info h3{
             margin:0;
-            color:#8b4513;
-            font-size:24px;
-            font-weight:bold;
-        }
-
-        .info p{
-            color:#555;
-            font-size:16px;
-            margin-top:8px;
-            line-height:1.5;
+            color:#6b3e1f;
+            font-size:23px;
+            line-height:1.2;
         }
 
         .precio{
             color:#222;
-            font-size:18px;
+            font-size:17px;
+            white-space:nowrap;
+            margin-top:4px;
+        }
+
+        .info p{
+            color:#555;
+            font-size:15px;
             margin-top:10px;
-            font-weight:normal;
+            line-height:1.5;
         }
 
         .visor{
@@ -102,29 +112,24 @@
         @media(max-width:700px){
 
             .card-comida{
-                flex-direction:row;
+                align-items:flex-start;
             }
 
             .card-comida img{
-                width:40%;
-                height:130px;
-            }
-
-            .info{
-                width:60%;
-                padding:12px;
+                width:36%;
+                height:120px;
             }
 
             .info h3{
-                font-size:20px;
+                font-size:18px;
             }
 
             .info p{
-                font-size:14px;
+                font-size:13px;
             }
 
             .precio{
-                font-size:16px;
+                font-size:15px;
             }
 
         }
@@ -149,17 +154,21 @@
 
         <div class="info">
 
-            <h3>Empanadas Regionales</h3>
+            <div class="top-info">
+
+                <h3>Empanadas Regionales</h3>
+
+                <div class="precio">
+                    $2200
+                </div>
+
+            </div>
 
             <p>
                 Empanadas jujeñas de carne,
                 queso y queso de cabra
                 con especias tradicionales.
             </p>
-
-            <div class="precio">
-                $2200
-            </div>
 
         </div>
 
@@ -173,16 +182,20 @@
 
         <div class="info">
 
-            <h3>Humitas</h3>
+            <div class="top-info">
+
+                <h3>Humitas</h3>
+
+                <div class="precio">
+                    $8500
+                </div>
+
+            </div>
 
             <p>
                 Humitas suaves de maíz
                 rellenas con queso de cabra regional.
             </p>
-
-            <div class="precio">
-                $8500
-            </div>
 
         </div>
 
@@ -196,16 +209,20 @@
 
         <div class="info">
 
-            <h3>Tamal</h3>
+            <div class="top-info">
+
+                <h3>Tamal</h3>
+
+                <div class="precio">
+                    $8000
+                </div>
+
+            </div>
 
             <p>
                 Tamal casero relleno de carne,
                 verduras y especias del norte argentino.
             </p>
-
-            <div class="precio">
-                $8000
-            </div>
 
         </div>
 
@@ -219,16 +236,20 @@
 
         <div class="info">
 
-            <h3>Papines Andinos</h3>
+            <div class="top-info">
+
+                <h3>Papines Andinos</h3>
+
+                <div class="precio">
+                    $9500
+                </div>
+
+            </div>
 
             <p>
                 Papines salteados al romero
                 acompañados con queso de cabra.
             </p>
-
-            <div class="precio">
-                $9500
-            </div>
 
         </div>
 
