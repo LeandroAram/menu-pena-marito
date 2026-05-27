@@ -11,100 +11,82 @@
 
         body{
             margin:0;
-            padding:16px;
-            font-family:Arial;
+            padding:24px;
             background:#efe4d1;
-            overflow-x:hidden;
+            font-family:Georgia, serif;
+            color:#4b3425;
         }
 
         h1{
             text-align:center;
+            font-size:38px;
             color:#6b3e1f;
-            font-size:30px;
-            margin-bottom:20px;
+            margin-bottom:35px;
+            letter-spacing:1px;
         }
 
         .volver{
             display:inline-block;
-            margin-bottom:20px;
+            margin-bottom:30px;
             text-decoration:none;
-            background:#6b3e1f;
-            color:white;
-            padding:10px 16px;
-            border-radius:10px;
-            font-weight:bold;
-            font-size:15px;
+            color:#6b3e1f;
+            font-size:18px;
+            border-bottom:1px solid #6b3e1f;
+            padding-bottom:4px;
         }
 
-        .slider{
-            display:flex;
-            overflow-x:auto;
-            scroll-snap-type:x mandatory;
-            gap:14px;
-            padding-bottom:8px;
+        .plato{
+            background:#fbf6ef;
+            border-radius:26px;
+            padding:18px;
+            margin-bottom:28px;
+            box-shadow:0px 5px 18px rgba(0,0,0,0.08);
         }
 
-        .slider::-webkit-scrollbar{
-            height:6px;
-        }
-
-        .slider::-webkit-scrollbar-thumb{
-            background:#b68c5a;
-            border-radius:10px;
-        }
-
-        .card{
-            min-width:78%;
-            background:#fffaf3;
-            border-radius:20px;
-            overflow:hidden;
-            scroll-snap-align:center;
-            box-shadow:0px 4px 14px rgba(0,0,0,0.12);
-            flex-shrink:0;
-        }
-
-        .card img{
+        .plato img{
             width:100%;
-            height:180px;
+            height:220px;
             object-fit:cover;
+            border-radius:20px;
             display:block;
             cursor:pointer;
         }
 
         .contenido{
-            padding:16px;
+            margin-top:18px;
         }
 
         .top{
             display:flex;
             justify-content:space-between;
             align-items:center;
-            gap:10px;
+            gap:12px;
         }
 
         .top h3{
             margin:0;
-            color:#6b3e1f;
-            font-size:22px;
+            font-size:30px;
+            font-weight:normal;
+            color:#5a3118;
         }
 
         .precio{
-            color:#333;
-            font-size:16px;
+            font-size:18px;
+            color:#3f3f3f;
         }
 
         .descripcion{
-            margin-top:10px;
-            color:#555;
-            font-size:14px;
-            line-height:1.5;
+            margin-top:12px;
+            font-size:18px;
+            line-height:1.7;
+            color:#6a5a4d;
         }
 
-        .desliza{
-            text-align:center;
-            margin-top:12px;
-            color:#7a5a35;
-            font-size:14px;
+        .detalle{
+            margin-top:10px;
+            color:#9a7b58;
+            font-size:15px;
+            letter-spacing:1px;
         }
 
         .visor{
@@ -123,8 +105,46 @@
             margin:auto;
             display:block;
             width:92%;
-            max-width:800px;
+            max-width:850px;
             border-radius:20px;
+        }
+
+        @media(max-width:700px){
+
+            body{
+                padding:18px;
+            }
+
+            h1{
+                font-size:30px;
+            }
+
+            .plato{
+                padding:14px;
+                border-radius:22px;
+            }
+
+            .plato img{
+                height:185px;
+            }
+
+            .top h3{
+                font-size:22px;
+            }
+
+            .precio{
+                font-size:15px;
+            }
+
+            .descripcion{
+                font-size:15px;
+                line-height:1.6;
+            }
+
+            .detalle{
+                font-size:13px;
+            }
+
         }
 
     </style>
@@ -139,121 +159,132 @@
 
     <h1>🥟 Entradas</h1>
 
-    <div class="slider">
+    <!-- EMPANADAS -->
 
-        <!-- EMPANADAS -->
+    <div class="plato">
 
-        <div class="card">
+        <img src="/static/comidas/empanadas.jpg" onclick="abrirImagen(this.src)">
 
-            <img src="/static/comidas/empanadas.jpg" onclick="abrirImagen(this.src)">
+        <div class="contenido">
 
-            <div class="contenido">
+            <div class="top">
 
-                <div class="top">
+                <h3>Empanadas Regionales</h3>
 
-                    <h3>Empanadas Regionales</h3>
-
-                    <div class="precio">$2200</div>
-
-                </div>
-
-                <div class="descripcion">
-
-                    Empanadas jujeñas de carne,
-                    queso y queso de cabra
-                    con especias tradicionales.
-
-                </div>
+                <div class="precio">$2200</div>
 
             </div>
 
-        </div>
+            <div class="descripcion">
 
-        <!-- HUMITAS -->
-
-        <div class="card">
-
-            <img src="/static/comidas/humita.jpg" onclick="abrirImagen(this.src)">
-
-            <div class="contenido">
-
-                <div class="top">
-
-                    <h3>Humitas</h3>
-
-                    <div class="precio">$8500</div>
-
-                </div>
-
-                <div class="descripcion">
-
-                    Humitas suaves de maíz
-                    rellenas con queso de cabra regional.
-
-                </div>
+                Empanadas jujeñas artesanales de carne,
+                queso y queso de cabra con especias
+                tradicionales del norte argentino.
 
             </div>
 
-        </div>
-
-        <!-- TAMAL -->
-
-        <div class="card">
-
-            <img src="/static/comidas/tamal.jpg" onclick="abrirImagen(this.src)">
-
-            <div class="contenido">
-
-                <div class="top">
-
-                    <h3>Tamal</h3>
-
-                    <div class="precio">$8000</div>
-
-                </div>
-
-                <div class="descripcion">
-
-                    Tamal casero relleno de carne,
-                    verduras y especias del norte argentino.
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- PAPINES -->
-
-        <div class="card">
-
-            <img src="/static/comidas/papines.jpg" onclick="abrirImagen(this.src)">
-
-            <div class="contenido">
-
-                <div class="top">
-
-                    <h3>Papines Andinos</h3>
-
-                    <div class="precio">$9500</div>
-
-                </div>
-
-                <div class="descripcion">
-
-                    Papines salteados al romero
-                    acompañados con queso de cabra.
-
-                </div>
-
+            <div class="detalle">
+                COCINA REGIONAL • ARTESANAL
             </div>
 
         </div>
 
     </div>
 
-    <div class="desliza">
-        ← Desliza para ver más platos →
+    <!-- HUMITAS -->
+
+    <div class="plato">
+
+        <img src="/static/comidas/humita.jpg" onclick="abrirImagen(this.src)">
+
+        <div class="contenido">
+
+            <div class="top">
+
+                <h3>Humitas</h3>
+
+                <div class="precio">$8500</div>
+
+            </div>
+
+            <div class="descripcion">
+
+                Humitas suaves de maíz rellenas
+                con queso de cabra regional
+                y sabores tradicionales andinos.
+
+            </div>
+
+            <div class="detalle">
+                SABORES DEL NORTE
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- TAMAL -->
+
+    <div class="plato">
+
+        <img src="/static/comidas/tamal.jpg" onclick="abrirImagen(this.src)">
+
+        <div class="contenido">
+
+            <div class="top">
+
+                <h3>Tamal</h3>
+
+                <div class="precio">$8000</div>
+
+            </div>
+
+            <div class="descripcion">
+
+                Tamal casero relleno de carne,
+                verduras y especias regionales,
+                cocido lentamente en hoja de maíz.
+
+            </div>
+
+            <div class="detalle">
+                RECETA TRADICIONAL
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- PAPINES -->
+
+    <div class="plato">
+
+        <img src="/static/comidas/papines.jpg" onclick="abrirImagen(this.src)">
+
+        <div class="contenido">
+
+            <div class="top">
+
+                <h3>Papines Andinos</h3>
+
+                <div class="precio">$9500</div>
+
+            </div>
+
+            <div class="descripcion">
+
+                Papines salteados al romero
+                acompañados con queso de cabra
+                y hierbas regionales.
+
+            </div>
+
+            <div class="detalle">
+                PRODUCTOS REGIONALES
+            </div>
+
+        </div>
+
     </div>
 
     <div id="visor" class="visor" onclick="cerrarImagen()">
