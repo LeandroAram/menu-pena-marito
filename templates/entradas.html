@@ -1,284 +1,213 @@
-<!DOCTYPE html>
-<html>
+<style>
 
-<head>
+    body{
+        margin:0;
+        padding:20px;
+        font-family:Arial;
+        background:#ede3d1;
+    }
 
-    <title>Entradas</title>
+    h1{
+        text-align:center;
+        color:#6b3e1f;
+        font-size:34px;
+        margin-bottom:25px;
+    }
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    .volver{
+        display:inline-block;
+        margin-bottom:20px;
+        text-decoration:none;
+        background:#6b3e1f;
+        color:white;
+        padding:12px 18px;
+        border-radius:10px;
+        font-weight:bold;
+        font-size:16px;
+    }
 
-    <style>
+    .card-comida{
+        background:#fffaf3;
+        border-radius:20px;
+        margin-top:20px;
+        box-shadow:0px 3px 10px rgba(0,0,0,0.10);
+        overflow:hidden;
+        display:flex;
+        align-items:center;
+        padding:12px;
+        gap:16px;
+        border:1px solid #e6d5bb;
+    }
 
-        body{
-            margin:0;
-            padding:20px;
-            font-family:Arial;
-            background:#ede3d1;
-        }
+    .card-comida img{
+        width:38%;
+        height:145px;
+        object-fit:cover;
+        border-radius:14px;
+        cursor:pointer;
+        flex-shrink:0;
+    }
 
-        h1{
-            text-align:center;
-            color:#6b3e1f;
-            font-size:34px;
-            margin-bottom:25px;
-        }
+    .info{
+        width:62%;
+    }
 
-        .volver{
-            display:inline-block;
-            margin-bottom:20px;
-            text-decoration:none;
-            background:#6b3e1f;
-            color:white;
-            padding:12px 18px;
-            border-radius:10px;
-            font-weight:bold;
-            font-size:16px;
-        }
+    .info h3{
+        margin:0;
+        color:#6b3e1f;
+        font-size:20px;
+        line-height:1.2;
+    }
+
+    .info p{
+        color:#555;
+        font-size:15px;
+        margin-top:8px;
+        line-height:1.5;
+    }
+
+    .precio{
+        color:#333;
+        font-size:15px;
+        margin-top:10px;
+    }
+
+    .visor{
+        display:none;
+        position:fixed;
+        z-index:5000;
+        padding-top:40px;
+        left:0;
+        top:0;
+        width:100%;
+        height:100%;
+        background:rgba(0,0,0,0.92);
+    }
+
+    .visor img{
+        margin:auto;
+        display:block;
+        width:92%;
+        max-width:800px;
+        border-radius:20px;
+    }
+
+    @media(max-width:700px){
 
         .card-comida{
-            background:#fffaf3;
-            border-radius:20px;
-            margin-top:20px;
-            box-shadow:0px 3px 10px rgba(0,0,0,0.10);
-            overflow:hidden;
-            display:flex;
-            align-items:center;
-            padding:12px;
-            gap:16px;
-            border:1px solid #e6d5bb;
+            align-items:flex-start;
         }
 
         .card-comida img{
-            width:38%;
-            height:145px;
-            object-fit:cover;
-            border-radius:14px;
-            cursor:pointer;
-            flex-shrink:0;
-        }
-
-        .info{
-            width:62%;
-        }
-
-        .top-info{
-            display:flex;
-            justify-content:space-between;
-            align-items:flex-start;
-            gap:10px;
+            width:36%;
+            height:120px;
         }
 
         .info h3{
-            margin:0;
-            color:#6b3e1f;
-            font-size:23px;
-            line-height:1.2;
-        }
-
-        .precio{
-            color:#222;
             font-size:17px;
-            white-space:nowrap;
-            margin-top:4px;
         }
 
         .info p{
-            color:#555;
-            font-size:15px;
-            margin-top:10px;
-            line-height:1.5;
+            font-size:13px;
         }
 
-        .visor{
-            display:none;
-            position:fixed;
-            z-index:5000;
-            padding-top:40px;
-            left:0;
-            top:0;
-            width:100%;
-            height:100%;
-            background:rgba(0,0,0,0.92);
+        .precio{
+            font-size:14px;
         }
 
-        .visor img{
-            margin:auto;
-            display:block;
-            width:92%;
-            max-width:800px;
-            border-radius:20px;
-        }
+    }
 
-        @media(max-width:700px){
+</style>
 
-            .card-comida{
-                align-items:flex-start;
-            }
+<!-- EMPANADAS -->
 
-            .card-comida img{
-                width:36%;
-                height:120px;
-            }
+<div class="card-comida">
 
-            .info h3{
-                font-size:18px;
-            }
+    <img src="/static/comidas/empanadas.jpg" onclick="abrirImagen(this.src)">
 
-            .info p{
-                font-size:13px;
-            }
+    <div class="info">
 
-            .precio{
-                font-size:15px;
-            }
+        <h3>Empanadas Regionales</h3>
 
-        }
+        <p>
+            Empanadas jujeñas de carne,
+            queso y queso de cabra
+            con especias tradicionales.
+        </p>
 
-    </style>
-
-</head>
-
-<body>
-
-    <a href="/menu_es" class="volver">
-        ← Volver
-    </a>
-
-    <h1>🥟 Entradas</h1>
-
-    <!-- EMPANADAS -->
-
-    <div class="card-comida">
-
-        <img src="/static/comidas/empanadas.jpg" onclick="abrirImagen(this.src)">
-
-        <div class="info">
-
-            <div class="top-info">
-
-                <h3>Empanadas Regionales</h3>
-
-                <div class="precio">
-                    $2200
-                </div>
-
-            </div>
-
-            <p>
-                Empanadas jujeñas de carne,
-                queso y queso de cabra
-                con especias tradicionales.
-            </p>
-
+        <div class="precio">
+            $2200
         </div>
 
     </div>
 
-    <!-- HUMITAS -->
+</div>
 
-    <div class="card-comida">
+<!-- HUMITAS -->
 
-        <img src="/static/comidas/humita.jpg" onclick="abrirImagen(this.src)">
+<div class="card-comida">
 
-        <div class="info">
+    <img src="/static/comidas/humita.jpg" onclick="abrirImagen(this.src)">
 
-            <div class="top-info">
+    <div class="info">
 
-                <h3>Humitas</h3>
+        <h3>Humitas</h3>
 
-                <div class="precio">
-                    $8500
-                </div>
+        <p>
+            Humitas suaves de maíz
+            rellenas con queso de cabra regional.
+        </p>
 
-            </div>
-
-            <p>
-                Humitas suaves de maíz
-                rellenas con queso de cabra regional.
-            </p>
-
+        <div class="precio">
+            $8500
         </div>
 
     </div>
 
-    <!-- TAMAL -->
+</div>
 
-    <div class="card-comida">
+<!-- TAMAL -->
 
-        <img src="/static/comidas/tamal.jpg" onclick="abrirImagen(this.src)">
+<div class="card-comida">
 
-        <div class="info">
+    <img src="/static/comidas/tamal.jpg" onclick="abrirImagen(this.src)">
 
-            <div class="top-info">
+    <div class="info">
 
-                <h3>Tamal</h3>
+        <h3>Tamal</h3>
 
-                <div class="precio">
-                    $8000
-                </div>
+        <p>
+            Tamal casero relleno de carne,
+            verduras y especias del norte argentino.
+        </p>
 
-            </div>
-
-            <p>
-                Tamal casero relleno de carne,
-                verduras y especias del norte argentino.
-            </p>
-
+        <div class="precio">
+            $8000
         </div>
 
     </div>
 
-    <!-- PAPINES -->
+</div>
 
-    <div class="card-comida">
+<!-- PAPINES -->
 
-        <img src="/static/comidas/papines.jpg" onclick="abrirImagen(this.src)">
+<div class="card-comida">
 
-        <div class="info">
+    <img src="/static/comidas/papines.jpg" onclick="abrirImagen(this.src)">
 
-            <div class="top-info">
+    <div class="info">
 
-                <h3>Papines Andinos</h3>
+        <h3>Papines Andinos</h3>
 
-                <div class="precio">
-                    $9500
-                </div>
+        <p>
+            Papines salteados al romero
+            acompañados con queso de cabra.
+        </p>
 
-            </div>
-
-            <p>
-                Papines salteados al romero
-                acompañados con queso de cabra.
-            </p>
-
+        <div class="precio">
+            $9500
         </div>
 
     </div>
 
-    <div id="visor" class="visor" onclick="cerrarImagen()">
-
-        <img id="imagen-grande">
-
-    </div>
-
-    <script>
-
-        function abrirImagen(src){
-
-            document.getElementById("visor").style.display = "block";
-
-            document.getElementById("imagen-grande").src = src;
-
-        }
-
-        function cerrarImagen(){
-
-            document.getElementById("visor").style.display = "none";
-
-        }
-
-    </script>
-
-</body>
-
-</html>
+</div>
