@@ -1,19 +1,37 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import os
 
 app = Flask(__name__)
 
+# =========================
+# INICIO AUTOMATICO SEGUN IDIOMA
+# =========================
+
 @app.route('/')
 def inicio():
-    return render_template('index.html')
+
+    idioma = request.accept_languages.best_match([
+        'es',
+        'en',
+        'pt',
+        'fr'
+    ])
+
+    if idioma == 'en':
+        return render_template('menu_en.html')
+
+    elif idioma == 'pt':
+        return render_template('menu_pt.html')
+
+    elif idioma == 'fr':
+        return render_template('menu_fr.html')
+
+    else:
+        return render_template('menu_es.html')
 
 # =========================
 # ESPAÑOL
 # =========================
-
-@app.route('/menu_es')
-def menu_es():
-    return render_template('menu_es.html')
 
 @app.route('/regionales')
 def regionales():
@@ -43,10 +61,6 @@ def menu_dia():
 # INGLES
 # =========================
 
-@app.route('/menu_en')
-def menu_en():
-    return render_template('menu_en.html')
-
 @app.route('/regionales_en')
 def regionales_en():
     return render_template('regionales_en.html')
@@ -75,10 +89,6 @@ def menu_dia_en():
 # PORTUGUES
 # =========================
 
-@app.route('/menu_pt')
-def menu_pt():
-    return render_template('menu_pt.html')
-
 @app.route('/regionales_pt')
 def regionales_pt():
     return render_template('regionales_pt.html')
@@ -106,10 +116,6 @@ def menu_dia_pt():
 # =========================
 # FRANCES
 # =========================
-
-@app.route('/menu_fr')
-def menu_fr():
-    return render_template('menu_fr.html')
 
 @app.route('/regionales_fr')
 def regionales_fr():
