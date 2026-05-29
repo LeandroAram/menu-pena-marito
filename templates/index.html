@@ -25,36 +25,63 @@
         }
 
         .overlay{
-            position:absolute;
             width:100%;
             height:100%;
+
             display:flex;
             flex-direction:column;
             justify-content:space-between;
             align-items:center;
+
             padding:40px 20px;
+
             box-sizing:border-box;
+        }
+
+        .titulo{
+
+            text-align:center;
+
+            margin-top:20px;
+
         }
 
         h1{
             margin:0;
-            margin-top:20px;
-            color:white;
-            font-size:58px;
-            text-align:center;
 
-            text-shadow:0px 4px 10px rgba(0,0,0,0.6);
+            font-size:62px;
+
+            color:#f7d28b;
+
+            letter-spacing:1px;
+
+            text-shadow:0px 4px 10px rgba(0,0,0,0.55);
+        }
+
+        .subtitulo{
+
+            margin-top:10px;
+
+            color:white;
+
+            font-size:20px;
+
+            letter-spacing:2px;
+
+            text-shadow:0px 2px 8px rgba(0,0,0,0.5);
         }
 
         .idiomas{
-            width:100%;
-            max-width:320px;
 
             display:flex;
-            flex-direction:column;
-            gap:14px;
 
-            margin-bottom:30px;
+            gap:12px;
+
+            margin-bottom:35px;
+
+            flex-wrap:wrap;
+
+            justify-content:center;
         }
 
         a{
@@ -63,38 +90,34 @@
 
         .idioma-btn{
 
-            width:100%;
-
-            padding:14px;
-
             border:none;
 
-            border-radius:16px;
+            padding:12px 18px;
 
-            font-size:20px;
+            border-radius:14px;
+
+            font-size:17px;
 
             cursor:pointer;
 
             color:white;
 
-            background:rgba(255,255,255,0.18);
+            background:rgba(0,0,0,0.28);
 
             backdrop-filter:blur(4px);
 
-            border:1px solid rgba(255,255,255,0.25);
+            border:1px solid rgba(255,255,255,0.18);
 
             transition:0.3s;
 
-            text-shadow:0px 2px 6px rgba(0,0,0,0.4);
-
+            text-shadow:0px 2px 5px rgba(0,0,0,0.5);
         }
 
         .idioma-btn:hover{
 
-            transform:scale(1.03);
+            transform:translateY(-3px);
 
-            background:rgba(255,255,255,0.28);
-
+            background:rgba(0,0,0,0.42);
         }
 
         @media(max-width:700px){
@@ -103,8 +126,17 @@
                 font-size:42px;
             }
 
+            .subtitulo{
+                font-size:16px;
+            }
+
+            .idiomas{
+                gap:10px;
+            }
+
             .idioma-btn{
-                font-size:18px;
+                font-size:15px;
+                padding:10px 14px;
             }
 
         }
@@ -119,7 +151,15 @@
 
         <div class="overlay">
 
-            <h1>La Peña de Marito</h1>
+            <div class="titulo">
+
+                <h1>La Peña de Marito</h1>
+
+                <div class="subtitulo">
+                    Seleccione su idioma
+                </div>
+
+            </div>
 
             <div class="idiomas">
 
