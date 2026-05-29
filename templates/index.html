@@ -5,14 +5,15 @@
 
     <title>La Peña de Marito</title>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <style>
 
         body{
             margin:0;
             padding:0;
             font-family:Arial;
-            color:white;
-            text-align:center;
+            overflow:hidden;
         }
 
         .fondo{
@@ -20,31 +21,58 @@
             background-size:cover;
             background-position:center;
             height:100vh;
+            position:relative;
             display:flex;
             justify-content:center;
             align-items:center;
         }
 
-        .contenido{
+        .fondo::before{
+            content:"";
+            position:absolute;
+            width:100%;
+            height:100%;
             background:rgba(0,0,0,0.35);
-            padding:40px;
-            border-radius:20px;
+            backdrop-filter:blur(2px);
+        }
+
+        .contenido{
+            position:relative;
+            z-index:2;
+            text-align:center;
             width:90%;
-            max-width:500px;
+            max-width:420px;
+            padding:30px;
+            border-radius:28px;
+
+            background:rgba(255,255,255,0.08);
+
+            backdrop-filter:blur(10px);
+
+            border:1px solid rgba(255,255,255,0.15);
         }
 
         h1{
-            font-size:60px;
-            color:#ffae00;
-            margin-bottom:10px;
+            margin:0;
+            color:white;
+            font-size:52px;
+            font-weight:700;
+            letter-spacing:1px;
+            line-height:1.1;
         }
 
-        h2{
-            margin-bottom:30px;
+        .subtitulo{
+            color:#f3d7a5;
+            font-size:18px;
+            margin-top:12px;
+            margin-bottom:35px;
+            letter-spacing:2px;
         }
 
-        p{
-            font-size:22px;
+        .idiomas{
+            display:flex;
+            flex-direction:column;
+            gap:14px;
         }
 
         a{
@@ -52,24 +80,45 @@
         }
 
         .idioma-btn{
-            padding:15px 30px;
-            border:none;
-            border-radius:10px;
-            font-size:22px;
-            cursor:pointer;
-            background:#ff8800;
+            width:100%;
+            padding:16px;
+            border-radius:16px;
+
+            border:1px solid rgba(255,255,255,0.25);
+
+            background:rgba(255,255,255,0.10);
+
             color:white;
-            font-weight:bold;
-            margin-top:20px;
-            width:250px;
+
+            font-size:20px;
+
+            cursor:pointer;
+
+            transition:0.3s;
+
+            backdrop-filter:blur(5px);
         }
 
-        .idiomas{
-            display:flex;
-            flex-direction:column;
-            gap:15px;
-            align-items:center;
-            margin-top:30px;
+        .idioma-btn:hover{
+            background:rgba(255,255,255,0.20);
+            transform:scale(1.03);
+        }
+
+        @media(max-width:700px){
+
+            h1{
+                font-size:42px;
+            }
+
+            .subtitulo{
+                font-size:15px;
+            }
+
+            .idioma-btn{
+                font-size:18px;
+                padding:14px;
+            }
+
         }
 
     </style>
@@ -82,11 +131,11 @@
 
         <div class="contenido">
 
-            <h1>La Peña de Marito</h1>
+            <h1>La Peña<br>de Marito</h1>
 
-            <h2>Bienvenido</h2>
-
-            <p>Seleccione su idioma</p>
+            <div class="subtitulo">
+                SABORES REGIONALES
+            </div>
 
             <div class="idiomas">
 
