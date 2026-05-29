@@ -11,82 +11,70 @@
 
         body{
             margin:0;
-            padding:24px;
-            background:#efe4d1;
-            font-family:Georgia, serif;
-            color:#4b3425;
+            padding:15px;
+            font-family:Arial;
+            background:#f5e6c8;
         }
 
         h1{
             text-align:center;
-            font-size:38px;
-            color:#6b3e1f;
-            margin-bottom:35px;
-            letter-spacing:1px;
+            color:#8b4513;
+            font-size:34px;
+            margin-bottom:20px;
         }
 
         .volver{
             display:inline-block;
-            margin-bottom:30px;
+            margin-bottom:20px;
             text-decoration:none;
-            color:#6b3e1f;
-            font-size:18px;
-            border-bottom:1px solid #6b3e1f;
-            padding-bottom:4px;
+            background:#8b4513;
+            color:white;
+            padding:12px 18px;
+            border-radius:10px;
+            font-weight:bold;
+            font-size:16px;
         }
 
-        .plato{
-            background:#fbf6ef;
-            border-radius:26px;
-            padding:18px;
-            margin-bottom:28px;
-            box-shadow:0px 5px 18px rgba(0,0,0,0.08);
+        .card-comida{
+            background:white;
+            border-radius:18px;
+            margin-top:18px;
+            box-shadow:0px 4px 12px rgba(0,0,0,0.18);
+            overflow:hidden;
+            display:flex;
+            align-items:center;
         }
 
-        .plato img{
-            width:100%;
-            height:220px;
+        .card-comida img{
+            width:38%;
+            height:150px;
             object-fit:cover;
-            border-radius:20px;
-            display:block;
             cursor:pointer;
         }
 
-        .contenido{
-            margin-top:18px;
+        .info{
+            padding:14px;
+            width:62%;
         }
 
-        .top{
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-            gap:12px;
-        }
-
-        .top h3{
+        .info h3{
             margin:0;
-            font-size:30px;
-            font-weight:normal;
-            color:#5a3118;
+            color:#8b4513;
+            font-size:24px;
         }
 
-        .precio{
-            font-size:18px;
-            color:#3f3f3f;
-        }
-
-        .descripcion{
-            margin-top:12px;
-            font-size:18px;
-            line-height:1.7;
-            color:#6a5a4d;
-        }
-
-        .detalle{
+        .info p{
+            color:#555;
+            font-size:16px;
             margin-top:10px;
-            color:#9a7b58;
-            font-size:15px;
-            letter-spacing:1px;
+            line-height:1.4;
+        }
+
+        .info h4{
+            color:#b22222;
+            font-size:24px;
+            margin-top:12px;
+            margin-bottom:0;
         }
 
         .visor{
@@ -105,44 +93,24 @@
             margin:auto;
             display:block;
             width:92%;
-            max-width:850px;
+            max-width:800px;
             border-radius:20px;
         }
 
         @media(max-width:700px){
 
-            body{
-                padding:18px;
+            .card-comida{
+                flex-direction:column;
             }
 
-            h1{
-                font-size:30px;
+            .card-comida img{
+                width:100%;
+                height:210px;
             }
 
-            .plato{
-                padding:14px;
-                border-radius:22px;
-            }
-
-            .plato img{
-                height:185px;
-            }
-
-            .top h3{
-                font-size:22px;
-            }
-
-            .precio{
-                font-size:15px;
-            }
-
-            .descripcion{
-                font-size:15px;
-                line-height:1.6;
-            }
-
-            .detalle{
-                font-size:13px;
+            .info{
+                width:100%;
+                box-sizing:border-box;
             }
 
         }
@@ -161,31 +129,20 @@
 
     <!-- EMPANADAS -->
 
-    <div class="plato">
+    <div class="card-comida">
 
         <img src="/static/comidas/empanadas.jpg" onclick="abrirImagen(this.src)">
 
-        <div class="contenido">
+        <div class="info">
 
-            <div class="top">
+            <h3>Empanadas Regionales</h3>
 
-                <h3>Empanadas Regionales</h3>
+            <p>
+                Empanadas jujeñas de carne,
+                queso y queso de cabra con especias tradicionales.
+            </p>
 
-                <div class="precio">$2200</div>
-
-            </div>
-
-            <div class="descripcion">
-
-                Empanadas jujeñas artesanales de carne,
-                queso y queso de cabra con especias
-                tradicionales del norte argentino.
-
-            </div>
-
-            <div class="detalle">
-                COCINA REGIONAL • ARTESANAL
-            </div>
+            <h4>$2200</h4>
 
         </div>
 
@@ -193,31 +150,20 @@
 
     <!-- HUMITAS -->
 
-    <div class="plato">
+    <div class="card-comida">
 
         <img src="/static/comidas/humita.jpg" onclick="abrirImagen(this.src)">
 
-        <div class="contenido">
+        <div class="info">
 
-            <div class="top">
+            <h3>Humitas</h3>
 
-                <h3>Humitas</h3>
+            <p>
+                Humitas suaves de maíz
+                rellenas con queso de cabra regional.
+            </p>
 
-                <div class="precio">$8500</div>
-
-            </div>
-
-            <div class="descripcion">
-
-                Humitas suaves de maíz rellenas
-                con queso de cabra regional
-                y sabores tradicionales andinos.
-
-            </div>
-
-            <div class="detalle">
-                SABORES DEL NORTE
-            </div>
+            <h4>$8500</h4>
 
         </div>
 
@@ -225,31 +171,20 @@
 
     <!-- TAMAL -->
 
-    <div class="plato">
+    <div class="card-comida">
 
         <img src="/static/comidas/tamal.jpg" onclick="abrirImagen(this.src)">
 
-        <div class="contenido">
+        <div class="info">
 
-            <div class="top">
+            <h3>Tamal</h3>
 
-                <h3>Tamal</h3>
-
-                <div class="precio">$8000</div>
-
-            </div>
-
-            <div class="descripcion">
-
+            <p>
                 Tamal casero relleno de carne,
-                verduras y especias regionales,
-                cocido lentamente en hoja de maíz.
+                verduras y especias del norte argentino.
+            </p>
 
-            </div>
-
-            <div class="detalle">
-                RECETA TRADICIONAL
-            </div>
+            <h4>$8000</h4>
 
         </div>
 
@@ -257,31 +192,20 @@
 
     <!-- PAPINES -->
 
-    <div class="plato">
+    <div class="card-comida">
 
         <img src="/static/comidas/papines.jpg" onclick="abrirImagen(this.src)">
 
-        <div class="contenido">
+        <div class="info">
 
-            <div class="top">
+            <h3>Papines Andinos</h3>
 
-                <h3>Papines Andinos</h3>
-
-                <div class="precio">$9500</div>
-
-            </div>
-
-            <div class="descripcion">
-
+            <p>
                 Papines salteados al romero
-                acompañados con queso de cabra
-                y hierbas regionales.
+                acompañados con queso de cabra.
+            </p>
 
-            </div>
-
-            <div class="detalle">
-                PRODUCTOS REGIONALES
-            </div>
+            <h4>$9500</h4>
 
         </div>
 

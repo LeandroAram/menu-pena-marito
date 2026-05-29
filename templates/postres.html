@@ -11,68 +11,75 @@
 
         body{
             margin:0;
-            padding:15px;
+            padding:20px;
             font-family:Arial;
-            background:#f5e6c8;
+            background:#efe4d1;
+            color:#3e2c1c;
         }
 
         h1{
             text-align:center;
-            color:#8b4513;
-            font-size:38px;
-            margin-bottom:25px;
+            color:#6b3e26;
+            font-size:34px;
+            margin-bottom:30px;
+            letter-spacing:1px;
         }
 
         .volver{
             display:inline-block;
             margin-bottom:25px;
             text-decoration:none;
-            background:#8b4513;
+            background:#6b3e26;
             color:white;
-            padding:14px 22px;
+            padding:12px 20px;
             border-radius:12px;
             font-weight:bold;
-            font-size:18px;
+            font-size:16px;
         }
 
         .card-comida{
-            background:white;
-            border-radius:22px;
-            margin-top:25px;
-            box-shadow:0px 5px 15px rgba(0,0,0,0.2);
-            overflow:hidden;
+            background:#f8f2e8;
+            border-radius:24px;
+            margin-bottom:22px;
+            padding:18px;
+            display:flex;
+            align-items:center;
+            gap:18px;
+            box-shadow:0px 4px 14px rgba(0,0,0,0.10);
         }
 
         .card-comida img{
-            width:100%;
-            height:260px;
+            width:120px;
+            height:120px;
+            border-radius:18px;
             object-fit:cover;
-            display:block;
             cursor:pointer;
+            flex-shrink:0;
         }
 
         .info{
-            padding:20px;
+            flex:1;
         }
 
         .info h3{
             margin:0;
-            color:#8b4513;
-            font-size:34px;
+            color:#6b3e26;
+            font-size:24px;
+            margin-bottom:8px;
         }
 
         .info p{
-            color:#555;
-            font-size:22px;
-            margin-top:15px;
-            line-height:1.6;
+            margin:0;
+            color:#5e5e5e;
+            font-size:16px;
+            line-height:1.5;
         }
 
-        .info h4{
-            color:#b22222;
-            font-size:34px;
-            margin-top:20px;
-            margin-bottom:0;
+        .precio{
+            margin-top:12px;
+            font-size:18px;
+            color:#222;
+            font-weight:bold;
         }
 
         .visor{
@@ -95,6 +102,31 @@
             border-radius:20px;
         }
 
+        @media(max-width:700px){
+
+            .card-comida{
+                align-items:flex-start;
+            }
+
+            .card-comida img{
+                width:95px;
+                height:95px;
+            }
+
+            .info h3{
+                font-size:20px;
+            }
+
+            .info p{
+                font-size:14px;
+            }
+
+            .precio{
+                font-size:16px;
+            }
+
+        }
+
     </style>
 
 </head>
@@ -107,20 +139,85 @@
 
     <h1>🍰 Postres</h1>
 
+    <!-- QUESILLO -->
+
     <div class="card-comida">
 
         <img src="/static/comidas/heladodeccayote.jpg" onclick="abrirImagen(this.src)">
 
         <div class="info">
 
-            <h3>Quesillo con Cayote con Nueces y Miel de Caña</h3>
+            <h3>Quesillo con Cayote, Nueces y Miel de Caña</h3>
 
             <p>
                 Quesillo artesanal regional acompañado con dulce de cayote,
-                nueces y un toque de miel de caña.
+                nueces crocantes y miel de caña.
             </p>
 
-            <h4>$12500</h4>
+            <div class="precio">$12500</div>
+
+        </div>
+
+    </div>
+
+    <!-- PERA AL MALBEC -->
+
+    <div class="card-comida">
+
+        <img src="/static/comidas/malbec.jpg" onclick="abrirImagen(this.src)">
+
+        <div class="info">
+
+            <h3>Pera al Malbec</h3>
+
+            <p>
+                Pera cocida lentamente en vino Malbec,
+                acompañado con helado de cayote.
+            </p>
+
+            <div class="precio">$13500</div>
+
+        </div>
+
+    </div>
+
+    <!-- HELADO DE CHOCOLATE -->
+
+    <div class="card-comida">
+
+        <img src="/static/comidas/chocolate.jpg" onclick="abrirImagen(this.src)">
+
+        <div class="info">
+
+            <h3>Helado de Chocolate</h3>
+
+            <p>
+                Helado de chocolate intenso,
+                textura cremosa.
+            </p>
+
+            <div class="precio">$11000</div>
+
+        </div>
+
+    </div>
+
+    <!-- FLAN DE QUINOA -->
+
+    <div class="card-comida">
+
+        <img src="/static/comidas/flanquinoa.jpg" onclick="abrirImagen(this.src)">
+
+        <div class="info">
+
+            <h3>Flan de Quinoa</h3>
+
+            <p>
+                Flan suave acompañado con quinoa andina
+                y miel de caña regional.
+            </p>
+
+            <div class="precio">$12000</div>
 
         </div>
 
