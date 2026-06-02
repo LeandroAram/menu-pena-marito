@@ -1,89 +1,240 @@
-<a href="/menu_pt" class="volver">
-    ← Voltar
-</a>
+<!DOCTYPE html>
+<html>
 
-<h1>🥟 Entradas</h1>
+<head>
 
-<!-- EMPANADAS -->
+    <title>Entradas</title>
 
-<div class="card-comida">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <img src="/static/comidas/empanadas.jpg" onclick="abrirImagen(this.src)">
+    <style>
 
-    <div class="info">
+        body{
+            margin:0;
+            padding:15px;
+            font-family:Arial;
+            background:#f5e6c8;
+        }
 
-        <h3>Empanadas Regionais</h3>
+        h1{
+            text-align:center;
+            color:#8b4513;
+            font-size:34px;
+            margin-bottom:20px;
+        }
 
-        <p>
-            Empanadas típicas de Jujuy recheadas com carne,
-            queijo e queijo de cabra, temperadas com especiarias tradicionais.
-        </p>
+        .volver{
+            display:inline-block;
+            margin-bottom:20px;
+            text-decoration:none;
+            background:#8b4513;
+            color:white;
+            padding:12px 18px;
+            border-radius:10px;
+            font-weight:bold;
+            font-size:16px;
+        }
 
-        <h4>$2200</h4>
+        .card-comida{
+            background:white;
+            border-radius:18px;
+            margin-top:18px;
+            box-shadow:0px 4px 12px rgba(0,0,0,0.18);
+            overflow:hidden;
+            display:flex;
+            align-items:center;
+        }
+
+        .card-comida img{
+            width:38%;
+            height:150px;
+            object-fit:cover;
+            cursor:pointer;
+        }
+
+        .info{
+            padding:14px;
+            width:62%;
+        }
+
+        .info h3{
+            margin:0;
+            color:#8b4513;
+            font-size:24px;
+        }
+
+        .info p{
+            color:#555;
+            font-size:16px;
+            margin-top:10px;
+            line-height:1.4;
+        }
+
+        .info h4{
+            color:#b22222;
+            font-size:24px;
+            margin-top:12px;
+            margin-bottom:0;
+        }
+
+        .visor{
+            display:none;
+            position:fixed;
+            z-index:5000;
+            padding-top:40px;
+            left:0;
+            top:0;
+            width:100%;
+            height:100%;
+            background:rgba(0,0,0,0.92);
+        }
+
+        .visor img{
+            margin:auto;
+            display:block;
+            width:92%;
+            max-width:800px;
+            border-radius:20px;
+        }
+
+        @media(max-width:700px){
+
+            .card-comida{
+                flex-direction:column;
+            }
+
+            .card-comida img{
+                width:100%;
+                height:210px;
+            }
+
+            .info{
+                width:100%;
+                box-sizing:border-box;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <a href="/menu_pt" class="volver">
+        ← Voltar
+    </a>
+
+    <h1>🥟 Entradas</h1>
+
+    <!-- EMPANADAS -->
+
+    <div class="card-comida">
+
+        <img src="/static/comidas/empanadas.jpg" onclick="abrirImagen(this.src)">
+
+        <div class="info">
+
+            <h3>Empanadas Regionais</h3>
+
+            <p>
+                Empanadas típicas de Jujuy recheadas com carne,
+                queijo e queijo de cabra, temperadas com especiarias tradicionais.
+            </p>
+
+            <h4>$2200</h4>
+
+        </div>
 
     </div>
 
-</div>
+    <!-- HUMITAS -->
 
-<!-- HUMITAS -->
+    <div class="card-comida">
 
-<div class="card-comida">
+        <img src="/static/comidas/humita.jpg" onclick="abrirImagen(this.src)">
 
-    <img src="/static/comidas/humita.jpg" onclick="abrirImagen(this.src)">
+        <div class="info">
 
-    <div class="info">
+            <h3>Humitas</h3>
 
-        <h3>Humitas</h3>
+            <p>
+                Humitas de milho macio
+                recheadas com queijo de cabra regional.
+            </p>
 
-        <p>
-            Humitas de milho macio
-            recheadas com queijo de cabra regional.
-        </p>
+            <h4>$8500</h4>
 
-        <h4>$8500</h4>
-
-    </div>
-
-</div>
-
-<!-- TAMAL -->
-
-<div class="card-comida">
-
-    <img src="/static/comidas/tamal.jpg" onclick="abrirImagen(this.src)">
-
-    <div class="info">
-
-        <h3>Tamal</h3>
-
-        <p>
-            Tamal artesanal recheado com carne,
-            legumes e especiarias do norte da Argentina.
-        </p>
-
-        <h4>$8000</h4>
+        </div>
 
     </div>
 
-</div>
+    <!-- TAMAL -->
 
-<!-- PAPINES -->
+    <div class="card-comida">
 
-<div class="card-comida">
+        <img src="/static/comidas/tamal.jpg" onclick="abrirImagen(this.src)">
 
-    <img src="/static/comidas/papines.jpg" onclick="abrirImagen(this.src)">
+        <div class="info">
 
-    <div class="info">
+            <h3>Tamal</h3>
 
-        <h3>Batatas Andinas</h3>
+            <p>
+                Tamal artesanal recheado com carne,
+                legumes e especiarias do norte da Argentina.
+            </p>
 
-        <p>
-            Batatas andinas salteadas com alecrim
-            acompanhadas de queijo de cabra.
-        </p>
+            <h4>$8000</h4>
 
-        <h4>$9500</h4>
+        </div>
 
     </div>
 
-</div>
+    <!-- PAPINES -->
+
+    <div class="card-comida">
+
+        <img src="/static/comidas/papines.jpg" onclick="abrirImagen(this.src)">
+
+        <div class="info">
+
+            <h3>Batatas Andinas</h3>
+
+            <p>
+                Batatas andinas salteadas com alecrim
+                acompanhadas de queijo de cabra.
+            </p>
+
+            <h4>$9500</h4>
+
+        </div>
+
+    </div>
+
+    <div id="visor" class="visor" onclick="cerrarImagen()">
+
+        <img id="imagen-grande">
+
+    </div>
+
+    <script>
+
+        function abrirImagen(src){
+
+            document.getElementById("visor").style.display = "block";
+
+            document.getElementById("imagen-grande").src = src;
+
+        }
+
+        function cerrarImagen(){
+
+            document.getElementById("visor").style.display = "none";
+
+        }
+
+    </script>
+
+</body>
+
+</html>
