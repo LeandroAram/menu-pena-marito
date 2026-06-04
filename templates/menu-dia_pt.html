@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Menu do Dia</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+
+        body{
+            margin:0;
+            padding:15px;
+            font-family:Arial;
+            background:#f5e6c8;
+        }
+
+        h1{
+            text-align:center;
+            color:#8b4513;
+            font-size:42px;
+            margin-bottom:10px;
+        }
+
+        .horario{
+            text-align:center;
+            font-size:24px;
+            color:#b22222;
+            font-weight:bold;
+            margin-bottom:25px;
+        }
+
+        .volver{
+            display:inline-block;
+            margin-bottom:25px;
+            text-decoration:none;
+            background:#8b4513;
+            color:white;
+            padding:14px 22px;
+            border-radius:12px;
+            font-weight:bold;
+            font-size:18px;
+        }
+
+        .menu-box{
+            background:white;
+            border-radius:25px;
+            overflow:hidden;
+            box-shadow:0px 5px 18px rgba(0,0,0,0.2);
+            margin-bottom:30px;
+        }
+
+        .titulo-menu{
+            background:#8b4513;
+            color:white;
+            text-align:center;
+            padding:18px;
+            font-size:34px;
+            font-weight:bold;
+        }
+
+        .seccion{
+            padding:20px;
+            border-bottom:1px solid #eee;
+        }
+
+        .seccion:last-child{
+            border-bottom:none;
+        }
+
+        .seccion h2{
+            color:#8b4513;
+            font-size:32px;
+            margin-bottom:15px;
+        }
+
+        .plato{
+            background:#fff7ef;
+            border-radius:20px;
+            overflow:hidden;
+            margin-top:15px;
+            box-shadow:0px 3px 10px rgba(0,0,0,0.15);
+        }
+
+        .plato img{
+            width:100%;
+            height:250px;
+            object-fit:cover;
+            display:block;
+            cursor:pointer;
+        }
+
+        .info{
+            padding:18px;
+        }
+
+        .info h3{
+            margin:0;
+            color:#8b4513;
+            font-size:30px;
+        }
+
+        .info p{
+            font-size:20px;
+            color:#555;
+            margin-top:12px;
+            line-height:1.5;
+        }
+
+        .precio{
+            text-align:center;
+            background:#b22222;
+            color:white;
+            padding:18px;
+            font-size:38px;
+            font-weight:bold;
+        }
+
+        .visor{
+            display:none;
+            position:fixed;
+            z-index:5000;
+            padding-top:40px;
+            left:0;
+            top:0;
+            width:100%;
+            height:100%;
+            background:rgba(0,0,0,0.92);
+        }
+
+        .visor img{
+            margin:auto;
+            display:block;
+            width:92%;
+            max-width:800px;
+            border-radius:20px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <a href="/menu_pt" class="volver">
+        ← Voltar
+    </a>
+
+    <h1>🍽️ Menu do Dia</h1>
+
+    <div class="horario">
+        🕚 Disponível das 11h às 16h
+    </div>
+
+    <div class="menu-box">
+
+        <div class="titulo-menu">
+            🔥 Menu Completo Inclui Entrada + Prato Principal + Sobremesa
+        </div>
+
+        <div class="seccion">
+
+            <h2>🥟 Entrada</h2>
+
+            <div class="plato">
+
+                <img src="/static/comidas/emp.jpg" onclick="abrirImagen(this.src)">
+
+                <div class="info">
+
+                    <h3>Empanadas de Carne</h3>
+
+                    <p>
+                        Tradicionais empanadas jujeñas recheadas com carne,
+                        batata, cebola e especiarias regionais.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="seccion">
+
+            <h2>🍽️ Prato Principal</h2>
+
+            <div class="plato">
+
+                <img src="/static/comidas/menu2.jpg" onclick="abrirImagen(this.src)">
+
+                <div class="info">
+
+                    <h3>Ensopado Regional</h3>
+
+                    <p>
+                        À escolha entre ensopado de lhama,
+                        cabrito ou cordeiro acompanhado de arroz
+                        e sabores típicos do norte argentino.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="plato">
+
+                <img src="/static/comidas/mil.jpg" onclick="abrirImagen(this.src)">
+
+                <div class="info">
+
+                    <h3>Milanesa de Vitela</h3>
+
+                    <p>
+                        À escolha entre milanesa de vitela ou frango,
+                        acompanhada de arroz e salada mista tradicional.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="seccion">
+
+            <h2>🍨 Sobremesa à Escolha</h2>
+
+            <div class="plato">
+
+                <img src="/static/comidas/helado.jpg" onclick="abrirImagen(this.src)">
+
+                <div class="info">
+
+                    <h3>Sorvete de Cayote</h3>
+
+                    <p>
+                        Sorvete artesanal regional elaborado com doce de cayote.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="plato">
+
+                <img src="/static/comidas/budin.jpg" onclick="abrirImagen(this.src)">
+
+                <div class="info">
+
+                    <h3>Pudim de Pão</h3>
+
+                    <p>
+                        Clássico pudim de pão caseiro com caramelo artesanal.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="precio">
+            $10000
+        </div>
+
+    </div>
+
+    <div id="visor" class="visor" onclick="cerrarImagen()">
+
+        <img id="imagen-grande">
+
+    </div>
+
+    <script>
+
+        function abrirImagen(src){
+
+            document.getElementById("visor").style.display = "block";
+
+            document.getElementById("imagen-grande").src = src;
+
+        }
+
+        function cerrarImagen(){
+
+            document.getElementById("visor").style.display = "none";
+
+        }
+
+    </script>
+
+</body>
+
+</html>

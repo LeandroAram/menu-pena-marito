@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Massas</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+
+        body{
+            margin:0;
+            padding:15px;
+            font-family:Arial;
+            background:#f5e6c8;
+        }
+
+        h1{
+            text-align:center;
+            color:#8b4513;
+            font-size:38px;
+            margin-bottom:25px;
+        }
+
+        .volver{
+            display:inline-block;
+            margin-bottom:25px;
+            text-decoration:none;
+            background:#8b4513;
+            color:white;
+            padding:14px 22px;
+            border-radius:12px;
+            font-weight:bold;
+            font-size:18px;
+        }
+
+        .card-comida{
+            background:white;
+            border-radius:22px;
+            margin-top:25px;
+            box-shadow:0px 5px 15px rgba(0,0,0,0.2);
+            overflow:hidden;
+        }
+
+        .card-comida img{
+            width:100%;
+            height:260px;
+            object-fit:cover;
+            display:block;
+            cursor:pointer;
+        }
+
+        .info{
+            padding:20px;
+        }
+
+        .info h3{
+            margin:0;
+            color:#8b4513;
+            font-size:34px;
+        }
+
+        .info p{
+            color:#555;
+            font-size:22px;
+            margin-top:15px;
+            line-height:1.6;
+        }
+
+        .info h4{
+            color:#b22222;
+            font-size:34px;
+            margin-top:20px;
+            margin-bottom:0;
+        }
+
+        .visor{
+            display:none;
+            position:fixed;
+            z-index:5000;
+            padding-top:40px;
+            left:0;
+            top:0;
+            width:100%;
+            height:100%;
+            background:rgba(0,0,0,0.92);
+        }
+
+        .visor img{
+            margin:auto;
+            display:block;
+            width:92%;
+            max-width:800px;
+            border-radius:20px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <a href="/menu_pt" class="volver">
+        ← Voltar
+    </a>
+
+    <h1>🍝 Massas</h1>
+
+    <!-- SORRENTINOS DE PRESUNTO E QUEIJO -->
+
+    <div class="card-comida">
+
+        <img src="/static/comidas/sorre.jpg" onclick="abrirImagen(this.src)">
+
+        <div class="info">
+
+            <h3>🍝 Sorrentinos de Presunto e Queijo</h3>
+
+            <p>
+                Sorrentinos recheados com presunto e queijo,
+                servidos com molho à escolha (misto ou tomate).
+            </p>
+
+            <h4>$17500</h4>
+
+        </div>
+
+    </div>
+
+    <!-- SORRENTINOS DE QUINOA E QUEIJO DE CABRA -->
+
+    <div class="card-comida">
+
+        <img src="/static/comidas/sorrequin.jpg" onclick="abrirImagen(this.src)">
+
+        <div class="info">
+
+            <h3>🍝 Sorrentinos de Quinoa e Queijo de Cabra</h3>
+
+            <p>
+                Sorrentinos recheados com quinoa e queijo de cabra,
+                servidos com molho à escolha (misto ou tomate).
+            </p>
+
+            <h4>$17500</h4>
+
+        </div>
+
+    </div>
+
+    <!-- TALHARIM ROXO -->
+
+    <div class="card-comida">
+
+        <img src="/static/comidas/morados.jpg" onclick="abrirImagen(this.src)">
+
+        <div class="info">
+
+            <h3>🧀 Talharim Roxo</h3>
+
+            <p>
+                Talharim roxo com queijo ralado,
+                servido com molho à escolha (misto ou tomate).
+            </p>
+
+            <h4>$14000</h4>
+
+        </div>
+
+    </div>
+
+    <div id="visor" class="visor" onclick="cerrarImagen()">
+
+        <img id="imagen-grande">
+
+    </div>
+
+    <script>
+
+        function abrirImagen(src){
+
+            document.getElementById("visor").style.display = "block";
+
+            document.getElementById("imagen-grande").src = src;
+
+        }
+
+        function cerrarImagen(){
+
+            document.getElementById("visor").style.display = "none";
+
+        }
+
+    </script>
+
+</body>
+
+</html>

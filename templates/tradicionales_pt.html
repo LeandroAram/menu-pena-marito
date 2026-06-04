@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Platos Tradicionales</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+
+        body{
+            margin:0;
+            padding:15px;
+            font-family:Arial;
+            background:#f5e6c8;
+        }
+
+        h1{
+            text-align:center;
+            color:#8b4513;
+            font-size:38px;
+            margin-bottom:25px;
+        }
+
+        .volver{
+            display:inline-block;
+            margin-bottom:25px;
+            text-decoration:none;
+            background:#8b4513;
+            color:white;
+            padding:14px 22px;
+            border-radius:12px;
+            font-weight:bold;
+            font-size:18px;
+        }
+
+        .card-comida{
+            background:white;
+            border-radius:22px;
+            margin-top:25px;
+            box-shadow:0px 5px 15px rgba(0,0,0,0.2);
+            overflow:hidden;
+        }
+
+        .card-comida img{
+            width:100%;
+            height:260px;
+            object-fit:cover;
+            display:block;
+            cursor:pointer;
+        }
+
+        .info{
+            padding:20px;
+        }
+
+        .info h3{
+            margin:0;
+            color:#8b4513;
+            font-size:34px;
+        }
+
+        .info p{
+            color:#555;
+            font-size:22px;
+            margin-top:15px;
+            line-height:1.6;
+        }
+
+        .info h4{
+            color:#b22222;
+            font-size:34px;
+            margin-top:20px;
+            margin-bottom:0;
+        }
+
+        .visor{
+            display:none;
+            position:fixed;
+            z-index:5000;
+            padding-top:40px;
+            left:0;
+            top:0;
+            width:100%;
+            height:100%;
+            background:rgba(0,0,0,0.92);
+        }
+
+        .visor img{
+            margin:auto;
+            display:block;
+            width:92%;
+            max-width:800px;
+            border-radius:20px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <a href="/menu_pt" class="volver">
+    ← Voltar
+</a>
+
+<h1>🍽️ Pratos Tradicionais</h1>
+
+<!-- FILÉ MIGNON -->
+
+<div class="card-comida">
+
+    <img src="/static/comidas/ternera.jpg" onclick="abrirImagen(this.src)">
+
+    <div class="info">
+
+        <h3>Filé Mignon Bovino</h3>
+
+        <p>
+            Filé mignon bovino acompanhado de batatas fritas
+            ou batatinhas ao alecrim, com salada mista e ovo frito.
+        </p>
+
+        <h4>$22000</h4>
+
+    </div>
+
+</div>
+
+<!-- MATAMBRE À PIZZA -->
+
+<div class="card-comida">
+
+    <img src="/static/comidas/matambre.jpg" onclick="abrirImagen(this.src)">
+
+    <div class="info">
+
+        <h3>Matambre à Pizza</h3>
+
+        <p>
+            Matambre à pizza acompanhado de batatas fritas
+            e ovo frito.
+        </p>
+
+        <h4>$22000</h4>
+
+    </div>
+
+</div>
+
+<!-- PEITO DE FRANGO GRELHADO -->
+
+<div class="card-comida">
+
+    <img src="/static/comidas/pechuga.jpg" onclick="abrirImagen(this.src)">
+
+    <div class="info">
+
+        <h3>Peito de Frango Grelhado</h3>
+
+        <p>
+            Peito de frango grelhado,
+            acompanhado de batatas fritas,
+            salada mista e ovo frito.
+        </p>
+
+        <h4>$16000</h4>
+
+    </div>
+
+</div>
+
+<!-- MILANESA DE FRANGO -->
+
+<div class="card-comida">
+
+    <img src="/static/comidas/pollo.jpg" onclick="abrirImagen(this.src)">
+
+    <div class="info">
+
+        <h3>Milanesa de Frango</h3>
+
+        <p>
+            Milanesa de frango acompanhada de batatas fritas,
+            salada mista e ovo frito.
+        </p>
+
+        <h4>$14000</h4>
+
+    </div>
+
+</div>
+
+<!-- MILANESA DE VITELA -->
+
+<div class="card-comida">
+
+    <img src="/static/comidas/milaternera.jpg" onclick="abrirImagen(this.src)">
+
+    <div class="info">
+
+        <h3>Milanesa de Vitela</h3>
+
+        <p>
+            Milanesa de vitela acompanhada de batatas fritas,
+            salada mista e ovo frito.
+        </p>
+
+        <h4>$14000</h4>
+
+    </div>
+
+</div>
+
+<!-- MILANESA DE VITELA A CAVALO -->
+
+<div class="card-comida">
+
+    <img src="/static/comidas/milacaballo.jpg" onclick="abrirImagen(this.src)">
+
+    <div class="info">
+
+        <h3>Milanesa de Vitela a Cavalo</h3>
+
+        <p>
+            Milanesa de vitela acompanhada de batatas fritas
+            e dois ovos fritos.
+        </p>
+
+        <h4>$16000</h4>
+
+    </div>
+
+</div>
+
+<!-- NAPOLITANA DE VITELA -->
+
+<div class="card-comida">
+
+    <img src="/static/comidas/napolitana.jpg" onclick="abrirImagen(this.src)">
+
+    <div class="info">
+
+        <h3>Napolitana de Vitela</h3>
+
+        <p>
+            Napolitana de vitela,
+            acompanhada de batatas fritas
+            e ovo frito.
+        </p>
+
+        <h4>$18500</h4>
+
+    </div>
+
+</div>
+
+    <script>
+
+        function abrirImagen(src){
+
+            document.getElementById("visor").style.display = "block";
+
+            document.getElementById("imagen-grande").src = src;
+
+        }
+
+        function cerrarImagen(){
+
+            document.getElementById("visor").style.display = "none";
+
+        }
+
+    </script>
+
+</body>
+
+</html>
