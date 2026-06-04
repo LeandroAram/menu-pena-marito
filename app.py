@@ -61,7 +61,7 @@ def pastas_en():
 
 @app.route('/entradas_en')
 def entradas_en():
-    return render_template('starters_en.html')
+    return render_template('entradas_en.html')
 
 @app.route('/postres_en')
 def postres_en():
