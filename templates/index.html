@@ -126,13 +126,15 @@
 
             position:absolute;
 
-            bottom:40px;
-
             left:50%;
 
             transform:translateX(-50%);
 
             text-align:center;
+
+            bottom:calc(90px + env(safe-area-inset-bottom));
+
+            z-index:9999;
         }
 
         .reservas-texto{
@@ -192,29 +194,33 @@
 
         @media(max-width:700px){
 
-            h1{
-                font-size:42px;
-            }
+    h1{
+        font-size:42px;
+    }
 
-            .subtitulo{
-                font-size:16px;
-            }
+    .subtitulo{
+        font-size:16px;
+    }
 
-            .idiomas{
-                gap:10px;
-            }
+    .idiomas{
+        gap:10px;
+    }
 
-            .idioma-btn{
-                font-size:15px;
-                padding:10px 14px;
-            }
+    .idioma-btn{
+        font-size:15px;
+        padding:10px 14px;
+    }
 
-            .whatsapp-btn{
-                font-size:16px;
-                padding:12px 18px;
-            }
+    .whatsapp-btn{
+        font-size:16px;
+        padding:12px 18px;
+    }
 
-        }
+    .reservas{
+        bottom:calc(120px + env(safe-area-inset-bottom));
+    }
+
+}
 
     </style>
 
