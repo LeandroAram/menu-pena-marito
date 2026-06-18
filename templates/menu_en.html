@@ -1,331 +1,338 @@
 <!DOCTYPE html>
+
 <html>
 
 <head>
 
-    <title>Categories</title>
+```
+<title>Categories</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
+<style>
 
-        body{
-            margin:0;
-            padding:15px;
-            font-family:Arial;
-            overflow-x:hidden;
+    body{
+        margin:0;
+        padding:15px;
+        font-family:Arial;
+        overflow-x:hidden;
 
-            background:
-                linear-gradient(
-                    rgba(0,0,0,0.45),
-                    rgba(0,0,0,0.45)
-                ),
-                url('/static/fondos/purmamarca.jpg');
+        background-color:#f5e6c8;
 
-            background-size:cover;
-            background-position:center;
-            background-attachment:fixed;
+        background-image:
+            linear-gradient(
+                rgba(0,0,0,0.45),
+                rgba(0,0,0,0.45)
+            ),
+            url('/static/fondos/purmamarca.jpg');
+
+        background-size:cover;
+        background-position:center;
+        background-repeat:no-repeat;
+
+        min-height:100vh;
+    }
+
+    h1{
+        text-align:center;
+        color:#f7d28b;
+        font-size:40px;
+        margin-bottom:15px;
+        text-shadow:0px 4px 10px rgba(0,0,0,0.8);
+    }
+
+    a{
+        text-decoration:none;
+    }
+
+    .volver{
+        display:inline-block;
+        margin-bottom:15px;
+        text-decoration:none;
+        background:rgba(139,69,19,0.9);
+        color:white;
+        padding:12px 20px;
+        border-radius:12px;
+        font-weight:bold;
+        backdrop-filter:blur(6px);
+    }
+
+    .favoritos{
+
+        max-width:900px;
+
+        margin:0 auto 18px auto;
+
+        background:rgba(0,0,0,0.45);
+
+        backdrop-filter:blur(6px);
+
+        color:white;
+
+        text-align:center;
+
+        padding:10px 15px;
+
+        border-radius:14px;
+
+        font-size:15px;
+
+        border:1px solid rgba(255,255,255,0.15);
+
+        box-shadow:0px 4px 15px rgba(0,0,0,0.3);
+    }
+
+    .favoritos strong{
+        color:#ffd27f;
+    }
+
+    .categoria-img{
+        position:relative;
+        margin-bottom:15px;
+        overflow:hidden;
+        border-radius:20px;
+        box-shadow:0px 5px 15px rgba(0,0,0,0.4);
+
+        opacity:0;
+
+        width:100%;
+        max-width:100%;
+    }
+
+    .categoria-img img{
+        width:100%;
+        height:170px;
+        object-fit:cover;
+        display:block;
+    }
+
+    .overlay{
+        position:absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        background:rgba(0,0,0,0.45);
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        color:white;
+        font-size:30px;
+        font-weight:bold;
+        text-align:center;
+        flex-direction:column;
+        text-shadow:0px 3px 8px rgba(0,0,0,0.8);
+    }
+
+    .horario{
+        font-size:18px;
+        margin-top:8px;
+        color:#ffd27f;
+    }
+
+    .izquierda{
+        animation:izquierda 1s forwards;
+    }
+
+    .derecha{
+        animation:derecha 1s forwards;
+    }
+
+    .delay1{
+        animation-delay:0.2s;
+    }
+
+    .delay2{
+        animation-delay:0.4s;
+    }
+
+    .delay3{
+        animation-delay:0.6s;
+    }
+
+    .delay4{
+        animation-delay:0.8s;
+    }
+
+    .delay5{
+        animation-delay:1s;
+    }
+
+    .delay6{
+        animation-delay:1.2s;
+    }
+
+    @keyframes izquierda{
+
+        from{
+            opacity:0;
+            transform:translateX(-120px);
         }
+
+        to{
+            opacity:1;
+            transform:translateX(0);
+        }
+
+    }
+
+    @keyframes derecha{
+
+        from{
+            opacity:0;
+            transform:translateX(120px);
+        }
+
+        to{
+            opacity:1;
+            transform:translateX(0);
+        }
+
+    }
+
+    @media(max-width:700px){
 
         h1{
-            text-align:center;
-            color:#f7d28b;
-            font-size:40px;
-            margin-bottom:15px;
-            text-shadow:0px 4px 10px rgba(0,0,0,0.8);
-        }
-
-        a{
-            text-decoration:none;
-        }
-
-        .volver{
-            display:inline-block;
-            margin-bottom:15px;
-            text-decoration:none;
-            background:rgba(139,69,19,0.9);
-            color:white;
-            padding:12px 20px;
-            border-radius:12px;
-            font-weight:bold;
-            backdrop-filter:blur(6px);
-        }
-
-        .favoritos{
-
-            max-width:900px;
-
-            margin:0 auto 18px auto;
-
-            background:rgba(0,0,0,0.45);
-
-            backdrop-filter:blur(6px);
-
-            color:white;
-
-            text-align:center;
-
-            padding:10px 15px;
-
-            border-radius:14px;
-
-            font-size:15px;
-
-            border:1px solid rgba(255,255,255,0.15);
-
-            box-shadow:0px 4px 15px rgba(0,0,0,0.3);
-        }
-
-        .favoritos strong{
-            color:#ffd27f;
-        }
-
-        .categoria-img{
-            position:relative;
-            margin-bottom:15px;
-            overflow:hidden;
-            border-radius:20px;
-            box-shadow:0px 5px 15px rgba(0,0,0,0.4);
-
-            opacity:0;
-
-            width:100%;
-            max-width:100%;
-        }
-
-        .categoria-img img{
-            width:100%;
-            height:170px;
-            object-fit:cover;
-            display:block;
+            font-size:34px;
         }
 
         .overlay{
-            position:absolute;
-            top:0;
-            left:0;
-            width:100%;
-            height:100%;
-            background:rgba(0,0,0,0.45);
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            color:white;
-            font-size:30px;
-            font-weight:bold;
-            text-align:center;
-            flex-direction:column;
-            text-shadow:0px 3px 8px rgba(0,0,0,0.8);
+            font-size:24px;
+        }
+
+        .categoria-img img{
+            height:150px;
+        }
+
+        .favoritos{
+            font-size:14px;
+            padding:10px;
         }
 
         .horario{
-            font-size:18px;
-            margin-top:8px;
-            color:#ffd27f;
+            font-size:16px;
         }
+    }
 
-        /* ANIMATIONS */
-
-        .izquierda{
-            animation:izquierda 1s forwards;
-        }
-
-        .derecha{
-            animation:derecha 1s forwards;
-        }
-
-        .delay1{
-            animation-delay:0.2s;
-        }
-
-        .delay2{
-            animation-delay:0.4s;
-        }
-
-        .delay3{
-            animation-delay:0.6s;
-        }
-
-        .delay4{
-            animation-delay:0.8s;
-        }
-
-        .delay5{
-            animation-delay:1s;
-        }
-
-        .delay6{
-            animation-delay:1.2s;
-        }
-
-        @keyframes izquierda{
-
-            from{
-                opacity:0;
-                transform:translateX(-120px);
-            }
-
-            to{
-                opacity:1;
-                transform:translateX(0);
-            }
-
-        }
-
-        @keyframes derecha{
-
-            from{
-                opacity:0;
-                transform:translateX(120px);
-            }
-
-            to{
-                opacity:1;
-                transform:translateX(0);
-            }
-
-        }
-
-        @media(max-width:700px){
-
-            h1{
-                font-size:34px;
-            }
-
-            .overlay{
-                font-size:24px;
-            }
-
-            .categoria-img img{
-                height:150px;
-            }
-
-            .favoritos{
-                font-size:14px;
-                padding:10px;
-            }
-
-            .horario{
-                font-size:16px;
-            }
-        }
-
-    </style>
+</style>
+```
 
 </head>
 
 <body>
 
-    <a href="/" class="volver">
-        ← Back
-    </a>
+```
+<a href="/" class="volver">
+    ← Back
+</a>
 
-    <h1>🍽️ Categories</h1>
+<h1>🍽️ Categories</h1>
 
-    <div class="favoritos">
-        🔥 <strong>Visitors' Favorites:</strong>
-        Empanadas • Llama Stew • Quesillo with Cayote
+<div class="favoritos">
+    🔥 <strong>Visitors' Favorites:</strong>
+    Empanadas • Llama Stew • Quesillo with Cayote
+</div>
+
+<a href="/regionales_en">
+
+    <div class="categoria-img izquierda delay1">
+
+        <img src="/static/categorias/regionales.jpg">
+
+        <div class="overlay">
+
+            🦙 Regional Dishes
+
+        </div>
+
     </div>
 
-    <a href="/regionales_en">
+</a>
 
-        <div class="categoria-img izquierda delay1">
+<a href="/tradicionales_en">
 
-            <img src="/static/categorias/regionales.jpg">
+    <div class="categoria-img derecha delay2">
 
-            <div class="overlay">
+        <img src="/static/categorias/tradicionales.jpg">
 
-                🦙 Regional Dishes
+        <div class="overlay">
 
+            🍽️ Traditional Dishes
+
+        </div>
+
+    </div>
+
+</a>
+
+<a href="/pastas_en">
+
+    <div class="categoria-img izquierda delay3">
+
+        <img src="/static/categorias/pastas.jpg">
+
+        <div class="overlay">
+
+            🍝 Pasta
+
+        </div>
+
+    </div>
+
+</a>
+
+<a href="/entradas_en">
+
+    <div class="categoria-img derecha delay4">
+
+        <img src="/static/categorias/entradas.jpg">
+
+        <div class="overlay">
+
+            🥟 Starters
+
+        </div>
+
+    </div>
+
+</a>
+
+<a href="/postres_en">
+
+    <div class="categoria-img izquierda delay5">
+
+        <img src="/static/categorias/postres.jpg">
+
+        <div class="overlay">
+
+            🍰 Desserts
+
+        </div>
+
+    </div>
+
+</a>
+
+<a href="/menu-dia_en">
+
+    <div class="categoria-img derecha delay6">
+
+        <img src="/static/categorias/menu.jpg">
+
+        <div class="overlay">
+
+            🍽️ Daily Menu
+
+            <div class="horario">
+                🕚 11 AM to 4 PM
             </div>
 
         </div>
 
-    </a>
+    </div>
 
-    <a href="/tradicionales_en">
-
-        <div class="categoria-img derecha delay2">
-
-            <img src="/static/categorias/tradicionales.jpg">
-
-            <div class="overlay">
-
-                🍽️ Traditional Dishes
-
-            </div>
-
-        </div>
-
-    </a>
-
-    <a href="/pastas_en">
-
-        <div class="categoria-img izquierda delay3">
-
-            <img src="/static/categorias/pastas.jpg">
-
-            <div class="overlay">
-
-                🍝 Pasta
-
-            </div>
-
-        </div>
-
-    </a>
-
-    <a href="/entradas_en">
-
-        <div class="categoria-img derecha delay4">
-
-            <img src="/static/categorias/entradas.jpg">
-
-            <div class="overlay">
-
-                🥟 Starters
-
-            </div>
-
-        </div>
-
-    </a>
-
-    <a href="/postres_en">
-
-        <div class="categoria-img izquierda delay5">
-
-            <img src="/static/categorias/postres.jpg">
-
-            <div class="overlay">
-
-                🍰 Desserts
-
-            </div>
-
-        </div>
-
-    </a>
-
-    <a href="/menu-dia_en">
-
-        <div class="categoria-img derecha delay6">
-
-            <img src="/static/categorias/menu.jpg">
-
-            <div class="overlay">
-
-                🍽️ Daily Menu
-
-                <div class="horario">
-                    🕚 11 AM to 4 PM
-                </div>
-
-            </div>
-
-        </div>
-
-    </a>
+</a>
+```
 
 </body>
 
