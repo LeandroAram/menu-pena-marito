@@ -5,21 +5,55 @@
 
     <title>Categories</title>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <style>
 
         body{
             margin:0;
             padding:20px;
-            background:#f5e6c8;
             font-family:Arial;
             overflow-x:hidden;
+
+            background:
+                linear-gradient(
+                    rgba(0,0,0,0.45),
+                    rgba(0,0,0,0.45)
+                ),
+                url('/static/fondos/purmamarca.jpg');
+
+            background-size:cover;
+            background-position:center;
+            background-attachment:fixed;
         }
 
         h1{
             text-align:center;
-            color:#8b4513;
+            color:#f7d28b;
             font-size:50px;
-            margin-bottom:30px;
+            margin-bottom:20px;
+            text-shadow:0px 4px 10px rgba(0,0,0,0.8);
+        }
+
+        .favoritos{
+            max-width:900px;
+            margin:0 auto 30px auto;
+
+            background:rgba(0,0,0,0.45);
+            backdrop-filter:blur(6px);
+
+            color:white;
+            text-align:center;
+
+            padding:14px 20px;
+
+            border-radius:16px;
+
+            font-size:18px;
+
+            border:1px solid rgba(255,255,255,0.15);
+
+            box-shadow:0px 4px 15px rgba(0,0,0,0.3);
         }
 
         a{
@@ -31,7 +65,7 @@
             margin-bottom:25px;
             overflow:hidden;
             border-radius:20px;
-            box-shadow:0px 5px 15px rgba(0,0,0,0.3);
+            box-shadow:0px 5px 15px rgba(0,0,0,0.4);
 
             opacity:0;
 
@@ -61,6 +95,7 @@
             font-weight:bold;
             text-align:center;
             flex-direction:column;
+            text-shadow:0px 3px 8px rgba(0,0,0,0.8);
         }
 
         .horario{
@@ -73,14 +108,33 @@
             display:inline-block;
             margin-bottom:20px;
             text-decoration:none;
-            background:#8b4513;
+            background:rgba(139,69,19,0.9);
             color:white;
             padding:12px 20px;
             border-radius:12px;
             font-weight:bold;
+            backdrop-filter:blur(6px);
         }
 
-        /* ANIMATIONS */
+        .destacado{
+            position:absolute;
+            top:15px;
+            right:15px;
+
+            background:#f7d28b;
+            color:#5a2e0c;
+
+            padding:8px 14px;
+
+            border-radius:20px;
+
+            font-size:15px;
+            font-weight:bold;
+
+            z-index:5;
+
+            box-shadow:0px 3px 10px rgba(0,0,0,0.3);
+        }
 
         .izquierda{
             animation:izquierda 1s forwards;
@@ -142,6 +196,27 @@
 
         }
 
+        @media(max-width:700px){
+
+            h1{
+                font-size:40px;
+            }
+
+            .overlay{
+                font-size:30px;
+            }
+
+            .favoritos{
+                font-size:15px;
+            }
+
+            .destacado{
+                font-size:13px;
+                padding:6px 10px;
+            }
+
+        }
+
     </style>
 
 </head>
@@ -154,9 +229,18 @@
 
     <h1>🍽️ Categories</h1>
 
+    <div class="favoritos">
+        🔥 Visitors' favorites:
+        🥟 Regional Empanadas · 🦙 Llama Stew · 🍰 Quesillo with Cayote
+    </div>
+
     <a href="/regionales_en">
 
         <div class="categoria-img izquierda delay1">
+
+            <div class="destacado">
+                ⭐ Most Popular
+            </div>
 
             <img src="/static/categorias/regionales.jpg">
 
@@ -222,6 +306,10 @@
 
         <div class="categoria-img izquierda delay5">
 
+            <div class="destacado">
+                ❤️ Favorite Dessert
+            </div>
+
             <img src="/static/categorias/postres.jpg">
 
             <div class="overlay">
@@ -237,6 +325,10 @@
     <a href="/menu-dia_en">
 
         <div class="categoria-img derecha delay6">
+
+            <div class="destacado">
+                🔥 Recommended
+            </div>
 
             <img src="/static/categorias/menu.jpg">
 
