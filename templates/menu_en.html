@@ -10,119 +10,117 @@
     <style>
 
         body{
-            margin:0;
-            padding:15px;
-            font-family:Arial;
-            overflow-x:hidden;
+    margin:0;
+    padding:15px;
+    font-family:Arial;
+    overflow-x:hidden;
 
-            background:
-                linear-gradient(
-                    rgba(0,0,0,0.45),
-                    rgba(0,0,0,0.45)
-                ),
-                url('/static/fondos/purmamarca.jpg');
+    background-image:url('/static/categorias/fondo-categorias.jpg');
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+}
 
-            background-size:cover;
-            background-position:center;
-            background-attachment:fixed;
-        }
+h1{
+    text-align:center;
+    color:white;
+    font-size:38px;
+    margin:15px 0 20px 0;
+    text-shadow:0 3px 8px rgba(0,0,0,0.7);
+}
 
-        h1{
-            text-align:center;
-            color:#f7d28b;
-            font-size:40px;
-            margin-bottom:15px;
-            text-shadow:0px 4px 10px rgba(0,0,0,0.8);
-        }
+.categoria-img{
+    position:relative;
+    margin-bottom:16px;
+    overflow:hidden;
+    border-radius:18px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.35);
 
-        a{
-            text-decoration:none;
-        }
+    opacity:0;
 
-        .volver{
-            display:inline-block;
-            margin-bottom:15px;
-            text-decoration:none;
-            background:rgba(139,69,19,0.9);
-            color:white;
-            padding:12px 20px;
-            border-radius:12px;
-            font-weight:bold;
-            backdrop-filter:blur(6px);
-        }
+    width:100%;
+    max-width:100%;
+}
 
-        .favoritos{
+.categoria-img img{
+    width:100%;
+    height:160px;
+    object-fit:cover;
+    display:block;
+}
 
-            max-width:900px;
+.overlay{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.45);
 
-            margin:0 auto 18px auto;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
 
-            background:rgba(0,0,0,0.45);
+    color:white;
+    font-size:28px;
+    font-weight:bold;
+    text-align:center;
 
-            backdrop-filter:blur(6px);
+    text-shadow:0 2px 8px rgba(0,0,0,0.8);
+}
 
-            color:white;
+.horario{
+    font-size:16px;
+    margin-top:8px;
+    color:#ffd27f;
+}
 
-            text-align:center;
+.volver{
+    display:inline-block;
+    margin-bottom:18px;
 
-            padding:10px 15px;
+    text-decoration:none;
 
-            border-radius:14px;
+    background:rgba(139,69,19,0.9);
+    color:white;
 
-            font-size:15px;
+    padding:10px 18px;
+    border-radius:12px;
 
-            border:1px solid rgba(255,255,255,0.15);
+    font-weight:bold;
+    backdrop-filter:blur(6px);
+}
 
-            box-shadow:0px 4px 15px rgba(0,0,0,0.3);
-        }
+@media(max-width:700px){
 
-        .favoritos strong{
-            color:#ffd27f;
-        }
+    body{
+        padding:12px;
+    }
 
-        .categoria-img{
-            position:relative;
-            margin-bottom:15px;
-            overflow:hidden;
-            border-radius:20px;
-            box-shadow:0px 5px 15px rgba(0,0,0,0.4);
+    h1{
+        font-size:32px;
+        margin-bottom:18px;
+    }
 
-            opacity:0;
+    .categoria-img{
+        margin-bottom:14px;
+        border-radius:16px;
+    }
 
-            width:100%;
-            max-width:100%;
-        }
+    .categoria-img img{
+        height:135px;
+    }
 
-        .categoria-img img{
-            width:100%;
-            height:170px;
-            object-fit:cover;
-            display:block;
-        }
+    .overlay{
+        font-size:22px;
+        padding:10px;
+    }
 
-        .overlay{
-            position:absolute;
-            top:0;
-            left:0;
-            width:100%;
-            height:100%;
-            background:rgba(0,0,0,0.45);
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            color:white;
-            font-size:30px;
-            font-weight:bold;
-            text-align:center;
-            flex-direction:column;
-            text-shadow:0px 3px 8px rgba(0,0,0,0.8);
-        }
-
-        .horario{
-            font-size:18px;
-            margin-top:8px;
-            color:#ffd27f;
-        }
+    .horario{
+        font-size:14px;
+    }
+}
 
         /* ANIMATIONS */
 
