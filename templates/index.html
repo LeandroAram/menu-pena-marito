@@ -25,63 +25,42 @@
         }
 
         .overlay{
-
             width:100%;
             height:100%;
-
             display:flex;
             flex-direction:column;
             justify-content:flex-start;
-
             align-items:center;
-
             padding-top:50px;
-
             box-sizing:border-box;
         }
 
         .titulo{
-
             text-align:center;
-
             margin-top:20px;
         }
 
         h1{
             margin:0;
-
             font-size:62px;
-
             color:#f7d28b;
-
             letter-spacing:1px;
-
             text-shadow:0px 4px 10px rgba(0,0,0,0.55);
         }
 
         .subtitulo{
-
             margin-top:10px;
-
             color:white;
-
             font-size:20px;
-
             letter-spacing:2px;
-
             text-shadow:0px 2px 8px rgba(0,0,0,0.5);
         }
 
         .idiomas{
-
             display:flex;
-
             gap:12px;
-
             margin-top:25px;
-
             flex-wrap:wrap;
-
             justify-content:center;
         }
 
@@ -90,120 +69,106 @@
         }
 
         .idioma-btn{
-
             border:none;
-
             padding:12px 18px;
-
             border-radius:14px;
-
             font-size:17px;
-
             cursor:pointer;
-
             color:white;
-
             background:rgba(0,0,0,0.28);
-
             backdrop-filter:blur(4px);
-
             border:1px solid rgba(255,255,255,0.18);
-
             transition:0.3s;
-
             text-shadow:0px 2px 5px rgba(0,0,0,0.5);
         }
 
         .idioma-btn:hover{
-
             transform:translateY(-3px);
-
             background:rgba(0,0,0,0.42);
         }
 
         .acciones{
-
             position:absolute;
-
             left:50%;
-
             transform:translateX(-50%);
-
-            bottom:calc(90px + env(safe-area-inset-bottom));
-
-            display:flex;
-
-            gap:15px;
-
-            align-items:center;
-
+            bottom:calc(80px + env(safe-area-inset-bottom));
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:12px;
+            width:90%;
+            max-width:520px;
             z-index:9999;
         }
 
-        .whatsapp-btn{
-
-            display:inline-block;
-
-            background:#043D37;
-
+        .whatsapp-btn,
+        .video-btn,
+        .instagram-btn,
+        .maps-btn{
+            display:block;
+            width:100%;
+            box-sizing:border-box;
             color:white;
-
-            padding:14px 24px;
-
+            padding:13px 18px;
             border-radius:16px;
-
-            font-size:18px;
-
+            font-size:17px;
             font-weight:bold;
-
-            box-shadow:0px 0px 18px rgba(4,61,55,0.5);
-
+            text-align:center;
+            cursor:pointer;
             transition:0.3s;
+            border:1px solid rgba(255,255,255,0.2);
+            backdrop-filter:blur(6px);
+            text-shadow:0px 2px 5px rgba(0,0,0,0.5);
+        }
 
+        .whatsapp-btn{
+            background:#043D37;
+            box-shadow:0px 0px 18px rgba(4,61,55,0.5);
             animation:brillo 2s infinite;
         }
 
-        .whatsapp-btn:hover{
+        .video-btn{
+            background:rgba(0,0,0,0.55);
+            border:none;
+        }
 
+        .instagram-btn{
+            background:linear-gradient(135deg,#833AB4,#E1306C,#F77737);
+        }
+
+        .maps-btn{
+            background:rgba(139,69,19,0.85);
+        }
+
+        .whatsapp-btn:hover,
+        .video-btn:hover,
+        .instagram-btn:hover,
+        .maps-btn:hover{
             transform:scale(1.05);
+        }
 
+        .whatsapp-btn:hover{
             background:#032E29;
         }
 
-        .video-btn{
-
-            border:none;
-
-            background:rgba(0,0,0,0.55);
-
-            color:white;
-
-            padding:14px 24px;
-
-            border-radius:16px;
-
-            font-size:18px;
-
-            font-weight:bold;
-
-            cursor:pointer;
-
-            backdrop-filter:blur(6px);
-
-            border:1px solid rgba(255,255,255,0.2);
-
-            transition:0.3s;
-        }
-
         .video-btn:hover{
-
-            transform:scale(1.05);
-
             background:rgba(0,0,0,0.75);
         }
 
-        @keyframes brillo{
+        .frase-final{
+            position:absolute;
+            left:50%;
+            transform:translateX(-50%);
+            bottom:calc(25px + env(safe-area-inset-bottom));
+            width:90%;
+            text-align:center;
+            color:white;
+            font-size:15px;
+            font-weight:bold;
+            text-shadow:0px 3px 8px rgba(0,0,0,0.85);
+            z-index:9998;
+        }
 
+        @keyframes brillo{
             0%{
                 box-shadow:0px 0px 6px rgba(4,61,55,0.3);
             }
@@ -218,72 +183,44 @@
         }
 
         .modal-video{
-
             display:none;
-
             position:fixed;
-
             top:0;
             left:0;
-
             width:100%;
             height:100%;
-
             background:rgba(0,0,0,0.92);
-
             z-index:10000;
-
             justify-content:center;
-
             align-items:center;
         }
 
         .modal-contenido{
-
             width:90%;
-
             max-width:420px;
-
             position:relative;
         }
 
         .modal-contenido video{
-
             width:100%;
-
             border-radius:20px;
         }
 
         .cerrar-video{
-
             position:absolute;
-
             top:15px;
-
             right:15px;
-
             background:rgba(0,0,0,0.7);
-
             color:white;
-
             border:none;
-
             width:45px;
-
             height:45px;
-
             border-radius:50%;
-
             font-size:24px;
-
             cursor:pointer;
-
             z-index:10001;
-
             display:flex;
-
             justify-content:center;
-
             align-items:center;
         }
 
@@ -307,26 +244,23 @@
             }
 
             .acciones{
-
-                flex-direction:column;
-
+                bottom:calc(80px + env(safe-area-inset-bottom));
+                grid-template-columns:1fr 1fr;
+                gap:10px;
                 width:90%;
-
-                bottom:calc(120px + env(safe-area-inset-bottom));
             }
 
             .whatsapp-btn,
-            .video-btn{
+            .video-btn,
+            .instagram-btn,
+            .maps-btn{
+                font-size:15px;
+                padding:12px 10px;
+            }
 
-                width:100%;
-
-                box-sizing:border-box;
-
-                text-align:center;
-
-                font-size:16px;
-
-                padding:12px 18px;
+            .frase-final{
+                font-size:13px;
+                bottom:calc(25px + env(safe-area-inset-bottom));
             }
         }
 
@@ -392,9 +326,31 @@
             </a>
 
             <button class="video-btn" onclick="abrirVideo()">
-                🎥 Experiencia Marito
+                ▶ Ver la Peña
             </button>
 
+            <a href="https://www.instagram.com/maritorestobar/"
+               target="_blank">
+
+                <div class="instagram-btn">
+                    📸 Instagram
+                </div>
+
+            </a>
+
+            <a href="https://maps.app.goo.gl/LBAqsRqPrycpqDnn7?g_st=ic"
+               target="_blank">
+
+                <div class="maps-btn">
+                    📍 Cómo llegar
+                </div>
+
+            </a>
+
+        </div>
+
+        <div class="frase-final">
+            🎶 Música en vivo • Comida regional • Tradición jujeña
         </div>
 
     </div>
