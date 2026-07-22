@@ -22,13 +22,8 @@
             box-sizing:border-box;
         }
 
-        html{
-            scroll-behavior:smooth;
-        }
-
         body{
             min-height:100vh;
-
             font-family:Arial, Helvetica, sans-serif;
             color:white;
             overflow-x:hidden;
@@ -60,24 +55,21 @@
         .pagina{
             width:100%;
             max-width:1000px;
-
             margin:auto;
 
             padding:
                 calc(12px + env(safe-area-inset-top))
                 12px
-                calc(30px + env(safe-area-inset-bottom));
+                calc(28px + env(safe-area-inset-bottom));
         }
 
         /* BARRA SUPERIOR */
 
         .barra-superior{
             display:flex;
-            align-items:center;
             justify-content:space-between;
-
+            align-items:center;
             gap:10px;
-
             margin-bottom:10px;
         }
 
@@ -93,11 +85,10 @@
             font-size:14px;
             font-weight:bold;
 
-            border-radius:14px;
             border:1px solid rgba(150,225,202,0.60);
+            border-radius:14px;
 
             background:rgba(5,65,59,0.84);
-
             box-shadow:0 7px 18px rgba(0,0,0,0.30);
 
             backdrop-filter:blur(8px);
@@ -111,13 +102,10 @@
 
         .marca{
             color:#f0c278;
-
             font-size:12px;
             font-weight:bold;
-
             letter-spacing:1.2px;
             text-transform:uppercase;
-
             text-shadow:0 3px 7px rgba(0,0,0,0.90);
         }
 
@@ -131,7 +119,6 @@
         .encabezado-icono{
             font-size:31px;
             line-height:1;
-
             filter:drop-shadow(0 4px 8px rgba(0,0,0,0.55));
         }
 
@@ -139,7 +126,6 @@
             margin-top:5px;
 
             color:#fff1d6;
-
             font-family:Georgia, "Times New Roman", serif;
             font-size:38px;
             line-height:1.05;
@@ -149,10 +135,8 @@
 
         .encabezado p{
             margin-top:6px;
-
             color:#f1cc8d;
             font-size:14px;
-
             text-shadow:0 3px 8px rgba(0,0,0,0.90);
         }
 
@@ -169,8 +153,8 @@
             font-size:12px;
             font-weight:bold;
 
-            border-radius:999px;
             border:1px solid rgba(255,218,151,0.45);
+            border-radius:999px;
 
             background:rgba(0,0,0,0.25);
 
@@ -178,37 +162,33 @@
             -webkit-backdrop-filter:blur(6px);
         }
 
-        /* RESUMEN SUPERIOR */
+        /* INFORMACIÓN DEL MENÚ */
 
         .incluye{
-            margin-bottom:14px;
-            padding:12px;
+            margin-bottom:15px;
+            padding:13px;
 
             text-align:center;
 
-            border-radius:17px;
             border:1px solid rgba(244,195,111,0.52);
+            border-radius:17px;
 
             background:rgba(21,46,38,0.76);
-
             box-shadow:0 9px 22px rgba(0,0,0,0.28);
 
             backdrop-filter:blur(8px);
             -webkit-backdrop-filter:blur(8px);
         }
 
-        .incluye-titulo{
+        .incluye h2{
             color:#ffd794;
-
             font-family:Georgia, "Times New Roman", serif;
-            font-size:19px;
-            font-weight:bold;
+            font-size:21px;
         }
 
-        .incluye-texto{
-            margin-top:4px;
-
-            color:rgba(255,255,255,0.93);
+        .incluye p{
+            margin-top:5px;
+            color:rgba(255,255,255,0.94);
             font-size:12px;
             line-height:1.4;
         }
@@ -216,77 +196,63 @@
         /* SECCIONES */
 
         .seccion{
-            margin-top:14px;
+            margin-top:15px;
         }
 
         .titulo-seccion{
             display:flex;
             align-items:center;
             justify-content:space-between;
-
             gap:10px;
-
             margin-bottom:9px;
         }
 
         .titulo-seccion h2{
             color:#fff0d1;
-
             font-family:Georgia, "Times New Roman", serif;
             font-size:24px;
-
-            text-shadow:0 3px 8px rgba(0,0,0,0.9);
+            text-shadow:0 3px 8px rgba(0,0,0,0.90);
         }
 
         .titulo-seccion span{
             color:#f1c67e;
-
             font-size:11px;
             font-weight:bold;
         }
 
-        /* ENTRADA FIJA */
+        /* ENTRADA */
 
-        .entrada-fija{
+        .entrada{
             display:grid;
-            grid-template-columns:105px 1fr;
-            align-items:stretch;
+            grid-template-columns:110px 1fr;
 
+            min-height:120px;
             overflow:hidden;
 
-            min-height:115px;
-
-            border-radius:18px;
             border:1px solid rgba(239,186,100,0.58);
+            border-radius:18px;
 
             background:rgba(255,248,233,0.97);
-
             box-shadow:0 10px 24px rgba(0,0,0,0.33);
         }
 
-        .entrada-fija img{
-            width:105px;
+        .entrada img{
+            width:110px;
             height:100%;
-
-            min-height:115px;
-
+            min-height:120px;
             object-fit:cover;
             cursor:pointer;
         }
 
         .entrada-info{
-            position:relative;
-
             display:flex;
             flex-direction:column;
             justify-content:center;
-
-            padding:12px 42px 12px 13px;
+            padding:12px;
         }
 
         .entrada-info h3{
             color:#693310;
-
             font-family:Georgia, "Times New Roman", serif;
             font-size:21px;
             line-height:1.1;
@@ -294,15 +260,12 @@
 
         .entrada-info p{
             margin-top:5px;
-
             color:#5c5149;
             font-size:11px;
             line-height:1.35;
         }
 
-        .incluido{
-            display:inline-flex;
-            align-items:center;
+        .etiqueta-incluida{
             align-self:flex-start;
 
             margin-top:7px;
@@ -313,32 +276,10 @@
             font-weight:bold;
 
             border-radius:999px;
-
             background:#d9eee8;
         }
 
-        .check-fijo{
-            position:absolute;
-            top:10px;
-            right:10px;
-
-            width:27px;
-            height:27px;
-
-            display:flex;
-            align-items:center;
-            justify-content:center;
-
-            border-radius:50%;
-
-            color:white;
-            font-size:14px;
-            font-weight:bold;
-
-            background:#147761;
-        }
-
-        /* OPCIONES */
+        /* CUADRÍCULA DE OPCIONES */
 
         .opciones{
             display:grid;
@@ -348,52 +289,47 @@
 
         .opcion{
             position:relative;
-
             overflow:hidden;
 
-            border:2px solid transparent;
+            border:1px solid rgba(239,186,100,0.58);
             border-radius:18px;
 
             background:rgba(255,248,234,0.97);
-
             box-shadow:0 9px 22px rgba(0,0,0,0.34);
 
-            cursor:pointer;
-
-            transition:
-                transform 0.20s ease,
-                border-color 0.20s ease,
-                box-shadow 0.20s ease;
+            animation:aparecer 0.5s ease both;
         }
 
-        .opcion:hover{
-            transform:translateY(-2px);
+        .opcion:nth-child(1){
+            animation-delay:0.05s;
         }
 
-        .opcion:active{
-            transform:scale(0.975);
+        .opcion:nth-child(2){
+            animation-delay:0.10s;
         }
 
-        .opcion.seleccionada{
-            border-color:#f4bd57;
+        .opcion:nth-child(3){
+            animation-delay:0.15s;
+        }
 
-            box-shadow:
-                0 0 0 2px rgba(244,189,87,0.24),
-                0 12px 27px rgba(0,0,0,0.42);
+        .opcion:nth-child(4){
+            animation-delay:0.20s;
+        }
+
+        .opcion:nth-child(5){
+            animation-delay:0.25s;
         }
 
         .opcion img{
             width:100%;
             height:125px;
-
             display:block;
             object-fit:cover;
-
             cursor:pointer;
         }
 
         .opcion-info{
-            min-height:112px;
+            min-height:105px;
 
             display:flex;
             flex-direction:column;
@@ -403,97 +339,62 @@
 
         .opcion-info h3{
             color:#67320f;
-
             font-family:Georgia, "Times New Roman", serif;
             font-size:18px;
             line-height:1.08;
         }
 
         .opcion-info p{
-            display:-webkit-box;
-            -webkit-line-clamp:2;
-            -webkit-box-orient:vertical;
-
-            overflow:hidden;
-
             margin-top:5px;
-
             color:#5a514a;
             font-size:10px;
             line-height:1.35;
         }
 
-        .seleccionar{
+        .tipo{
             margin-top:auto;
             padding-top:7px;
 
-            color:#8c6337;
+            color:#17705e;
             font-size:10px;
             font-weight:bold;
         }
 
-        .opcion.seleccionada .seleccionar{
-            color:#14735e;
+        /* QUINTA OPCIÓN EN TODO EL ANCHO */
+
+        .opciones-principales .opcion:last-child{
+            grid-column:1 / -1;
         }
 
-        .indicador{
-            position:absolute;
-            top:8px;
-            right:8px;
-            z-index:3;
-
-            width:29px;
-            height:29px;
-
-            display:flex;
-            align-items:center;
-            justify-content:center;
-
-            border:2px solid rgba(255,255,255,0.92);
-            border-radius:50%;
-
-            color:transparent;
-            font-size:15px;
-            font-weight:bold;
-
-            background:rgba(8,6,4,0.55);
-
-            backdrop-filter:blur(5px);
-            -webkit-backdrop-filter:blur(5px);
+        .opciones-principales .opcion:last-child img{
+            height:160px;
         }
 
-        .opcion.seleccionada .indicador{
-            color:white;
-            background:#15745f;
+        .opciones-principales .opcion:last-child .opcion-info{
+            min-height:auto;
         }
 
-        /* POSTRES MÁS COMPACTOS */
+        /* POSTRES */
 
         .opciones-postres .opcion img{
-            height:115px;
+            height:120px;
         }
 
-        .opciones-postres .opcion-info{
-            min-height:96px;
-        }
+        /* PRECIO */
 
-        /* RESUMEN DE ELECCIÓN */
-
-        .resumen{
-            margin-top:16px;
-
+        .precio-menu{
+            margin-top:17px;
             overflow:hidden;
 
-            border-radius:19px;
             border:1px solid rgba(248,200,112,0.65);
+            border-radius:19px;
 
             background:rgba(255,248,231,0.98);
-
             box-shadow:0 12px 28px rgba(0,0,0,0.42);
         }
 
-        .resumen-cabecera{
-            padding:10px 14px;
+        .precio-superior{
+            padding:11px 14px;
 
             color:#fff3da;
             text-align:center;
@@ -505,67 +406,38 @@
             background:#0b6659;
         }
 
-        .resumen-contenido{
+        .precio-detalle{
             padding:12px 14px;
-        }
 
-        .resumen-fila{
-            display:grid;
-            grid-template-columns:78px 1fr;
-            gap:8px;
-
-            padding:6px 0;
-
-            border-bottom:1px solid rgba(112,83,48,0.14);
-        }
-
-        .resumen-fila:last-child{
-            border-bottom:none;
-        }
-
-        .resumen-etiqueta{
-            color:#806044;
-            font-size:11px;
-            font-weight:bold;
-        }
-
-        .resumen-valor{
-            color:#4c3a2c;
+            color:#59483a;
+            text-align:center;
             font-size:12px;
-            font-weight:bold;
+            line-height:1.5;
         }
 
-        .sin-seleccion{
-            color:#9a8b7c;
-            font-weight:normal;
-            font-style:italic;
-        }
-
-        .precio-total{
+        .precio-final{
             display:flex;
-            justify-content:space-between;
             align-items:center;
-
+            justify-content:space-between;
             gap:10px;
 
             padding:13px 14px;
 
             color:white;
-
             background:#9d401d;
         }
 
-        .precio-texto{
+        .precio-final span:first-child{
             font-size:13px;
             font-weight:bold;
         }
 
         .precio-numero{
-            font-size:27px;
+            font-size:28px;
             font-weight:900;
         }
 
-        /* MODAL DE IMAGEN */
+        /* VISOR */
 
         .visor{
             display:none;
@@ -594,19 +466,15 @@
 
         .visor-contenido{
             position:relative;
-
             width:100%;
             max-width:650px;
         }
 
         .visor img{
             display:block;
-
             width:100%;
             max-height:82vh;
-
             object-fit:contain;
-
             border-radius:20px;
 
             box-shadow:0 20px 45px rgba(0,0,0,0.65);
@@ -631,25 +499,31 @@
             border-radius:50%;
 
             background:rgba(10,7,5,0.76);
-
             cursor:pointer;
         }
 
-        /* PIE */
-
         .pie{
             margin-top:15px;
-
             color:#f1c881;
             text-align:center;
-
             font-size:11px;
             font-weight:bold;
-
             text-shadow:0 3px 8px rgba(0,0,0,0.90);
         }
 
-        /* CELULARES */
+        @keyframes aparecer{
+
+            from{
+                opacity:0;
+                transform:translateY(14px);
+            }
+
+            to{
+                opacity:1;
+                transform:translateY(0);
+            }
+
+        }
 
         @media(max-width:600px){
 
@@ -665,8 +539,12 @@
                 height:115px;
             }
 
+            .opciones-principales .opcion:last-child img{
+                height:145px;
+            }
+
             .opcion-info{
-                min-height:108px;
+                min-height:105px;
             }
 
             .opcion-info h3{
@@ -674,8 +552,6 @@
             }
 
         }
-
-        /* CELULARES MUY ANGOSTOS */
 
         @media(max-width:360px){
 
@@ -693,7 +569,7 @@
             }
 
             .opcion-info{
-                min-height:102px;
+                min-height:98px;
                 padding:8px;
             }
 
@@ -711,12 +587,18 @@
 
         }
 
-        /* COMPUTADORA */
-
         @media(min-width:750px){
 
             .opciones-principales{
                 grid-template-columns:repeat(5, minmax(0,1fr));
+            }
+
+            .opciones-principales .opcion:last-child{
+                grid-column:auto;
+            }
+
+            .opciones-principales .opcion:last-child img{
+                height:145px;
             }
 
             .opciones-postres{
@@ -726,14 +608,6 @@
 
             .opcion img{
                 height:145px;
-            }
-
-        }
-
-        @media(prefers-reduced-motion:reduce){
-
-            *{
-                transition:none !important;
             }
 
         }
@@ -777,7 +651,7 @@
             </h1>
 
             <p>
-                Armá tu menú eligiendo un principal y un postre
+                Entrada, principal y postre
             </p>
 
             <div class="horario">
@@ -788,24 +662,25 @@
 
         <section class="incluye">
 
-            <div class="incluye-titulo">
+            <h2>
                 Menú completo
-            </div>
+            </h2>
 
-            <div class="incluye-texto">
-                Incluye una empanada de carne + un plato principal + un postre
-            </div>
+            <p>
+                Incluye una empanada de carne, un plato principal a elección
+                y un postre a elección.
+            </p>
 
         </section>
 
-        <!-- ENTRADA FIJA -->
+        <!-- ENTRADA -->
 
         <section class="seccion">
 
             <div class="titulo-seccion">
 
                 <h2>
-                    1. Entrada
+                    Entrada
                 </h2>
 
                 <span>
@@ -814,30 +689,27 @@
 
             </div>
 
-            <article class="entrada-fija">
+            <article class="entrada">
 
                 <img
                     src="/static/comidas/emp.jpg"
-                    alt="Empanada de Carne"
+                    alt="Empanada de carne"
                     onclick="abrirImagen('/static/comidas/emp.jpg')"
                 >
 
                 <div class="entrada-info">
-
-                    <div class="check-fijo">
-                        ✓
-                    </div>
 
                     <h3>
                         Empanada de Carne
                     </h3>
 
                     <p>
-                        Empanada jujeña rellena de carne, papa, cebolla y especias regionales.
+                        Empanada jujeña rellena de carne, papa, cebolla
+                        y especias regionales.
                     </p>
 
-                    <div class="incluido">
-                        Entrada incluida
+                    <div class="etiqueta-incluida">
+                        Incluida en el menú
                     </div>
 
                 </div>
@@ -846,40 +718,30 @@
 
         </section>
 
-        <!-- PRINCIPAL -->
+        <!-- PRINCIPALES -->
 
         <section class="seccion">
 
             <div class="titulo-seccion">
 
                 <h2>
-                    2. Plato principal
+                    Plato principal
                 </h2>
 
                 <span>
-                    Elegí uno
+                    Uno a elección
                 </span>
 
             </div>
 
             <div class="opciones opciones-principales">
 
-                <!-- CAZUELA DE LLAMA -->
-
-                <article
-                    class="opcion opcion-principal"
-                    data-nombre="Cazuela de Llama"
-                    onclick="seleccionarPrincipal(this)"
-                >
-
-                    <div class="indicador">
-                        ✓
-                    </div>
+                <article class="opcion">
 
                     <img
                         src="/static/comidas/menu2.jpg"
-                        alt="Cazuela de Llama"
-                        onclick="abrirImagenSinSeleccionar(event, '/static/comidas/menu2.jpg')"
+                        alt="Cazuela de llama"
+                        onclick="abrirImagen('/static/comidas/menu2.jpg')"
                     >
 
                     <div class="opcion-info">
@@ -892,30 +754,20 @@
                             Con arroz y sabores típicos del Norte.
                         </p>
 
-                        <div class="seleccionar">
-                            Tocá para elegir
+                        <div class="tipo">
+                            Opción de principal
                         </div>
 
                     </div>
 
                 </article>
 
-                <!-- CAZUELA DE CABRITO -->
-
-                <article
-                    class="opcion opcion-principal"
-                    data-nombre="Cazuela de Cabrito"
-                    onclick="seleccionarPrincipal(this)"
-                >
-
-                    <div class="indicador">
-                        ✓
-                    </div>
+                <article class="opcion">
 
                     <img
                         src="/static/comidas/menu2.jpg"
-                        alt="Cazuela de Cabrito"
-                        onclick="abrirImagenSinSeleccionar(event, '/static/comidas/menu2.jpg')"
+                        alt="Cazuela de cabrito"
+                        onclick="abrirImagen('/static/comidas/menu2.jpg')"
                     >
 
                     <div class="opcion-info">
@@ -928,30 +780,20 @@
                             Con arroz y especias regionales.
                         </p>
 
-                        <div class="seleccionar">
-                            Tocá para elegir
+                        <div class="tipo">
+                            Opción de principal
                         </div>
 
                     </div>
 
                 </article>
 
-                <!-- CAZUELA DE CORDERO -->
-
-                <article
-                    class="opcion opcion-principal"
-                    data-nombre="Cazuela de Cordero"
-                    onclick="seleccionarPrincipal(this)"
-                >
-
-                    <div class="indicador">
-                        ✓
-                    </div>
+                <article class="opcion">
 
                     <img
                         src="/static/comidas/menu2.jpg"
-                        alt="Cazuela de Cordero"
-                        onclick="abrirImagenSinSeleccionar(event, '/static/comidas/menu2.jpg')"
+                        alt="Cazuela de cordero"
+                        onclick="abrirImagen('/static/comidas/menu2.jpg')"
                     >
 
                     <div class="opcion-info">
@@ -964,30 +806,20 @@
                             Cocción lenta con arroz y sabores norteños.
                         </p>
 
-                        <div class="seleccionar">
-                            Tocá para elegir
+                        <div class="tipo">
+                            Opción de principal
                         </div>
 
                     </div>
 
                 </article>
 
-                <!-- MILANESA DE TERNERA -->
-
-                <article
-                    class="opcion opcion-principal"
-                    data-nombre="Milanesa de Ternera"
-                    onclick="seleccionarPrincipal(this)"
-                >
-
-                    <div class="indicador">
-                        ✓
-                    </div>
+                <article class="opcion">
 
                     <img
                         src="/static/comidas/mil.jpg"
-                        alt="Milanesa de Ternera"
-                        onclick="abrirImagenSinSeleccionar(event, '/static/comidas/mil.jpg')"
+                        alt="Milanesa de ternera"
+                        onclick="abrirImagen('/static/comidas/mil.jpg')"
                     >
 
                     <div class="opcion-info">
@@ -997,33 +829,23 @@
                         </h3>
 
                         <p>
-                            Con arroz y ensalada mixta tradicional.
+                            Acompañada con arroz y ensalada mixta.
                         </p>
 
-                        <div class="seleccionar">
-                            Tocá para elegir
+                        <div class="tipo">
+                            Opción de principal
                         </div>
 
                     </div>
 
                 </article>
 
-                <!-- MILANESA DE POLLO -->
-
-                <article
-                    class="opcion opcion-principal"
-                    data-nombre="Milanesa de Pollo"
-                    onclick="seleccionarPrincipal(this)"
-                >
-
-                    <div class="indicador">
-                        ✓
-                    </div>
+                <article class="opcion">
 
                     <img
                         src="/static/comidas/mil.jpg"
-                        alt="Milanesa de Pollo"
-                        onclick="abrirImagenSinSeleccionar(event, '/static/comidas/mil.jpg')"
+                        alt="Milanesa de pollo"
+                        onclick="abrirImagen('/static/comidas/mil.jpg')"
                     >
 
                     <div class="opcion-info">
@@ -1033,11 +855,11 @@
                         </h3>
 
                         <p>
-                            Con arroz y ensalada mixta tradicional.
+                            Acompañada con arroz y ensalada mixta.
                         </p>
 
-                        <div class="seleccionar">
-                            Tocá para elegir
+                        <div class="tipo">
+                            Opción de principal
                         </div>
 
                     </div>
@@ -1048,40 +870,30 @@
 
         </section>
 
-        <!-- POSTRE -->
+        <!-- POSTRES -->
 
         <section class="seccion">
 
             <div class="titulo-seccion">
 
                 <h2>
-                    3. Postre
+                    Postre
                 </h2>
 
                 <span>
-                    Elegí uno
+                    Uno a elección
                 </span>
 
             </div>
 
             <div class="opciones opciones-postres">
 
-                <!-- HELADO -->
-
-                <article
-                    class="opcion opcion-postre"
-                    data-nombre="Helado de Cayote"
-                    onclick="seleccionarPostre(this)"
-                >
-
-                    <div class="indicador">
-                        ✓
-                    </div>
+                <article class="opcion">
 
                     <img
                         src="/static/comidas/helado.jpg"
-                        alt="Helado de Cayote"
-                        onclick="abrirImagenSinSeleccionar(event, '/static/comidas/helado.jpg')"
+                        alt="Helado de cayote"
+                        onclick="abrirImagen('/static/comidas/helado.jpg')"
                     >
 
                     <div class="opcion-info">
@@ -1091,33 +903,23 @@
                         </h3>
 
                         <p>
-                            Helado artesanal regional elaborado con cayote.
+                            Helado artesanal elaborado con dulce de cayote.
                         </p>
 
-                        <div class="seleccionar">
-                            Tocá para elegir
+                        <div class="tipo">
+                            Opción de postre
                         </div>
 
                     </div>
 
                 </article>
 
-                <!-- BUDÍN -->
-
-                <article
-                    class="opcion opcion-postre"
-                    data-nombre="Budín de Pan"
-                    onclick="seleccionarPostre(this)"
-                >
-
-                    <div class="indicador">
-                        ✓
-                    </div>
+                <article class="opcion">
 
                     <img
                         src="/static/comidas/budin.jpg"
-                        alt="Budín de Pan"
-                        onclick="abrirImagenSinSeleccionar(event, '/static/comidas/budin.jpg')"
+                        alt="Budín de pan"
+                        onclick="abrirImagen('/static/comidas/budin.jpg')"
                     >
 
                     <div class="opcion-info">
@@ -1130,8 +932,8 @@
                             Budín casero acompañado con caramelo artesanal.
                         </p>
 
-                        <div class="seleccionar">
-                            Tocá para elegir
+                        <div class="tipo">
+                            Opción de postre
                         </div>
 
                     </div>
@@ -1142,81 +944,39 @@
 
         </section>
 
-        <!-- RESUMEN -->
+        <!-- PRECIO -->
 
-        <section class="resumen">
+        <section class="precio-menu">
 
-            <div class="resumen-cabecera">
-                Tu elección
+            <div class="precio-superior">
+                Menú completo
             </div>
 
-            <div class="resumen-contenido">
-
-                <div class="resumen-fila">
-
-                    <div class="resumen-etiqueta">
-                        Entrada
-                    </div>
-
-                    <div class="resumen-valor">
-                        Empanada de Carne
-                    </div>
-
-                </div>
-
-                <div class="resumen-fila">
-
-                    <div class="resumen-etiqueta">
-                        Principal
-                    </div>
-
-                    <div
-                        id="resumen-principal"
-                        class="resumen-valor sin-seleccion"
-                    >
-                        Todavía no elegiste
-                    </div>
-
-                </div>
-
-                <div class="resumen-fila">
-
-                    <div class="resumen-etiqueta">
-                        Postre
-                    </div>
-
-                    <div
-                        id="resumen-postre"
-                        class="resumen-valor sin-seleccion"
-                    >
-                        Todavía no elegiste
-                    </div>
-
-                </div>
-
+            <div class="precio-detalle">
+                Empanada de carne + un plato principal + un postre
             </div>
 
-            <div class="precio-total">
+            <div class="precio-final">
 
-                <div class="precio-texto">
-                    Precio del menú completo
-                </div>
+                <span>
+                    Precio final
+                </span>
 
-                <div class="precio-numero">
+                <span class="precio-numero">
                     $10.000
-                </div>
+                </span>
 
             </div>
 
         </section>
 
         <footer class="pie">
-            🍽️ Elegí una opción de cada sección para completar tu menú
+            🍽️ Indicá tu elección al momento de realizar el pedido
         </footer>
 
     </main>
 
-    <!-- VISOR DE IMÁGENES -->
+    <!-- VISOR DE FOTOGRAFÍAS -->
 
     <div
         id="visor"
@@ -1247,60 +1007,6 @@
 
     <script>
 
-        function seleccionarPrincipal(elemento){
-
-            document
-                .querySelectorAll(".opcion-principal")
-                .forEach(function(opcion){
-
-                    opcion.classList.remove("seleccionada");
-
-                    opcion.querySelector(".seleccionar").textContent =
-                        "Tocá para elegir";
-
-                });
-
-            elemento.classList.add("seleccionada");
-
-            elemento.querySelector(".seleccionar").textContent =
-                "Opción elegida";
-
-            const nombre = elemento.dataset.nombre;
-
-            const resumen = document.getElementById("resumen-principal");
-
-            resumen.textContent = nombre;
-
-            resumen.classList.remove("sin-seleccion");
-        }
-
-        function seleccionarPostre(elemento){
-
-            document
-                .querySelectorAll(".opcion-postre")
-                .forEach(function(opcion){
-
-                    opcion.classList.remove("seleccionada");
-
-                    opcion.querySelector(".seleccionar").textContent =
-                        "Tocá para elegir";
-
-                });
-
-            elemento.classList.add("seleccionada");
-
-            elemento.querySelector(".seleccionar").textContent =
-                "Opción elegida";
-
-            const nombre = elemento.dataset.nombre;
-
-            const resumen = document.getElementById("resumen-postre");
-
-            resumen.textContent = nombre;
-
-            resumen.classList.remove("sin-seleccion");
-        }
-
         function abrirImagen(src){
 
             document.getElementById("imagen-grande").src = src;
@@ -1308,13 +1014,6 @@
             document.getElementById("visor").classList.add("activo");
 
             document.body.style.overflow = "hidden";
-        }
-
-        function abrirImagenSinSeleccionar(event, src){
-
-            event.stopPropagation();
-
-            abrirImagen(src);
         }
 
         function cerrarImagen(){
