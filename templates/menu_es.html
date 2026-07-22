@@ -10,7 +10,7 @@
         content="width=device-width, initial-scale=1.0, viewport-fit=cover"
     >
 
-    <meta name="theme-color" content="#160f0a">
+    <meta name="theme-color" content="#100b08">
 
     <title>Categorías | La Peña de Marito</title>
 
@@ -28,21 +28,16 @@
 
         body{
             min-height:100vh;
-            padding:
-                calc(18px + env(safe-area-inset-top))
-                14px
-                calc(35px + env(safe-area-inset-bottom));
-
             font-family:Arial, Helvetica, sans-serif;
             color:white;
             overflow-x:hidden;
 
             background:
                 linear-gradient(
-                    to bottom,
-                    rgba(4,6,11,0.20),
-                    rgba(13,8,5,0.82) 420px,
-                    #120b07 900px
+                    180deg,
+                    rgba(3,8,17,0.18) 0%,
+                    rgba(12,8,5,0.45) 38%,
+                    rgba(14,9,6,0.96) 100%
                 ),
                 url("/static/pena3.jpg");
 
@@ -54,55 +49,52 @@
         a{
             color:inherit;
             text-decoration:none;
+            -webkit-tap-highlight-color:transparent;
         }
 
-        .contenedor{
+        .pagina{
             width:100%;
-            max-width:820px;
-            margin:0 auto;
+            max-width:900px;
+            min-height:100vh;
+            margin:auto;
+
+            padding:
+                calc(12px + env(safe-area-inset-top))
+                12px
+                calc(18px + env(safe-area-inset-bottom));
         }
 
         /* BOTÓN VOLVER */
 
         .volver{
+            position:absolute;
+            top:calc(12px + env(safe-area-inset-top));
+            left:14px;
+            z-index:20;
+
             display:inline-flex;
             align-items:center;
-            justify-content:center;
-            gap:8px;
+            gap:7px;
 
-            min-height:44px;
-            padding:10px 17px;
+            min-height:40px;
+            padding:8px 14px;
 
-            color:white;
-            font-size:15px;
+            font-size:14px;
             font-weight:bold;
 
-            border-radius:999px;
-            border:1px solid rgba(255,214,156,0.55);
+            border:1px solid rgba(239,181,91,0.65);
+            border-radius:15px;
 
-            background:rgba(10,7,5,0.68);
+            background:rgba(70,28,7,0.78);
 
-            backdrop-filter:blur(10px);
-            -webkit-backdrop-filter:blur(10px);
+            box-shadow:0 7px 20px rgba(0,0,0,0.28);
 
-            box-shadow:0 8px 24px rgba(0,0,0,0.25);
-
-            transition:
-                transform 0.2s ease,
-                background 0.2s ease;
+            backdrop-filter:blur(8px);
+            -webkit-backdrop-filter:blur(8px);
         }
 
-        .volver:hover{
-            transform:translateY(-2px);
-            background:rgba(113,51,20,0.90);
-        }
-
-        .volver:active{
-            transform:scale(0.96);
-        }
-
-        .volver-flecha{
-            font-size:23px;
+        .volver span:first-child{
+            font-size:22px;
             line-height:1;
         }
 
@@ -110,412 +102,309 @@
 
         .encabezado{
             text-align:center;
-            padding:18px 10px 26px;
+            padding:4px 72px 6px;
         }
 
-        .marca-superior{
-            font-size:27px;
-            color:#e8b363;
-            margin-bottom:4px;
-            filter:drop-shadow(0 4px 7px rgba(0,0,0,0.75));
-        }
-
-        .nombre-pequeno{
-            font-family:Georgia, "Times New Roman", serif;
+        .simbolo{
+            color:#e9b45e;
             font-size:22px;
-            color:#f0d2a0;
-            margin-bottom:-8px;
-            text-shadow:0 4px 10px rgba(0,0,0,0.85);
+            line-height:1;
+
+            text-shadow:0 3px 10px rgba(0,0,0,0.8);
         }
 
-        .nombre-principal{
+        .marca{
+            margin-top:3px;
+
             font-family:Georgia, "Times New Roman", serif;
-            font-size:60px;
+            color:#f2ce91;
+            font-size:19px;
             line-height:1;
-            color:#fff3d8;
-            text-shadow:0 6px 16px rgba(0,0,0,0.90);
+
+            text-shadow:0 3px 10px rgba(0,0,0,0.9);
+        }
+
+        .marito{
+            margin-top:-2px;
+
+            font-family:Georgia, "Times New Roman", serif;
+            color:#ffe7b8;
+            font-size:43px;
+            line-height:1;
+
+            text-shadow:0 5px 14px rgba(0,0,0,0.95);
         }
 
         .ubicacion{
-            margin-top:10px;
+            margin-top:4px;
 
-            color:#e6ae5d;
-            font-size:12px;
-            font-weight:800;
-            letter-spacing:3px;
+            color:#e6ad55;
+            font-size:9px;
+            font-weight:bold;
+            letter-spacing:2.2px;
             text-transform:uppercase;
 
-            text-shadow:0 3px 8px rgba(0,0,0,0.90);
+            text-shadow:0 3px 8px rgba(0,0,0,0.9);
         }
 
-        .descripcion{
-            margin-top:9px;
-            font-size:15px;
-            color:rgba(255,255,255,0.95);
-            text-shadow:0 3px 8px rgba(0,0,0,0.90);
+        .descripcion-marca{
+            margin-top:4px;
+
+            font-size:11px;
+
+            text-shadow:0 3px 8px rgba(0,0,0,0.95);
         }
 
         /* TÍTULO */
 
-        .titulo-seccion{
+        .titulo{
             text-align:center;
-            margin:8px 0 24px;
+            margin:10px 0 11px;
         }
 
-        .titulo-seccion h1{
+        .titulo h1{
+            color:#fff0d0;
+
             font-family:Georgia, "Times New Roman", serif;
-            font-size:43px;
-            line-height:1.1;
-            color:#fff0d2;
-            text-shadow:0 4px 12px rgba(0,0,0,0.88);
+            font-size:32px;
+            line-height:1;
+
+            text-shadow:0 4px 12px rgba(0,0,0,0.95);
         }
 
-        .titulo-seccion h1::before,
-        .titulo-seccion h1::after{
+        .titulo h1::before,
+        .titulo h1::after{
             content:"";
+
             display:inline-block;
 
-            width:32px;
+            width:24px;
             height:2px;
 
-            margin:0 11px;
+            margin:0 8px;
+
             vertical-align:middle;
 
-            background:#c96832;
+            background:#d57832;
         }
 
-        .titulo-seccion p{
-            margin-top:9px;
+        .titulo p{
+            margin-top:5px;
 
-            color:rgba(255,255,255,0.92);
-            font-size:16px;
+            font-size:12px;
+            color:rgba(255,255,255,0.93);
 
-            text-shadow:0 3px 8px rgba(0,0,0,0.90);
+            text-shadow:0 3px 8px rgba(0,0,0,0.95);
         }
 
-        /* TARJETAS */
+        /* CUADRÍCULA 2 X 3 */
 
         .categorias{
-            display:flex;
-            flex-direction:column;
-            gap:14px;
+            display:grid;
+            grid-template-columns:repeat(2, minmax(0, 1fr));
+            gap:10px;
         }
 
-        .categoria-img{
+        .categoria{
             position:relative;
 
-            width:100%;
-            height:220px;
+            height:180px;
 
             overflow:hidden;
-            border-radius:25px;
+            border-radius:18px;
 
-            border:1px solid rgba(255,219,164,0.48);
+            border:1px solid rgba(238,178,83,0.68);
 
             box-shadow:
-                0 14px 32px rgba(0,0,0,0.44),
+                0 9px 22px rgba(0,0,0,0.40),
                 inset 0 0 0 1px rgba(255,255,255,0.04);
 
             opacity:0;
 
+            animation:aparecer 0.55s ease forwards;
+
             isolation:isolate;
-
-            transition:
-                transform 0.25s ease,
-                box-shadow 0.25s ease;
         }
 
-        .categoria-img:hover{
-            transform:translateY(-4px);
-
-            box-shadow:
-                0 20px 40px rgba(0,0,0,0.56),
-                inset 0 0 0 1px rgba(255,255,255,0.08);
+        .categoria:nth-child(1){
+            animation-delay:0.05s;
         }
 
-        .categoria-img:active{
-            transform:scale(0.985);
+        .categoria:nth-child(2){
+            animation-delay:0.10s;
         }
 
-        .categoria-img img{
+        .categoria:nth-child(3){
+            animation-delay:0.15s;
+        }
+
+        .categoria:nth-child(4){
+            animation-delay:0.20s;
+        }
+
+        .categoria:nth-child(5){
+            animation-delay:0.25s;
+        }
+
+        .categoria:nth-child(6){
+            animation-delay:0.30s;
+        }
+
+        .categoria img{
             width:100%;
             height:100%;
 
-            object-fit:cover;
             display:block;
+            object-fit:cover;
 
-            transform:scale(1.01);
-
-            transition:
-                transform 0.55s ease,
-                filter 0.35s ease;
+            transition:transform 0.35s ease;
         }
 
-        .categoria-img:hover img{
-            transform:scale(1.055);
-            filter:saturate(1.08);
-        }
+        .categoria::after{
+            content:"";
 
-        /* DEGRADADO DE COLOR */
-
-        .overlay{
             position:absolute;
             inset:0;
-
-            display:flex;
-            align-items:center;
-
-            padding:24px 88px 24px 24px;
+            z-index:1;
 
             background:
                 linear-gradient(
                     90deg,
-                    rgba(44,18,10,0.97) 0%,
-                    rgba(44,18,10,0.84) 34%,
-                    rgba(44,18,10,0.30) 67%,
-                    rgba(0,0,0,0.12) 100%
+                    rgba(15,9,5,0.95) 0%,
+                    rgba(20,11,6,0.70) 48%,
+                    rgba(10,5,3,0.08) 100%
                 );
+        }
 
+        .categoria:hover img{
+            transform:scale(1.05);
+        }
+
+        .categoria:active{
+            transform:scale(0.975);
+        }
+
+        .contenido{
+            position:absolute;
+            inset:0;
             z-index:2;
+
+            display:flex;
+            flex-direction:column;
+            justify-content:flex-end;
+            align-items:flex-start;
+
+            padding:12px 42px 12px 12px;
         }
 
-        .tradicionales .overlay{
-            background:
-                linear-gradient(
-                    90deg,
-                    rgba(86,43,12,0.97) 0%,
-                    rgba(86,43,12,0.82) 34%,
-                    rgba(86,43,12,0.26) 67%,
-                    rgba(0,0,0,0.10) 100%
-                );
-        }
+        .icono{
+            width:42px;
+            height:42px;
 
-        .pastas .overlay{
-            background:
-                linear-gradient(
-                    90deg,
-                    rgba(55,57,18,0.97) 0%,
-                    rgba(55,57,18,0.82) 34%,
-                    rgba(55,57,18,0.26) 67%,
-                    rgba(0,0,0,0.10) 100%
-                );
-        }
+            margin-bottom:7px;
 
-        .entradas .overlay{
-            background:
-                linear-gradient(
-                    90deg,
-                    rgba(80,36,29,0.97) 0%,
-                    rgba(80,36,29,0.82) 34%,
-                    rgba(80,36,29,0.26) 67%,
-                    rgba(0,0,0,0.10) 100%
-                );
-        }
-
-        .postres .overlay{
-            background:
-                linear-gradient(
-                    90deg,
-                    rgba(82,37,55,0.97) 0%,
-                    rgba(82,37,55,0.82) 34%,
-                    rgba(82,37,55,0.26) 67%,
-                    rgba(0,0,0,0.10) 100%
-                );
-        }
-
-        .menu-dia .overlay{
-            background:
-                linear-gradient(
-                    90deg,
-                    rgba(7,61,58,0.97) 0%,
-                    rgba(7,61,58,0.82) 34%,
-                    rgba(7,61,58,0.26) 67%,
-                    rgba(0,0,0,0.10) 100%
-                );
-        }
-
-        /* CONTENIDO */
-
-        .categoria-contenido{
             display:flex;
             align-items:center;
-            gap:17px;
-
-            width:65%;
-        }
-
-        .categoria-icono{
-            flex-shrink:0;
-
-            width:72px;
-            height:72px;
-
-            display:flex;
             justify-content:center;
-            align-items:center;
 
+            border:1.5px solid rgba(245,197,124,0.85);
             border-radius:50%;
 
-            color:#f8d39a;
-            font-size:33px;
+            background:rgba(26,13,7,0.45);
 
-            border:2px solid rgba(255,213,151,0.82);
+            font-size:21px;
 
-            background:rgba(13,8,5,0.30);
-
-            backdrop-filter:blur(6px);
-            -webkit-backdrop-filter:blur(6px);
-
-            box-shadow:0 8px 19px rgba(0,0,0,0.25);
+            backdrop-filter:blur(5px);
+            -webkit-backdrop-filter:blur(5px);
         }
 
-        .categoria-textos{
-            min-width:0;
-        }
-
-        .categoria-titulo{
+        .categoria h2{
             font-family:Georgia, "Times New Roman", serif;
-            font-size:34px;
-            line-height:1.02;
-            color:#fff7e8;
 
-            text-shadow:0 3px 8px rgba(0,0,0,0.92);
+            color:#fff5e3;
+            font-size:22px;
+            line-height:1;
+
+            text-shadow:0 3px 8px rgba(0,0,0,0.95);
         }
 
-        .categoria-descripcion{
-            margin-top:10px;
+        .categoria p{
+            margin-top:5px;
 
-            max-width:250px;
+            max-width:150px;
 
-            color:rgba(255,255,255,0.93);
-            font-size:16px;
-            line-height:1.35;
+            font-size:11px;
+            line-height:1.25;
 
-            text-shadow:0 3px 8px rgba(0,0,0,0.92);
-        }
+            color:rgba(255,255,255,0.92);
 
-        .horario{
-            display:inline-flex;
-            align-items:center;
-            gap:6px;
-
-            margin-top:9px;
-            padding:6px 10px;
-
-            color:#ffe0a2;
-            font-size:13px;
-            font-weight:bold;
-
-            border-radius:999px;
-            border:1px solid rgba(255,219,158,0.38);
-
-            background:rgba(0,0,0,0.26);
+            text-shadow:0 3px 8px rgba(0,0,0,0.95);
         }
 
         .flecha{
             position:absolute;
+            right:9px;
+            bottom:10px;
+            z-index:3;
 
-            top:50%;
-            right:22px;
-
-            width:56px;
-            height:56px;
+            width:34px;
+            height:34px;
 
             display:flex;
-            justify-content:center;
             align-items:center;
+            justify-content:center;
 
-            transform:translateY(-50%);
-
+            border:1.5px solid rgba(255,226,178,0.90);
             border-radius:50%;
 
-            color:white;
-            font-size:37px;
-            font-weight:300;
+            background:rgba(10,6,4,0.50);
 
-            border:2px solid rgba(255,237,207,0.86);
+            font-size:25px;
+            line-height:1;
+        }
 
-            background:rgba(9,6,4,0.48);
+        .horario{
+            margin-top:5px;
+            padding:4px 7px;
 
-            backdrop-filter:blur(6px);
-            -webkit-backdrop-filter:blur(6px);
+            color:#ffdb91;
+            font-size:9px;
+            font-weight:bold;
 
-            box-shadow:0 6px 18px rgba(0,0,0,0.30);
+            border:1px solid rgba(255,213,139,0.40);
+            border-radius:999px;
+
+            background:rgba(0,0,0,0.30);
         }
 
         /* PIE */
 
-        .frase-final{
-            margin-top:29px;
+        .pie{
+            margin-top:11px;
+
             text-align:center;
 
-            font-family:Georgia, "Times New Roman", serif;
-            font-size:18px;
-            font-style:italic;
+            color:#eeb968;
 
-            color:#efc67e;
+            font-size:11px;
+            font-weight:bold;
+            letter-spacing:0.25px;
 
-            text-shadow:0 3px 8px rgba(0,0,0,0.84);
+            text-shadow:0 3px 8px rgba(0,0,0,0.9);
         }
 
-        /* ANIMACIONES */
+        /* ANIMACIÓN */
 
-        .izquierda{
-            animation:izquierda 0.75s ease forwards;
-        }
-
-        .derecha{
-            animation:derecha 0.75s ease forwards;
-        }
-
-        .delay1{
-            animation-delay:0.08s;
-        }
-
-        .delay2{
-            animation-delay:0.18s;
-        }
-
-        .delay3{
-            animation-delay:0.28s;
-        }
-
-        .delay4{
-            animation-delay:0.38s;
-        }
-
-        .delay5{
-            animation-delay:0.48s;
-        }
-
-        .delay6{
-            animation-delay:0.58s;
-        }
-
-        @keyframes izquierda{
+        @keyframes aparecer{
 
             from{
                 opacity:0;
-                transform:translateX(-45px);
+                transform:translateY(18px);
             }
 
             to{
                 opacity:1;
-                transform:translateX(0);
-            }
-
-        }
-
-        @keyframes derecha{
-
-            from{
-                opacity:0;
-                transform:translateX(45px);
-            }
-
-            to{
-                opacity:1;
-                transform:translateX(0);
+                transform:translateY(0);
             }
 
         }
@@ -525,152 +414,148 @@
         @media(max-width:600px){
 
             body{
-                padding-left:11px;
-                padding-right:11px;
                 background-attachment:scroll;
             }
 
-            .encabezado{
-                padding-top:12px;
-            }
-
-            .marca-superior{
-                font-size:25px;
-            }
-
-            .nombre-pequeno{
-                font-size:19px;
-            }
-
-            .nombre-principal{
-                font-size:49px;
-            }
-
-            .ubicacion{
-                font-size:11px;
-                letter-spacing:2px;
-            }
-
-            .descripcion{
-                font-size:13px;
-            }
-
-            .titulo-seccion{
-                margin-top:5px;
-            }
-
-            .titulo-seccion h1{
-                font-size:35px;
-            }
-
-            .titulo-seccion h1::before,
-            .titulo-seccion h1::after{
-                width:22px;
-                margin:0 7px;
-            }
-
-            .titulo-seccion p{
-                font-size:15px;
-            }
-
-            .categorias{
-                gap:12px;
-            }
-
-            .categoria-img{
-                height:185px;
-                border-radius:22px;
-            }
-
-            .overlay{
-                padding:18px 68px 18px 15px;
-            }
-
-            .categoria-contenido{
-                width:78%;
-                gap:11px;
-            }
-
-            .categoria-icono{
-                width:56px;
-                height:56px;
-                font-size:26px;
-                border-width:1.5px;
-            }
-
-            .categoria-titulo{
-                font-size:27px;
-            }
-
-            .categoria-descripcion{
-                margin-top:7px;
-                font-size:13px;
-                line-height:1.28;
-            }
-
-            .horario{
-                margin-top:7px;
-                padding:5px 8px;
-                font-size:11px;
-            }
-
-            .flecha{
-                right:13px;
-                width:47px;
-                height:47px;
-                font-size:30px;
-            }
-
-        }
-
-        @media(max-width:380px){
-
-            .nombre-principal{
-                font-size:43px;
-            }
-
-            .titulo-seccion h1{
-                font-size:30px;
-            }
-
-            .categoria-img{
+            .categoria{
                 height:170px;
             }
 
-            .overlay{
-                padding-left:11px;
-                padding-right:55px;
+        }
+
+        /* CELULARES CON PANTALLA BAJA */
+
+        @media(max-height:820px) and (max-width:600px){
+
+            .pagina{
+                padding-top:calc(8px + env(safe-area-inset-top));
             }
 
-            .categoria-contenido{
-                width:82%;
+            .volver{
+                top:calc(8px + env(safe-area-inset-top));
+
+                min-height:36px;
+
+                padding:6px 11px;
+
+                font-size:12px;
+            }
+
+            .encabezado{
+                padding-top:1px;
+            }
+
+            .simbolo{
+                font-size:18px;
+            }
+
+            .marca{
+                font-size:16px;
+            }
+
+            .marito{
+                font-size:36px;
+            }
+
+            .ubicacion{
+                margin-top:2px;
+
+                font-size:8px;
+            }
+
+            .descripcion-marca{
+                margin-top:2px;
+
+                font-size:9px;
+            }
+
+            .titulo{
+                margin:7px 0 8px;
+            }
+
+            .titulo h1{
+                font-size:27px;
+            }
+
+            .titulo p{
+                margin-top:3px;
+
+                font-size:10px;
+            }
+
+            .categorias{
                 gap:8px;
             }
 
-            .categoria-icono{
-                width:48px;
-                height:48px;
-                font-size:22px;
+            .categoria{
+                height:145px;
+                border-radius:15px;
             }
 
-            .categoria-titulo{
-                font-size:23px;
+            .contenido{
+                padding:9px 36px 9px 9px;
             }
 
-            .categoria-descripcion{
-                font-size:11px;
+            .icono{
+                width:34px;
+                height:34px;
+
+                margin-bottom:5px;
+
+                font-size:17px;
+            }
+
+            .categoria h2{
+                font-size:18px;
+            }
+
+            .categoria p{
+                margin-top:3px;
+
+                font-size:9px;
             }
 
             .flecha{
-                right:8px;
-                width:40px;
-                height:40px;
-                font-size:26px;
+                width:29px;
+                height:29px;
+
+                right:7px;
+                bottom:8px;
+
+                font-size:21px;
+            }
+
+            .horario{
+                padding:3px 5px;
+
+                font-size:8px;
+            }
+
+            .pie{
+                margin-top:7px;
+
+                font-size:9px;
             }
 
         }
 
-        /* PERSONAS QUE DESACTIVAN ANIMACIONES */
+        /* CELULARES MUY ANGOSTOS */
+
+        @media(max-width:350px){
+
+            .categoria{
+                height:145px;
+            }
+
+            .categoria h2{
+                font-size:17px;
+            }
+
+            .categoria p{
+                display:none;
+            }
+
+        }
 
         @media(prefers-reduced-motion:reduce){
 
@@ -679,7 +564,7 @@
                 transition:none !important;
             }
 
-            .categoria-img{
+            .categoria{
                 opacity:1;
             }
 
@@ -691,11 +576,11 @@
 
 <body>
 
-    <main class="contenedor">
+    <main class="pagina">
 
         <a href="/" class="volver">
 
-            <span class="volver-flecha">←</span>
+            <span>←</span>
 
             <span>Volver</span>
 
@@ -703,15 +588,15 @@
 
         <header class="encabezado">
 
-            <div class="marca-superior">
+            <div class="simbolo">
                 🌵 ⛰️ 🦙
             </div>
 
-            <div class="nombre-pequeno">
+            <div class="marca">
                 La Peña de
             </div>
 
-            <div class="nombre-principal">
+            <div class="marito">
                 Marito
             </div>
 
@@ -719,13 +604,13 @@
                 Purmamarca • Jujuy
             </div>
 
-            <div class="descripcion">
+            <div class="descripcion-marca">
                 Comida regional • Peña folclórica
             </div>
 
         </header>
 
-        <section class="titulo-seccion">
+        <section class="titulo">
 
             <h1>Categorías</h1>
 
@@ -737,272 +622,188 @@
 
         <section class="categorias">
 
-            <!-- REGIONALES -->
+            <a href="/regionales" class="categoria">
 
-            <a href="/regionales">
+                <img
+                    src="/static/categorias/regionales.jpg"
+                    alt="Platos regionales"
+                >
 
-                <article class="categoria-img regionales izquierda delay1">
+                <div class="contenido">
 
-                    <img
-                        src="/static/categorias/regionales.jpg"
-                        alt="Platos regionales"
-                    >
-
-                    <div class="overlay">
-
-                        <div class="categoria-contenido">
-
-                            <div class="categoria-icono">
-                                🦙
-                            </div>
-
-                            <div class="categoria-textos">
-
-                                <h2 class="categoria-titulo">
-                                    Platos<br>Regionales
-                                </h2>
-
-                                <p class="categoria-descripcion">
-                                    Sabores típicos del Norte Argentino
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                        <div class="flecha">
-                            ›
-                        </div>
-
+                    <div class="icono">
+                        🦙
                     </div>
 
-                </article>
+                    <h2>
+                        Platos<br>Regionales
+                    </h2>
+
+                    <p>
+                        Sabores típicos del Norte Argentino
+                    </p>
+
+                </div>
+
+                <span class="flecha">
+                    ›
+                </span>
 
             </a>
 
-            <!-- TRADICIONALES -->
+            <a href="/tradicionales" class="categoria">
 
-            <a href="/tradicionales">
+                <img
+                    src="/static/categorias/tradicionales.jpg"
+                    alt="Platos tradicionales"
+                >
 
-                <article class="categoria-img tradicionales derecha delay2">
+                <div class="contenido">
 
-                    <img
-                        src="/static/categorias/tradicionales.jpg"
-                        alt="Platos tradicionales"
-                    >
-
-                    <div class="overlay">
-
-                        <div class="categoria-contenido">
-
-                            <div class="categoria-icono">
-                                🍲
-                            </div>
-
-                            <div class="categoria-textos">
-
-                                <h2 class="categoria-titulo">
-                                    Platos<br>Tradicionales
-                                </h2>
-
-                                <p class="categoria-descripcion">
-                                    Recetas clásicas que nos representan
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                        <div class="flecha">
-                            ›
-                        </div>
-
+                    <div class="icono">
+                        🍲
                     </div>
 
-                </article>
+                    <h2>
+                        Platos<br>Tradicionales
+                    </h2>
+
+                    <p>
+                        Recetas clásicas que nos representan
+                    </p>
+
+                </div>
+
+                <span class="flecha">
+                    ›
+                </span>
 
             </a>
 
-            <!-- PASTAS -->
+            <a href="/pastas" class="categoria">
 
-            <a href="/pastas">
+                <img
+                    src="/static/categorias/pastas.jpg"
+                    alt="Pastas"
+                >
 
-                <article class="categoria-img pastas izquierda delay3">
+                <div class="contenido">
 
-                    <img
-                        src="/static/categorias/pastas.jpg"
-                        alt="Pastas"
-                    >
-
-                    <div class="overlay">
-
-                        <div class="categoria-contenido">
-
-                            <div class="categoria-icono">
-                                🍝
-                            </div>
-
-                            <div class="categoria-textos">
-
-                                <h2 class="categoria-titulo">
-                                    Pastas
-                                </h2>
-
-                                <p class="categoria-descripcion">
-                                    Preparadas especialmente para vos
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                        <div class="flecha">
-                            ›
-                        </div>
-
+                    <div class="icono">
+                        🍝
                     </div>
 
-                </article>
+                    <h2>
+                        Pastas
+                    </h2>
+
+                    <p>
+                        Preparadas especialmente para vos
+                    </p>
+
+                </div>
+
+                <span class="flecha">
+                    ›
+                </span>
 
             </a>
 
-            <!-- ENTRADAS -->
+            <a href="/entradas" class="categoria">
 
-            <a href="/entradas">
+                <img
+                    src="/static/categorias/entradas.jpg"
+                    alt="Entradas"
+                >
 
-                <article class="categoria-img entradas derecha delay4">
+                <div class="contenido">
 
-                    <img
-                        src="/static/categorias/entradas.jpg"
-                        alt="Entradas"
-                    >
-
-                    <div class="overlay">
-
-                        <div class="categoria-contenido">
-
-                            <div class="categoria-icono">
-                                🥟
-                            </div>
-
-                            <div class="categoria-textos">
-
-                                <h2 class="categoria-titulo">
-                                    Entradas
-                                </h2>
-
-                                <p class="categoria-descripcion">
-                                    Para comenzar con nuestros sabores
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                        <div class="flecha">
-                            ›
-                        </div>
-
+                    <div class="icono">
+                        🥟
                     </div>
 
-                </article>
+                    <h2>
+                        Entradas
+                    </h2>
+
+                    <p>
+                        Para comenzar con nuestros sabores
+                    </p>
+
+                </div>
+
+                <span class="flecha">
+                    ›
+                </span>
 
             </a>
 
-            <!-- POSTRES -->
+            <a href="/postres" class="categoria">
 
-            <a href="/postres">
+                <img
+                    src="/static/categorias/postres.jpg"
+                    alt="Postres"
+                >
 
-                <article class="categoria-img postres izquierda delay5">
+                <div class="contenido">
 
-                    <img
-                        src="/static/categorias/postres.jpg"
-                        alt="Postres"
-                    >
-
-                    <div class="overlay">
-
-                        <div class="categoria-contenido">
-
-                            <div class="categoria-icono">
-                                🍰
-                            </div>
-
-                            <div class="categoria-textos">
-
-                                <h2 class="categoria-titulo">
-                                    Postres
-                                </h2>
-
-                                <p class="categoria-descripcion">
-                                    El broche de oro para tu experiencia
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                        <div class="flecha">
-                            ›
-                        </div>
-
+                    <div class="icono">
+                        🍰
                     </div>
 
-                </article>
+                    <h2>
+                        Postres
+                    </h2>
+
+                    <p>
+                        El broche de oro para tu experiencia
+                    </p>
+
+                </div>
+
+                <span class="flecha">
+                    ›
+                </span>
 
             </a>
 
-            <!-- MENÚ DEL DÍA -->
+            <a href="/menu-dia" class="categoria">
 
-            <a href="/menu-dia">
+                <img
+                    src="/static/categorias/menu.jpg"
+                    alt="Menú del día"
+                >
 
-                <article class="categoria-img menu-dia derecha delay6">
+                <div class="contenido">
 
-                    <img
-                        src="/static/categorias/menu.jpg"
-                        alt="Menú del día"
-                    >
-
-                    <div class="overlay">
-
-                        <div class="categoria-contenido">
-
-                            <div class="categoria-icono">
-                                🍽️
-                            </div>
-
-                            <div class="categoria-textos">
-
-                                <h2 class="categoria-titulo">
-                                    Menú<br>del Día
-                                </h2>
-
-                                <p class="categoria-descripcion">
-                                    Una opción especial para disfrutar
-                                </p>
-
-                                <div class="horario">
-                                    🕚 11:00 a 16:00
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="flecha">
-                            ›
-                        </div>
-
+                    <div class="icono">
+                        🍽️
                     </div>
 
-                </article>
+                    <h2>
+                        Menú<br>del Día
+                    </h2>
+
+                    <p>
+                        Una opción especial para disfrutar
+                    </p>
+
+                    <div class="horario">
+                        🕚 11:00 a 16:00
+                    </div>
+
+                </div>
+
+                <span class="flecha">
+                    ›
+                </span>
 
             </a>
 
         </section>
 
-        <footer class="frase-final">
-            Viví Purmamarca, viví la Peña.
+        <footer class="pie">
+            🎵 Música en vivo • Comida regional • Tradición jujeña 🎵
         </footer>
 
     </main>
