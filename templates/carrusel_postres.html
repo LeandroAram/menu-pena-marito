@@ -27,6 +27,10 @@
             font-family: Arial, Helvetica, sans-serif;
         }
 
+        button {
+            font-family: inherit;
+        }
+
         .carrusel {
             position: relative;
             width: 100%;
@@ -35,7 +39,9 @@
             background: #080605;
         }
 
-        /* IMAGEN PRINCIPAL */
+        /* =====================================
+           IMAGEN PRINCIPAL
+        ===================================== */
 
         .imagen-principal {
             position: absolute;
@@ -67,24 +73,28 @@
             }
         }
 
-        /* CAPAS OSCURAS */
+        /* =====================================
+           CAPAS OSCURAS
+        ===================================== */
 
         .capa-oscura {
             position: absolute;
             inset: 0;
 
+            pointer-events: none;
+
             background:
                 linear-gradient(
                     90deg,
                     rgba(0, 0, 0, 0.92) 0%,
-                    rgba(0, 0, 0, 0.70) 25%,
-                    rgba(0, 0, 0, 0.15) 58%,
+                    rgba(0, 0, 0, 0.72) 25%,
+                    rgba(0, 0, 0, 0.16) 58%,
                     rgba(0, 0, 0, 0.06) 100%
                 ),
                 linear-gradient(
                     0deg,
-                    rgba(0, 0, 0, 0.92) 0%,
-                    transparent 42%
+                    rgba(0, 0, 0, 0.94) 0%,
+                    transparent 43%
                 );
         }
 
@@ -92,15 +102,19 @@
             position: absolute;
             inset: 0;
 
+            pointer-events: none;
+
             background:
                 linear-gradient(
                     180deg,
-                    rgba(0, 0, 0, 0.48) 0%,
+                    rgba(0, 0, 0, 0.52) 0%,
                     transparent 30%
                 );
         }
 
-        /* MARCA */
+        /* =====================================
+           MARCA
+        ===================================== */
 
         .marca {
             position: absolute;
@@ -111,7 +125,7 @@
             color: white;
 
             text-shadow:
-                0 3px 15px rgba(0, 0, 0, 0.8);
+                0 3px 15px rgba(0, 0, 0, 0.85);
         }
 
         .marca-superior {
@@ -144,7 +158,9 @@
             letter-spacing: 3px;
         }
 
-        /* TÍTULO SUPERIOR */
+        /* =====================================
+           TÍTULO SUPERIOR
+        ===================================== */
 
         .titulo-superior {
             position: absolute;
@@ -155,8 +171,12 @@
             color: #efbd4d;
 
             font-size: 18px;
+            font-weight: bold;
             letter-spacing: 3px;
             text-transform: uppercase;
+
+            text-shadow:
+                0 3px 12px rgba(0, 0, 0, 0.8);
         }
 
         .titulo-superior::after {
@@ -178,7 +198,66 @@
                 );
         }
 
-        /* NOMBRE DEL POSTRE */
+        /* =====================================
+           BOTÓN PANTALLA COMPLETA
+        ===================================== */
+
+        .boton-pantalla-completa {
+            position: absolute;
+            top: 105px;
+            right: 55px;
+            z-index: 100;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+            min-width: 235px;
+            min-height: 54px;
+
+            padding: 13px 24px;
+
+            border: 2px solid #efbd4d;
+            border-radius: 30px;
+
+            color: #efbd4d;
+            background: rgba(0, 0, 0, 0.82);
+
+            font-size: 15px;
+            font-weight: bold;
+            letter-spacing: 1px;
+
+            cursor: pointer;
+
+            backdrop-filter: blur(7px);
+            -webkit-backdrop-filter: blur(7px);
+
+            box-shadow:
+                0 5px 25px rgba(0, 0, 0, 0.55);
+
+            transition:
+                background 0.25s ease,
+                color 0.25s ease,
+                transform 0.25s ease;
+        }
+
+        .boton-pantalla-completa:hover,
+        .boton-pantalla-completa:focus {
+            color: #17100b;
+            background: #efbd4d;
+            transform: scale(1.05);
+            outline: 4px solid white;
+            outline-offset: 3px;
+        }
+
+        .boton-pantalla-completa.oculto {
+            display: none;
+        }
+
+        /* =====================================
+           INFORMACIÓN DEL POSTRE
+        ===================================== */
 
         .informacion {
             position: absolute;
@@ -197,6 +276,7 @@
             color: #efbd4d;
 
             font-size: 19px;
+            font-weight: bold;
             letter-spacing: 2px;
             text-transform: uppercase;
         }
@@ -210,7 +290,7 @@
             line-height: 1.05;
 
             text-shadow:
-                0 4px 20px rgba(0, 0, 0, 0.8);
+                0 4px 20px rgba(0, 0, 0, 0.85);
         }
 
         .nombre-postre.animando {
@@ -256,7 +336,9 @@
             }
         }
 
-        /* FLECHAS */
+        /* =====================================
+           FLECHAS
+        ===================================== */
 
         .flecha {
             position: absolute;
@@ -274,7 +356,7 @@
             border-radius: 50%;
 
             color: #efbd4d;
-            background: rgba(0, 0, 0, 0.25);
+            background: rgba(0, 0, 0, 0.28);
 
             font-size: 43px;
             line-height: 1;
@@ -282,6 +364,7 @@
             cursor: pointer;
 
             backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
 
             transition:
                 transform 0.25s ease,
@@ -289,10 +372,13 @@
                 background 0.25s ease;
         }
 
-        .flecha:hover {
+        .flecha:hover,
+        .flecha:focus {
             color: #17100b;
             background: #efbd4d;
             transform: scale(1.08);
+            outline: 4px solid white;
+            outline-offset: 3px;
         }
 
         .flecha-anterior {
@@ -303,7 +389,9 @@
             right: 28px;
         }
 
-        /* MINIATURAS */
+        /* =====================================
+           MINIATURAS
+        ===================================== */
 
         .miniaturas {
             position: absolute;
@@ -327,7 +415,7 @@
             color: white;
             text-align: center;
 
-            opacity: 0.66;
+            opacity: 0.68;
             cursor: pointer;
 
             transition:
@@ -335,9 +423,11 @@
                 transform 0.3s ease;
         }
 
-        .miniatura:hover {
+        .miniatura:hover,
+        .miniatura:focus {
             opacity: 1;
             transform: translateY(-7px);
+            outline: none;
         }
 
         .miniatura-imagen {
@@ -369,7 +459,7 @@
             transform: scale(1.08);
 
             box-shadow:
-                0 5px 25px rgba(0, 0, 0, 0.8);
+                0 5px 25px rgba(0, 0, 0, 0.85);
         }
 
         .miniatura-nombre {
@@ -378,6 +468,7 @@
             margin-top: 11px;
 
             font-size: 13px;
+            font-weight: bold;
             line-height: 1.2;
 
             text-shadow:
@@ -388,7 +479,9 @@
             color: #f8d681;
         }
 
-        /* PUNTOS */
+        /* =====================================
+           INDICADORES
+        ===================================== */
 
         .indicadores {
             position: absolute;
@@ -409,7 +502,7 @@
             border: none;
             border-radius: 50%;
 
-            background: rgba(255, 255, 255, 0.40);
+            background: rgba(255, 255, 255, 0.42);
 
             cursor: pointer;
 
@@ -427,7 +520,61 @@
             background: #efbd4d;
         }
 
-        /* ADAPTACIÓN */
+        /* =====================================
+           MENSAJE DE ERROR DE PANTALLA COMPLETA
+        ===================================== */
+
+        .mensaje-pantalla {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            z-index: 9999;
+
+            display: none;
+
+            width: min(520px, 85%);
+
+            padding: 25px;
+
+            border: 2px solid #efbd4d;
+            border-radius: 18px;
+
+            color: white;
+            background: rgba(0, 0, 0, 0.94);
+
+            text-align: center;
+            font-size: 18px;
+            line-height: 1.5;
+
+            transform: translate(-50%, -50%);
+
+            box-shadow:
+                0 10px 50px rgba(0, 0, 0, 0.8);
+        }
+
+        .mensaje-pantalla.visible {
+            display: block;
+        }
+
+        .cerrar-mensaje {
+            margin-top: 18px;
+            padding: 10px 25px;
+
+            border: none;
+            border-radius: 20px;
+
+            color: #17100b;
+            background: #efbd4d;
+
+            font-size: 16px;
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        /* =====================================
+           PANTALLAS MEDIANAS
+        ===================================== */
 
         @media (max-width: 1050px) {
             .miniaturas {
@@ -447,7 +594,17 @@
             .miniatura-nombre {
                 display: none;
             }
+
+            .boton-pantalla-completa {
+                right: 25px;
+                min-width: 205px;
+                font-size: 13px;
+            }
         }
+
+        /* =====================================
+           CELULARES
+        ===================================== */
 
         @media (max-width: 700px) {
             .marca {
@@ -461,6 +618,18 @@
 
             .titulo-superior {
                 display: none;
+            }
+
+            .boton-pantalla-completa {
+                top: 25px;
+                right: 20px;
+
+                min-width: auto;
+                min-height: 45px;
+
+                padding: 10px 16px;
+
+                font-size: 12px;
             }
 
             .informacion {
@@ -515,7 +684,12 @@
 
 <body>
 
-    <main class="carrusel">
+    <main
+        id="carrusel"
+        class="carrusel"
+    >
+
+        <!-- IMAGEN PRINCIPAL -->
 
         <img
             id="imagenPrincipal"
@@ -527,7 +701,10 @@
         <div class="capa-oscura"></div>
         <div class="capa-superior"></div>
 
+        <!-- MARCA -->
+
         <div class="marca">
+
             <span class="marca-superior">
                 La Peña de
             </span>
@@ -539,11 +716,26 @@
             <span class="marca-lugar">
                 PURMAMARCA
             </span>
+
         </div>
+
+        <!-- TÍTULO -->
 
         <div class="titulo-superior">
             Carrusel de postres
         </div>
+
+        <!-- BOTÓN PANTALLA COMPLETA -->
+
+        <button
+            id="botonPantallaCompleta"
+            class="boton-pantalla-completa"
+            type="button"
+        >
+            ⛶ PANTALLA COMPLETA
+        </button>
+
+        <!-- INFORMACIÓN -->
 
         <section class="informacion">
 
@@ -565,9 +757,12 @@
 
         </section>
 
+        <!-- FLECHAS -->
+
         <button
             id="anterior"
             class="flecha flecha-anterior"
+            type="button"
             aria-label="Postre anterior"
         >
             ‹
@@ -576,15 +771,20 @@
         <button
             id="siguiente"
             class="flecha flecha-siguiente"
+            type="button"
             aria-label="Siguiente postre"
         >
             ›
         </button>
 
+        <!-- MINIATURAS -->
+
         <div
             id="miniaturas"
             class="miniaturas"
         ></div>
+
+        <!-- PUNTOS -->
 
         <div
             id="indicadores"
@@ -592,6 +792,26 @@
         ></div>
 
     </main>
+
+    <!-- MENSAJE SI EL NAVEGADOR NO PERMITE PANTALLA COMPLETA -->
+
+    <div
+        id="mensajePantalla"
+        class="mensaje-pantalla"
+    >
+        <p>
+            Este navegador de la televisión no permitió activar
+            la pantalla completa.
+        </p>
+
+        <button
+            id="cerrarMensaje"
+            class="cerrar-mensaje"
+            type="button"
+        >
+            Cerrar
+        </button>
+    </div>
 
     <script>
         const postres = [
@@ -632,6 +852,9 @@
             }
         ];
 
+        const carrusel =
+            document.getElementById("carrusel");
+
         const imagenPrincipal =
             document.getElementById("imagenPrincipal");
 
@@ -653,17 +876,33 @@
         const botonSiguiente =
             document.getElementById("siguiente");
 
+        const botonPantallaCompleta =
+            document.getElementById("botonPantallaCompleta");
+
+        const mensajePantalla =
+            document.getElementById("mensajePantalla");
+
+        const cerrarMensaje =
+            document.getElementById("cerrarMensaje");
+
         let indiceActual = 0;
         let temporizador;
 
         const duracion = 5500;
 
+
+        /* =====================================
+           CREAR MINIATURAS Y PUNTOS
+        ===================================== */
+
         function crearControles() {
             postres.forEach((postre, indice) => {
+
                 const miniatura =
                     document.createElement("div");
 
                 miniatura.className = "miniatura";
+                miniatura.tabIndex = 0;
 
                 if (indice === 0) {
                     miniatura.classList.add("activa");
@@ -686,12 +925,24 @@
                     reiniciarTemporizador();
                 });
 
+                miniatura.addEventListener("keydown", (evento) => {
+                    if (
+                        evento.key === "Enter" ||
+                        evento.key === " "
+                    ) {
+                        mostrarPostre(indice);
+                        reiniciarTemporizador();
+                    }
+                });
+
                 contenedorMiniaturas.appendChild(miniatura);
+
 
                 const punto =
                     document.createElement("button");
 
                 punto.className = "punto";
+                punto.type = "button";
 
                 if (indice === 0) {
                     punto.classList.add("activo");
@@ -711,6 +962,11 @@
             });
         }
 
+
+        /* =====================================
+           REINICIAR ANIMACIONES
+        ===================================== */
+
         function reiniciarAnimaciones() {
             imagenPrincipal.classList.remove("animando");
             nombrePostre.classList.remove("animando");
@@ -722,6 +978,11 @@
             nombrePostre.classList.add("animando");
             lineaDorada.classList.add("animando");
         }
+
+
+        /* =====================================
+           MOSTRAR POSTRE
+        ===================================== */
 
         function mostrarPostre(nuevoIndice) {
             const miniaturas =
@@ -763,44 +1024,61 @@
                 reiniciarAnimaciones();
 
                 imagenPrincipal.style.opacity = "1";
+
             }, 350);
         }
+
 
         function siguientePostre() {
             mostrarPostre(indiceActual + 1);
         }
 
+
         function anteriorPostre() {
             mostrarPostre(indiceActual - 1);
         }
 
+
+        /* =====================================
+           TEMPORIZADOR AUTOMÁTICO
+        ===================================== */
+
         function iniciarTemporizador() {
+            detenerTemporizador();
+
             temporizador = setInterval(
                 siguientePostre,
                 duracion
             );
         }
 
+
         function detenerTemporizador() {
-            clearInterval(temporizador);
+            if (temporizador) {
+                clearInterval(temporizador);
+            }
         }
 
+
         function reiniciarTemporizador() {
-            detenerTemporizador();
             iniciarTemporizador();
         }
+
 
         botonSiguiente.addEventListener("click", () => {
             siguientePostre();
             reiniciarTemporizador();
         });
 
+
         botonAnterior.addEventListener("click", () => {
             anteriorPostre();
             reiniciarTemporizador();
         });
 
+
         document.addEventListener("keydown", (evento) => {
+
             if (evento.key === "ArrowRight") {
                 siguientePostre();
                 reiniciarTemporizador();
@@ -810,7 +1088,92 @@
                 anteriorPostre();
                 reiniciarTemporizador();
             }
+
+            if (
+                evento.key === "f" ||
+                evento.key === "F"
+            ) {
+                activarPantallaCompleta();
+            }
         });
+
+
+        /* =====================================
+           PANTALLA COMPLETA
+        ===================================== */
+
+        function estaEnPantallaCompleta() {
+            return Boolean(
+                document.fullscreenElement ||
+                document.webkitFullscreenElement ||
+                document.msFullscreenElement
+            );
+        }
+
+
+        async function activarPantallaCompleta() {
+            try {
+                if (carrusel.requestFullscreen) {
+                    await carrusel.requestFullscreen();
+
+                } else if (carrusel.webkitRequestFullscreen) {
+                    carrusel.webkitRequestFullscreen();
+
+                } else if (carrusel.msRequestFullscreen) {
+                    carrusel.msRequestFullscreen();
+
+                } else {
+                    mensajePantalla.classList.add("visible");
+                    return;
+                }
+
+            } catch (error) {
+                mensajePantalla.classList.add("visible");
+            }
+        }
+
+
+        function actualizarBotonPantallaCompleta() {
+            if (estaEnPantallaCompleta()) {
+                botonPantallaCompleta.classList.add("oculto");
+            } else {
+                botonPantallaCompleta.classList.remove("oculto");
+            }
+        }
+
+
+        botonPantallaCompleta.addEventListener(
+            "click",
+            activarPantallaCompleta
+        );
+
+
+        document.addEventListener(
+            "fullscreenchange",
+            actualizarBotonPantallaCompleta
+        );
+
+
+        document.addEventListener(
+            "webkitfullscreenchange",
+            actualizarBotonPantallaCompleta
+        );
+
+
+        document.addEventListener(
+            "MSFullscreenChange",
+            actualizarBotonPantallaCompleta
+        );
+
+
+        cerrarMensaje.addEventListener("click", () => {
+            mensajePantalla.classList.remove("visible");
+        });
+
+
+        /* =====================================
+           INICIAR
+        ===================================== */
 
         crearControles();
         iniciarTemporizador();
