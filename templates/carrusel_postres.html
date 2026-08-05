@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Carrusel de Postres</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: #080605;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .carrusel {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            background: #080605;
+        }
+
+        /* IMAGEN PRINCIPAL */
+
+        .imagen-principal {
+            position: absolute;
+            inset: 0;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+            object-position: center;
+
+            opacity: 1;
+            transform: scale(1);
+
+            transition: opacity 0.7s ease;
+        }
+
+        .imagen-principal.animando {
+            animation: acercamiento 5.5s linear forwards;
+        }
+
+        @keyframes acercamiento {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.07);
+            }
+        }
+
+        /* CAPAS OSCURAS */
+
+        .capa-oscura {
+            position: absolute;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(0, 0, 0, 0.92) 0%,
+                    rgba(0, 0, 0, 0.70) 25%,
+                    rgba(0, 0, 0, 0.15) 58%,
+                    rgba(0, 0, 0, 0.06) 100%
+                ),
+                linear-gradient(
+                    0deg,
+                    rgba(0, 0, 0, 0.92) 0%,
+                    transparent 42%
+                );
+        }
+
+        .capa-superior {
+            position: absolute;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(0, 0, 0, 0.48) 0%,
+                    transparent 30%
+                );
+        }
+
+        /* MARCA */
+
+        .marca {
+            position: absolute;
+            top: 35px;
+            left: 55px;
+            z-index: 10;
+
+            color: white;
+
+            text-shadow:
+                0 3px 15px rgba(0, 0, 0, 0.8);
+        }
+
+        .marca-superior {
+            display: block;
+
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 21px;
+            font-weight: bold;
+        }
+
+        .marca-principal {
+            display: block;
+
+            margin-top: -4px;
+
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 52px;
+            font-style: italic;
+            font-weight: bold;
+            line-height: 1;
+        }
+
+        .marca-lugar {
+            display: block;
+
+            margin-top: 8px;
+
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        /* TÍTULO SUPERIOR */
+
+        .titulo-superior {
+            position: absolute;
+            top: 46px;
+            right: 55px;
+            z-index: 10;
+
+            color: #efbd4d;
+
+            font-size: 18px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .titulo-superior::after {
+            content: "";
+
+            display: block;
+
+            width: 100%;
+            height: 2px;
+
+            margin-top: 11px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    #efbd4d,
+                    transparent
+                );
+        }
+
+        /* NOMBRE DEL POSTRE */
+
+        .informacion {
+            position: absolute;
+            top: 48%;
+            left: 8%;
+            z-index: 10;
+
+            width: min(570px, 42vw);
+
+            transform: translateY(-50%);
+        }
+
+        .categoria {
+            margin-bottom: 15px;
+
+            color: #efbd4d;
+
+            font-size: 19px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .nombre-postre {
+            color: white;
+
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(43px, 5vw, 76px);
+            font-weight: bold;
+            line-height: 1.05;
+
+            text-shadow:
+                0 4px 20px rgba(0, 0, 0, 0.8);
+        }
+
+        .nombre-postre.animando {
+            animation: aparecerNombre 0.9s ease forwards;
+        }
+
+        @keyframes aparecerNombre {
+            from {
+                opacity: 0;
+                transform: translateY(35px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .linea-dorada {
+            width: 130px;
+            height: 4px;
+
+            margin-top: 28px;
+
+            background: #efbd4d;
+
+            transform-origin: left;
+        }
+
+        .linea-dorada.animando {
+            animation: aparecerLinea 0.9s ease 0.25s both;
+        }
+
+        @keyframes aparecerLinea {
+            from {
+                opacity: 0;
+                transform: scaleX(0);
+            }
+
+            to {
+                opacity: 1;
+                transform: scaleX(1);
+            }
+        }
+
+        /* FLECHAS */
+
+        .flecha {
+            position: absolute;
+            top: 47%;
+            z-index: 20;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 70px;
+            height: 70px;
+
+            border: 2px solid #efbd4d;
+            border-radius: 50%;
+
+            color: #efbd4d;
+            background: rgba(0, 0, 0, 0.25);
+
+            font-size: 43px;
+            line-height: 1;
+
+            cursor: pointer;
+
+            backdrop-filter: blur(5px);
+
+            transition:
+                transform 0.25s ease,
+                color 0.25s ease,
+                background 0.25s ease;
+        }
+
+        .flecha:hover {
+            color: #17100b;
+            background: #efbd4d;
+            transform: scale(1.08);
+        }
+
+        .flecha-anterior {
+            left: 28px;
+        }
+
+        .flecha-siguiente {
+            right: 28px;
+        }
+
+        /* MINIATURAS */
+
+        .miniaturas {
+            position: absolute;
+            left: 50%;
+            bottom: 48px;
+            z-index: 20;
+
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+
+            width: calc(100% - 170px);
+
+            transform: translateX(-50%);
+        }
+
+        .miniatura {
+            width: 130px;
+
+            color: white;
+            text-align: center;
+
+            opacity: 0.66;
+            cursor: pointer;
+
+            transition:
+                opacity 0.3s ease,
+                transform 0.3s ease;
+        }
+
+        .miniatura:hover {
+            opacity: 1;
+            transform: translateY(-7px);
+        }
+
+        .miniatura-imagen {
+            display: block;
+
+            width: 94px;
+            height: 94px;
+
+            margin: auto;
+
+            object-fit: cover;
+
+            border: 2px solid rgba(239, 189, 77, 0.55);
+            border-radius: 50%;
+
+            transition:
+                border 0.3s ease,
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .miniatura.activa {
+            opacity: 1;
+        }
+
+        .miniatura.activa .miniatura-imagen {
+            border: 4px solid #efbd4d;
+
+            transform: scale(1.08);
+
+            box-shadow:
+                0 5px 25px rgba(0, 0, 0, 0.8);
+        }
+
+        .miniatura-nombre {
+            display: block;
+
+            margin-top: 11px;
+
+            font-size: 13px;
+            line-height: 1.2;
+
+            text-shadow:
+                0 2px 8px black;
+        }
+
+        .miniatura.activa .miniatura-nombre {
+            color: #f8d681;
+        }
+
+        /* PUNTOS */
+
+        .indicadores {
+            position: absolute;
+            left: 50%;
+            bottom: 17px;
+            z-index: 20;
+
+            display: flex;
+            gap: 9px;
+
+            transform: translateX(-50%);
+        }
+
+        .punto {
+            width: 10px;
+            height: 10px;
+
+            border: none;
+            border-radius: 50%;
+
+            background: rgba(255, 255, 255, 0.40);
+
+            cursor: pointer;
+
+            transition:
+                width 0.3s ease,
+                background 0.3s ease,
+                border-radius 0.3s ease;
+        }
+
+        .punto.activo {
+            width: 28px;
+
+            border-radius: 8px;
+
+            background: #efbd4d;
+        }
+
+        /* ADAPTACIÓN */
+
+        @media (max-width: 1050px) {
+            .miniaturas {
+                gap: 10px;
+                width: calc(100% - 80px);
+            }
+
+            .miniatura {
+                width: 92px;
+            }
+
+            .miniatura-imagen {
+                width: 72px;
+                height: 72px;
+            }
+
+            .miniatura-nombre {
+                display: none;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .marca {
+                top: 25px;
+                left: 24px;
+            }
+
+            .marca-principal {
+                font-size: 40px;
+            }
+
+            .titulo-superior {
+                display: none;
+            }
+
+            .informacion {
+                top: 56%;
+                left: 12%;
+
+                width: 75%;
+            }
+
+            .nombre-postre {
+                font-size: 42px;
+            }
+
+            .flecha {
+                width: 50px;
+                height: 50px;
+
+                font-size: 30px;
+            }
+
+            .flecha-anterior {
+                left: 12px;
+            }
+
+            .flecha-siguiente {
+                right: 12px;
+            }
+
+            .miniaturas {
+                bottom: 30px;
+
+                justify-content: flex-start;
+
+                overflow-x: auto;
+            }
+
+            .miniatura {
+                flex: 0 0 70px;
+            }
+
+            .miniatura-imagen {
+                width: 60px;
+                height: 60px;
+            }
+
+            .indicadores {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="carrusel">
+
+        <img
+            id="imagenPrincipal"
+            class="imagen-principal animando"
+            src="{{ url_for('static', filename='carrusel_postres/pera_malbec.png') }}"
+            alt="Pera al Malbec con helado de cayote"
+        >
+
+        <div class="capa-oscura"></div>
+        <div class="capa-superior"></div>
+
+        <div class="marca">
+            <span class="marca-superior">
+                La Peña de
+            </span>
+
+            <span class="marca-principal">
+                Marito
+            </span>
+
+            <span class="marca-lugar">
+                PURMAMARCA
+            </span>
+        </div>
+
+        <div class="titulo-superior">
+            Carrusel de postres
+        </div>
+
+        <section class="informacion">
+
+            <p class="categoria">
+                Postres
+            </p>
+
+            <h1
+                id="nombrePostre"
+                class="nombre-postre animando"
+            >
+                Pera al Malbec con helado de cayote
+            </h1>
+
+            <div
+                id="lineaDorada"
+                class="linea-dorada animando"
+            ></div>
+
+        </section>
+
+        <button
+            id="anterior"
+            class="flecha flecha-anterior"
+            aria-label="Postre anterior"
+        >
+            ‹
+        </button>
+
+        <button
+            id="siguiente"
+            class="flecha flecha-siguiente"
+            aria-label="Siguiente postre"
+        >
+            ›
+        </button>
+
+        <div
+            id="miniaturas"
+            class="miniaturas"
+        ></div>
+
+        <div
+            id="indicadores"
+            class="indicadores"
+        ></div>
+
+    </main>
+
+    <script>
+        const postres = [
+            {
+                nombre: "Pera al Malbec con helado de cayote",
+                nombreCorto: "Pera al Malbec",
+                imagen: "{{ url_for('static', filename='carrusel_postres/pera_malbec.png') }}"
+            },
+            {
+                nombre: "Quesillo con cayote y nueces",
+                nombreCorto: "Quesillo con cayote",
+                imagen: "{{ url_for('static', filename='carrusel_postres/quesillo_cayote.png') }}"
+            },
+            {
+                nombre: "Helado de cayote con nueces",
+                nombreCorto: "Helado de cayote",
+                imagen: "{{ url_for('static', filename='carrusel_postres/helado_cayote_nueces.png') }}"
+            },
+            {
+                nombre: "Flan de quinoa",
+                nombreCorto: "Flan de quinoa",
+                imagen: "{{ url_for('static', filename='carrusel_postres/flan_quinoa.png') }}"
+            },
+            {
+                nombre: "Helado de chocolate",
+                nombreCorto: "Helado de chocolate",
+                imagen: "{{ url_for('static', filename='carrusel_postres/helado_chocolate.png') }}"
+            },
+            {
+                nombre: "Helado de cereza",
+                nombreCorto: "Helado de cereza",
+                imagen: "{{ url_for('static', filename='carrusel_postres/helado_cereza.png') }}"
+            },
+            {
+                nombre: "Helado de chocolate y cereza",
+                nombreCorto: "Chocolate y cereza",
+                imagen: "{{ url_for('static', filename='carrusel_postres/helado_chocolate_cereza.png') }}"
+            }
+        ];
+
+        const imagenPrincipal =
+            document.getElementById("imagenPrincipal");
+
+        const nombrePostre =
+            document.getElementById("nombrePostre");
+
+        const lineaDorada =
+            document.getElementById("lineaDorada");
+
+        const contenedorMiniaturas =
+            document.getElementById("miniaturas");
+
+        const contenedorIndicadores =
+            document.getElementById("indicadores");
+
+        const botonAnterior =
+            document.getElementById("anterior");
+
+        const botonSiguiente =
+            document.getElementById("siguiente");
+
+        let indiceActual = 0;
+        let temporizador;
+
+        const duracion = 5500;
+
+        function crearControles() {
+            postres.forEach((postre, indice) => {
+                const miniatura =
+                    document.createElement("div");
+
+                miniatura.className = "miniatura";
+
+                if (indice === 0) {
+                    miniatura.classList.add("activa");
+                }
+
+                miniatura.innerHTML = `
+                    <img
+                        class="miniatura-imagen"
+                        src="${postre.imagen}"
+                        alt="${postre.nombre}"
+                    >
+
+                    <span class="miniatura-nombre">
+                        ${postre.nombreCorto}
+                    </span>
+                `;
+
+                miniatura.addEventListener("click", () => {
+                    mostrarPostre(indice);
+                    reiniciarTemporizador();
+                });
+
+                contenedorMiniaturas.appendChild(miniatura);
+
+                const punto =
+                    document.createElement("button");
+
+                punto.className = "punto";
+
+                if (indice === 0) {
+                    punto.classList.add("activo");
+                }
+
+                punto.setAttribute(
+                    "aria-label",
+                    `Mostrar ${postre.nombre}`
+                );
+
+                punto.addEventListener("click", () => {
+                    mostrarPostre(indice);
+                    reiniciarTemporizador();
+                });
+
+                contenedorIndicadores.appendChild(punto);
+            });
+        }
+
+        function reiniciarAnimaciones() {
+            imagenPrincipal.classList.remove("animando");
+            nombrePostre.classList.remove("animando");
+            lineaDorada.classList.remove("animando");
+
+            void imagenPrincipal.offsetWidth;
+
+            imagenPrincipal.classList.add("animando");
+            nombrePostre.classList.add("animando");
+            lineaDorada.classList.add("animando");
+        }
+
+        function mostrarPostre(nuevoIndice) {
+            const miniaturas =
+                document.querySelectorAll(".miniatura");
+
+            const puntos =
+                document.querySelectorAll(".punto");
+
+            indiceActual =
+                (nuevoIndice + postres.length) %
+                postres.length;
+
+            imagenPrincipal.style.opacity = "0";
+
+            setTimeout(() => {
+                imagenPrincipal.src =
+                    postres[indiceActual].imagen;
+
+                imagenPrincipal.alt =
+                    postres[indiceActual].nombre;
+
+                nombrePostre.textContent =
+                    postres[indiceActual].nombre;
+
+                miniaturas.forEach((miniatura) => {
+                    miniatura.classList.remove("activa");
+                });
+
+                puntos.forEach((punto) => {
+                    punto.classList.remove("activo");
+                });
+
+                miniaturas[indiceActual]
+                    .classList.add("activa");
+
+                puntos[indiceActual]
+                    .classList.add("activo");
+
+                reiniciarAnimaciones();
+
+                imagenPrincipal.style.opacity = "1";
+            }, 350);
+        }
+
+        function siguientePostre() {
+            mostrarPostre(indiceActual + 1);
+        }
+
+        function anteriorPostre() {
+            mostrarPostre(indiceActual - 1);
+        }
+
+        function iniciarTemporizador() {
+            temporizador = setInterval(
+                siguientePostre,
+                duracion
+            );
+        }
+
+        function detenerTemporizador() {
+            clearInterval(temporizador);
+        }
+
+        function reiniciarTemporizador() {
+            detenerTemporizador();
+            iniciarTemporizador();
+        }
+
+        botonSiguiente.addEventListener("click", () => {
+            siguientePostre();
+            reiniciarTemporizador();
+        });
+
+        botonAnterior.addEventListener("click", () => {
+            anteriorPostre();
+            reiniciarTemporizador();
+        });
+
+        document.addEventListener("keydown", (evento) => {
+            if (evento.key === "ArrowRight") {
+                siguientePostre();
+                reiniciarTemporizador();
+            }
+
+            if (evento.key === "ArrowLeft") {
+                anteriorPostre();
+                reiniciarTemporizador();
+            }
+        });
+
+        crearControles();
+        iniciarTemporizador();
+    </script>
+
+</body>
+
+</html>
