@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 import os
 
+
 app = Flask(__name__)
 
 
@@ -176,6 +177,15 @@ def menu_dia_fr():
 @app.route('/carrusel-postres')
 def carrusel_postres():
     return render_template('carrusel_postres.html')
+
+
+# =========================
+# CARRUSEL DE REGIONALES
+# =========================
+
+@app.route('/carrusel-regionales')
+def carrusel_regionales():
+    return render_template('carrusel_regionales.html')
 
 
 # =========================
