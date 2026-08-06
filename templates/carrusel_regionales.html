@@ -23,9 +23,7 @@
             width: 100%;
             height: 100%;
             overflow: hidden;
-
             background: #090705;
-
             font-family: Arial, Helvetica, sans-serif;
         }
 
@@ -33,18 +31,11 @@
             font-family: inherit;
         }
 
-        /* =========================================
-           CARRUSEL GENERAL
-        ========================================= */
-
         .carrusel {
             position: relative;
-
             width: 100%;
             height: 100vh;
-
             overflow: hidden;
-
             background: #090705;
         }
 
@@ -70,40 +61,34 @@
             transform: scale(1.08);
 
             opacity: 1;
-
             transition: opacity 0.8s ease;
         }
 
         /* =========================================
-           IMAGEN PRINCIPAL
+           IMAGEN PRINCIPAL MÁS CENTRADA
         ========================================= */
 
         .contenedor-imagen {
             position: absolute;
-            top: 0;
-            right: 0;
-
-            width: 72%;
-            height: 100%;
+            inset: 0;
+            z-index: 10;
 
             display: flex;
             align-items: center;
             justify-content: center;
 
             padding:
-                4vh
-                3vw
-                8vh
-                1vw;
-
-            overflow: hidden;
+                9vh
+                8vw
+                14vh
+                8vw;
         }
 
         .imagen-principal {
             display: block;
 
-            width: 100%;
-            height: 100%;
+            width: min(88vw, 1200px);
+            height: min(75vh, 820px);
 
             object-fit: contain;
             object-position: center;
@@ -137,7 +122,7 @@
         }
 
         /* =========================================
-           SOMBRAS DEL DISEÑO
+           SOMBRAS
         ========================================= */
 
         .capa-oscura {
@@ -149,16 +134,16 @@
             background:
                 linear-gradient(
                     90deg,
-                    rgba(5, 3, 2, 0.98) 0%,
-                    rgba(5, 3, 2, 0.94) 20%,
-                    rgba(5, 3, 2, 0.72) 34%,
-                    rgba(5, 3, 2, 0.12) 62%,
-                    rgba(5, 3, 2, 0.04) 100%
+                    rgba(5, 3, 2, 0.65) 0%,
+                    rgba(5, 3, 2, 0.35) 18%,
+                    rgba(5, 3, 2, 0.08) 45%,
+                    rgba(5, 3, 2, 0.08) 100%
                 ),
                 linear-gradient(
                     0deg,
-                    rgba(0, 0, 0, 0.62) 0%,
-                    transparent 30%
+                    rgba(0, 0, 0, 0.72) 0%,
+                    rgba(0, 0, 0, 0.18) 28%,
+                    transparent 52%
                 );
         }
 
@@ -263,156 +248,7 @@
         }
 
         /* =========================================
-           INFORMACIÓN DEL PLATO
-        ========================================= */
-
-        .informacion {
-            position: absolute;
-            top: 50%;
-            left: 8%;
-            z-index: 20;
-
-            width: min(560px, 37vw);
-
-            transform: translateY(-50%);
-        }
-
-        .categoria {
-            margin-bottom: 16px;
-
-            color: #efbd4d;
-
-            font-size: 18px;
-            font-weight: bold;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
-
-        .nombre-plato {
-            color: white;
-
-            font-family: Georgia, "Times New Roman", serif;
-            font-size: clamp(42px, 4.7vw, 73px);
-            font-weight: bold;
-            line-height: 1.05;
-
-            text-shadow:
-                0 4px 22px rgba(0, 0, 0, 0.95);
-        }
-
-        .nombre-plato.animando {
-            animation:
-                aparecerNombre
-                1s
-                ease
-                forwards;
-        }
-
-        @keyframes aparecerNombre {
-            from {
-                opacity: 0;
-                transform: translateY(35px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .linea-dorada {
-            width: 130px;
-            height: 4px;
-
-            margin-top: 28px;
-
-            background: #efbd4d;
-
-            transform-origin: left;
-        }
-
-        .linea-dorada.animando {
-            animation:
-                aparecerLinea
-                0.9s
-                ease
-                0.35s
-                both;
-        }
-
-        @keyframes aparecerLinea {
-            from {
-                opacity: 0;
-                transform: scaleX(0);
-            }
-
-            to {
-                opacity: 1;
-                transform: scaleX(1);
-            }
-        }
-
-        /* =========================================
-           FLECHAS
-        ========================================= */
-
-        .flecha {
-            position: absolute;
-            top: 50%;
-            z-index: 50;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            width: 68px;
-            height: 68px;
-
-            border: 2px solid #efbd4d;
-            border-radius: 50%;
-
-            color: #efbd4d;
-            background: rgba(0, 0, 0, 0.34);
-
-            font-size: 42px;
-            line-height: 1;
-
-            cursor: pointer;
-
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-
-            transform: translateY(-50%);
-
-            transition:
-                color 0.25s ease,
-                background 0.25s ease,
-                transform 0.25s ease;
-        }
-
-        .flecha:hover,
-        .flecha:focus {
-            color: #17100b;
-            background: #efbd4d;
-
-            transform:
-                translateY(-50%)
-                scale(1.08);
-
-            outline: 4px solid white;
-            outline-offset: 3px;
-        }
-
-        .flecha-anterior {
-            left: 27px;
-        }
-
-        .flecha-siguiente {
-            right: 27px;
-        }
-
-        /* =========================================
-           BOTÓN DE PANTALLA COMPLETA
+           BOTÓN PANTALLA COMPLETA
         ========================================= */
 
         .boton-pantalla-completa {
@@ -456,9 +292,7 @@
         .boton-pantalla-completa:focus {
             color: #17100b;
             background: #efbd4d;
-
             transform: scale(1.05);
-
             outline: 4px solid white;
             outline-offset: 3px;
         }
@@ -468,32 +302,103 @@
         }
 
         /* =========================================
-           CONTADOR INFERIOR
+           NOMBRE ABAJO A LA IZQUIERDA
         ========================================= */
 
-        .contador {
+        .informacion {
             position: absolute;
-            right: 58px;
-            bottom: 38px;
+            left: 55px;
+            bottom: 42px;
             z-index: 30;
 
-            color: rgba(255, 255, 255, 0.82);
+            width: min(620px, 52vw);
 
-            font-size: 15px;
-            font-weight: bold;
-            letter-spacing: 3px;
+            padding: 18px 22px 16px 22px;
 
-            text-shadow:
-                0 2px 8px rgba(0, 0, 0, 0.9);
+            border-radius: 18px;
+
+            background: rgba(0, 0, 0, 0.42);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
         }
 
-        .contador-actual {
+        .categoria {
+            margin-bottom: 12px;
+
             color: #efbd4d;
-            font-size: 25px;
+
+            font-size: 17px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .nombre-plato {
+            color: white;
+
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(38px, 4.3vw, 68px);
+            font-weight: bold;
+            line-height: 1.05;
+
+            text-shadow:
+                0 4px 22px rgba(0, 0, 0, 0.95);
+        }
+
+        .nombre-plato.animando {
+            animation:
+                aparecerNombre
+                1s
+                ease
+                forwards;
+        }
+
+        @keyframes aparecerNombre {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .linea-dorada {
+            width: 130px;
+            height: 4px;
+
+            margin-top: 20px;
+
+            background: #efbd4d;
+
+            transform-origin: left;
+        }
+
+        .linea-dorada.animando {
+            animation:
+                aparecerLinea
+                0.9s
+                ease
+                0.35s
+                both;
+        }
+
+        @keyframes aparecerLinea {
+            from {
+                opacity: 0;
+                transform: scaleX(0);
+            }
+
+            to {
+                opacity: 1;
+                transform: scaleX(1);
+            }
         }
 
         /* =========================================
-           PRESENTACIÓN INICIAL
+           PRESENTACIÓN
         ========================================= */
 
         .presentacion {
@@ -697,25 +602,6 @@
         }
 
         /* =========================================
-           PANTALLAS MEDIANAS
-        ========================================= */
-
-        @media (max-width: 1100px) {
-            .contenedor-imagen {
-                width: 68%;
-            }
-
-            .informacion {
-                left: 9%;
-                width: 40vw;
-            }
-
-            .nombre-plato {
-                font-size: 46px;
-            }
-        }
-
-        /* =========================================
            CELULARES
         ========================================= */
 
@@ -746,60 +632,30 @@
             }
 
             .contenedor-imagen {
-                top: 7%;
-                right: 0;
-
-                width: 100%;
-                height: 61%;
-
                 padding:
-                    5vh
+                    8vh
                     5vw
-                    2vh;
+                    24vh
+                    5vw;
             }
 
-            .capa-oscura {
-                background:
-                    linear-gradient(
-                        0deg,
-                        rgba(0, 0, 0, 0.96) 0%,
-                        rgba(0, 0, 0, 0.80) 34%,
-                        transparent 70%
-                    );
+            .imagen-principal {
+                width: 92vw;
+                height: 58vh;
             }
 
             .informacion {
-                top: auto;
-                left: 11%;
-                bottom: 10%;
+                left: 14px;
+                right: 14px;
+                bottom: 18px;
 
-                width: 78%;
+                width: auto;
 
-                transform: none;
+                padding: 14px 16px;
             }
 
             .nombre-plato {
-                font-size: 39px;
-            }
-
-            .flecha {
-                width: 50px;
-                height: 50px;
-
-                font-size: 30px;
-            }
-
-            .flecha-anterior {
-                left: 10px;
-            }
-
-            .flecha-siguiente {
-                right: 10px;
-            }
-
-            .contador {
-                right: 22px;
-                bottom: 20px;
+                font-size: 35px;
             }
 
             .presentacion-titulo {
@@ -816,8 +672,6 @@
         class="carrusel"
     >
 
-        <!-- FONDO DESENFOCADO -->
-
         <img
             id="fondoDesenfocado"
             class="fondo-desenfocado"
@@ -825,28 +679,19 @@
             alt=""
         >
 
-        <!-- IMAGEN COMPLETA DEL PLATO -->
-
         <div class="contenedor-imagen">
-
             <img
                 id="imagenPrincipal"
                 class="imagen-principal animando"
                 src="{{ url_for('static', filename='carrusel_regionales/locro.png') }}"
                 alt="Locro norteño"
             >
-
         </div>
-
-        <!-- SOMBRAS -->
 
         <div class="capa-oscura"></div>
         <div class="capa-superior"></div>
 
-        <!-- MARCA -->
-
         <div class="marca">
-
             <span class="marca-superior">
                 La Peña de
             </span>
@@ -858,16 +703,11 @@
             <span class="marca-lugar">
                 PURMAMARCA
             </span>
-
         </div>
-
-        <!-- TÍTULO SUPERIOR -->
 
         <div class="titulo-superior">
             Sabores de nuestra tierra
         </div>
-
-        <!-- PANTALLA COMPLETA -->
 
         <button
             id="botonPantallaCompleta"
@@ -877,10 +717,7 @@
             ⛶ PANTALLA COMPLETA
         </button>
 
-        <!-- INFORMACIÓN DEL PLATO -->
-
         <section class="informacion">
-
             <p class="categoria">
                 Plato regional
             </p>
@@ -896,47 +733,7 @@
                 id="lineaDorada"
                 class="linea-dorada animando"
             ></div>
-
         </section>
-
-        <!-- FLECHAS -->
-
-        <button
-            id="anterior"
-            class="flecha flecha-anterior"
-            type="button"
-            aria-label="Plato anterior"
-        >
-            ‹
-        </button>
-
-        <button
-            id="siguiente"
-            class="flecha flecha-siguiente"
-            type="button"
-            aria-label="Siguiente plato"
-        >
-            ›
-        </button>
-
-        <!-- CONTADOR -->
-
-        <div class="contador">
-
-            <span
-                id="contadorActual"
-                class="contador-actual"
-            >
-                01
-            </span>
-
-            <span>
-                / 12
-            </span>
-
-        </div>
-
-        <!-- PRESENTACIÓN DE 3 SEGUNDOS -->
 
         <section
             id="presentacion"
@@ -952,7 +749,6 @@
             <div class="presentacion-capa"></div>
 
             <div class="presentacion-contenido">
-
                 <p class="presentacion-marca">
                     La Peña de Marito · Purmamarca
                 </p>
@@ -966,20 +762,16 @@
                 <p class="presentacion-subtitulo">
                     Sabores auténticos de nuestra tierra
                 </p>
-
             </div>
 
         </section>
 
     </main>
 
-    <!-- MENSAJE SI LA TELE NO PERMITE PANTALLA COMPLETA -->
-
     <div
         id="mensajePantalla"
         class="mensaje-pantalla"
     >
-
         <p>
             Este navegador no permitió activar la pantalla completa.
         </p>
@@ -991,7 +783,6 @@
         >
             Cerrar
         </button>
-
     </div>
 
     <script>
@@ -1064,15 +855,6 @@
         const lineaDorada =
             document.getElementById("lineaDorada");
 
-        const contadorActual =
-            document.getElementById("contadorActual");
-
-        const botonAnterior =
-            document.getElementById("anterior");
-
-        const botonSiguiente =
-            document.getElementById("siguiente");
-
         const botonPantallaCompleta =
             document.getElementById("botonPantallaCompleta");
 
@@ -1089,20 +871,10 @@
         const duracionPresentacion = 3000;
         const duracionPlato = 8000;
 
-
-        /* =========================================
-           PRECARGAR LAS IMÁGENES
-        ========================================= */
-
         platos.forEach((plato) => {
             const imagen = new Image();
             imagen.src = plato.imagen;
         });
-
-
-        /* =========================================
-           REINICIAR ANIMACIONES
-        ========================================= */
 
         function reiniciarAnimaciones() {
             imagenPrincipal.classList.remove("animando");
@@ -1115,11 +887,6 @@
             nombrePlato.classList.add("animando");
             lineaDorada.classList.add("animando");
         }
-
-
-        /* =========================================
-           MOSTRAR UN PLATO
-        ========================================= */
 
         function mostrarPlato(nuevoIndice) {
             indiceActual =
@@ -1139,21 +906,12 @@
 
                 nombrePlato.textContent = plato.nombre;
 
-                contadorActual.textContent =
-                    String(indiceActual + 1).padStart(2, "0");
-
                 reiniciarAnimaciones();
 
                 imagenPrincipal.style.opacity = "1";
                 fondoDesenfocado.style.opacity = "1";
-
             }, 400);
         }
-
-
-        /* =========================================
-           PRESENTACIÓN INICIAL
-        ========================================= */
 
         function mostrarPresentacion() {
             detenerTemporizadores();
@@ -1171,11 +929,6 @@
             }, duracionPresentacion);
         }
 
-
-        /* =========================================
-           CAMBIO AUTOMÁTICO
-        ========================================= */
-
         function siguientePlatoAutomatico() {
             if (indiceActual === platos.length - 1) {
                 mostrarPresentacion();
@@ -1184,7 +937,6 @@
 
             mostrarPlato(indiceActual + 1);
         }
-
 
         function iniciarTemporizadorPlato() {
             detenerTemporizadorPlato();
@@ -1195,13 +947,11 @@
             );
         }
 
-
         function detenerTemporizadorPlato() {
             if (temporizadorPlato) {
                 clearInterval(temporizadorPlato);
             }
         }
-
 
         function detenerTemporizadores() {
             detenerTemporizadorPlato();
@@ -1211,60 +961,6 @@
             }
         }
 
-
-        function reiniciarTemporizadorPlato() {
-            iniciarTemporizadorPlato();
-        }
-
-
-        /* =========================================
-           BOTONES DE SIGUIENTE Y ANTERIOR
-        ========================================= */
-
-        botonSiguiente.addEventListener("click", () => {
-            presentacion.classList.add("oculta");
-
-            mostrarPlato(indiceActual + 1);
-            reiniciarTemporizadorPlato();
-        });
-
-
-        botonAnterior.addEventListener("click", () => {
-            presentacion.classList.add("oculta");
-
-            mostrarPlato(indiceActual - 1);
-            reiniciarTemporizadorPlato();
-        });
-
-
-        document.addEventListener("keydown", (evento) => {
-            if (evento.key === "ArrowRight") {
-                presentacion.classList.add("oculta");
-
-                mostrarPlato(indiceActual + 1);
-                reiniciarTemporizadorPlato();
-            }
-
-            if (evento.key === "ArrowLeft") {
-                presentacion.classList.add("oculta");
-
-                mostrarPlato(indiceActual - 1);
-                reiniciarTemporizadorPlato();
-            }
-
-            if (
-                evento.key === "f" ||
-                evento.key === "F"
-            ) {
-                activarPantallaCompleta();
-            }
-        });
-
-
-        /* =========================================
-           PANTALLA COMPLETA
-        ========================================= */
-
         function estaEnPantallaCompleta() {
             return Boolean(
                 document.fullscreenElement ||
@@ -1272,7 +968,6 @@
                 document.msFullscreenElement
             );
         }
-
 
         async function activarPantallaCompleta() {
             try {
@@ -1294,7 +989,6 @@
             }
         }
 
-
         function actualizarBotonPantallaCompleta() {
             if (estaEnPantallaCompleta()) {
                 botonPantallaCompleta.classList.add("oculto");
@@ -1303,39 +997,38 @@
             }
         }
 
-
         botonPantallaCompleta.addEventListener(
             "click",
             activarPantallaCompleta
         );
-
 
         document.addEventListener(
             "fullscreenchange",
             actualizarBotonPantallaCompleta
         );
 
-
         document.addEventListener(
             "webkitfullscreenchange",
             actualizarBotonPantallaCompleta
         );
-
 
         document.addEventListener(
             "MSFullscreenChange",
             actualizarBotonPantallaCompleta
         );
 
+        document.addEventListener("keydown", (evento) => {
+            if (
+                evento.key === "f" ||
+                evento.key === "F"
+            ) {
+                activarPantallaCompleta();
+            }
+        });
 
         cerrarMensaje.addEventListener("click", () => {
             mensajePantalla.classList.remove("visible");
         });
-
-
-        /* =========================================
-           INICIAR EL CARRUSEL
-        ========================================= */
 
         mostrarPresentacion();
     </script>
