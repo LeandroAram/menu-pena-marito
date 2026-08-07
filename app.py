@@ -1,7 +1,6 @@
 from flask import Flask, render_template
 import os
 
-
 app = Flask(__name__)
 
 
@@ -189,11 +188,27 @@ def carrusel_regionales():
 
 
 # =========================
+# CARRUSEL GENERAL
+# REGIONALES + POSTRES
+# =========================
+
+@app.route('/carrusel')
+def carrusel_general():
+    return render_template('carrusel_general.html')
+
+
+# =========================
 # EJECUTAR APLICACIÓN
 # =========================
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 10000))
+
+    port = int(
+        os.environ.get(
+            "PORT",
+            10000
+        )
+    )
 
     app.run(
         host="0.0.0.0",
