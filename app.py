@@ -188,6 +188,15 @@ def carrusel_regionales():
 
 
 # =========================
+# CARRUSEL DE VINOS
+# =========================
+
+@app.route('/carrusel-vinos')
+def carrusel_vinos():
+    return render_template('carrusel_vinos.html')
+
+
+# =========================
 # CARRUSEL GENERAL
 # REGIONALES + POSTRES
 # =========================
