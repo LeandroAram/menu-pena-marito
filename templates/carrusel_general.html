@@ -17,6 +17,10 @@
 
     <style>
 
+        /* =====================================================
+           CONFIGURACIÓN GENERAL
+        ===================================================== */
+
         * {
             margin: 0;
             padding: 0;
@@ -57,6 +61,7 @@
         }
 
 
+
         /* =====================================================
            IMAGEN PRINCIPAL
         ===================================================== */
@@ -84,7 +89,7 @@
         .imagen-principal.animando {
             animation:
                 entradaProducto
-                7s
+                var(--duracion-imagen, 7s)
                 ease-out
                 forwards;
         }
@@ -99,9 +104,11 @@
                     scale(1.07);
             }
 
+
             12% {
                 opacity: 1;
             }
+
 
             100% {
                 opacity: 1;
@@ -111,6 +118,7 @@
             }
 
         }
+
 
 
         /* =====================================================
@@ -173,6 +181,7 @@
                     transparent 27%
                 );
         }
+
 
 
         /* =====================================================
@@ -242,8 +251,9 @@
         }
 
 
+
         /* =====================================================
-           SECCIÓN SUPERIOR DERECHA
+           TÍTULO SUPERIOR DERECHO
         ===================================================== */
 
         .titulo-superior {
@@ -294,6 +304,7 @@
         }
 
 
+
         /* =====================================================
            INFORMACIÓN
         ===================================================== */
@@ -308,9 +319,12 @@
 
             width:
                 min(
-                    760px,
-                    58vw
+                    800px,
+                    61vw
                 );
+
+            --descripcion-delay: 1.85s;
+            --linea-delay: 2.30s;
         }
 
 
@@ -333,8 +347,9 @@
         }
 
 
+
         /* =====================================================
-           NOMBRE
+           NOMBRE DEL PRODUCTO
         ===================================================== */
 
         .nombre-producto {
@@ -357,7 +372,7 @@
 
             line-height: 0.98;
 
-            max-width: 760px;
+            max-width: 800px;
 
             text-shadow:
 
@@ -393,6 +408,7 @@
                     translateY(38px);
             }
 
+
             to {
                 opacity: 1;
 
@@ -403,14 +419,88 @@
         }
 
 
+
+        /* =====================================================
+           DETALLE / VARIEDAD DEL VINO
+        ===================================================== */
+
+        .detalle-producto {
+            margin-top: 14px;
+
+            color: #efbd4d;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size:
+
+                clamp(
+                    19px,
+                    1.8vw,
+                    28px
+                );
+
+            font-weight: bold;
+
+            line-height: 1.25;
+
+            text-shadow:
+                0 3px 12px
+                rgba(0, 0, 0, 1);
+        }
+
+
+        .detalle-producto.oculto {
+            display: none;
+        }
+
+
+        .detalle-producto.animando {
+            animation:
+
+                entradaDetalle
+
+                0.8s
+
+                ease
+
+                1.55s
+
+                both;
+        }
+
+
+        @keyframes entradaDetalle {
+
+            from {
+                opacity: 0;
+
+                transform:
+                    translateY(18px);
+            }
+
+
+            to {
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+
+        }
+
+
+
         /* =====================================================
            DESCRIPCIÓN
         ===================================================== */
 
         .descripcion-producto {
-            max-width: 680px;
+            max-width: 700px;
 
-            margin-top: 18px;
+            margin-top: 17px;
 
             color:
 
@@ -418,7 +508,7 @@
                     255,
                     255,
                     255,
-                    0.93
+                    0.94
                 );
 
             font-size:
@@ -452,7 +542,7 @@
 
                 ease
 
-                1.85s
+                var(--descripcion-delay)
 
                 both;
         }
@@ -467,6 +557,7 @@
                     translateY(20px);
             }
 
+
             to {
                 opacity: 1;
 
@@ -475,6 +566,7 @@
             }
 
         }
+
 
 
         /* =====================================================
@@ -513,7 +605,7 @@
 
                 ease
 
-                2.3s
+                var(--linea-delay)
 
                 both;
         }
@@ -528,6 +620,7 @@
                     scaleX(0);
             }
 
+
             to {
                 opacity: 1;
 
@@ -538,8 +631,9 @@
         }
 
 
+
         /* =====================================================
-           PANTALLA COMPLETA
+           BOTÓN PANTALLA COMPLETA
         ===================================================== */
 
         .boton-pantalla-completa {
@@ -626,6 +720,7 @@
         }
 
 
+
         /* =====================================================
            CASITA PARA SALIR DE PANTALLA COMPLETA
         ===================================================== */
@@ -655,6 +750,7 @@
             color: #efbd4d;
 
             background:
+
                 rgba(
                     0,
                     0,
@@ -703,8 +799,9 @@
         }
 
 
+
         /* =====================================================
-           PRESENTACIÓN DE SECCIÓN
+           PRESENTACIÓN DE CADA SECCIÓN
         ===================================================== */
 
         .presentacion {
@@ -767,6 +864,9 @@
 
             transform:
                 scale(1.12);
+
+            transition:
+                opacity 0.5s ease;
         }
 
 
@@ -952,6 +1052,7 @@
                     translateY(32px);
             }
 
+
             to {
                 opacity: 1;
 
@@ -971,6 +1072,7 @@
                     scaleX(0);
             }
 
+
             to {
                 opacity: 1;
 
@@ -981,8 +1083,9 @@
         }
 
 
+
         /* =====================================================
-           MENSAJE ERROR
+           MENSAJE DE ERROR
         ===================================================== */
 
         .mensaje-pantalla {
@@ -1062,8 +1165,9 @@
         }
 
 
+
         /* =====================================================
-           ADAPTACIÓN
+           RESPONSIVE
         ===================================================== */
 
         @media (max-width: 1000px) {
@@ -1136,6 +1240,11 @@
             }
 
 
+            .detalle-producto {
+                font-size: 19px;
+            }
+
+
             .descripcion-producto {
                 font-size: 17px;
 
@@ -1163,7 +1272,9 @@
     >
 
 
-        <!-- IMAGEN PRINCIPAL -->
+        <!-- =================================================
+             IMAGEN PRINCIPAL
+        ================================================== -->
 
         <img
             id="imagenPrincipal"
@@ -1176,6 +1287,7 @@
         >
 
 
+
         <!-- SOMBRAS -->
 
         <div class="capa-oscura"></div>
@@ -1183,7 +1295,10 @@
         <div class="capa-superior"></div>
 
 
-        <!-- MARCA -->
+
+        <!-- =================================================
+             MARCA
+        ================================================== -->
 
         <div class="marca">
 
@@ -1206,17 +1321,24 @@
         </div>
 
 
-        <!-- NOMBRE DE LA SECCIÓN -->
+
+        <!-- =================================================
+             NOMBRE DE LA SECCIÓN
+        ================================================== -->
 
         <div
             id="tituloSuperior"
+
             class="titulo-superior"
         >
             Regionales
         </div>
 
 
-        <!-- BOTÓN PANTALLA COMPLETA -->
+
+        <!-- =================================================
+             PANTALLA COMPLETA
+        ================================================== -->
 
         <button
             id="botonPantallaCompleta"
@@ -1229,17 +1351,26 @@
         </button>
 
 
-        <!-- INFORMACIÓN -->
 
-        <section class="informacion">
+        <!-- =================================================
+             INFORMACIÓN
+        ================================================== -->
+
+        <section
+            id="informacion"
+
+            class="informacion"
+        >
 
 
             <p
                 id="categoriaProducto"
+
                 class="categoria"
             >
                 Plato regional
             </p>
+
 
 
             <h1
@@ -1251,14 +1382,29 @@
             </h1>
 
 
+
+            <!--
+                ESTE TEXTO SOLO APARECE
+                CUANDO ESTAMOS EN VINOS
+            -->
+
+            <p
+                id="detalleProducto"
+
+                class="detalle-producto oculto"
+            ></p>
+
+
+
             <p
                 id="descripcionProducto"
 
                 class="descripcion-producto animando"
             >
-                Guiso tradicional de maíz, zapallo y carne,
-                servido bien caliente.
+                Guiso tradicional de maíz,
+                zapallo y carne, servido bien caliente.
             </p>
+
 
 
             <div
@@ -1271,7 +1417,10 @@
         </section>
 
 
-        <!-- CASITA -->
+
+        <!-- =================================================
+             CASITA
+        ================================================== -->
 
         <button
             id="botonCasita"
@@ -1283,29 +1432,39 @@
             aria-label="Salir de pantalla completa"
         >
 
+
             <svg
                 viewBox="0 0 24 24"
+
                 aria-hidden="true"
             >
+
 
                 <path
                     d="M3 11.5 12 4l9 7.5"
                 ></path>
 
+
                 <path
                     d="M5.5 10v10h13V10"
                 ></path>
+
 
                 <path
                     d="M9.5 20v-6h5v6"
                 ></path>
 
+
             </svg>
+
 
         </button>
 
 
-        <!-- PRESENTACIÓN DE CADA SECCIÓN -->
+
+        <!-- =================================================
+             PRESENTACIÓN DE SECCIONES
+        ================================================== -->
 
         <section
             id="presentacion"
@@ -1325,15 +1484,20 @@
             >
 
 
+
             <div class="presentacion-capa"></div>
+
 
 
             <div class="presentacion-contenido">
 
 
                 <p class="presentacion-marca">
+
                     La Peña de Marito · Purmamarca
+
                 </p>
+
 
 
                 <h1
@@ -1341,8 +1505,11 @@
 
                     class="presentacion-titulo animando"
                 >
+
                     Platos Regionales
+
                 </h1>
+
 
 
                 <div
@@ -1352,12 +1519,15 @@
                 ></div>
 
 
+
                 <p
                     id="presentacionSubtitulo"
 
                     class="presentacion-subtitulo animando"
                 >
+
                     Sabores auténticos de nuestra tierra
+
                 </p>
 
 
@@ -1370,7 +1540,10 @@
     </main>
 
 
-    <!-- MENSAJE DE ERROR -->
+
+    <!-- =====================================================
+         MENSAJE DE ERROR
+    ====================================================== -->
 
     <div
         id="mensajePantalla"
@@ -1380,8 +1553,10 @@
 
 
         <p>
+
             Este navegador no permitió cambiar
             el modo de pantalla completa.
+
         </p>
 
 
@@ -1392,7 +1567,9 @@
 
             type="button"
         >
+
             Cerrar
+
         </button>
 
 
@@ -1404,15 +1581,15 @@
 
 
         /* =====================================================
-           SECCIONES
+           TODAS LAS SECCIONES
         ===================================================== */
-
 
         const secciones = [
 
 
+
             /* =================================================
-               REGIONALES
+               1 - PLATOS REGIONALES
             ================================================= */
 
             {
@@ -1433,7 +1610,16 @@
                     "Sabores auténticos de nuestra tierra",
 
 
+                /*
+                    Cada plato dura 7 segundos
+                */
+
+                duracion:
+                    7000,
+
+
                 productos: [
+
 
 
                     {
@@ -1448,6 +1634,7 @@
                     },
 
 
+
                     {
                         nombre:
                             "Llama al Malbec",
@@ -1458,6 +1645,7 @@
                         imagen:
                             "{{ url_for('static', filename='carrusel_regionales/llama_malbec.png') }}"
                     },
+
 
 
                     {
@@ -1472,6 +1660,7 @@
                     },
 
 
+
                     {
                         nombre:
                             "Cazuela de llama",
@@ -1482,6 +1671,7 @@
                         imagen:
                             "{{ url_for('static', filename='carrusel_regionales/cazuela_llama.png') }}"
                     },
+
 
 
                     {
@@ -1496,6 +1686,7 @@
                     },
 
 
+
                     {
                         nombre:
                             "Cazuela de cabrito",
@@ -1506,6 +1697,7 @@
                         imagen:
                             "{{ url_for('static', filename='carrusel_regionales/cazuela_cabrito.png') }}"
                     },
+
 
 
                     {
@@ -1520,6 +1712,7 @@
                     },
 
 
+
                     {
                         nombre:
                             "Medallón de quinoa",
@@ -1530,6 +1723,7 @@
                         imagen:
                             "{{ url_for('static', filename='carrusel_regionales/medallon_quinoa.png') }}"
                     },
+
 
 
                     {
@@ -1544,6 +1738,7 @@
                     },
 
 
+
                     {
                         nombre:
                             "Milanesa de llama",
@@ -1554,6 +1749,7 @@
                         imagen:
                             "{{ url_for('static', filename='carrusel_regionales/milanesa_llama.png') }}"
                     },
+
 
 
                     {
@@ -1568,6 +1764,7 @@
                     },
 
 
+
                     {
                         nombre:
                             "Milanesa de llama a caballo",
@@ -1579,6 +1776,7 @@
                             "{{ url_for('static', filename='carrusel_regionales/milanesa_llama_caballo.png') }}"
                     }
 
+
                 ]
 
             },
@@ -1586,7 +1784,7 @@
 
 
             /* =================================================
-               POSTRES
+               2 - POSTRES
             ================================================= */
 
             {
@@ -1607,7 +1805,16 @@
                     "Dulces sabores de nuestra tierra",
 
 
+                /*
+                    Cada postre dura 7 segundos
+                */
+
+                duracion:
+                    7000,
+
+
                 productos: [
+
 
 
                     {
@@ -1622,6 +1829,7 @@
                     },
 
 
+
                     {
                         nombre:
                             "Quesillo con cayote y nueces",
@@ -1632,6 +1840,7 @@
                         imagen:
                             "{{ url_for('static', filename='carrusel_postres/quesillo_cayote.png') }}"
                     },
+
 
 
                     {
@@ -1646,6 +1855,7 @@
                     },
 
 
+
                     {
                         nombre:
                             "Flan de quinoa",
@@ -1656,6 +1866,7 @@
                         imagen:
                             "{{ url_for('static', filename='carrusel_postres/flan_quinoa.png') }}"
                     },
+
 
 
                     {
@@ -1670,6 +1881,7 @@
                     },
 
 
+
                     {
                         nombre:
                             "Helado de cereza",
@@ -1680,6 +1892,7 @@
                         imagen:
                             "{{ url_for('static', filename='carrusel_postres/helado_cereza.png') }}"
                     },
+
 
 
                     {
@@ -1693,16 +1906,174 @@
                             "{{ url_for('static', filename='carrusel_postres/helado_chocolate_cereza.png') }}"
                     }
 
+
+                ]
+
+            },
+
+
+
+            /* =================================================
+               3 - VINOS DE JUJUY
+            ================================================= */
+
+            {
+
+                titulo:
+                    "Vinos de Jujuy",
+
+
+                tituloCorto:
+                    "Vinos de Jujuy",
+
+
+                categoria:
+                    "Vino jujeño",
+
+
+                subtitulo:
+                    "Sabores nacidos entre montañas",
+
+
+                /*
+                    Los vinos duran 8 segundos
+                    porque tienen una línea más
+                    de información.
+                */
+
+                duracion:
+                    8000,
+
+
+                productos: [
+
+
+
+                    /* =========================================
+                       VINO 1
+                    ========================================= */
+
+                    {
+                        nombre:
+                            "Punta Corral 2022",
+
+
+                        detalle:
+                            "Malbec · Syrah · Cabernet Franc",
+
+
+                        descripcion:
+                            "Blend de tintas jujeñas que combina distintas variedades y refleja el carácter de los vinos de nuestra tierra.",
+
+
+                        imagen:
+                            "{{ url_for('static', filename='carrusel_vinos/vino1.png') }}"
+                    },
+
+
+
+                    /* =========================================
+                       VINO 2
+                    ========================================= */
+
+                    {
+                        nombre:
+                            "Amanecer Andino",
+
+
+                        detalle:
+                            "Malbec Reserva",
+
+
+                        descripcion:
+                            "Malbec Reserva elaborado en Jujuy, una expresión de la vitivinicultura y los paisajes de nuestra región.",
+
+
+                        imagen:
+                            "{{ url_for('static', filename='carrusel_vinos/vino2.png') }}"
+                    },
+
+
+
+                    /* =========================================
+                       VINO 3
+                    ========================================= */
+
+                    {
+                        nombre:
+                            "Corte en la Quebrada",
+
+
+                        detalle:
+                            "Blend de tintas",
+
+
+                        descripcion:
+                            "Blend de uvas tintas jujeñas inspirado en la Quebrada y en la identidad de los vinos del norte.",
+
+
+                        imagen:
+                            "{{ url_for('static', filename='carrusel_vinos/vino3.png') }}"
+                    },
+
+
+
+                    /* =========================================
+                       VINO 4
+                    ========================================= */
+
+                    {
+                        nombre:
+                            "Corazón Valiente",
+
+
+                        detalle:
+                            "Malbec",
+
+
+                        descripcion:
+                            "Malbec jujeño que representa el carácter y la identidad de los vinos producidos en nuestra provincia.",
+
+
+                        imagen:
+                            "{{ url_for('static', filename='carrusel_vinos/vino4.png') }}"
+                    },
+
+
+
+                    /* =========================================
+                       VINO 5
+                    ========================================= */
+
+                    {
+                        nombre:
+                            "Flor del Valle",
+
+
+                        detalle:
+                            "Blend",
+
+
+                        descripcion:
+                            "Blend jujeño inspirado en los paisajes, la altura y los sabores característicos de nuestra tierra.",
+
+
+                        imagen:
+                            "{{ url_for('static', filename='carrusel_vinos/vino5.png') }}"
+                    }
+
+
                 ]
 
             }
+
 
         ];
 
 
 
         /* =====================================================
-           ELEMENTOS
+           ELEMENTOS DE LA PÁGINA
         ===================================================== */
 
 
@@ -1718,9 +2089,21 @@
             );
 
 
+        const informacion =
+            document.getElementById(
+                "informacion"
+            );
+
+
         const nombreProducto =
             document.getElementById(
                 "nombreProducto"
+            );
+
+
+        const detalleProducto =
+            document.getElementById(
+                "detalleProducto"
             );
 
 
@@ -1824,8 +2207,9 @@
 
 
         /*
-            Presentación de cada categoría:
-            3 segundos.
+            La pantalla de presentación de
+            REGIONALES / POSTRES / VINOS
+            dura 3 segundos.
         */
 
         const duracionPresentacion =
@@ -1833,18 +2217,8 @@
 
 
 
-        /*
-            Cada plato/postre:
-            7 segundos.
-        */
-
-        const duracionProducto =
-            7000;
-
-
-
         /* =====================================================
-           PRECARGAR TODAS LAS FOTOS
+           PRECARGAR TODAS LAS IMÁGENES
         ===================================================== */
 
 
@@ -1878,11 +2252,14 @@
 
 
         /* =====================================================
-           REINICIAR ANIMACIONES
+           REINICIAR ANIMACIONES DEL PRODUCTO
         ===================================================== */
 
 
-        function reiniciarAnimacionesProducto() {
+        function reiniciarAnimacionesProducto(
+            tieneDetalle,
+            duracion
+        ) {
 
 
             imagenPrincipal
@@ -1893,6 +2270,13 @@
 
 
             nombreProducto
+                .classList
+                .remove(
+                    "animando"
+                );
+
+
+            detalleProducto
                 .classList
                 .remove(
                     "animando"
@@ -1913,7 +2297,87 @@
                 );
 
 
+
+            /*
+                Ajustamos el zoom según
+                cuánto dura el producto.
+            */
+
+            imagenPrincipal
+                .style
+                .setProperty(
+                    "--duracion-imagen",
+                    duracion + "ms"
+                );
+
+
+
+            /*
+                EN VINOS:
+                imagen
+                nombre
+                variedad
+                descripción
+                línea
+
+                EN COMIDAS/POSTRES:
+                imagen
+                nombre
+                descripción
+                línea
+            */
+
+
+            if (
+                tieneDetalle
+            ) {
+
+
+                informacion
+                    .style
+                    .setProperty(
+                        "--descripcion-delay",
+                        "2.05s"
+                    );
+
+
+                informacion
+                    .style
+                    .setProperty(
+                        "--linea-delay",
+                        "2.55s"
+                    );
+
+
+            } else {
+
+
+                informacion
+                    .style
+                    .setProperty(
+                        "--descripcion-delay",
+                        "1.85s"
+                    );
+
+
+                informacion
+                    .style
+                    .setProperty(
+                        "--linea-delay",
+                        "2.30s"
+                    );
+
+            }
+
+
+
+            /*
+                Obliga al navegador
+                a reiniciar los efectos.
+            */
+
             void imagenPrincipal.offsetWidth;
+
 
 
             imagenPrincipal
@@ -1928,6 +2392,22 @@
                 .add(
                     "animando"
                 );
+
+
+
+            if (
+                tieneDetalle
+            ) {
+
+
+                detalleProducto
+                    .classList
+                    .add(
+                        "animando"
+                    );
+
+            }
+
 
 
             descripcionProducto
@@ -1945,6 +2425,11 @@
 
         }
 
+
+
+        /* =====================================================
+           REINICIAR ANIMACIÓN DE PRESENTACIÓN
+        ===================================================== */
 
 
         function reiniciarAnimacionesPresentacion() {
@@ -2006,6 +2491,10 @@
         function mostrarProducto() {
 
 
+            limpiarTemporizadorProducto();
+
+
+
             const seccion =
                 secciones[
                     indiceSeccion
@@ -2019,6 +2508,11 @@
 
 
 
+            /*
+                Desaparece suavemente
+                el producto anterior.
+            */
+
             imagenPrincipal
                 .style
                 .opacity =
@@ -2027,8 +2521,13 @@
 
 
             setTimeout(
+
                 () => {
 
+
+                    /*
+                        Cambiamos la imagen.
+                    */
 
                     imagenPrincipal.src =
                         producto.imagen;
@@ -2039,29 +2538,111 @@
 
 
 
+                    /*
+                        Nombre.
+                    */
+
                     nombreProducto.textContent =
                         producto.nombre;
 
 
+
+                    /*
+                        Descripción.
+                    */
 
                     descripcionProducto.textContent =
                         producto.descripcion;
 
 
 
+                    /*
+                        Categoría.
+                    */
+
                     categoriaProducto.textContent =
                         seccion.categoria;
 
 
+
+                    /*
+                        Título arriba a la derecha.
+                    */
 
                     tituloSuperior.textContent =
                         seccion.tituloCorto;
 
 
 
-                    reiniciarAnimacionesProducto();
+                    /*
+                        Detectar si este producto
+                        tiene detalle/variedad.
+                    */
+
+                    const tieneDetalle =
+                        Boolean(
+                            producto.detalle
+                        );
 
 
+
+                    /*
+                        Si estamos en vinos,
+                        mostramos la variedad.
+                    */
+
+                    if (
+                        tieneDetalle
+                    ) {
+
+
+                        detalleProducto.textContent =
+                            producto.detalle;
+
+
+                        detalleProducto
+                            .classList
+                            .remove(
+                                "oculto"
+                            );
+
+
+                    } else {
+
+
+                        /*
+                            Regionales y Postres:
+                            ocultamos esta línea.
+                        */
+
+                        detalleProducto.textContent =
+                            "";
+
+
+                        detalleProducto
+                            .classList
+                            .add(
+                                "oculto"
+                            );
+
+                    }
+
+
+
+                    /*
+                        Reiniciar efectos.
+                    */
+
+                    reiniciarAnimacionesProducto(
+                        tieneDetalle,
+                        seccion.duracion
+                    );
+
+
+
+                    /*
+                        Mostrar nueva imagen.
+                    */
 
                     imagenPrincipal
                         .style
@@ -2069,17 +2650,31 @@
                         "1";
 
 
+
+                    /*
+                        AHORA empieza a contar
+                        el tiempo del producto.
+
+                        Esto permite que los 7 u 8 segundos
+                        se vean completos.
+                    */
+
+                    temporizadorProducto =
+
+                        setTimeout(
+
+                            avanzar,
+
+                            seccion.duracion
+
+                        );
+
+
                 },
+
                 450
+
             );
-
-
-
-            temporizadorProducto =
-                setTimeout(
-                    avanzar,
-                    duracionProducto
-                );
 
         }
 
@@ -2096,6 +2691,7 @@
             limpiarTemporizadorProducto();
 
 
+
             const seccion =
                 secciones[
                     indiceSeccion
@@ -2105,12 +2701,15 @@
 
             /*
                 Si todavía quedan productos
-                en la misma sección.
+                dentro de la misma sección.
             */
 
             if (
+
                 indiceProducto <
+
                 seccion.productos.length - 1
+
             ) {
 
 
@@ -2127,8 +2726,17 @@
 
 
             /*
-                Si terminó la sección:
-                pasar a la siguiente.
+                TERMINÓ LA SECCIÓN.
+
+                Cambiamos:
+
+                Regionales
+                    ↓
+                Postres
+                    ↓
+                Vinos
+                    ↓
+                Regionales
             */
 
 
@@ -2156,7 +2764,7 @@
 
 
         /* =====================================================
-           PRESENTACIÓN DE SECCIÓN
+           PRESENTACIÓN DE CADA SECCIÓN
         ===================================================== */
 
 
@@ -2174,20 +2782,39 @@
 
 
 
+            /*
+                Nombre grande de la sección.
+            */
+
             presentacionTitulo.textContent =
                 seccion.titulo;
 
 
+
+            /*
+                Frase inferior.
+            */
 
             presentacionSubtitulo.textContent =
                 seccion.subtitulo;
 
 
 
+            /*
+                Fondo usando el primer producto
+                de la sección.
+            */
+
             presentacionFondo.src =
-                seccion.productos[0].imagen;
+                seccion
+                    .productos[0]
+                    .imagen;
 
 
+
+            /*
+                Mostrar presentación.
+            */
 
             presentacion
                 .classList
@@ -2201,9 +2828,15 @@
 
 
 
+            /*
+                Luego de 3 segundos,
+                empieza el primer producto.
+            */
+
             temporizadorPresentacion =
 
                 setTimeout(
+
                     () => {
 
 
@@ -2219,7 +2852,9 @@
 
 
                     },
+
                     duracionPresentacion
+
                 );
 
         }
@@ -2227,7 +2862,7 @@
 
 
         /* =====================================================
-           TEMPORIZADORES
+           LIMPIAR TEMPORIZADORES
         ===================================================== */
 
 
@@ -2363,6 +2998,11 @@
 
 
 
+        /* =====================================================
+           SALIR DE PANTALLA COMPLETA
+        ===================================================== */
+
+
         async function salirPantallaCompleta() {
 
 
@@ -2418,6 +3058,11 @@
 
 
 
+        /* =====================================================
+           ACTUALIZAR BOTÓN DE PANTALLA COMPLETA
+        ===================================================== */
+
+
         function actualizarBotonPantallaCompleta() {
 
 
@@ -2450,47 +3095,64 @@
 
         botonPantallaCompleta
             .addEventListener(
+
                 "click",
+
                 activarPantallaCompleta
+
             );
 
 
 
         botonCasita
             .addEventListener(
+
                 "click",
+
                 salirPantallaCompleta
+
             );
 
 
 
         document
             .addEventListener(
+
                 "fullscreenchange",
+
                 actualizarBotonPantallaCompleta
+
             );
 
 
 
         document
             .addEventListener(
+
                 "webkitfullscreenchange",
+
                 actualizarBotonPantallaCompleta
+
             );
 
 
 
         document
             .addEventListener(
+
                 "MSFullscreenChange",
+
                 actualizarBotonPantallaCompleta
+
             );
 
 
 
         cerrarMensaje
             .addEventListener(
+
                 "click",
+
                 () => {
 
 
@@ -2500,13 +3162,15 @@
                             "visible"
                         );
 
+
                 }
+
             );
 
 
 
         /* =====================================================
-           INICIAR
+           INICIAR CARRUSEL
         ===================================================== */
 
 
