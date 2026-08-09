@@ -91,7 +91,7 @@
             position:absolute;
             left:50%;
             transform:translateX(-50%);
-            bottom:calc(80px + env(safe-area-inset-bottom));
+            bottom:calc(105px + env(safe-area-inset-bottom));
             display:grid;
             grid-template-columns:1fr 1fr;
             gap:12px;
@@ -122,8 +122,6 @@
 
         .whatsapp-btn{
             background:#043D37;
-            box-shadow:0px 0px 18px rgba(4,61,55,0.5);
-            animation:brillo 2s infinite;
         }
 
         .video-btn{
@@ -132,11 +130,11 @@
         }
 
         .instagram-btn{
-            background:linear-gradient(135deg,#833AB4,#E1306C,#F77737);
+            background:rgba(0,0,0,0.55);
         }
 
         .maps-btn{
-            background:rgba(139,69,19,0.85);
+            background:rgba(0,0,0,0.55);
         }
 
         .whatsapp-btn:hover,
@@ -144,21 +142,14 @@
         .instagram-btn:hover,
         .maps-btn:hover{
             transform:scale(1.05);
-        }
-
-        .whatsapp-btn:hover{
-            background:#032E29;
-        }
-
-        .video-btn:hover{
-            background:rgba(0,0,0,0.75);
+            background:#8B5A2B;
         }
 
         .frase-final{
             position:absolute;
             left:50%;
             transform:translateX(-50%);
-            bottom:calc(25px + env(safe-area-inset-bottom));
+            bottom:calc(58px + env(safe-area-inset-bottom));
             width:90%;
             text-align:center;
             color:white;
@@ -168,18 +159,27 @@
             z-index:9998;
         }
 
-        @keyframes brillo{
-            0%{
-                box-shadow:0px 0px 6px rgba(4,61,55,0.3);
-            }
+        .firma{
+            position:absolute;
+            left:50%;
+            transform:translateX(-50%);
+            bottom:calc(15px + env(safe-area-inset-bottom));
+            width:90%;
+            text-align:center;
+            color:rgba(255,255,255,0.82);
+            font-size:12px;
+            z-index:9998;
+        }
 
-            50%{
-                box-shadow:0px 0px 14px rgba(4,61,55,0.7);
-            }
+        .firma a{
+            color:#f7d28b;
+            font-weight:bold;
+            margin:0 5px;
+            text-shadow:0px 2px 6px rgba(0,0,0,0.8);
+        }
 
-            100%{
-                box-shadow:0px 0px 6px rgba(4,61,55,0.3);
-            }
+        .firma a:hover{
+            color:white;
         }
 
         .modal-video{
@@ -244,7 +244,7 @@
             }
 
             .acciones{
-                bottom:calc(80px + env(safe-area-inset-bottom));
+                bottom:calc(110px + env(safe-area-inset-bottom));
                 grid-template-columns:1fr 1fr;
                 gap:10px;
                 width:90%;
@@ -260,7 +260,12 @@
 
             .frase-final{
                 font-size:13px;
-                bottom:calc(25px + env(safe-area-inset-bottom));
+                bottom:calc(58px + env(safe-area-inset-bottom));
+            }
+
+            .firma{
+                font-size:11px;
+                bottom:calc(15px + env(safe-area-inset-bottom));
             }
         }
 
@@ -351,6 +356,24 @@
 
         <div class="frase-final">
             🎶 Música en vivo • Comida regional • Tradición jujeña
+        </div>
+
+        <div class="firma">
+
+            Diseño & Desarrollo Web — Leandro
+
+            <a href="https://www.instagram.com/leandro_aramayo1/"
+               target="_blank">
+                📸 Instagram
+            </a>
+
+            •
+
+            <a href="https://wa.me/5493886865324?text=Hola%20Leandro,%20vi%20la%20página%20de%20La%20Peña%20de%20Marito%20y%20quiero%20consultarte."
+               target="_blank">
+                💬 Contacto
+            </a>
+
         </div>
 
     </div>
