@@ -2,23 +2,19 @@
 <html lang="es">
 
 <head>
-
     <meta charset="UTF-8">
 
     <meta
         name="viewport"
-        content="width=device-width, initial-scale=1.0"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     >
 
-    <title>
-        La Peña de Marito - Carrusel
-    </title>
-
+    <title>La Peña de Marito - Carrusel</title>
 
     <style>
 
         /* =====================================================
-           CONFIGURACIÓN GENERAL
+           GENERAL
         ===================================================== */
 
         * {
@@ -27,39 +23,27 @@
             box-sizing: border-box;
         }
 
-
         html,
         body {
             width: 100%;
             height: 100%;
-
             overflow: hidden;
-
             background: #080604;
-
-            font-family:
-                Arial,
-                Helvetica,
-                sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
+            touch-action: manipulation;
         }
-
 
         button {
             font-family: inherit;
         }
 
-
         .carrusel {
             position: relative;
-
             width: 100%;
             height: 100vh;
-
             overflow: hidden;
-
             background: #080604;
         }
-
 
 
         /* =====================================================
@@ -68,7 +52,6 @@
 
         .imagen-principal {
             position: absolute;
-
             inset: 0;
 
             width: 100%;
@@ -78,13 +61,10 @@
             object-position: center;
 
             opacity: 1;
-
             transform: scale(1);
 
-            transition:
-                opacity 0.8s ease;
+            transition: opacity 0.7s ease;
         }
-
 
         .imagen-principal.animando {
             animation:
@@ -94,94 +74,64 @@
                 forwards;
         }
 
-
         @keyframes entradaProducto {
 
             0% {
                 opacity: 0;
-
-                transform:
-                    scale(1.07);
+                transform: scale(1.07);
             }
-
 
             12% {
                 opacity: 1;
             }
 
-
             100% {
                 opacity: 1;
-
-                transform:
-                    scale(1.015);
+                transform: scale(1.015);
             }
-
         }
 
 
-
         /* =====================================================
-           SOMBRAS
+           SOMBRAS DE LA FOTO
         ===================================================== */
 
         .capa-oscura {
             position: absolute;
-
             inset: 0;
-
             z-index: 5;
-
             pointer-events: none;
 
             background:
-
                 linear-gradient(
                     90deg,
-
-                    rgba(0, 0, 0, 0.58) 0%,
-
-                    rgba(0, 0, 0, 0.27) 28%,
-
-                    rgba(0, 0, 0, 0.06) 58%,
-
-                    rgba(0, 0, 0, 0.05) 100%
+                    rgba(0,0,0,0.58) 0%,
+                    rgba(0,0,0,0.27) 28%,
+                    rgba(0,0,0,0.06) 58%,
+                    rgba(0,0,0,0.05) 100%
                 ),
-
                 linear-gradient(
                     0deg,
-
-                    rgba(0, 0, 0, 0.92) 0%,
-
-                    rgba(0, 0, 0, 0.58) 20%,
-
-                    rgba(0, 0, 0, 0.10) 42%,
-
+                    rgba(0,0,0,0.92) 0%,
+                    rgba(0,0,0,0.58) 20%,
+                    rgba(0,0,0,0.10) 42%,
                     transparent 60%
                 );
         }
 
-
         .capa-superior {
             position: absolute;
-
             inset: 0;
-
             z-index: 6;
-
             pointer-events: none;
 
             background:
-
                 linear-gradient(
                     180deg,
-
-                    rgba(0, 0, 0, 0.50) 0%,
-
+                    rgba(0,0,0,0.50) 0%,
                     transparent 27%
                 );
         }
-
 
 
         /* =====================================================
@@ -190,7 +140,6 @@
 
         .marca {
             position: absolute;
-
             top: 38px;
             left: 55px;
 
@@ -199,10 +148,8 @@
             color: white;
 
             text-shadow:
-                0 4px 16px
-                rgba(0, 0, 0, 0.95);
+                0 4px 16px rgba(0,0,0,0.95);
         }
-
 
         .marca-superior {
             display: block;
@@ -213,10 +160,8 @@
                 serif;
 
             font-size: 21px;
-
             font-weight: bold;
         }
-
 
         .marca-principal {
             display: block;
@@ -229,14 +174,10 @@
                 serif;
 
             font-size: 52px;
-
             font-style: italic;
-
             font-weight: bold;
-
             line-height: 1;
         }
-
 
         .marca-lugar {
             display: block;
@@ -244,21 +185,17 @@
             margin-top: 8px;
 
             font-size: 13px;
-
             font-weight: bold;
-
             letter-spacing: 3px;
         }
 
 
-
         /* =====================================================
-           TÍTULO SUPERIOR DERECHO
+           TÍTULO SUPERIOR
         ===================================================== */
 
         .titulo-superior {
             position: absolute;
-
             top: 45px;
             right: 55px;
 
@@ -267,18 +204,13 @@
             color: #efbd4d;
 
             font-size: 18px;
-
             font-weight: bold;
-
             letter-spacing: 3px;
-
             text-transform: uppercase;
 
             text-shadow:
-                0 3px 12px
-                rgba(0, 0, 0, 0.95);
+                0 3px 12px rgba(0,0,0,0.95);
         }
-
 
         .titulo-superior::after {
             content: "";
@@ -291,22 +223,17 @@
             margin-top: 10px;
 
             background:
-
                 linear-gradient(
                     90deg,
-
                     transparent,
-
                     #efbd4d,
-
                     transparent
                 );
         }
 
 
-
         /* =====================================================
-           INFORMACIÓN
+           INFORMACIÓN DEL PRODUCTO
         ===================================================== */
 
         .informacion {
@@ -317,16 +244,23 @@
 
             z-index: 30;
 
-            width:
-                min(
-                    800px,
-                    61vw
-                );
+            width: min(800px, 61vw);
+
+            transition:
+                bottom 0.4s ease;
 
             --descripcion-delay: 1.85s;
             --linea-delay: 2.30s;
         }
 
+        /*
+           Cuando se activa el modo táctil,
+           subimos un poco el texto.
+        */
+
+        .carrusel.modo-interactivo .informacion {
+            bottom: 190px;
+        }
 
         .categoria {
             margin-bottom: 10px;
@@ -334,25 +268,22 @@
             color: #efbd4d;
 
             font-size: 17px;
-
             font-weight: bold;
-
             letter-spacing: 4px;
-
             text-transform: uppercase;
 
             text-shadow:
-                0 3px 12px
-                rgba(0, 0, 0, 1);
+                0 3px 12px rgba(0,0,0,1);
         }
 
 
-
         /* =====================================================
-           NOMBRE DEL PRODUCTO
+           NOMBRE
         ===================================================== */
 
         .nombre-producto {
+            max-width: 800px;
+
             color: white;
 
             font-family:
@@ -361,7 +292,6 @@
                 serif;
 
             font-size:
-
                 clamp(
                     48px,
                     5.4vw,
@@ -369,59 +299,38 @@
                 );
 
             font-weight: bold;
-
             line-height: 0.98;
 
-            max-width: 800px;
-
             text-shadow:
-
-                0 5px 24px
-                rgba(0, 0, 0, 1),
-
-                0 2px 8px
-                rgba(0, 0, 0, 1);
+                0 5px 24px rgba(0,0,0,1),
+                0 2px 8px rgba(0,0,0,1);
         }
-
 
         .nombre-producto.animando {
             animation:
-
                 entradaTitulo
-
                 0.85s
-
                 ease
-
                 1.05s
-
                 both;
         }
-
 
         @keyframes entradaTitulo {
 
             from {
                 opacity: 0;
-
-                transform:
-                    translateY(38px);
+                transform: translateY(38px);
             }
-
 
             to {
                 opacity: 1;
-
-                transform:
-                    translateY(0);
+                transform: translateY(0);
             }
-
         }
 
 
-
         /* =====================================================
-           DETALLE / VARIEDAD DEL VINO
+           VARIEDAD DEL VINO
         ===================================================== */
 
         .detalle-producto {
@@ -435,7 +344,6 @@
                 serif;
 
             font-size:
-
                 clamp(
                     19px,
                     1.8vw,
@@ -443,54 +351,37 @@
                 );
 
             font-weight: bold;
-
             line-height: 1.25;
 
             text-shadow:
-                0 3px 12px
-                rgba(0, 0, 0, 1);
+                0 3px 12px rgba(0,0,0,1);
         }
-
 
         .detalle-producto.oculto {
             display: none;
         }
 
-
         .detalle-producto.animando {
             animation:
-
                 entradaDetalle
-
                 0.8s
-
                 ease
-
                 1.55s
-
                 both;
         }
-
 
         @keyframes entradaDetalle {
 
             from {
                 opacity: 0;
-
-                transform:
-                    translateY(18px);
+                transform: translateY(18px);
             }
-
 
             to {
                 opacity: 1;
-
-                transform:
-                    translateY(0);
+                transform: translateY(0);
             }
-
         }
-
 
 
         /* =====================================================
@@ -502,17 +393,9 @@
 
             margin-top: 17px;
 
-            color:
-
-                rgba(
-                    255,
-                    255,
-                    255,
-                    0.94
-                );
+            color: rgba(255,255,255,0.94);
 
             font-size:
-
                 clamp(
                     19px,
                     1.7vw,
@@ -520,53 +403,34 @@
                 );
 
             font-weight: 400;
-
             line-height: 1.35;
 
             text-shadow:
-
-                0 3px 12px
-                rgba(0, 0, 0, 1),
-
-                0 1px 5px
-                rgba(0, 0, 0, 1);
+                0 3px 12px rgba(0,0,0,1),
+                0 1px 5px rgba(0,0,0,1);
         }
-
 
         .descripcion-producto.animando {
             animation:
-
                 entradaDescripcion
-
                 0.85s
-
                 ease
-
                 var(--descripcion-delay)
-
                 both;
         }
-
 
         @keyframes entradaDescripcion {
 
             from {
                 opacity: 0;
-
-                transform:
-                    translateY(20px);
+                transform: translateY(20px);
             }
-
 
             to {
                 opacity: 1;
-
-                transform:
-                    translateY(0);
+                transform: translateY(0);
             }
-
         }
-
 
 
         /* =====================================================
@@ -582,54 +446,33 @@
             background: #efbd4d;
 
             box-shadow:
-
                 0 0 12px
-
-                rgba(
-                    239,
-                    189,
-                    77,
-                    0.40
-                );
+                rgba(239,189,77,0.40);
 
             transform-origin: left;
         }
 
-
         .linea-dorada.animando {
             animation:
-
                 entradaLinea
-
                 0.8s
-
                 ease
-
                 var(--linea-delay)
-
                 both;
         }
-
 
         @keyframes entradaLinea {
 
             from {
                 opacity: 0;
-
-                transform:
-                    scaleX(0);
+                transform: scaleX(0);
             }
-
 
             to {
                 opacity: 1;
-
-                transform:
-                    scaleX(1);
+                transform: scaleX(1);
             }
-
         }
-
 
 
         /* =====================================================
@@ -645,84 +488,51 @@
             z-index: 100;
 
             display: flex;
-
             align-items: center;
             justify-content: center;
 
             min-width: 220px;
             min-height: 50px;
 
-            padding:
-                12px
-                22px;
+            padding: 12px 22px;
 
-            border:
-                2px solid
-                #efbd4d;
-
+            border: 2px solid #efbd4d;
             border-radius: 28px;
 
             color: #efbd4d;
 
             background:
-
-                rgba(
-                    0,
-                    0,
-                    0,
-                    0.74
-                );
+                rgba(0,0,0,0.74);
 
             font-size: 14px;
-
             font-weight: bold;
-
             letter-spacing: 1px;
 
             cursor: pointer;
 
-            backdrop-filter:
-                blur(6px);
-
-            -webkit-backdrop-filter:
-                blur(6px);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
 
             transition:
-
                 background 0.25s ease,
-
                 color 0.25s ease,
-
                 transform 0.25s ease;
         }
 
-
         .boton-pantalla-completa:hover,
         .boton-pantalla-completa:focus {
-
             color: #17100b;
-
             background: #efbd4d;
-
-            transform:
-                scale(1.05);
-
-            outline:
-                4px solid white;
-
-            outline-offset:
-                3px;
+            transform: scale(1.05);
         }
-
 
         .boton-pantalla-completa.oculto {
             display: none;
         }
 
 
-
         /* =====================================================
-           CASITA PARA SALIR DE PANTALLA COMPLETA
+           CASITA
         ===================================================== */
 
         .boton-casita {
@@ -734,119 +544,465 @@
             z-index: 150;
 
             display: flex;
-
             align-items: center;
             justify-content: center;
 
             width: 52px;
             height: 52px;
 
-            border:
-                2px solid
-                #efbd4d;
-
+            border: 2px solid #efbd4d;
             border-radius: 50%;
 
             color: #efbd4d;
 
             background:
-
-                rgba(
-                    0,
-                    0,
-                    0,
-                    0.64
-                );
+                rgba(0,0,0,0.58);
 
             cursor: pointer;
 
-            backdrop-filter:
-                blur(6px);
-
-            -webkit-backdrop-filter:
-                blur(6px);
+            transition:
+                bottom 0.4s ease,
+                background 0.25s ease,
+                color 0.25s ease;
         }
 
+        .carrusel.modo-interactivo .boton-casita {
+            bottom: 130px;
+        }
 
         .boton-casita svg {
             width: 26px;
             height: 26px;
 
             fill: none;
-
             stroke: currentColor;
 
             stroke-width: 2.2;
-
             stroke-linecap: round;
-
             stroke-linejoin: round;
         }
 
-
         .boton-casita:hover,
         .boton-casita:focus {
-
             background: #efbd4d;
-
             color: #17100b;
-
-            outline:
-                4px solid white;
-
-            outline-offset:
-                3px;
         }
 
 
+        /* =====================================================
+           FLECHAS
+        ===================================================== */
+
+        .flecha {
+            position: absolute;
+
+            top: 50%;
+
+            z-index: 250;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 76px;
+            height: 76px;
+
+            border:
+                2px solid
+                rgba(239,189,77,0.95);
+
+            border-radius: 50%;
+
+            color: #efbd4d;
+
+            background:
+                rgba(0,0,0,0.55);
+
+            font-size: 45px;
+            line-height: 1;
+
+            cursor: pointer;
+
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+
+            transform:
+                translateY(-50%)
+                scale(0.85);
+
+            transition:
+                opacity 0.3s ease,
+                transform 0.3s ease,
+                visibility 0.3s ease,
+                background 0.2s ease,
+                color 0.2s ease;
+        }
+
+        .flecha-izquierda {
+            left: 22px;
+        }
+
+        .flecha-derecha {
+            right: 22px;
+        }
+
+        .carrusel.modo-interactivo .flecha {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+
+            transform:
+                translateY(-50%)
+                scale(1);
+        }
+
+        .flecha:hover,
+        .flecha:active {
+            color: #17100b;
+            background: #efbd4d;
+        }
+
 
         /* =====================================================
-           PRESENTACIÓN DE CADA SECCIÓN
+           PANEL INTERACTIVO
+           AHORA ES TOTALMENTE TRANSPARENTE
+        ===================================================== */
+
+        .panel-interactivo {
+            position: absolute;
+
+            left: 50%;
+            bottom: 18px;
+
+            z-index: 240;
+
+            width:
+                min(
+                    1200px,
+                    calc(100% - 180px)
+                );
+
+            /*
+               IMPORTANTE:
+               eliminamos el cuadro negro.
+            */
+
+            background: transparent;
+            border: none;
+            box-shadow: none;
+
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+
+            padding: 0;
+
+            opacity: 0;
+            visibility: hidden;
+
+            pointer-events: none;
+
+            transform:
+                translate(-50%, 25px);
+
+            transition:
+                opacity 0.35s ease,
+                transform 0.35s ease,
+                visibility 0.35s ease;
+        }
+
+        .carrusel.modo-interactivo
+        .panel-interactivo {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+
+            transform:
+                translate(-50%,0);
+        }
+
+
+        /* =====================================================
+           BOTONES REGIONALES / POSTRES / VINOS
+        ===================================================== */
+
+        .categorias-interactivas {
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            gap: 14px;
+
+            margin-bottom: 12px;
+
+            background: transparent;
+        }
+
+        .boton-categoria {
+            padding:
+                8px
+                20px;
+
+            border:
+                1.5px solid
+                rgba(239,189,77,0.75);
+
+            border-radius: 25px;
+
+            color:
+                rgba(255,255,255,0.92);
+
+            /*
+               Cada botón tiene solamente
+               su pequeño fondo individual.
+            */
+
+            background:
+                rgba(0,0,0,0.48);
+
+            font-size: 13px;
+            font-weight: bold;
+
+            letter-spacing: 1.2px;
+
+            text-transform: uppercase;
+
+            cursor: pointer;
+
+            text-shadow:
+                0 2px 8px
+                rgba(0,0,0,1);
+
+            transition:
+                transform 0.2s ease,
+                color 0.2s ease,
+                background 0.2s ease,
+                border-color 0.2s ease;
+        }
+
+        .boton-categoria:hover {
+            transform: scale(1.04);
+        }
+
+        .boton-categoria.activa {
+            color: #17100b;
+
+            background:
+                #efbd4d;
+
+            border-color:
+                #efbd4d;
+
+            text-shadow: none;
+
+            box-shadow:
+                0 0 15px
+                rgba(239,189,77,0.35);
+        }
+
+
+        /* =====================================================
+           MINIATURAS
+        ===================================================== */
+
+        .miniaturas {
+            display: flex;
+
+            align-items: center;
+
+            gap: 13px;
+
+            width: 100%;
+
+            overflow-x: auto;
+            overflow-y: hidden;
+
+            /*
+               Sin fondo.
+               Sin cuadro.
+            */
+
+            background: transparent;
+
+            padding:
+                5px
+                8px
+                7px;
+
+            scroll-behavior: smooth;
+
+            touch-action: pan-x;
+
+            scrollbar-width: none;
+        }
+
+        .miniaturas::-webkit-scrollbar {
+            display: none;
+        }
+
+        .miniatura {
+            flex:
+                0
+                0
+                72px;
+
+            width: 72px;
+            height: 72px;
+
+            padding: 0;
+
+            border:
+                3px solid
+                rgba(255,255,255,0.60);
+
+            border-radius: 50%;
+
+            background: transparent;
+
+            overflow: hidden;
+
+            cursor: pointer;
+
+            opacity: 0.82;
+
+            transform: scale(0.94);
+
+            /*
+               Esta sombra individual permite
+               distinguir la foto del fondo
+               sin usar una caja negra.
+            */
+
+            box-shadow:
+                0 4px 14px
+                rgba(0,0,0,0.75);
+
+            transition:
+                opacity 0.2s ease,
+                transform 0.2s ease,
+                border-color 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .miniatura img {
+            width: 100%;
+            height: 100%;
+
+            display: block;
+
+            object-fit: cover;
+        }
+
+        .miniatura:hover {
+            opacity: 1;
+            transform: scale(1.04);
+        }
+
+        .miniatura.activa {
+            opacity: 1;
+
+            transform:
+                scale(1.10);
+
+            border-color:
+                #efbd4d;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(239,189,77,0.22),
+                0 0 20px
+                rgba(239,189,77,0.65),
+                0 5px 18px
+                rgba(0,0,0,0.80);
+        }
+
+
+        /* =====================================================
+           TEXTO DE AYUDA
+        ===================================================== */
+
+        .ayuda-interactiva {
+            position: absolute;
+
+            left: 50%;
+            bottom: 125px;
+
+            z-index: 230;
+
+            color:
+                rgba(255,255,255,0.92);
+
+            /*
+               También lo dejamos sin barra negra.
+            */
+
+            background: transparent;
+
+            font-size: 13px;
+            font-weight: bold;
+
+            letter-spacing: 1px;
+
+            text-shadow:
+                0 2px 6px rgba(0,0,0,1),
+                0 0 12px rgba(0,0,0,1);
+
+            opacity: 0;
+            visibility: hidden;
+
+            transform:
+                translate(-50%,10px);
+
+            pointer-events: none;
+
+            transition:
+                opacity 0.3s ease,
+                transform 0.3s ease;
+        }
+
+        .carrusel.modo-interactivo
+        .ayuda-interactiva {
+            opacity: 1;
+            visibility: visible;
+
+            transform:
+                translate(-50%,0);
+        }
+
+
+        /* =====================================================
+           PRESENTACIÓN DE SECCIÓN
         ===================================================== */
 
         .presentacion {
             position: absolute;
-
             inset: 0;
 
             z-index: 500;
 
             display: flex;
-
             align-items: center;
             justify-content: center;
 
-            background:
-                #080604;
+            background: #080604;
 
             opacity: 1;
-
             visibility: visible;
 
             transition:
-
-                opacity
-                1s
-                ease,
-
-                visibility
-                1s
-                ease;
+                opacity 1s ease,
+                visibility 1s ease;
         }
-
 
         .presentacion.oculta {
             opacity: 0;
-
             visibility: hidden;
-
             pointer-events: none;
         }
 
-
         .presentacion-fondo {
             position: absolute;
-
             inset: 0;
 
             width: 100%;
@@ -855,48 +1011,25 @@
             object-fit: cover;
 
             filter:
-
                 blur(14px)
-
                 brightness(0.30)
-
                 saturate(1.20);
 
             transform:
                 scale(1.12);
-
-            transition:
-                opacity 0.5s ease;
         }
-
 
         .presentacion-capa {
             position: absolute;
-
             inset: 0;
 
             background:
-
                 radial-gradient(
-
                     circle at center,
-
-                    rgba(
-                        80,
-                        35,
-                        10,
-                        0.30
-                    ),
-
-                    rgba(
-                        0,
-                        0,
-                        0,
-                        0.92
-                    )
+                    rgba(80,35,10,0.30),
+                    rgba(0,0,0,0.92)
                 );
         }
-
 
         .presentacion-contenido {
             position: relative;
@@ -910,14 +1043,12 @@
             text-align: center;
         }
 
-
         .presentacion-marca {
             margin-bottom: 27px;
 
             color: #efbd4d;
 
             font-size: 19px;
-
             font-weight: bold;
 
             letter-spacing: 6px;
@@ -925,18 +1056,13 @@
             text-transform: uppercase;
         }
 
-
         .presentacion-titulo {
             font-family:
-
                 Georgia,
-
                 "Times New Roman",
-
                 serif;
 
             font-size:
-
                 clamp(
                     60px,
                     8vw,
@@ -944,78 +1070,47 @@
                 );
 
             font-weight: bold;
-
             line-height: 1;
 
             text-shadow:
-
                 0 8px 35px
-
-                rgba(
-                    0,
-                    0,
-                    0,
-                    0.95
-                );
+                rgba(0,0,0,0.95);
         }
-
 
         .presentacion-titulo.animando {
             animation:
-
                 aparecerPresentacion
-
                 1.2s
-
                 ease
-
                 forwards;
         }
-
 
         .presentacion-linea {
             width: 180px;
             height: 5px;
 
             margin:
-
                 32px
-
                 auto
-
                 25px;
 
             background: #efbd4d;
         }
 
-
         .presentacion-linea.animando {
             animation:
-
                 lineaPresentacion
-
                 1.1s
-
                 ease
-
                 0.35s
-
                 both;
         }
 
-
         .presentacion-subtitulo {
             color:
-
-                rgba(
-                    255,
-                    255,
-                    255,
-                    0.86
-                );
+                rgba(255,255,255,0.86);
 
             font-size:
-
                 clamp(
                     18px,
                     2vw,
@@ -1027,65 +1122,44 @@
             text-transform: uppercase;
         }
 
-
         .presentacion-subtitulo.animando {
             animation:
-
                 aparecerPresentacion
-
                 1.1s
-
                 ease
-
                 0.55s
-
                 both;
         }
-
 
         @keyframes aparecerPresentacion {
 
             from {
                 opacity: 0;
-
-                transform:
-                    translateY(32px);
+                transform: translateY(32px);
             }
-
 
             to {
                 opacity: 1;
-
-                transform:
-                    translateY(0);
+                transform: translateY(0);
             }
-
         }
-
 
         @keyframes lineaPresentacion {
 
             from {
                 opacity: 0;
-
-                transform:
-                    scaleX(0);
+                transform: scaleX(0);
             }
-
 
             to {
                 opacity: 1;
-
-                transform:
-                    scaleX(1);
+                transform: scaleX(1);
             }
-
         }
 
 
-
         /* =====================================================
-           MENSAJE DE ERROR
+           ERROR PANTALLA COMPLETA
         ===================================================== */
 
         .mensaje-pantalla {
@@ -1115,32 +1189,20 @@
             color: white;
 
             background:
-
-                rgba(
-                    0,
-                    0,
-                    0,
-                    0.95
-                );
+                rgba(0,0,0,0.95);
 
             text-align: center;
 
             font-size: 18px;
-
             line-height: 1.5;
 
             transform:
-                translate(
-                    -50%,
-                    -50%
-                );
+                translate(-50%,-50%);
         }
-
 
         .mensaje-pantalla.visible {
             display: block;
         }
-
 
         .cerrar-mensaje {
             margin-top: 18px;
@@ -1150,20 +1212,18 @@
                 25px;
 
             border: none;
-
             border-radius: 20px;
 
             color: #17100b;
 
-            background: #efbd4d;
+            background:
+                #efbd4d;
 
             font-size: 16px;
-
             font-weight: bold;
 
             cursor: pointer;
         }
-
 
 
         /* =====================================================
@@ -1173,9 +1233,7 @@
         @media (max-width: 1000px) {
 
             .nombre-producto {
-
                 font-size:
-
                     clamp(
                         42px,
                         5vw,
@@ -1183,11 +1241,14 @@
                     );
             }
 
-
             .descripcion-producto {
                 max-width: 570px;
             }
 
+            .panel-interactivo {
+                width:
+                    calc(100% - 120px);
+            }
         }
 
 
@@ -1198,23 +1259,19 @@
                 left: 22px;
             }
 
-
             .marca-principal {
                 font-size: 39px;
             }
 
-
             .titulo-superior {
                 display: none;
             }
-
 
             .boton-pantalla-completa {
                 top: 22px;
                 right: 18px;
 
                 min-width: auto;
-
                 min-height: 43px;
 
                 padding:
@@ -1223,7 +1280,6 @@
 
                 font-size: 11px;
             }
-
 
             .informacion {
                 left: 20px;
@@ -1234,28 +1290,80 @@
                 width: auto;
             }
 
+            .carrusel.modo-interactivo
+            .informacion {
+                bottom: 170px;
+            }
 
             .nombre-producto {
-                font-size: 40px;
+                font-size: 39px;
             }
-
 
             .detalle-producto {
-                font-size: 19px;
+                font-size: 18px;
             }
-
 
             .descripcion-producto {
-                font-size: 17px;
-
                 max-width: 95%;
-            }
 
+                font-size: 16px;
+            }
 
             .presentacion-titulo {
                 font-size: 55px;
             }
 
+            .flecha {
+                width: 58px;
+                height: 58px;
+
+                font-size: 36px;
+            }
+
+            .flecha-izquierda {
+                left: 8px;
+            }
+
+            .flecha-derecha {
+                right: 8px;
+            }
+
+            .panel-interactivo {
+                bottom: 10px;
+
+                width:
+                    calc(100% - 20px);
+            }
+
+            .categorias-interactivas {
+                gap: 7px;
+            }
+
+            .boton-categoria {
+                padding:
+                    7px
+                    10px;
+
+                font-size: 10px;
+            }
+
+            .miniatura {
+                flex-basis: 60px;
+
+                width: 60px;
+                height: 60px;
+            }
+
+            .ayuda-interactiva {
+                bottom: 115px;
+
+                font-size: 11px;
+            }
+
+            .carrusel.modo-interactivo
+            .boton-casita {
+                bottom: 120px;
+            }
         }
 
     </style>
@@ -1272,13 +1380,10 @@
     >
 
 
-        <!-- =================================================
-             IMAGEN PRINCIPAL
-        ================================================== -->
+        <!-- IMAGEN -->
 
         <img
             id="imagenPrincipal"
-
             class="imagen-principal animando"
 
             src="{{ url_for('static', filename='carrusel_regionales/locro.png') }}"
@@ -1287,118 +1392,81 @@
         >
 
 
-
-        <!-- SOMBRAS -->
-
         <div class="capa-oscura"></div>
-
         <div class="capa-superior"></div>
 
 
-
-        <!-- =================================================
-             MARCA
-        ================================================== -->
+        <!-- MARCA -->
 
         <div class="marca">
-
 
             <span class="marca-superior">
                 La Peña de
             </span>
 
-
             <span class="marca-principal">
                 Marito
             </span>
-
 
             <span class="marca-lugar">
                 PURMAMARCA
             </span>
 
-
         </div>
 
 
-
-        <!-- =================================================
-             NOMBRE DE LA SECCIÓN
-        ================================================== -->
+        <!-- SECCIÓN -->
 
         <div
             id="tituloSuperior"
-
             class="titulo-superior"
         >
             Regionales
         </div>
 
 
-
-        <!-- =================================================
-             PANTALLA COMPLETA
-        ================================================== -->
+        <!-- PANTALLA COMPLETA -->
 
         <button
             id="botonPantallaCompleta"
-
             class="boton-pantalla-completa"
-
             type="button"
         >
             ⛶ PANTALLA COMPLETA
         </button>
 
 
-
-        <!-- =================================================
-             INFORMACIÓN
-        ================================================== -->
+        <!-- INFORMACIÓN -->
 
         <section
             id="informacion"
-
             class="informacion"
         >
 
-
             <p
                 id="categoriaProducto"
-
                 class="categoria"
             >
                 Plato regional
             </p>
 
 
-
             <h1
                 id="nombreProducto"
-
                 class="nombre-producto animando"
             >
                 Locro norteño
             </h1>
 
 
-
-            <!--
-                ESTE TEXTO SOLO APARECE
-                CUANDO ESTAMOS EN VINOS
-            -->
-
             <p
                 id="detalleProducto"
-
                 class="detalle-producto oculto"
             ></p>
 
 
-
             <p
                 id="descripcionProducto"
-
                 class="descripcion-producto animando"
             >
                 Guiso tradicional de maíz,
@@ -1406,76 +1474,100 @@
             </p>
 
 
-
             <div
                 id="lineaDorada"
-
                 class="linea-dorada animando"
             ></div>
-
 
         </section>
 
 
+        <!-- FLECHA IZQUIERDA -->
 
-        <!-- =================================================
-             CASITA
-        ================================================== -->
+        <button
+            id="flechaIzquierda"
+            class="flecha flecha-izquierda"
+            type="button"
+            aria-label="Producto anterior"
+        >
+            ‹
+        </button>
+
+
+        <!-- FLECHA DERECHA -->
+
+        <button
+            id="flechaDerecha"
+            class="flecha flecha-derecha"
+            type="button"
+            aria-label="Producto siguiente"
+        >
+            ›
+        </button>
+
+
+        <!-- TEXTO DE AYUDA -->
+
+        <div class="ayuda-interactiva">
+
+            Deslizá, usá las flechas o elegí un producto
+
+        </div>
+
+
+        <!-- PANEL TRANSPARENTE -->
+
+        <section
+            id="panelInteractivo"
+            class="panel-interactivo"
+        >
+
+            <div
+                id="categoriasInteractivas"
+                class="categorias-interactivas"
+            ></div>
+
+
+            <div
+                id="miniaturas"
+                class="miniaturas"
+            ></div>
+
+        </section>
+
+
+        <!-- CASITA -->
 
         <button
             id="botonCasita"
-
             class="boton-casita"
-
             type="button"
-
             aria-label="Salir de pantalla completa"
         >
 
-
             <svg
                 viewBox="0 0 24 24"
-
                 aria-hidden="true"
             >
 
-
-                <path
-                    d="M3 11.5 12 4l9 7.5"
-                ></path>
-
-
-                <path
-                    d="M5.5 10v10h13V10"
-                ></path>
-
-
-                <path
-                    d="M9.5 20v-6h5v6"
-                ></path>
-
+                <path d="M3 11.5 12 4l9 7.5"></path>
+                <path d="M5.5 10v10h13V10"></path>
+                <path d="M9.5 20v-6h5v6"></path>
 
             </svg>
-
 
         </button>
 
 
-
-        <!-- =================================================
-             PRESENTACIÓN DE SECCIONES
-        ================================================== -->
+        <!-- PRESENTACIÓN -->
 
         <section
             id="presentacion"
-
             class="presentacion"
         >
 
-
             <img
                 id="presentacionFondo"
-
                 class="presentacion-fondo"
 
                 src="{{ url_for('static', filename='carrusel_regionales/locro.png') }}"
@@ -1484,94 +1576,63 @@
             >
 
 
-
             <div class="presentacion-capa"></div>
-
 
 
             <div class="presentacion-contenido">
 
-
                 <p class="presentacion-marca">
-
                     La Peña de Marito · Purmamarca
-
                 </p>
-
 
 
                 <h1
                     id="presentacionTitulo"
-
                     class="presentacion-titulo animando"
                 >
-
                     Platos Regionales
-
                 </h1>
-
 
 
                 <div
                     id="presentacionLinea"
-
                     class="presentacion-linea animando"
                 ></div>
 
 
-
                 <p
                     id="presentacionSubtitulo"
-
                     class="presentacion-subtitulo animando"
                 >
-
                     Sabores auténticos de nuestra tierra
-
                 </p>
-
 
             </div>
 
-
         </section>
-
 
     </main>
 
 
-
-    <!-- =====================================================
-         MENSAJE DE ERROR
-    ====================================================== -->
+    <!-- ERROR -->
 
     <div
         id="mensajePantalla"
-
         class="mensaje-pantalla"
     >
 
-
         <p>
-
             Este navegador no permitió cambiar
             el modo de pantalla completa.
-
         </p>
-
 
         <button
             id="cerrarMensaje"
-
             class="cerrar-mensaje"
-
             type="button"
         >
-
             Cerrar
-
         </button>
-
 
     </div>
 
@@ -1581,15 +1642,14 @@
 
 
         /* =====================================================
-           TODAS LAS SECCIONES
+           SECCIONES
         ===================================================== */
 
         const secciones = [
 
 
-
             /* =================================================
-               1 - PLATOS REGIONALES
+               REGIONALES
             ================================================= */
 
             {
@@ -1597,29 +1657,19 @@
                 titulo:
                     "Platos Regionales",
 
-
                 tituloCorto:
                     "Regionales",
-
 
                 categoria:
                     "Plato regional",
 
-
                 subtitulo:
                     "Sabores auténticos de nuestra tierra",
-
-
-                /*
-                    Cada plato dura 7 segundos
-                */
 
                 duracion:
                     7000,
 
-
                 productos: [
-
 
 
                     {
@@ -1634,7 +1684,6 @@
                     },
 
 
-
                     {
                         nombre:
                             "Llama al Malbec",
@@ -1645,7 +1694,6 @@
                         imagen:
                             "{{ url_for('static', filename='carrusel_regionales/llama_malbec.png') }}"
                     },
-
 
 
                     {
@@ -1660,7 +1708,6 @@
                     },
 
 
-
                     {
                         nombre:
                             "Cazuela de llama",
@@ -1671,7 +1718,6 @@
                         imagen:
                             "{{ url_for('static', filename='carrusel_regionales/cazuela_llama.png') }}"
                     },
-
 
 
                     {
@@ -1686,7 +1732,6 @@
                     },
 
 
-
                     {
                         nombre:
                             "Cazuela de cabrito",
@@ -1697,7 +1742,6 @@
                         imagen:
                             "{{ url_for('static', filename='carrusel_regionales/cazuela_cabrito.png') }}"
                     },
-
 
 
                     {
@@ -1712,7 +1756,6 @@
                     },
 
 
-
                     {
                         nombre:
                             "Medallón de quinoa",
@@ -1723,7 +1766,6 @@
                         imagen:
                             "{{ url_for('static', filename='carrusel_regionales/medallon_quinoa.png') }}"
                     },
-
 
 
                     {
@@ -1738,7 +1780,6 @@
                     },
 
 
-
                     {
                         nombre:
                             "Milanesa de llama",
@@ -1749,7 +1790,6 @@
                         imagen:
                             "{{ url_for('static', filename='carrusel_regionales/milanesa_llama.png') }}"
                     },
-
 
 
                     {
@@ -1764,7 +1804,6 @@
                     },
 
 
-
                     {
                         nombre:
                             "Milanesa de llama a caballo",
@@ -1776,7 +1815,6 @@
                             "{{ url_for('static', filename='carrusel_regionales/milanesa_llama_caballo.png') }}"
                     }
 
-
                 ]
 
             },
@@ -1784,7 +1822,7 @@
 
 
             /* =================================================
-               2 - POSTRES
+               POSTRES
             ================================================= */
 
             {
@@ -1792,29 +1830,19 @@
                 titulo:
                     "Postres",
 
-
                 tituloCorto:
                     "Postres",
-
 
                 categoria:
                     "Postre",
 
-
                 subtitulo:
                     "Dulces sabores de nuestra tierra",
-
-
-                /*
-                    Cada postre dura 7 segundos
-                */
 
                 duracion:
                     7000,
 
-
                 productos: [
-
 
 
                     {
@@ -1829,7 +1857,6 @@
                     },
 
 
-
                     {
                         nombre:
                             "Quesillo con cayote y nueces",
@@ -1840,7 +1867,6 @@
                         imagen:
                             "{{ url_for('static', filename='carrusel_postres/quesillo_cayote.png') }}"
                     },
-
 
 
                     {
@@ -1855,7 +1881,6 @@
                     },
 
 
-
                     {
                         nombre:
                             "Flan de quinoa",
@@ -1866,7 +1891,6 @@
                         imagen:
                             "{{ url_for('static', filename='carrusel_postres/flan_quinoa.png') }}"
                     },
-
 
 
                     {
@@ -1881,7 +1905,6 @@
                     },
 
 
-
                     {
                         nombre:
                             "Helado de cereza",
@@ -1892,7 +1915,6 @@
                         imagen:
                             "{{ url_for('static', filename='carrusel_postres/helado_cereza.png') }}"
                     },
-
 
 
                     {
@@ -1906,7 +1928,6 @@
                             "{{ url_for('static', filename='carrusel_postres/helado_chocolate_cereza.png') }}"
                     }
 
-
                 ]
 
             },
@@ -1914,7 +1935,7 @@
 
 
             /* =================================================
-               3 - VINOS DE JUJUY
+               VINOS
             ================================================= */
 
             {
@@ -1922,267 +1943,172 @@
                 titulo:
                     "Vinos de Jujuy",
 
-
                 tituloCorto:
                     "Vinos de Jujuy",
-
 
                 categoria:
                     "Vino jujeño",
 
-
                 subtitulo:
                     "Sabores nacidos entre montañas",
-
-
-                /*
-                    Los vinos duran 8 segundos
-                    porque tienen una línea más
-                    de información.
-                */
 
                 duracion:
                     8000,
 
-
                 productos: [
 
-
-
-                    /* =========================================
-                       VINO 1
-                    ========================================= */
 
                     {
                         nombre:
                             "Punta Corral 2022",
 
-
                         detalle:
                             "Malbec · Syrah · Cabernet Franc",
 
-
                         descripcion:
                             "Blend de tintas jujeñas que combina distintas variedades y refleja el carácter de los vinos de nuestra tierra.",
-
 
                         imagen:
                             "{{ url_for('static', filename='carrusel_vinos/vino1.png') }}"
                     },
 
 
-
-                    /* =========================================
-                       VINO 2
-                    ========================================= */
-
                     {
                         nombre:
                             "Amanecer Andino",
 
-
                         detalle:
                             "Malbec Reserva",
 
-
                         descripcion:
                             "Malbec Reserva elaborado en Jujuy, una expresión de la vitivinicultura y los paisajes de nuestra región.",
-
 
                         imagen:
                             "{{ url_for('static', filename='carrusel_vinos/vino2.png') }}"
                     },
 
 
-
-                    /* =========================================
-                       VINO 3
-                    ========================================= */
-
                     {
                         nombre:
                             "Corte en la Quebrada",
 
-
                         detalle:
                             "Blend de tintas",
 
-
                         descripcion:
                             "Blend de uvas tintas jujeñas inspirado en la Quebrada y en la identidad de los vinos del norte.",
-
 
                         imagen:
                             "{{ url_for('static', filename='carrusel_vinos/vino3.png') }}"
                     },
 
 
-
-                    /* =========================================
-                       VINO 4
-                    ========================================= */
-
                     {
                         nombre:
                             "Corazón Valiente",
 
-
                         detalle:
                             "Malbec",
 
-
                         descripcion:
                             "Malbec jujeño que representa el carácter y la identidad de los vinos producidos en nuestra provincia.",
-
 
                         imagen:
                             "{{ url_for('static', filename='carrusel_vinos/vino4.png') }}"
                     },
 
 
-
-                    /* =========================================
-                       VINO 5
-                    ========================================= */
-
                     {
                         nombre:
                             "Flor del Valle",
 
-
                         detalle:
                             "Blend",
 
-
                         descripcion:
                             "Blend jujeño inspirado en los paisajes, la altura y los sabores característicos de nuestra tierra.",
-
 
                         imagen:
                             "{{ url_for('static', filename='carrusel_vinos/vino5.png') }}"
                     }
 
-
                 ]
 
             }
-
 
         ];
 
 
 
         /* =====================================================
-           ELEMENTOS DE LA PÁGINA
+           ELEMENTOS
         ===================================================== */
 
-
         const carrusel =
-            document.getElementById(
-                "carrusel"
-            );
-
+            document.getElementById("carrusel");
 
         const imagenPrincipal =
-            document.getElementById(
-                "imagenPrincipal"
-            );
-
+            document.getElementById("imagenPrincipal");
 
         const informacion =
-            document.getElementById(
-                "informacion"
-            );
-
+            document.getElementById("informacion");
 
         const nombreProducto =
-            document.getElementById(
-                "nombreProducto"
-            );
-
+            document.getElementById("nombreProducto");
 
         const detalleProducto =
-            document.getElementById(
-                "detalleProducto"
-            );
-
+            document.getElementById("detalleProducto");
 
         const descripcionProducto =
-            document.getElementById(
-                "descripcionProducto"
-            );
-
+            document.getElementById("descripcionProducto");
 
         const categoriaProducto =
-            document.getElementById(
-                "categoriaProducto"
-            );
-
+            document.getElementById("categoriaProducto");
 
         const tituloSuperior =
-            document.getElementById(
-                "tituloSuperior"
-            );
-
+            document.getElementById("tituloSuperior");
 
         const lineaDorada =
-            document.getElementById(
-                "lineaDorada"
-            );
-
+            document.getElementById("lineaDorada");
 
         const presentacion =
-            document.getElementById(
-                "presentacion"
-            );
-
+            document.getElementById("presentacion");
 
         const presentacionFondo =
-            document.getElementById(
-                "presentacionFondo"
-            );
-
+            document.getElementById("presentacionFondo");
 
         const presentacionTitulo =
-            document.getElementById(
-                "presentacionTitulo"
-            );
-
+            document.getElementById("presentacionTitulo");
 
         const presentacionSubtitulo =
-            document.getElementById(
-                "presentacionSubtitulo"
-            );
-
+            document.getElementById("presentacionSubtitulo");
 
         const presentacionLinea =
-            document.getElementById(
-                "presentacionLinea"
-            );
-
+            document.getElementById("presentacionLinea");
 
         const botonPantallaCompleta =
-            document.getElementById(
-                "botonPantallaCompleta"
-            );
-
+            document.getElementById("botonPantallaCompleta");
 
         const botonCasita =
-            document.getElementById(
-                "botonCasita"
-            );
+            document.getElementById("botonCasita");
 
+        const flechaIzquierda =
+            document.getElementById("flechaIzquierda");
+
+        const flechaDerecha =
+            document.getElementById("flechaDerecha");
+
+        const categoriasInteractivas =
+            document.getElementById("categoriasInteractivas");
+
+        const miniaturas =
+            document.getElementById("miniaturas");
 
         const mensajePantalla =
-            document.getElementById(
-                "mensajePantalla"
-            );
-
+            document.getElementById("mensajePantalla");
 
         const cerrarMensaje =
-            document.getElementById(
-                "cerrarMensaje"
-            );
+            document.getElementById("cerrarMensaje");
 
 
 
@@ -2190,60 +2116,56 @@
            VARIABLES
         ===================================================== */
 
+        let indiceSeccion = 0;
 
-        let indiceSeccion =
-            0;
+        let indiceProducto = 0;
 
+        let modoInteractivo = false;
 
-        let indiceProducto =
-            0;
+        let temporizadorProducto = null;
 
+        let temporizadorPresentacion = null;
 
-        let temporizadorProducto;
+        let temporizadorCambio = null;
 
+        let temporizadorInactividad = null;
 
-        let temporizadorPresentacion;
-
-
-
-        /*
-            La pantalla de presentación de
-            REGIONALES / POSTRES / VINOS
-            dura 3 segundos.
-        */
 
         const duracionPresentacion =
             3000;
 
 
+        /*
+           10 segundos sin tocar
+           vuelve al modo automático.
+        */
+
+        const tiempoInactividad =
+            10000;
+
+
 
         /* =====================================================
-           PRECARGAR TODAS LAS IMÁGENES
+           PRECARGAR IMÁGENES
         ===================================================== */
-
 
         secciones.forEach(
 
             (seccion) => {
 
-
                 seccion.productos.forEach(
 
                     (producto) => {
 
-
                         const imagen =
                             new Image();
-
 
                         imagen.src =
                             producto.imagen;
 
-
                     }
 
                 );
-
 
             }
 
@@ -2252,56 +2174,34 @@
 
 
         /* =====================================================
-           REINICIAR ANIMACIONES DEL PRODUCTO
+           ANIMACIONES
         ===================================================== */
-
 
         function reiniciarAnimacionesProducto(
             tieneDetalle,
             duracion
         ) {
 
-
             imagenPrincipal
                 .classList
-                .remove(
-                    "animando"
-                );
-
+                .remove("animando");
 
             nombreProducto
                 .classList
-                .remove(
-                    "animando"
-                );
-
+                .remove("animando");
 
             detalleProducto
                 .classList
-                .remove(
-                    "animando"
-                );
-
+                .remove("animando");
 
             descripcionProducto
                 .classList
-                .remove(
-                    "animando"
-                );
-
+                .remove("animando");
 
             lineaDorada
                 .classList
-                .remove(
-                    "animando"
-                );
+                .remove("animando");
 
-
-
-            /*
-                Ajustamos el zoom según
-                cuánto dura el producto.
-            */
 
             imagenPrincipal
                 .style
@@ -2311,27 +2211,7 @@
                 );
 
 
-
-            /*
-                EN VINOS:
-                imagen
-                nombre
-                variedad
-                descripción
-                línea
-
-                EN COMIDAS/POSTRES:
-                imagen
-                nombre
-                descripción
-                línea
-            */
-
-
-            if (
-                tieneDetalle
-            ) {
-
+            if (tieneDetalle) {
 
                 informacion
                     .style
@@ -2340,7 +2220,6 @@
                         "2.05s"
                     );
 
-
                 informacion
                     .style
                     .setProperty(
@@ -2348,9 +2227,7 @@
                         "2.55s"
                     );
 
-
             } else {
-
 
                 informacion
                     .style
@@ -2358,7 +2235,6 @@
                         "--descripcion-delay",
                         "1.85s"
                     );
-
 
                 informacion
                     .style
@@ -2370,90 +2246,52 @@
             }
 
 
-
-            /*
-                Obliga al navegador
-                a reiniciar los efectos.
-            */
-
             void imagenPrincipal.offsetWidth;
-
 
 
             imagenPrincipal
                 .classList
-                .add(
-                    "animando"
-                );
-
+                .add("animando");
 
             nombreProducto
                 .classList
-                .add(
-                    "animando"
-                );
+                .add("animando");
 
 
-
-            if (
-                tieneDetalle
-            ) {
-
+            if (tieneDetalle) {
 
                 detalleProducto
                     .classList
-                    .add(
-                        "animando"
-                    );
+                    .add("animando");
 
             }
 
 
-
             descripcionProducto
                 .classList
-                .add(
-                    "animando"
-                );
-
+                .add("animando");
 
             lineaDorada
                 .classList
-                .add(
-                    "animando"
-                );
+                .add("animando");
 
         }
 
 
 
-        /* =====================================================
-           REINICIAR ANIMACIÓN DE PRESENTACIÓN
-        ===================================================== */
-
-
         function reiniciarAnimacionesPresentacion() {
-
 
             presentacionTitulo
                 .classList
-                .remove(
-                    "animando"
-                );
-
+                .remove("animando");
 
             presentacionSubtitulo
                 .classList
-                .remove(
-                    "animando"
-                );
-
+                .remove("animando");
 
             presentacionLinea
                 .classList
-                .remove(
-                    "animando"
-                );
+                .remove("animando");
 
 
             void presentacionTitulo.offsetWidth;
@@ -2461,23 +2299,15 @@
 
             presentacionTitulo
                 .classList
-                .add(
-                    "animando"
-                );
-
+                .add("animando");
 
             presentacionSubtitulo
                 .classList
-                .add(
-                    "animando"
-                );
-
+                .add("animando");
 
             presentacionLinea
                 .classList
-                .add(
-                    "animando"
-                );
+                .add("animando");
 
         }
 
@@ -2487,274 +2317,177 @@
            MOSTRAR PRODUCTO
         ===================================================== */
 
-
-        function mostrarProducto() {
-
+        function mostrarProducto(
+            programarAutomatico = true
+        ) {
 
             limpiarTemporizadorProducto();
-
+            limpiarTemporizadorCambio();
 
 
             const seccion =
-                secciones[
-                    indiceSeccion
-                ];
+                secciones[indiceSeccion];
 
 
             const producto =
-                seccion.productos[
-                    indiceProducto
-                ];
+                seccion.productos[indiceProducto];
 
 
-
-            /*
-                Desaparece suavemente
-                el producto anterior.
-            */
-
-            imagenPrincipal
-                .style
-                .opacity =
+            imagenPrincipal.style.opacity =
                 "0";
 
 
+            temporizadorCambio =
+                setTimeout(
 
-            setTimeout(
-
-                () => {
-
-
-                    /*
-                        Cambiamos la imagen.
-                    */
-
-                    imagenPrincipal.src =
-                        producto.imagen;
+                    () => {
 
 
-                    imagenPrincipal.alt =
-                        producto.nombre;
+                        imagenPrincipal.src =
+                            producto.imagen;
 
 
-
-                    /*
-                        Nombre.
-                    */
-
-                    nombreProducto.textContent =
-                        producto.nombre;
+                        imagenPrincipal.alt =
+                            producto.nombre;
 
 
-
-                    /*
-                        Descripción.
-                    */
-
-                    descripcionProducto.textContent =
-                        producto.descripcion;
+                        nombreProducto.textContent =
+                            producto.nombre;
 
 
-
-                    /*
-                        Categoría.
-                    */
-
-                    categoriaProducto.textContent =
-                        seccion.categoria;
+                        descripcionProducto.textContent =
+                            producto.descripcion;
 
 
-
-                    /*
-                        Título arriba a la derecha.
-                    */
-
-                    tituloSuperior.textContent =
-                        seccion.tituloCorto;
+                        categoriaProducto.textContent =
+                            seccion.categoria;
 
 
-
-                    /*
-                        Detectar si este producto
-                        tiene detalle/variedad.
-                    */
-
-                    const tieneDetalle =
-                        Boolean(
-                            producto.detalle
-                        );
+                        tituloSuperior.textContent =
+                            seccion.tituloCorto;
 
 
-
-                    /*
-                        Si estamos en vinos,
-                        mostramos la variedad.
-                    */
-
-                    if (
-                        tieneDetalle
-                    ) {
-
-
-                        detalleProducto.textContent =
-                            producto.detalle;
-
-
-                        detalleProducto
-                            .classList
-                            .remove(
-                                "oculto"
+                        const tieneDetalle =
+                            Boolean(
+                                producto.detalle
                             );
 
 
-                    } else {
+                        if (tieneDetalle) {
+
+                            detalleProducto.textContent =
+                                producto.detalle;
 
 
-                        /*
-                            Regionales y Postres:
-                            ocultamos esta línea.
-                        */
+                            detalleProducto
+                                .classList
+                                .remove("oculto");
 
-                        detalleProducto.textContent =
-                            "";
+                        } else {
 
-
-                        detalleProducto
-                            .classList
-                            .add(
-                                "oculto"
-                            );
-
-                    }
+                            detalleProducto.textContent =
+                                "";
 
 
+                            detalleProducto
+                                .classList
+                                .add("oculto");
 
-                    /*
-                        Reiniciar efectos.
-                    */
-
-                    reiniciarAnimacionesProducto(
-                        tieneDetalle,
-                        seccion.duracion
-                    );
+                        }
 
 
-
-                    /*
-                        Mostrar nueva imagen.
-                    */
-
-                    imagenPrincipal
-                        .style
-                        .opacity =
-                        "1";
-
-
-
-                    /*
-                        AHORA empieza a contar
-                        el tiempo del producto.
-
-                        Esto permite que los 7 u 8 segundos
-                        se vean completos.
-                    */
-
-                    temporizadorProducto =
-
-                        setTimeout(
-
-                            avanzar,
-
+                        reiniciarAnimacionesProducto(
+                            tieneDetalle,
                             seccion.duracion
-
                         );
 
 
-                },
+                        imagenPrincipal.style.opacity =
+                            "1";
 
-                450
 
-            );
+                        actualizarControlesInteractivos();
+
+
+                        if (
+                            programarAutomatico &&
+                            !modoInteractivo
+                        ) {
+
+                            programarAvanceAutomatico();
+
+                        }
+
+
+                    },
+
+                    350
+
+                );
 
         }
 
 
 
         /* =====================================================
-           AVANZAR
+           MODO AUTOMÁTICO
         ===================================================== */
 
-
-        function avanzar() {
-
+        function programarAvanceAutomatico() {
 
             limpiarTemporizadorProducto();
 
 
+            const seccion =
+                secciones[indiceSeccion];
+
+
+            temporizadorProducto =
+                setTimeout(
+
+                    avanzarAutomatico,
+
+                    seccion.duracion
+
+                );
+
+        }
+
+
+
+        function avanzarAutomatico() {
+
+            limpiarTemporizadorProducto();
+
 
             const seccion =
-                secciones[
-                    indiceSeccion
-                ];
+                secciones[indiceSeccion];
 
-
-
-            /*
-                Si todavía quedan productos
-                dentro de la misma sección.
-            */
 
             if (
-
                 indiceProducto <
-
                 seccion.productos.length - 1
-
             ) {
-
 
                 indiceProducto++;
 
-
-                mostrarProducto();
-
+                mostrarProducto(true);
 
                 return;
 
             }
 
 
-
-            /*
-                TERMINÓ LA SECCIÓN.
-
-                Cambiamos:
-
-                Regionales
-                    ↓
-                Postres
-                    ↓
-                Vinos
-                    ↓
-                Regionales
-            */
-
-
             indiceSeccion =
-
                 (
                     indiceSeccion + 1
                 )
-
                 %
-
                 secciones.length;
-
 
 
             indiceProducto =
                 0;
-
 
 
             mostrarPresentacionSeccion();
@@ -2764,92 +2497,58 @@
 
 
         /* =====================================================
-           PRESENTACIÓN DE CADA SECCIÓN
+           PRESENTACIÓN DE CATEGORÍA
         ===================================================== */
-
 
         function mostrarPresentacionSeccion() {
 
+            limpiarTemporizadoresAutomaticos();
 
-            limpiarTemporizadores();
 
+            if (modoInteractivo) {
+
+                mostrarProducto(false);
+
+                return;
+
+            }
 
 
             const seccion =
-                secciones[
-                    indiceSeccion
-                ];
+                secciones[indiceSeccion];
 
-
-
-            /*
-                Nombre grande de la sección.
-            */
 
             presentacionTitulo.textContent =
                 seccion.titulo;
 
 
-
-            /*
-                Frase inferior.
-            */
-
             presentacionSubtitulo.textContent =
                 seccion.subtitulo;
 
 
-
-            /*
-                Fondo usando el primer producto
-                de la sección.
-            */
-
             presentacionFondo.src =
-                seccion
-                    .productos[0]
-                    .imagen;
+                seccion.productos[0].imagen;
 
-
-
-            /*
-                Mostrar presentación.
-            */
 
             presentacion
                 .classList
-                .remove(
-                    "oculta"
-                );
-
+                .remove("oculta");
 
 
             reiniciarAnimacionesPresentacion();
 
 
-
-            /*
-                Luego de 3 segundos,
-                empieza el primer producto.
-            */
-
             temporizadorPresentacion =
-
                 setTimeout(
 
                     () => {
 
-
                         presentacion
                             .classList
-                            .add(
-                                "oculta"
-                            );
+                            .add("oculta");
 
 
-
-                        mostrarProducto();
-
+                        mostrarProducto(true);
 
                     },
 
@@ -2862,17 +2561,688 @@
 
 
         /* =====================================================
-           LIMPIAR TEMPORIZADORES
+           ACTIVAR MODO TÁCTIL
         ===================================================== */
 
+        function activarModoInteractivo() {
+
+            limpiarTemporizadoresAutomaticos();
+
+
+            presentacion
+                .classList
+                .add("oculta");
+
+
+            if (!modoInteractivo) {
+
+                modoInteractivo =
+                    true;
+
+
+                carrusel
+                    .classList
+                    .add(
+                        "modo-interactivo"
+                    );
+
+
+                mostrarProducto(false);
+
+            }
+
+
+            actualizarControlesInteractivos();
+
+
+            reiniciarTemporizadorInactividad();
+
+        }
+
+
+
+        /* =====================================================
+           VOLVER AL PROTECTOR DE PANTALLA
+        ===================================================== */
+
+        function salirModoInteractivo() {
+
+            if (!modoInteractivo) {
+                return;
+            }
+
+
+            modoInteractivo =
+                false;
+
+
+            carrusel
+                .classList
+                .remove(
+                    "modo-interactivo"
+                );
+
+
+            if (temporizadorInactividad) {
+
+                clearTimeout(
+                    temporizadorInactividad
+                );
+
+
+                temporizadorInactividad =
+                    null;
+
+            }
+
+
+            /*
+               Continúa automáticamente
+               desde el producto actual.
+            */
+
+            programarAvanceAutomatico();
+
+        }
+
+
+
+        /* =====================================================
+           TEMPORIZADOR DE 10 SEGUNDOS
+        ===================================================== */
+
+        function reiniciarTemporizadorInactividad() {
+
+            if (
+                temporizadorInactividad
+            ) {
+
+                clearTimeout(
+                    temporizadorInactividad
+                );
+
+            }
+
+
+            temporizadorInactividad =
+                setTimeout(
+
+                    salirModoInteractivo,
+
+                    tiempoInactividad
+
+                );
+
+        }
+
+
+
+        /* =====================================================
+           SIGUIENTE
+        ===================================================== */
+
+        function irSiguienteInteractivo() {
+
+            activarModoInteractivo();
+
+
+            const seccion =
+                secciones[indiceSeccion];
+
+
+            if (
+                indiceProducto <
+                seccion.productos.length - 1
+            ) {
+
+                indiceProducto++;
+
+            } else {
+
+                indiceSeccion =
+                    (
+                        indiceSeccion + 1
+                    )
+                    %
+                    secciones.length;
+
+
+                indiceProducto =
+                    0;
+
+            }
+
+
+            mostrarProducto(false);
+
+
+            reiniciarTemporizadorInactividad();
+
+        }
+
+
+
+        /* =====================================================
+           ANTERIOR
+        ===================================================== */
+
+        function irAnteriorInteractivo() {
+
+            activarModoInteractivo();
+
+
+            if (
+                indiceProducto > 0
+            ) {
+
+                indiceProducto--;
+
+            } else {
+
+                indiceSeccion =
+                    (
+                        indiceSeccion -
+                        1 +
+                        secciones.length
+                    )
+                    %
+                    secciones.length;
+
+
+                indiceProducto =
+                    secciones[
+                        indiceSeccion
+                    ]
+                    .productos
+                    .length - 1;
+
+            }
+
+
+            mostrarProducto(false);
+
+
+            reiniciarTemporizadorInactividad();
+
+        }
+
+
+
+        /* =====================================================
+           BOTONES DE CATEGORÍA
+        ===================================================== */
+
+        function renderCategorias() {
+
+            categoriasInteractivas.innerHTML =
+                "";
+
+
+            secciones.forEach(
+
+                (seccion, indice) => {
+
+
+                    const boton =
+                        document.createElement(
+                            "button"
+                        );
+
+
+                    boton.type =
+                        "button";
+
+
+                    boton.className =
+                        "boton-categoria";
+
+
+                    if (
+                        indice ===
+                        indiceSeccion
+                    ) {
+
+                        boton
+                            .classList
+                            .add("activa");
+
+                    }
+
+
+                    boton.textContent =
+                        seccion.tituloCorto;
+
+
+                    boton.addEventListener(
+
+                        "click",
+
+                        (evento) => {
+
+                            evento.stopPropagation();
+
+
+                            activarModoInteractivo();
+
+
+                            indiceSeccion =
+                                indice;
+
+
+                            indiceProducto =
+                                0;
+
+
+                            mostrarProducto(false);
+
+
+                            reiniciarTemporizadorInactividad();
+
+                        }
+
+                    );
+
+
+                    categoriasInteractivas
+                        .appendChild(
+                            boton
+                        );
+
+                }
+
+            );
+
+        }
+
+
+
+        /* =====================================================
+           MINIATURAS CIRCULARES
+        ===================================================== */
+
+        function renderMiniaturas() {
+
+            miniaturas.innerHTML =
+                "";
+
+
+            const seccion =
+                secciones[indiceSeccion];
+
+
+            seccion.productos.forEach(
+
+                (producto, indice) => {
+
+
+                    const boton =
+                        document.createElement(
+                            "button"
+                        );
+
+
+                    boton.type =
+                        "button";
+
+
+                    boton.className =
+                        "miniatura";
+
+
+                    boton.title =
+                        producto.nombre;
+
+
+                    if (
+                        indice ===
+                        indiceProducto
+                    ) {
+
+                        boton
+                            .classList
+                            .add("activa");
+
+                    }
+
+
+                    const imagen =
+                        document.createElement(
+                            "img"
+                        );
+
+
+                    imagen.src =
+                        producto.imagen;
+
+
+                    imagen.alt =
+                        producto.nombre;
+
+
+                    boton.appendChild(
+                        imagen
+                    );
+
+
+                    boton.addEventListener(
+
+                        "click",
+
+                        (evento) => {
+
+                            evento.stopPropagation();
+
+
+                            activarModoInteractivo();
+
+
+                            indiceProducto =
+                                indice;
+
+
+                            mostrarProducto(false);
+
+
+                            reiniciarTemporizadorInactividad();
+
+                        }
+
+                    );
+
+
+                    miniaturas
+                        .appendChild(
+                            boton
+                        );
+
+                }
+
+            );
+
+
+            requestAnimationFrame(
+
+                () => {
+
+
+                    const activa =
+                        miniaturas
+                            .querySelector(
+                                ".miniatura.activa"
+                            );
+
+
+                    if (activa) {
+
+                        activa.scrollIntoView({
+
+                            behavior:
+                                "smooth",
+
+                            block:
+                                "nearest",
+
+                            inline:
+                                "center"
+
+                        });
+
+                    }
+
+                }
+
+            );
+
+        }
+
+
+
+        function actualizarControlesInteractivos() {
+
+            if (!modoInteractivo) {
+                return;
+            }
+
+
+            renderCategorias();
+
+            renderMiniaturas();
+
+        }
+
+
+
+        /* =====================================================
+           FLECHAS
+        ===================================================== */
+
+        flechaDerecha
+            .addEventListener(
+
+                "click",
+
+                (evento) => {
+
+                    evento.stopPropagation();
+
+                    irSiguienteInteractivo();
+
+                }
+
+            );
+
+
+        flechaIzquierda
+            .addEventListener(
+
+                "click",
+
+                (evento) => {
+
+                    evento.stopPropagation();
+
+                    irAnteriorInteractivo();
+
+                }
+
+            );
+
+
+
+        /* =====================================================
+           TOCAR LA PANTALLA
+        ===================================================== */
+
+        carrusel
+            .addEventListener(
+
+                "pointerdown",
+
+                () => {
+
+                    activarModoInteractivo();
+
+                },
+
+                {
+                    passive: true
+                }
+
+            );
+
+
+
+        /* =====================================================
+           DESLIZAR CON EL DEDO
+        ===================================================== */
+
+        let inicioSwipeX =
+            null;
+
+
+        let inicioSwipeY =
+            null;
+
+
+
+        carrusel
+            .addEventListener(
+
+                "pointerdown",
+
+                (evento) => {
+
+
+                    if (
+
+                        evento.target.closest(
+                            ".panel-interactivo"
+                        ) ||
+
+                        evento.target.closest(
+                            ".flecha"
+                        ) ||
+
+                        evento.target.closest(
+                            ".boton-casita"
+                        ) ||
+
+                        evento.target.closest(
+                            ".boton-pantalla-completa"
+                        )
+
+                    ) {
+
+                        inicioSwipeX =
+                            null;
+
+                        return;
+
+                    }
+
+
+                    inicioSwipeX =
+                        evento.clientX;
+
+
+                    inicioSwipeY =
+                        evento.clientY;
+
+                }
+
+            );
+
+
+
+        carrusel
+            .addEventListener(
+
+                "pointerup",
+
+                (evento) => {
+
+
+                    if (
+                        inicioSwipeX ===
+                        null
+                    ) {
+
+                        return;
+
+                    }
+
+
+                    const diferenciaX =
+                        evento.clientX -
+                        inicioSwipeX;
+
+
+                    const diferenciaY =
+                        evento.clientY -
+                        inicioSwipeY;
+
+
+                    inicioSwipeX =
+                        null;
+
+
+                    inicioSwipeY =
+                        null;
+
+
+                    if (
+                        Math.abs(
+                            diferenciaX
+                        ) < 60
+                    ) {
+
+                        return;
+
+                    }
+
+
+                    if (
+                        Math.abs(
+                            diferenciaX
+                        )
+                        <=
+                        Math.abs(
+                            diferenciaY
+                        )
+                    ) {
+
+                        return;
+
+                    }
+
+
+                    if (
+                        diferenciaX < 0
+                    ) {
+
+                        irSiguienteInteractivo();
+
+                    } else {
+
+                        irAnteriorInteractivo();
+
+                    }
+
+                }
+
+            );
+
+
+
+        carrusel
+            .addEventListener(
+
+                "pointercancel",
+
+                () => {
+
+                    inicioSwipeX =
+                        null;
+
+
+                    inicioSwipeY =
+                        null;
+
+                }
+
+            );
+
+
+
+        /* =====================================================
+           TEMPORIZADORES
+        ===================================================== */
 
         function limpiarTemporizadorProducto() {
-
 
             if (
                 temporizadorProducto
             ) {
-
 
                 clearTimeout(
                     temporizadorProducto
@@ -2888,17 +3258,36 @@
 
 
 
-        function limpiarTemporizadores() {
+        function limpiarTemporizadorCambio() {
 
+            if (
+                temporizadorCambio
+            ) {
+
+                clearTimeout(
+                    temporizadorCambio
+                );
+
+
+                temporizadorCambio =
+                    null;
+
+            }
+
+        }
+
+
+
+        function limpiarTemporizadoresAutomaticos() {
 
             limpiarTemporizadorProducto();
 
+            limpiarTemporizadorCambio();
 
 
             if (
                 temporizadorPresentacion
             ) {
-
 
                 clearTimeout(
                     temporizadorPresentacion
@@ -2918,9 +3307,7 @@
            PANTALLA COMPLETA
         ===================================================== */
 
-
         function estaEnPantallaCompleta() {
-
 
             return Boolean(
 
@@ -2938,14 +3325,12 @@
 
         async function activarPantallaCompleta() {
 
-
             try {
 
 
                 if (
                     carrusel.requestFullscreen
                 ) {
-
 
                     await carrusel
                         .requestFullscreen();
@@ -2955,7 +3340,6 @@
                     carrusel.webkitRequestFullscreen
                 ) {
 
-
                     carrusel
                         .webkitRequestFullscreen();
 
@@ -2964,33 +3348,30 @@
                     carrusel.msRequestFullscreen
                 ) {
 
-
                     carrusel
                         .msRequestFullscreen();
 
 
                 } else {
 
-
                     mensajePantalla
                         .classList
-                        .add(
-                            "visible"
-                        );
+                        .add("visible");
+
+                    return;
 
                 }
 
 
-            } catch (
-                error
-            ) {
+                activarModoInteractivo();
+
+
+            } catch (error) {
 
 
                 mensajePantalla
                     .classList
-                    .add(
-                        "visible"
-                    );
+                    .add("visible");
 
             }
 
@@ -2998,42 +3379,42 @@
 
 
 
-        /* =====================================================
-           SALIR DE PANTALLA COMPLETA
-        ===================================================== */
-
-
         async function salirPantallaCompleta() {
-
 
             try {
 
 
                 if (
-                    document.fullscreenElement &&
-                    document.exitFullscreen
-                ) {
 
+                    document.fullscreenElement &&
+
+                    document.exitFullscreen
+
+                ) {
 
                     await document
                         .exitFullscreen();
 
 
                 } else if (
-                    document.webkitFullscreenElement &&
-                    document.webkitExitFullscreen
-                ) {
 
+                    document.webkitFullscreenElement &&
+
+                    document.webkitExitFullscreen
+
+                ) {
 
                     document
                         .webkitExitFullscreen();
 
 
                 } else if (
-                    document.msFullscreenElement &&
-                    document.msExitFullscreen
-                ) {
 
+                    document.msFullscreenElement &&
+
+                    document.msExitFullscreen
+
+                ) {
 
                     document
                         .msExitFullscreen();
@@ -3041,16 +3422,12 @@
                 }
 
 
-            } catch (
-                error
-            ) {
+            } catch (error) {
 
 
                 mensajePantalla
                     .classList
-                    .add(
-                        "visible"
-                    );
+                    .add("visible");
 
             }
 
@@ -3058,34 +3435,21 @@
 
 
 
-        /* =====================================================
-           ACTUALIZAR BOTÓN DE PANTALLA COMPLETA
-        ===================================================== */
-
-
         function actualizarBotonPantallaCompleta() {
-
 
             if (
                 estaEnPantallaCompleta()
             ) {
 
-
                 botonPantallaCompleta
                     .classList
-                    .add(
-                        "oculto"
-                    );
-
+                    .add("oculto");
 
             } else {
 
-
                 botonPantallaCompleta
                     .classList
-                    .remove(
-                        "oculto"
-                    );
+                    .remove("oculto");
 
             }
 
@@ -3098,7 +3462,13 @@
 
                 "click",
 
-                activarPantallaCompleta
+                (evento) => {
+
+                    evento.stopPropagation();
+
+                    activarPantallaCompleta();
+
+                }
 
             );
 
@@ -3109,7 +3479,13 @@
 
                 "click",
 
-                salirPantallaCompleta
+                (evento) => {
+
+                    evento.stopPropagation();
+
+                    salirPantallaCompleta();
+
+                }
 
             );
 
@@ -3155,13 +3531,9 @@
 
                 () => {
 
-
                     mensajePantalla
                         .classList
-                        .remove(
-                            "visible"
-                        );
-
+                        .remove("visible");
 
                 }
 
@@ -3170,15 +3542,13 @@
 
 
         /* =====================================================
-           INICIAR CARRUSEL
+           INICIAR
         ===================================================== */
-
 
         mostrarPresentacionSeccion();
 
 
     </script>
-
 
 </body>
 
