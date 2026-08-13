@@ -1640,1368 +1640,688 @@
 
     <script>
 
+    /* =====================================================
+       SECCIONES
+    ===================================================== */
+
+    const secciones = [
+
+        /* =================================================
+           REGIONALES
+        ================================================= */
+
+        {
+            titulo: "Platos Regionales",
+            tituloCorto: "Regionales",
+            categoria: "Plato regional",
+            subtitulo: "Sabores auténticos de nuestra tierra",
+            duracion: 7000,
+
+            productos: [
+
+                {
+                    nombre: "Locro norteño",
+                    descripcion: "Guiso tradicional de maíz, zapallo y carne, servido bien caliente.",
+                    imagen: "{{ url_for('static', filename='carrusel_regionales/locro.png') }}"
+                },
+
+                {
+                    nombre: "Llama al Malbec",
+                    descripcion: "Carne de llama cocida en salsa de Malbec, acompañada con papines andinos.",
+                    imagen: "{{ url_for('static', filename='carrusel_regionales/llama_malbec.png') }}"
+                },
+
+                {
+                    nombre: "Asado de cabrito o cordero",
+                    descripcion: "Asado norteño acompañado con papines y ensalada fresca.",
+                    imagen: "{{ url_for('static', filename='carrusel_regionales/asado_cabrito_cordero.png') }}"
+                },
+
+                {
+                    nombre: "Cazuela de llama",
+                    descripcion: "Carne de llama cocida lentamente con papines, verduras y sabores del norte.",
+                    imagen: "{{ url_for('static', filename='carrusel_regionales/cazuela_llama.png') }}"
+                },
+
+                {
+                    nombre: "Cazuela de cordero",
+                    descripcion: "Cordero cocido lentamente con papines y verduras en una salsa bien sabrosa.",
+                    imagen: "{{ url_for('static', filename='carrusel_regionales/cazuela_cordero.png') }}"
+                },
+
+                {
+                    nombre: "Cazuela de cabrito",
+                    descripcion: "Cabrito cocido lentamente con papines andinos y verduras de nuestra región.",
+                    imagen: "{{ url_for('static', filename='carrusel_regionales/cazuela_cabrito.png') }}"
+                },
+
+                {
+                    nombre: "Lomo de llama a la salsa blanca",
+                    descripcion: "Lomo de llama acompañado con una suave salsa blanca y papines dorados.",
+                    imagen: "{{ url_for('static', filename='carrusel_regionales/lomo_llama_salsa_blanca.png') }}"
+                },
+
+                {
+                    nombre: "Medallón de quinoa",
+                    descripcion: "Medallón de quinoa acompañado con vegetales frescos y papines andinos.",
+                    imagen: "{{ url_for('static', filename='carrusel_regionales/medallon_quinoa.png') }}"
+                },
+
+                {
+                    nombre: "Milanesa de quesillo",
+                    descripcion: "Milanesa acompañada con quesillo, huevo, papines y vegetales frescos.",
+                    imagen: "{{ url_for('static', filename='carrusel_regionales/milanesa_quesillo.png') }}"
+                },
+
+                {
+                    nombre: "Milanesa de llama",
+                    descripcion: "Milanesa de carne de llama acompañada con papas y huevo a la plancha.",
+                    imagen: "{{ url_for('static', filename='carrusel_regionales/milanesa_llama.png') }}"
+                },
+
+                {
+                    nombre: "Napolitana de llama",
+                    descripcion: "Milanesa de llama con queso, tomate y huevo, acompañada con papas.",
+                    imagen: "{{ url_for('static', filename='carrusel_regionales/napolitana_llama.png') }}"
+                },
+
+                {
+                    nombre: "Milanesa de llama a caballo",
+                    descripcion: "Milanesa de llama acompañada con dos huevos y papas doradas.",
+                    imagen: "{{ url_for('static', filename='carrusel_regionales/milanesa_llama_caballo.png') }}"
+                }
+
+            ]
+        },
+
+
+        /* =================================================
+           POSTRES
+        ================================================= */
+
+        {
+            titulo: "Postres",
+            tituloCorto: "Postres",
+            categoria: "Postre",
+            subtitulo: "Dulces sabores de nuestra tierra",
+            duracion: 7000,
+
+            productos: [
+
+                {
+                    nombre: "Pera al Malbec con helado de cayote",
+                    descripcion: "Pera cocida al Malbec acompañada con helado de cayote, una combinación suave y bien norteña.",
+                    imagen: "{{ url_for('static', filename='carrusel_postres/pera_malbec.png') }}"
+                },
+
+                {
+                    nombre: "Quesillo con cayote y nueces",
+                    descripcion: "Quesillo artesanal acompañado con dulce de cayote y nueces.",
+                    imagen: "{{ url_for('static', filename='carrusel_postres/quesillo_cayote.png') }}"
+                },
+
+                {
+                    nombre: "Helado de cayote con nueces",
+                    descripcion: "Helado cremoso de cayote acompañado con nueces y sabores de nuestra región.",
+                    imagen: "{{ url_for('static', filename='carrusel_postres/helado_cayote_nueces.png') }}"
+                },
+
+                {
+                    nombre: "Flan de quinoa",
+                    descripcion: "Flan casero elaborado con quinoa y acompañado con caramelo.",
+                    imagen: "{{ url_for('static', filename='carrusel_postres/flan_quinoa.png') }}"
+                },
+
+                {
+                    nombre: "Helado de chocolate",
+                    descripcion: "Helado cremoso de chocolate, intenso y suave, ideal para los amantes de los sabores clásicos.",
+                    imagen: "{{ url_for('static', filename='carrusel_postres/helado_chocolate.png') }}"
+                },
+
+                {
+                    nombre: "Helado de cereza",
+                    descripcion: "Helado de cereza fresco, cremoso y frutal, perfecto para terminar la comida.",
+                    imagen: "{{ url_for('static', filename='carrusel_postres/helado_cereza.png') }}"
+                },
+
+                {
+                    nombre: "Helado de chocolate y cereza",
+                    descripcion: "Chocolate y cereza en una combinación cremosa que mezcla intensidad y frescura.",
+                    imagen: "{{ url_for('static', filename='carrusel_postres/helado_chocolate_cereza.png') }}"
+                }
+
+            ]
+        },
+
+
+        /* =================================================
+           VINOS
+        ================================================= */
+
+        {
+            titulo: "Vinos de Jujuy",
+            tituloCorto: "Vinos de Jujuy",
+            categoria: "Vino jujeño",
+            subtitulo: "Sabores nacidos entre montañas",
+            duracion: 8000,
+
+            productos: [
+
+                {
+                    nombre: "Punta Corral 2022",
+                    detalle: "Malbec · Syrah · Cabernet Franc",
+                    descripcion: "Blend de tintas jujeñas que combina distintas variedades y refleja el carácter de los vinos de nuestra tierra.",
+                    imagen: "{{ url_for('static', filename='carrusel_vinos/vino1.png') }}"
+                },
+
+                {
+                    nombre: "Amanecer Andino",
+                    detalle: "Malbec Reserva",
+                    descripcion: "Malbec Reserva elaborado en Jujuy, una expresión de la vitivinicultura y los paisajes de nuestra región.",
+                    imagen: "{{ url_for('static', filename='carrusel_vinos/vino2.png') }}"
+                },
 
-        /* =====================================================
-           SECCIONES
-        ===================================================== */
+                {
+                    nombre: "Corte en la Quebrada",
+                    detalle: "Blend de tintas",
+                    descripcion: "Blend de uvas tintas jujeñas inspirado en la Quebrada y en la identidad de los vinos del norte.",
+                    imagen: "{{ url_for('static', filename='carrusel_vinos/vino3.png') }}"
+                },
 
-        const secciones = [
+                {
+                    nombre: "Corazón Valiente",
+                    detalle: "Malbec",
+                    descripcion: "Malbec jujeño que representa el carácter y la identidad de los vinos producidos en nuestra provincia.",
+                    imagen: "{{ url_for('static', filename='carrusel_vinos/vino4.png') }}"
+                },
 
+                {
+                    nombre: "Flor del Valle",
+                    detalle: "Blend",
+                    descripcion: "Blend jujeño inspirado en los paisajes, la altura y los sabores característicos de nuestra tierra.",
+                    imagen: "{{ url_for('static', filename='carrusel_vinos/vino5.png') }}"
+                }
 
-            /* =================================================
-               REGIONALES
-            ================================================= */
+            ]
+        }
 
-            {
+    ];
 
-                titulo:
-                    "Platos Regionales",
 
-                tituloCorto:
-                    "Regionales",
+    /* =====================================================
+       ELEMENTOS
+    ===================================================== */
 
-                categoria:
-                    "Plato regional",
+    const carrusel =
+        document.getElementById("carrusel");
 
-                subtitulo:
-                    "Sabores auténticos de nuestra tierra",
+    const imagenPrincipal =
+        document.getElementById("imagenPrincipal");
 
-                duracion:
-                    7000,
+    const informacion =
+        document.getElementById("informacion");
 
-                productos: [
+    const nombreProducto =
+        document.getElementById("nombreProducto");
 
+    const detalleProducto =
+        document.getElementById("detalleProducto");
 
-                    {
-                        nombre:
-                            "Locro norteño",
+    const descripcionProducto =
+        document.getElementById("descripcionProducto");
 
-                        descripcion:
-                            "Guiso tradicional de maíz, zapallo y carne, servido bien caliente.",
+    const categoriaProducto =
+        document.getElementById("categoriaProducto");
 
-                        imagen:
-                            "{{ url_for('static', filename='carrusel_regionales/locro.png') }}"
-                    },
+    const tituloSuperior =
+        document.getElementById("tituloSuperior");
 
+    const lineaDorada =
+        document.getElementById("lineaDorada");
 
-                    {
-                        nombre:
-                            "Llama al Malbec",
+    const presentacion =
+        document.getElementById("presentacion");
 
-                        descripcion:
-                            "Carne de llama cocida en salsa de Malbec, acompañada con papines andinos.",
+    const presentacionFondo =
+        document.getElementById("presentacionFondo");
 
-                        imagen:
-                            "{{ url_for('static', filename='carrusel_regionales/llama_malbec.png') }}"
-                    },
+    const presentacionTitulo =
+        document.getElementById("presentacionTitulo");
 
+    const presentacionSubtitulo =
+        document.getElementById("presentacionSubtitulo");
 
-                    {
-                        nombre:
-                            "Asado de cabrito o cordero",
+    const presentacionLinea =
+        document.getElementById("presentacionLinea");
 
-                        descripcion:
-                            "Asado norteño acompañado con papines y ensalada fresca.",
+    const botonPantallaCompleta =
+        document.getElementById("botonPantallaCompleta");
 
-                        imagen:
-                            "{{ url_for('static', filename='carrusel_regionales/asado_cabrito_cordero.png') }}"
-                    },
+    const botonCasita =
+        document.getElementById("botonCasita");
 
+    const flechaIzquierda =
+        document.getElementById("flechaIzquierda");
 
-                    {
-                        nombre:
-                            "Cazuela de llama",
+    const flechaDerecha =
+        document.getElementById("flechaDerecha");
 
-                        descripcion:
-                            "Carne de llama cocida lentamente con papines, verduras y sabores del norte.",
+    const categoriasInteractivas =
+        document.getElementById("categoriasInteractivas");
 
-                        imagen:
-                            "{{ url_for('static', filename='carrusel_regionales/cazuela_llama.png') }}"
-                    },
+    const miniaturas =
+        document.getElementById("miniaturas");
 
+    const mensajePantalla =
+        document.getElementById("mensajePantalla");
 
-                    {
-                        nombre:
-                            "Cazuela de cordero",
+    const cerrarMensaje =
+        document.getElementById("cerrarMensaje");
 
-                        descripcion:
-                            "Cordero cocido lentamente con papines y verduras en una salsa bien sabrosa.",
 
-                        imagen:
-                            "{{ url_for('static', filename='carrusel_regionales/cazuela_cordero.png') }}"
-                    },
+    /* =====================================================
+       VARIABLES
+    ===================================================== */
 
+    let indiceSeccion = 0;
+    let indiceProducto = 0;
 
-                    {
-                        nombre:
-                            "Cazuela de cabrito",
+    let modoInteractivo = false;
 
-                        descripcion:
-                            "Cabrito cocido lentamente con papines andinos y verduras de nuestra región.",
+    let temporizadorProducto = null;
+    let temporizadorPresentacion = null;
+    let temporizadorCambio = null;
+    let temporizadorInactividad = null;
 
-                        imagen:
-                            "{{ url_for('static', filename='carrusel_regionales/cazuela_cabrito.png') }}"
-                    },
+    const duracionPresentacion = 3000;
 
+    /*
+        10 segundos sin interacción.
+    */
 
-                    {
-                        nombre:
-                            "Lomo de llama a la salsa blanca",
+    const tiempoInactividad = 10000;
 
-                        descripcion:
-                            "Lomo de llama acompañado con una suave salsa blanca y papines dorados.",
 
-                        imagen:
-                            "{{ url_for('static', filename='carrusel_regionales/lomo_llama_salsa_blanca.png') }}"
-                    },
+    /* =====================================================
+       PRECARGAR IMÁGENES
+    ===================================================== */
 
+    secciones.forEach((seccion) => {
 
-                    {
-                        nombre:
-                            "Medallón de quinoa",
+        seccion.productos.forEach((producto) => {
 
-                        descripcion:
-                            "Medallón de quinoa acompañado con vegetales frescos y papines andinos.",
+            const img = new Image();
 
-                        imagen:
-                            "{{ url_for('static', filename='carrusel_regionales/medallon_quinoa.png') }}"
-                    },
+            img.src = producto.imagen;
 
+        });
 
-                    {
-                        nombre:
-                            "Milanesa de quesillo",
+    });
 
-                        descripcion:
-                            "Milanesa acompañada con quesillo, huevo, papines y vegetales frescos.",
 
-                        imagen:
-                            "{{ url_for('static', filename='carrusel_regionales/milanesa_quesillo.png') }}"
-                    },
+    /* =====================================================
+       ANIMACIONES DEL PRODUCTO
+    ===================================================== */
 
+    function reiniciarAnimacionesProducto(
+        tieneDetalle,
+        duracion
+    ) {
 
-                    {
-                        nombre:
-                            "Milanesa de llama",
+        imagenPrincipal.classList.remove("animando");
+        nombreProducto.classList.remove("animando");
+        detalleProducto.classList.remove("animando");
+        descripcionProducto.classList.remove("animando");
+        lineaDorada.classList.remove("animando");
 
-                        descripcion:
-                            "Milanesa de carne de llama acompañada con papas y huevo a la plancha.",
 
-                        imagen:
-                            "{{ url_for('static', filename='carrusel_regionales/milanesa_llama.png') }}"
-                    },
-
-
-                    {
-                        nombre:
-                            "Napolitana de llama",
-
-                        descripcion:
-                            "Milanesa de llama con queso, tomate y huevo, acompañada con papas.",
-
-                        imagen:
-                            "{{ url_for('static', filename='carrusel_regionales/napolitana_llama.png') }}"
-                    },
-
-
-                    {
-                        nombre:
-                            "Milanesa de llama a caballo",
-
-                        descripcion:
-                            "Milanesa de llama acompañada con dos huevos y papas doradas.",
-
-                        imagen:
-                            "{{ url_for('static', filename='carrusel_regionales/milanesa_llama_caballo.png') }}"
-                    }
-
-                ]
-
-            },
-
-
-
-            /* =================================================
-               POSTRES
-            ================================================= */
-
-            {
-
-                titulo:
-                    "Postres",
-
-                tituloCorto:
-                    "Postres",
-
-                categoria:
-                    "Postre",
-
-                subtitulo:
-                    "Dulces sabores de nuestra tierra",
-
-                duracion:
-                    7000,
-
-                productos: [
-
-
-                    {
-                        nombre:
-                            "Pera al Malbec con helado de cayote",
-
-                        descripcion:
-                            "Pera cocida al Malbec acompañada con helado de cayote, una combinación suave y bien norteña.",
-
-                        imagen:
-                            "{{ url_for('static', filename='carrusel_postres/pera_malbec.png') }}"
-                    },
-
-
-                    {
-                        nombre:
-                            "Quesillo con cayote y nueces",
-
-                        descripcion:
-                            "Quesillo artesanal acompañado con dulce de cayote y nueces.",
-
-                        imagen:
-                            "{{ url_for('static', filename='carrusel_postres/quesillo_cayote.png') }}"
-                    },
-
-
-                    {
-                        nombre:
-                            "Helado de cayote con nueces",
-
-                        descripcion:
-                            "Helado cremoso de cayote acompañado con nueces y sabores de nuestra región.",
-
-                        imagen:
-                            "{{ url_for('static', filename='carrusel_postres/helado_cayote_nueces.png') }}"
-                    },
-
-
-                    {
-                        nombre:
-                            "Flan de quinoa",
-
-                        descripcion:
-                            "Flan casero elaborado con quinoa y acompañado con caramelo.",
-
-                        imagen:
-                            "{{ url_for('static', filename='carrusel_postres/flan_quinoa.png') }}"
-                    },
-
-
-                    {
-                        nombre:
-                            "Helado de chocolate",
-
-                        descripcion:
-                            "Helado cremoso de chocolate, intenso y suave, ideal para los amantes de los sabores clásicos.",
-
-                        imagen:
-                            "{{ url_for('static', filename='carrusel_postres/helado_chocolate.png') }}"
-                    },
-
-
-                    {
-                        nombre:
-                            "Helado de cereza",
-
-                        descripcion:
-                            "Helado de cereza fresco, cremoso y frutal, perfecto para terminar la comida.",
-
-                        imagen:
-                            "{{ url_for('static', filename='carrusel_postres/helado_cereza.png') }}"
-                    },
-
-
-                    {
-                        nombre:
-                            "Helado de chocolate y cereza",
-
-                        descripcion:
-                            "Chocolate y cereza en una combinación cremosa que mezcla intensidad y frescura.",
-
-                        imagen:
-                            "{{ url_for('static', filename='carrusel_postres/helado_chocolate_cereza.png') }}"
-                    }
-
-                ]
-
-            },
-
-
-
-            /* =================================================
-               VINOS
-            ================================================= */
-
-            {
-
-                titulo:
-                    "Vinos de Jujuy",
-
-                tituloCorto:
-                    "Vinos de Jujuy",
-
-                categoria:
-                    "Vino jujeño",
-
-                subtitulo:
-                    "Sabores nacidos entre montañas",
-
-                duracion:
-                    8000,
-
-                productos: [
-
-
-                    {
-                        nombre:
-                            "Punta Corral 2022",
-
-                        detalle:
-                            "Malbec · Syrah · Cabernet Franc",
-
-                        descripcion:
-                            "Blend de tintas jujeñas que combina distintas variedades y refleja el carácter de los vinos de nuestra tierra.",
-
-                        imagen:
-                            "{{ url_for('static', filename='carrusel_vinos/vino1.png') }}"
-                    },
-
-
-                    {
-                        nombre:
-                            "Amanecer Andino",
-
-                        detalle:
-                            "Malbec Reserva",
-
-                        descripcion:
-                            "Malbec Reserva elaborado en Jujuy, una expresión de la vitivinicultura y los paisajes de nuestra región.",
-
-                        imagen:
-                            "{{ url_for('static', filename='carrusel_vinos/vino2.png') }}"
-                    },
-
-
-                    {
-                        nombre:
-                            "Corte en la Quebrada",
-
-                        detalle:
-                            "Blend de tintas",
-
-                        descripcion:
-                            "Blend de uvas tintas jujeñas inspirado en la Quebrada y en la identidad de los vinos del norte.",
-
-                        imagen:
-                            "{{ url_for('static', filename='carrusel_vinos/vino3.png') }}"
-                    },
-
-
-                    {
-                        nombre:
-                            "Corazón Valiente",
-
-                        detalle:
-                            "Malbec",
-
-                        descripcion:
-                            "Malbec jujeño que representa el carácter y la identidad de los vinos producidos en nuestra provincia.",
-
-                        imagen:
-                            "{{ url_for('static', filename='carrusel_vinos/vino4.png') }}"
-                    },
-
-
-                    {
-                        nombre:
-                            "Flor del Valle",
-
-                        detalle:
-                            "Blend",
-
-                        descripcion:
-                            "Blend jujeño inspirado en los paisajes, la altura y los sabores característicos de nuestra tierra.",
-
-                        imagen:
-                            "{{ url_for('static', filename='carrusel_vinos/vino5.png') }}"
-                    }
-
-                ]
-
-            }
-
-        ];
-
-
-
-        /* =====================================================
-           ELEMENTOS
-        ===================================================== */
-
-        const carrusel =
-            document.getElementById("carrusel");
-
-        const imagenPrincipal =
-            document.getElementById("imagenPrincipal");
-
-        const informacion =
-            document.getElementById("informacion");
-
-        const nombreProducto =
-            document.getElementById("nombreProducto");
-
-        const detalleProducto =
-            document.getElementById("detalleProducto");
-
-        const descripcionProducto =
-            document.getElementById("descripcionProducto");
-
-        const categoriaProducto =
-            document.getElementById("categoriaProducto");
-
-        const tituloSuperior =
-            document.getElementById("tituloSuperior");
-
-        const lineaDorada =
-            document.getElementById("lineaDorada");
-
-        const presentacion =
-            document.getElementById("presentacion");
-
-        const presentacionFondo =
-            document.getElementById("presentacionFondo");
-
-        const presentacionTitulo =
-            document.getElementById("presentacionTitulo");
-
-        const presentacionSubtitulo =
-            document.getElementById("presentacionSubtitulo");
-
-        const presentacionLinea =
-            document.getElementById("presentacionLinea");
-
-        const botonPantallaCompleta =
-            document.getElementById("botonPantallaCompleta");
-
-        const botonCasita =
-            document.getElementById("botonCasita");
-
-        const flechaIzquierda =
-            document.getElementById("flechaIzquierda");
-
-        const flechaDerecha =
-            document.getElementById("flechaDerecha");
-
-        const categoriasInteractivas =
-            document.getElementById("categoriasInteractivas");
-
-        const miniaturas =
-            document.getElementById("miniaturas");
-
-        const mensajePantalla =
-            document.getElementById("mensajePantalla");
-
-        const cerrarMensaje =
-            document.getElementById("cerrarMensaje");
-
-
-
-        /* =====================================================
-           VARIABLES
-        ===================================================== */
-
-        let indiceSeccion = 0;
-
-        let indiceProducto = 0;
-
-        let modoInteractivo = false;
-
-        let temporizadorProducto = null;
-
-        let temporizadorPresentacion = null;
-
-        let temporizadorCambio = null;
-
-        let temporizadorInactividad = null;
-
-
-        const duracionPresentacion =
-            3000;
-
-
-        /*
-           10 segundos sin tocar
-           vuelve al modo automático.
-        */
-
-        const tiempoInactividad =
-            10000;
-
-
-
-        /* =====================================================
-           PRECARGAR IMÁGENES
-        ===================================================== */
-
-        secciones.forEach(
-
-            (seccion) => {
-
-                seccion.productos.forEach(
-
-                    (producto) => {
-
-                        const imagen =
-                            new Image();
-
-                        imagen.src =
-                            producto.imagen;
-
-                    }
-
-                );
-
-            }
-
+        imagenPrincipal.style.setProperty(
+            "--duracion-imagen",
+            duracion + "ms"
         );
 
 
+        if (tieneDetalle) {
 
-        /* =====================================================
-           ANIMACIONES
-        ===================================================== */
+            informacion.style.setProperty(
+                "--descripcion-delay",
+                "2.05s"
+            );
 
-        function reiniciarAnimacionesProducto(
-            tieneDetalle,
-            duracion
-        ) {
+            informacion.style.setProperty(
+                "--linea-delay",
+                "2.55s"
+            );
 
-            imagenPrincipal
-                .classList
-                .remove("animando");
+        } else {
 
-            nombreProducto
-                .classList
-                .remove("animando");
+            informacion.style.setProperty(
+                "--descripcion-delay",
+                "1.85s"
+            );
 
-            detalleProducto
-                .classList
-                .remove("animando");
-
-            descripcionProducto
-                .classList
-                .remove("animando");
-
-            lineaDorada
-                .classList
-                .remove("animando");
-
-
-            imagenPrincipal
-                .style
-                .setProperty(
-                    "--duracion-imagen",
-                    duracion + "ms"
-                );
-
-
-            if (tieneDetalle) {
-
-                informacion
-                    .style
-                    .setProperty(
-                        "--descripcion-delay",
-                        "2.05s"
-                    );
-
-                informacion
-                    .style
-                    .setProperty(
-                        "--linea-delay",
-                        "2.55s"
-                    );
-
-            } else {
-
-                informacion
-                    .style
-                    .setProperty(
-                        "--descripcion-delay",
-                        "1.85s"
-                    );
-
-                informacion
-                    .style
-                    .setProperty(
-                        "--linea-delay",
-                        "2.30s"
-                    );
-
-            }
-
-
-            void imagenPrincipal.offsetWidth;
-
-
-            imagenPrincipal
-                .classList
-                .add("animando");
-
-            nombreProducto
-                .classList
-                .add("animando");
-
-
-            if (tieneDetalle) {
-
-                detalleProducto
-                    .classList
-                    .add("animando");
-
-            }
-
-
-            descripcionProducto
-                .classList
-                .add("animando");
-
-            lineaDorada
-                .classList
-                .add("animando");
+            informacion.style.setProperty(
+                "--linea-delay",
+                "2.30s"
+            );
 
         }
 
 
-
-        function reiniciarAnimacionesPresentacion() {
-
-            presentacionTitulo
-                .classList
-                .remove("animando");
-
-            presentacionSubtitulo
-                .classList
-                .remove("animando");
-
-            presentacionLinea
-                .classList
-                .remove("animando");
+        void imagenPrincipal.offsetWidth;
 
 
-            void presentacionTitulo.offsetWidth;
+        imagenPrincipal.classList.add("animando");
+
+        nombreProducto.classList.add("animando");
 
 
-            presentacionTitulo
-                .classList
-                .add("animando");
+        if (tieneDetalle) {
 
-            presentacionSubtitulo
-                .classList
-                .add("animando");
-
-            presentacionLinea
-                .classList
-                .add("animando");
+            detalleProducto.classList.add("animando");
 
         }
 
 
+        descripcionProducto.classList.add("animando");
 
-        /* =====================================================
-           MOSTRAR PRODUCTO
-        ===================================================== */
+        lineaDorada.classList.add("animando");
 
-        function mostrarProducto(
-            programarAutomatico = true
-        ) {
-
-            limpiarTemporizadorProducto();
-            limpiarTemporizadorCambio();
+    }
 
 
-            const seccion =
-                secciones[indiceSeccion];
+    /* =====================================================
+       PRESENTACIÓN
+    ===================================================== */
+
+    function reiniciarAnimacionesPresentacion() {
+
+        presentacionTitulo.classList.remove("animando");
+
+        presentacionSubtitulo.classList.remove("animando");
+
+        presentacionLinea.classList.remove("animando");
 
 
-            const producto =
-                seccion.productos[indiceProducto];
+        void presentacionTitulo.offsetWidth;
 
 
-            imagenPrincipal.style.opacity =
-                "0";
+        presentacionTitulo.classList.add("animando");
+
+        presentacionSubtitulo.classList.add("animando");
+
+        presentacionLinea.classList.add("animando");
+
+    }
 
 
-            temporizadorCambio =
-                setTimeout(
+    /* =====================================================
+       MOSTRAR PRODUCTO
+    ===================================================== */
 
-                    () => {
+    function mostrarProducto(
+        programarAutomatico = true
+    ) {
 
+        limpiarTemporizadorProducto();
 
-                        imagenPrincipal.src =
-                            producto.imagen;
-
-
-                        imagenPrincipal.alt =
-                            producto.nombre;
-
-
-                        nombreProducto.textContent =
-                            producto.nombre;
+        limpiarTemporizadorCambio();
 
 
-                        descripcionProducto.textContent =
-                            producto.descripcion;
+        const seccion =
+            secciones[indiceSeccion];
+
+        const producto =
+            seccion.productos[indiceProducto];
 
 
-                        categoriaProducto.textContent =
-                            seccion.categoria;
+        imagenPrincipal.style.opacity = "0";
 
 
-                        tituloSuperior.textContent =
-                            seccion.tituloCorto;
+        temporizadorCambio =
+            setTimeout(() => {
 
 
-                        const tieneDetalle =
-                            Boolean(
-                                producto.detalle
-                            );
+                imagenPrincipal.src =
+                    producto.imagen;
 
 
-                        if (tieneDetalle) {
-
-                            detalleProducto.textContent =
-                                producto.detalle;
+                imagenPrincipal.alt =
+                    producto.nombre;
 
 
-                            detalleProducto
-                                .classList
-                                .remove("oculto");
-
-                        } else {
-
-                            detalleProducto.textContent =
-                                "";
+                nombreProducto.textContent =
+                    producto.nombre;
 
 
-                            detalleProducto
-                                .classList
-                                .add("oculto");
-
-                        }
+                descripcionProducto.textContent =
+                    producto.descripcion;
 
 
-                        reiniciarAnimacionesProducto(
-                            tieneDetalle,
-                            seccion.duracion
-                        );
+                categoriaProducto.textContent =
+                    seccion.categoria;
 
 
-                        imagenPrincipal.style.opacity =
-                            "1";
+                tituloSuperior.textContent =
+                    seccion.tituloCorto;
 
 
-                        actualizarControlesInteractivos();
+                const tieneDetalle =
+                    Boolean(producto.detalle);
 
 
-                        if (
-                            programarAutomatico &&
-                            !modoInteractivo
-                        ) {
+                if (tieneDetalle) {
 
-                            programarAvanceAutomatico();
+                    detalleProducto.textContent =
+                        producto.detalle;
 
-                        }
+                    detalleProducto
+                        .classList
+                        .remove("oculto");
 
+                } else {
 
-                    },
+                    detalleProducto.textContent =
+                        "";
 
-                    350
+                    detalleProducto
+                        .classList
+                        .add("oculto");
 
-                );
-
-        }
-
-
-
-        /* =====================================================
-           MODO AUTOMÁTICO
-        ===================================================== */
-
-        function programarAvanceAutomatico() {
-
-            limpiarTemporizadorProducto();
+                }
 
 
-            const seccion =
-                secciones[indiceSeccion];
-
-
-            temporizadorProducto =
-                setTimeout(
-
-                    avanzarAutomatico,
-
+                reiniciarAnimacionesProducto(
+                    tieneDetalle,
                     seccion.duracion
-
                 );
+
+
+                imagenPrincipal.style.opacity =
+                    "1";
+
+
+                /*
+                    IMPORTANTE:
+                    actualizamos los controles
+                    solamente después de cambiar
+                    realmente el producto.
+                */
+
+                if (modoInteractivo) {
+
+                    renderCategorias();
+
+                    renderMiniaturas();
+
+                }
+
+
+                if (
+                    programarAutomatico &&
+                    !modoInteractivo
+                ) {
+
+                    programarAvanceAutomatico();
+
+                }
+
+
+            }, 300);
+
+    }
+
+
+    /* =====================================================
+       AUTOMÁTICO
+    ===================================================== */
+
+    function programarAvanceAutomatico() {
+
+        limpiarTemporizadorProducto();
+
+
+        const seccion =
+            secciones[indiceSeccion];
+
+
+        temporizadorProducto =
+            setTimeout(
+                avanzarAutomatico,
+                seccion.duracion
+            );
+
+    }
+
+
+    function avanzarAutomatico() {
+
+        limpiarTemporizadorProducto();
+
+
+        const seccion =
+            secciones[indiceSeccion];
+
+
+        if (
+            indiceProducto <
+            seccion.productos.length - 1
+        ) {
+
+            indiceProducto++;
+
+            mostrarProducto(true);
+
+            return;
 
         }
 
 
-
-        function avanzarAutomatico() {
-
-            limpiarTemporizadorProducto();
-
-
-            const seccion =
-                secciones[indiceSeccion];
+        indiceSeccion =
+            (
+                indiceSeccion + 1
+            )
+            %
+            secciones.length;
 
 
-            if (
-                indiceProducto <
-                seccion.productos.length - 1
-            ) {
+        indiceProducto = 0;
 
-                indiceProducto++;
+
+        mostrarPresentacionSeccion();
+
+    }
+
+
+    /* =====================================================
+       PRESENTACIÓN AUTOMÁTICA
+    ===================================================== */
+
+    function mostrarPresentacionSeccion() {
+
+        limpiarTemporizadoresAutomaticos();
+
+
+        if (modoInteractivo) {
+
+            mostrarProducto(false);
+
+            return;
+
+        }
+
+
+        const seccion =
+            secciones[indiceSeccion];
+
+
+        presentacionTitulo.textContent =
+            seccion.titulo;
+
+
+        presentacionSubtitulo.textContent =
+            seccion.subtitulo;
+
+
+        presentacionFondo.src =
+            seccion.productos[0].imagen;
+
+
+        presentacion
+            .classList
+            .remove("oculta");
+
+
+        reiniciarAnimacionesPresentacion();
+
+
+        temporizadorPresentacion =
+            setTimeout(() => {
+
+
+                presentacion
+                    .classList
+                    .add("oculta");
+
 
                 mostrarProducto(true);
 
-                return;
 
-            }
+            }, duracionPresentacion);
 
+    }
 
-            indiceSeccion =
-                (
-                    indiceSeccion + 1
-                )
-                %
-                secciones.length;
 
+    /* =====================================================
+       ACTIVAR MODO INTERACTIVO
+    ===================================================== */
 
-            indiceProducto =
-                0;
+    function activarModoInteractivo() {
 
+        limpiarTemporizadoresAutomaticos();
 
-            mostrarPresentacionSeccion();
 
-        }
+        presentacion
+            .classList
+            .add("oculta");
 
 
+        /*
+            SOLO dibujamos los controles
+            cuando entramos por primera vez.
 
-        /* =====================================================
-           PRESENTACIÓN DE CATEGORÍA
-        ===================================================== */
+            Esto evita que el botón desaparezca
+            debajo del dedo antes del click.
+        */
 
-        function mostrarPresentacionSeccion() {
+        if (!modoInteractivo) {
 
-            limpiarTemporizadoresAutomaticos();
-
-
-            if (modoInteractivo) {
-
-                mostrarProducto(false);
-
-                return;
-
-            }
-
-
-            const seccion =
-                secciones[indiceSeccion];
-
-
-            presentacionTitulo.textContent =
-                seccion.titulo;
-
-
-            presentacionSubtitulo.textContent =
-                seccion.subtitulo;
-
-
-            presentacionFondo.src =
-                seccion.productos[0].imagen;
-
-
-            presentacion
-                .classList
-                .remove("oculta");
-
-
-            reiniciarAnimacionesPresentacion();
-
-
-            temporizadorPresentacion =
-                setTimeout(
-
-                    () => {
-
-                        presentacion
-                            .classList
-                            .add("oculta");
-
-
-                        mostrarProducto(true);
-
-                    },
-
-                    duracionPresentacion
-
-                );
-
-        }
-
-
-
-        /* =====================================================
-           ACTIVAR MODO TÁCTIL
-        ===================================================== */
-
-        function activarModoInteractivo() {
-
-            limpiarTemporizadoresAutomaticos();
-
-
-            presentacion
-                .classList
-                .add("oculta");
-
-
-            if (!modoInteractivo) {
-
-                modoInteractivo =
-                    true;
-
-
-                carrusel
-                    .classList
-                    .add(
-                        "modo-interactivo"
-                    );
-
-
-                mostrarProducto(false);
-
-            }
-
-
-            actualizarControlesInteractivos();
-
-
-            reiniciarTemporizadorInactividad();
-
-        }
-
-
-
-        /* =====================================================
-           VOLVER AL PROTECTOR DE PANTALLA
-        ===================================================== */
-
-        function salirModoInteractivo() {
-
-            if (!modoInteractivo) {
-                return;
-            }
-
-
-            modoInteractivo =
-                false;
+            modoInteractivo = true;
 
 
             carrusel
                 .classList
-                .remove(
-                    "modo-interactivo"
-                );
-
-
-            if (temporizadorInactividad) {
-
-                clearTimeout(
-                    temporizadorInactividad
-                );
-
-
-                temporizadorInactividad =
-                    null;
-
-            }
-
-
-            /*
-               Continúa automáticamente
-               desde el producto actual.
-            */
-
-            programarAvanceAutomatico();
-
-        }
-
-
-
-        /* =====================================================
-           TEMPORIZADOR DE 10 SEGUNDOS
-        ===================================================== */
-
-        function reiniciarTemporizadorInactividad() {
-
-            if (
-                temporizadorInactividad
-            ) {
-
-                clearTimeout(
-                    temporizadorInactividad
-                );
-
-            }
-
-
-            temporizadorInactividad =
-                setTimeout(
-
-                    salirModoInteractivo,
-
-                    tiempoInactividad
-
-                );
-
-        }
-
-
-
-        /* =====================================================
-           SIGUIENTE
-        ===================================================== */
-
-        function irSiguienteInteractivo() {
-
-            activarModoInteractivo();
-
-
-            const seccion =
-                secciones[indiceSeccion];
-
-
-            if (
-                indiceProducto <
-                seccion.productos.length - 1
-            ) {
-
-                indiceProducto++;
-
-            } else {
-
-                indiceSeccion =
-                    (
-                        indiceSeccion + 1
-                    )
-                    %
-                    secciones.length;
-
-
-                indiceProducto =
-                    0;
-
-            }
-
-
-            mostrarProducto(false);
-
-
-            reiniciarTemporizadorInactividad();
-
-        }
-
-
-
-        /* =====================================================
-           ANTERIOR
-        ===================================================== */
-
-        function irAnteriorInteractivo() {
-
-            activarModoInteractivo();
-
-
-            if (
-                indiceProducto > 0
-            ) {
-
-                indiceProducto--;
-
-            } else {
-
-                indiceSeccion =
-                    (
-                        indiceSeccion -
-                        1 +
-                        secciones.length
-                    )
-                    %
-                    secciones.length;
-
-
-                indiceProducto =
-                    secciones[
-                        indiceSeccion
-                    ]
-                    .productos
-                    .length - 1;
-
-            }
-
-
-            mostrarProducto(false);
-
-
-            reiniciarTemporizadorInactividad();
-
-        }
-
-
-
-        /* =====================================================
-           BOTONES DE CATEGORÍA
-        ===================================================== */
-
-        function renderCategorias() {
-
-            categoriasInteractivas.innerHTML =
-                "";
-
-
-            secciones.forEach(
-
-                (seccion, indice) => {
-
-
-                    const boton =
-                        document.createElement(
-                            "button"
-                        );
-
-
-                    boton.type =
-                        "button";
-
-
-                    boton.className =
-                        "boton-categoria";
-
-
-                    if (
-                        indice ===
-                        indiceSeccion
-                    ) {
-
-                        boton
-                            .classList
-                            .add("activa");
-
-                    }
-
-
-                    boton.textContent =
-                        seccion.tituloCorto;
-
-
-                    boton.addEventListener(
-
-                        "click",
-
-                        (evento) => {
-
-                            evento.stopPropagation();
-
-
-                            activarModoInteractivo();
-
-
-                            indiceSeccion =
-                                indice;
-
-
-                            indiceProducto =
-                                0;
-
-
-                            mostrarProducto(false);
-
-
-                            reiniciarTemporizadorInactividad();
-
-                        }
-
-                    );
-
-
-                    categoriasInteractivas
-                        .appendChild(
-                            boton
-                        );
-
-                }
-
-            );
-
-        }
-
-
-
-        /* =====================================================
-           MINIATURAS CIRCULARES
-        ===================================================== */
-
-        function renderMiniaturas() {
-
-            miniaturas.innerHTML =
-                "";
-
-
-            const seccion =
-                secciones[indiceSeccion];
-
-
-            seccion.productos.forEach(
-
-                (producto, indice) => {
-
-
-                    const boton =
-                        document.createElement(
-                            "button"
-                        );
-
-
-                    boton.type =
-                        "button";
-
-
-                    boton.className =
-                        "miniatura";
-
-
-                    boton.title =
-                        producto.nombre;
-
-
-                    if (
-                        indice ===
-                        indiceProducto
-                    ) {
-
-                        boton
-                            .classList
-                            .add("activa");
-
-                    }
-
-
-                    const imagen =
-                        document.createElement(
-                            "img"
-                        );
-
-
-                    imagen.src =
-                        producto.imagen;
-
-
-                    imagen.alt =
-                        producto.nombre;
-
-
-                    boton.appendChild(
-                        imagen
-                    );
-
-
-                    boton.addEventListener(
-
-                        "click",
-
-                        (evento) => {
-
-                            evento.stopPropagation();
-
-
-                            activarModoInteractivo();
-
-
-                            indiceProducto =
-                                indice;
-
-
-                            mostrarProducto(false);
-
-
-                            reiniciarTemporizadorInactividad();
-
-                        }
-
-                    );
-
-
-                    miniaturas
-                        .appendChild(
-                            boton
-                        );
-
-                }
-
-            );
-
-
-            requestAnimationFrame(
-
-                () => {
-
-
-                    const activa =
-                        miniaturas
-                            .querySelector(
-                                ".miniatura.activa"
-                            );
-
-
-                    if (activa) {
-
-                        activa.scrollIntoView({
-
-                            behavior:
-                                "smooth",
-
-                            block:
-                                "nearest",
-
-                            inline:
-                                "center"
-
-                        });
-
-                    }
-
-                }
-
-            );
-
-        }
-
-
-
-        function actualizarControlesInteractivos() {
-
-            if (!modoInteractivo) {
-                return;
-            }
+                .add("modo-interactivo");
 
 
             renderCategorias();
@@ -3011,544 +2331,861 @@
         }
 
 
+        reiniciarTemporizadorInactividad();
 
-        /* =====================================================
-           FLECHAS
-        ===================================================== */
-
-        flechaDerecha
-            .addEventListener(
-
-                "click",
-
-                (evento) => {
-
-                    evento.stopPropagation();
-
-                    irSiguienteInteractivo();
-
-                }
-
-            );
+    }
 
 
-        flechaIzquierda
-            .addEventListener(
+    /* =====================================================
+       SALIR DEL MODO INTERACTIVO
+    ===================================================== */
 
-                "click",
+    function salirModoInteractivo() {
 
-                (evento) => {
-
-                    evento.stopPropagation();
-
-                    irAnteriorInteractivo();
-
-                }
-
-            );
+        if (!modoInteractivo) {
+            return;
+        }
 
 
-
-        /* =====================================================
-           TOCAR LA PANTALLA
-        ===================================================== */
-
-        carrusel
-            .addEventListener(
-
-                "pointerdown",
-
-                () => {
-
-                    activarModoInteractivo();
-
-                },
-
-                {
-                    passive: true
-                }
-
-            );
-
-
-
-        /* =====================================================
-           DESLIZAR CON EL DEDO
-        ===================================================== */
-
-        let inicioSwipeX =
-            null;
-
-
-        let inicioSwipeY =
-            null;
-
+        modoInteractivo = false;
 
 
         carrusel
-            .addEventListener(
-
-                "pointerdown",
-
-                (evento) => {
+            .classList
+            .remove("modo-interactivo");
 
 
-                    if (
+        if (temporizadorInactividad) {
 
-                        evento.target.closest(
-                            ".panel-interactivo"
-                        ) ||
-
-                        evento.target.closest(
-                            ".flecha"
-                        ) ||
-
-                        evento.target.closest(
-                            ".boton-casita"
-                        ) ||
-
-                        evento.target.closest(
-                            ".boton-pantalla-completa"
-                        )
-
-                    ) {
-
-                        inicioSwipeX =
-                            null;
-
-                        return;
-
-                    }
-
-
-                    inicioSwipeX =
-                        evento.clientX;
-
-
-                    inicioSwipeY =
-                        evento.clientY;
-
-                }
-
+            clearTimeout(
+                temporizadorInactividad
             );
 
-
-
-        carrusel
-            .addEventListener(
-
-                "pointerup",
-
-                (evento) => {
-
-
-                    if (
-                        inicioSwipeX ===
-                        null
-                    ) {
-
-                        return;
-
-                    }
-
-
-                    const diferenciaX =
-                        evento.clientX -
-                        inicioSwipeX;
-
-
-                    const diferenciaY =
-                        evento.clientY -
-                        inicioSwipeY;
-
-
-                    inicioSwipeX =
-                        null;
-
-
-                    inicioSwipeY =
-                        null;
-
-
-                    if (
-                        Math.abs(
-                            diferenciaX
-                        ) < 60
-                    ) {
-
-                        return;
-
-                    }
-
-
-                    if (
-                        Math.abs(
-                            diferenciaX
-                        )
-                        <=
-                        Math.abs(
-                            diferenciaY
-                        )
-                    ) {
-
-                        return;
-
-                    }
-
-
-                    if (
-                        diferenciaX < 0
-                    ) {
-
-                        irSiguienteInteractivo();
-
-                    } else {
-
-                        irAnteriorInteractivo();
-
-                    }
-
-                }
-
-            );
-
-
-
-        carrusel
-            .addEventListener(
-
-                "pointercancel",
-
-                () => {
-
-                    inicioSwipeX =
-                        null;
-
-
-                    inicioSwipeY =
-                        null;
-
-                }
-
-            );
-
-
-
-        /* =====================================================
-           TEMPORIZADORES
-        ===================================================== */
-
-        function limpiarTemporizadorProducto() {
-
-            if (
-                temporizadorProducto
-            ) {
-
-                clearTimeout(
-                    temporizadorProducto
-                );
-
-
-                temporizadorProducto =
-                    null;
-
-            }
+            temporizadorInactividad = null;
 
         }
 
 
+        programarAvanceAutomatico();
 
-        function limpiarTemporizadorCambio() {
-
-            if (
-                temporizadorCambio
-            ) {
-
-                clearTimeout(
-                    temporizadorCambio
-                );
+    }
 
 
-                temporizadorCambio =
-                    null;
+    /* =====================================================
+       INACTIVIDAD
+    ===================================================== */
 
-            }
+    function reiniciarTemporizadorInactividad() {
 
-        }
+        if (temporizadorInactividad) {
 
-
-
-        function limpiarTemporizadoresAutomaticos() {
-
-            limpiarTemporizadorProducto();
-
-            limpiarTemporizadorCambio();
-
-
-            if (
-                temporizadorPresentacion
-            ) {
-
-                clearTimeout(
-                    temporizadorPresentacion
-                );
-
-
-                temporizadorPresentacion =
-                    null;
-
-            }
-
-        }
-
-
-
-        /* =====================================================
-           PANTALLA COMPLETA
-        ===================================================== */
-
-        function estaEnPantallaCompleta() {
-
-            return Boolean(
-
-                document.fullscreenElement ||
-
-                document.webkitFullscreenElement ||
-
-                document.msFullscreenElement
-
+            clearTimeout(
+                temporizadorInactividad
             );
 
         }
 
 
+        temporizadorInactividad =
+            setTimeout(
+                salirModoInteractivo,
+                tiempoInactividad
+            );
 
-        async function activarPantallaCompleta() {
+    }
 
-            try {
+
+    /* =====================================================
+       SIGUIENTE PRODUCTO
+    ===================================================== */
+
+    function irSiguienteInteractivo() {
+
+        const seccion =
+            secciones[indiceSeccion];
+
+
+        if (
+            indiceProducto <
+            seccion.productos.length - 1
+        ) {
+
+            indiceProducto++;
+
+        } else {
+
+            indiceSeccion =
+                (
+                    indiceSeccion + 1
+                )
+                %
+                secciones.length;
+
+
+            indiceProducto = 0;
+
+        }
+
+
+        mostrarProducto(false);
+
+        reiniciarTemporizadorInactividad();
+
+    }
+
+
+    /* =====================================================
+       PRODUCTO ANTERIOR
+    ===================================================== */
+
+    function irAnteriorInteractivo() {
+
+        if (
+            indiceProducto > 0
+        ) {
+
+            indiceProducto--;
+
+        } else {
+
+            indiceSeccion =
+                (
+                    indiceSeccion -
+                    1 +
+                    secciones.length
+                )
+                %
+                secciones.length;
+
+
+            indiceProducto =
+                secciones[
+                    indiceSeccion
+                ]
+                .productos
+                .length - 1;
+
+        }
+
+
+        mostrarProducto(false);
+
+        reiniciarTemporizadorInactividad();
+
+    }
+
+
+    /* =====================================================
+       CATEGORÍAS
+    ===================================================== */
+
+    function renderCategorias() {
+
+        categoriasInteractivas.innerHTML = "";
+
+
+        secciones.forEach(
+            (seccion, indice) => {
+
+
+                const boton =
+                    document.createElement(
+                        "button"
+                    );
+
+
+                boton.type = "button";
+
+                boton.className =
+                    "boton-categoria";
 
 
                 if (
-                    carrusel.requestFullscreen
+                    indice === indiceSeccion
                 ) {
 
-                    await carrusel
-                        .requestFullscreen();
-
-
-                } else if (
-                    carrusel.webkitRequestFullscreen
-                ) {
-
-                    carrusel
-                        .webkitRequestFullscreen();
-
-
-                } else if (
-                    carrusel.msRequestFullscreen
-                ) {
-
-                    carrusel
-                        .msRequestFullscreen();
-
-
-                } else {
-
-                    mensajePantalla
+                    boton
                         .classList
-                        .add("visible");
-
-                    return;
+                        .add("activa");
 
                 }
 
 
-                activarModoInteractivo();
+                boton.textContent =
+                    seccion.tituloCorto;
 
 
-            } catch (error) {
+                /*
+                    Usamos pointerup,
+                    ideal para pantalla táctil
+                    y también funciona con mouse.
+                */
+
+                boton.addEventListener(
+                    "pointerup",
+                    (evento) => {
+
+                        evento.preventDefault();
+                        evento.stopPropagation();
 
 
-                mensajePantalla
-                    .classList
-                    .add("visible");
+                        indiceSeccion = indice;
+
+                        indiceProducto = 0;
+
+
+                        mostrarProducto(false);
+
+                        reiniciarTemporizadorInactividad();
+
+                    }
+                );
+
+
+                categoriasInteractivas
+                    .appendChild(boton);
 
             }
+        );
 
-        }
+    }
 
 
+    /* =====================================================
+       MINIATURAS
+    ===================================================== */
 
-        async function salirPantallaCompleta() {
+    function renderMiniaturas() {
 
-            try {
+        miniaturas.innerHTML = "";
+
+
+        const seccion =
+            secciones[indiceSeccion];
+
+
+        seccion.productos.forEach(
+            (producto, indice) => {
+
+
+                const boton =
+                    document.createElement(
+                        "button"
+                    );
+
+
+                boton.type = "button";
+
+                boton.className =
+                    "miniatura";
+
+
+                boton.title =
+                    producto.nombre;
 
 
                 if (
-
-                    document.fullscreenElement &&
-
-                    document.exitFullscreen
-
+                    indice === indiceProducto
                 ) {
 
-                    await document
-                        .exitFullscreen();
-
-
-                } else if (
-
-                    document.webkitFullscreenElement &&
-
-                    document.webkitExitFullscreen
-
-                ) {
-
-                    document
-                        .webkitExitFullscreen();
-
-
-                } else if (
-
-                    document.msFullscreenElement &&
-
-                    document.msExitFullscreen
-
-                ) {
-
-                    document
-                        .msExitFullscreen();
+                    boton
+                        .classList
+                        .add("activa");
 
                 }
 
 
-            } catch (error) {
+                const img =
+                    document.createElement(
+                        "img"
+                    );
 
 
-                mensajePantalla
-                    .classList
-                    .add("visible");
+                img.src =
+                    producto.imagen;
+
+
+                img.alt =
+                    producto.nombre;
+
+
+                img.draggable =
+                    false;
+
+
+                boton.appendChild(img);
+
+
+                /*
+                    POINTERUP:
+                    funciona con dedo y mouse.
+                */
+
+                boton.addEventListener(
+                    "pointerup",
+                    (evento) => {
+
+                        evento.preventDefault();
+                        evento.stopPropagation();
+
+
+                        indiceProducto =
+                            indice;
+
+
+                        mostrarProducto(false);
+
+
+                        reiniciarTemporizadorInactividad();
+
+                    }
+                );
+
+
+                miniaturas
+                    .appendChild(boton);
+
+            }
+        );
+
+
+        requestAnimationFrame(() => {
+
+            const activa =
+                miniaturas.querySelector(
+                    ".miniatura.activa"
+                );
+
+
+            if (activa) {
+
+                activa.scrollIntoView({
+
+                    behavior: "smooth",
+                    block: "nearest",
+                    inline: "center"
+
+                });
 
             }
 
+        });
+
+    }
+
+
+    /* =====================================================
+       FLECHAS
+    ===================================================== */
+
+    flechaDerecha.addEventListener(
+        "pointerup",
+        (evento) => {
+
+            evento.preventDefault();
+
+            evento.stopPropagation();
+
+
+            irSiguienteInteractivo();
+
         }
+    );
 
 
+    flechaIzquierda.addEventListener(
+        "pointerup",
+        (evento) => {
 
-        function actualizarBotonPantallaCompleta() {
+            evento.preventDefault();
+
+            evento.stopPropagation();
+
+
+            irAnteriorInteractivo();
+
+        }
+    );
+
+
+    /*
+        Evitamos que el pointerdown
+        de los controles llegue al fondo.
+    */
+
+    flechaDerecha.addEventListener(
+        "pointerdown",
+        (evento) => {
+
+            evento.stopPropagation();
+
+            reiniciarTemporizadorInactividad();
+
+        }
+    );
+
+
+    flechaIzquierda.addEventListener(
+        "pointerdown",
+        (evento) => {
+
+            evento.stopPropagation();
+
+            reiniciarTemporizadorInactividad();
+
+        }
+    );
+
+
+    /* =====================================================
+       TOCAR EL FONDO DE LA PANTALLA
+    ===================================================== */
+
+    carrusel.addEventListener(
+        "pointerdown",
+        (evento) => {
+
+
+            /*
+                Si el usuario está tocando
+                un control, NO ejecutamos
+                el toque general.
+            */
 
             if (
-                estaEnPantallaCompleta()
+                evento.target.closest(
+                    ".flecha"
+                ) ||
+                evento.target.closest(
+                    ".panel-interactivo"
+                ) ||
+                evento.target.closest(
+                    ".boton-categoria"
+                ) ||
+                evento.target.closest(
+                    ".miniatura"
+                ) ||
+                evento.target.closest(
+                    ".boton-casita"
+                ) ||
+                evento.target.closest(
+                    ".boton-pantalla-completa"
+                )
             ) {
 
-                botonPantallaCompleta
-                    .classList
-                    .add("oculto");
+                return;
+
+            }
+
+
+            activarModoInteractivo();
+
+        }
+    );
+
+
+    /* =====================================================
+       SWIPE
+    ===================================================== */
+
+    let inicioSwipeX = null;
+    let inicioSwipeY = null;
+
+
+    carrusel.addEventListener(
+        "pointerdown",
+        (evento) => {
+
+
+            if (
+                evento.target.closest(
+                    ".flecha"
+                ) ||
+                evento.target.closest(
+                    ".panel-interactivo"
+                ) ||
+                evento.target.closest(
+                    ".boton-categoria"
+                ) ||
+                evento.target.closest(
+                    ".miniatura"
+                ) ||
+                evento.target.closest(
+                    ".boton-casita"
+                ) ||
+                evento.target.closest(
+                    ".boton-pantalla-completa"
+                )
+            ) {
+
+                inicioSwipeX = null;
+                inicioSwipeY = null;
+
+                return;
+
+            }
+
+
+            inicioSwipeX =
+                evento.clientX;
+
+
+            inicioSwipeY =
+                evento.clientY;
+
+        }
+    );
+
+
+    carrusel.addEventListener(
+        "pointerup",
+        (evento) => {
+
+
+            if (
+                inicioSwipeX === null
+            ) {
+
+                return;
+
+            }
+
+
+            const diferenciaX =
+                evento.clientX -
+                inicioSwipeX;
+
+
+            const diferenciaY =
+                evento.clientY -
+                inicioSwipeY;
+
+
+            inicioSwipeX = null;
+            inicioSwipeY = null;
+
+
+            if (
+                Math.abs(diferenciaX) < 60
+            ) {
+
+                return;
+
+            }
+
+
+            if (
+                Math.abs(diferenciaX)
+                <=
+                Math.abs(diferenciaY)
+            ) {
+
+                return;
+
+            }
+
+
+            activarModoInteractivo();
+
+
+            if (
+                diferenciaX < 0
+            ) {
+
+                irSiguienteInteractivo();
 
             } else {
 
-                botonPantallaCompleta
-                    .classList
-                    .remove("oculto");
+                irAnteriorInteractivo();
 
             }
 
         }
+    );
 
 
+    carrusel.addEventListener(
+        "pointercancel",
+        () => {
 
-        botonPantallaCompleta
-            .addEventListener(
+            inicioSwipeX = null;
 
-                "click",
+            inicioSwipeY = null;
 
-                (evento) => {
+        }
+    );
 
-                    evento.stopPropagation();
 
-                    activarPantallaCompleta();
+    /* =====================================================
+       TEMPORIZADORES
+    ===================================================== */
 
-                }
+    function limpiarTemporizadorProducto() {
 
+        if (temporizadorProducto) {
+
+            clearTimeout(
+                temporizadorProducto
             );
 
+            temporizadorProducto = null;
+
+        }
+
+    }
 
 
-        botonCasita
-            .addEventListener(
+    function limpiarTemporizadorCambio() {
 
-                "click",
+        if (temporizadorCambio) {
 
-                (evento) => {
-
-                    evento.stopPropagation();
-
-                    salirPantallaCompleta();
-
-                }
-
+            clearTimeout(
+                temporizadorCambio
             );
 
+            temporizadorCambio = null;
+
+        }
+
+    }
 
 
-        document
-            .addEventListener(
+    function limpiarTemporizadoresAutomaticos() {
 
-                "fullscreenchange",
+        limpiarTemporizadorProducto();
 
-                actualizarBotonPantallaCompleta
+        limpiarTemporizadorCambio();
 
+
+        if (temporizadorPresentacion) {
+
+            clearTimeout(
+                temporizadorPresentacion
             );
 
+            temporizadorPresentacion = null;
+
+        }
+
+    }
 
 
-        document
-            .addEventListener(
+    /* =====================================================
+       PANTALLA COMPLETA
+    ===================================================== */
 
-                "webkitfullscreenchange",
+    function estaEnPantallaCompleta() {
 
-                actualizarBotonPantallaCompleta
+        return Boolean(
 
-            );
+            document.fullscreenElement ||
 
+            document.webkitFullscreenElement ||
 
+            document.msFullscreenElement
 
-        document
-            .addEventListener(
+        );
 
-                "MSFullscreenChange",
-
-                actualizarBotonPantallaCompleta
-
-            );
+    }
 
 
+    async function activarPantallaCompleta() {
 
-        cerrarMensaje
-            .addEventListener(
+        try {
 
-                "click",
+            if (
+                carrusel.requestFullscreen
+            ) {
 
-                () => {
+                await carrusel
+                    .requestFullscreen();
 
-                    mensajePantalla
-                        .classList
-                        .remove("visible");
+            } else if (
+                carrusel.webkitRequestFullscreen
+            ) {
 
-                }
+                carrusel
+                    .webkitRequestFullscreen();
 
-            );
+            } else if (
+                carrusel.msRequestFullscreen
+            ) {
+
+                carrusel
+                    .msRequestFullscreen();
+
+            } else {
+
+                mensajePantalla
+                    .classList
+                    .add("visible");
+
+                return;
+
+            }
 
 
-
-        /* =====================================================
-           INICIAR
-        ===================================================== */
-
-        mostrarPresentacionSeccion();
+            activarModoInteractivo();
 
 
-    </script>
+        } catch (error) {
+
+            mensajePantalla
+                .classList
+                .add("visible");
+
+        }
+
+    }
+
+
+    async function salirPantallaCompleta() {
+
+        try {
+
+            if (
+                document.fullscreenElement &&
+                document.exitFullscreen
+            ) {
+
+                await document
+                    .exitFullscreen();
+
+            } else if (
+                document.webkitFullscreenElement &&
+                document.webkitExitFullscreen
+            ) {
+
+                document
+                    .webkitExitFullscreen();
+
+            } else if (
+                document.msFullscreenElement &&
+                document.msExitFullscreen
+            ) {
+
+                document
+                    .msExitFullscreen();
+
+            }
+
+        } catch (error) {
+
+            mensajePantalla
+                .classList
+                .add("visible");
+
+        }
+
+    }
+
+
+    function actualizarBotonPantallaCompleta() {
+
+        if (
+            estaEnPantallaCompleta()
+        ) {
+
+            botonPantallaCompleta
+                .classList
+                .add("oculto");
+
+        } else {
+
+            botonPantallaCompleta
+                .classList
+                .remove("oculto");
+
+        }
+
+    }
+
+
+    botonPantallaCompleta.addEventListener(
+        "pointerup",
+        (evento) => {
+
+            evento.preventDefault();
+
+            evento.stopPropagation();
+
+            activarPantallaCompleta();
+
+        }
+    );
+
+
+    botonPantallaCompleta.addEventListener(
+        "pointerdown",
+        (evento) => {
+
+            evento.stopPropagation();
+
+        }
+    );
+
+
+    botonCasita.addEventListener(
+        "pointerup",
+        (evento) => {
+
+            evento.preventDefault();
+
+            evento.stopPropagation();
+
+            salirPantallaCompleta();
+
+        }
+    );
+
+
+    botonCasita.addEventListener(
+        "pointerdown",
+        (evento) => {
+
+            evento.stopPropagation();
+
+        }
+    );
+
+
+    document.addEventListener(
+        "fullscreenchange",
+        actualizarBotonPantallaCompleta
+    );
+
+
+    document.addEventListener(
+        "webkitfullscreenchange",
+        actualizarBotonPantallaCompleta
+    );
+
+
+    document.addEventListener(
+        "MSFullscreenChange",
+        actualizarBotonPantallaCompleta
+    );
+
+
+    cerrarMensaje.addEventListener(
+        "click",
+        () => {
+
+            mensajePantalla
+                .classList
+                .remove("visible");
+
+        }
+    );
+
+
+    /* =====================================================
+       INICIAR
+    ===================================================== */
+
+    mostrarPresentacionSeccion();
+
+</script>
 
 </body>
 
