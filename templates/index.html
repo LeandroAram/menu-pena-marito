@@ -1,532 +1,1378 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
+    <!-- GOOGLE ANALYTICS -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-GW3WP50DQH"></script>
+
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
         gtag('js', new Date());
         gtag('config', 'G-GW3WP50DQH');
     </script>
 
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
 
     <title>La Peña de Marito</title>
 
+
     <style>
-        *{
-            box-sizing:border-box;
+
+        /* =========================================================
+           GENERAL
+        ========================================================= */
+
+        * {
+            box-sizing: border-box;
         }
 
-        html, body{
-            margin:0;
-            padding:0;
-            width:100%;
-            min-height:100%;
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            min-height: 100%;
         }
 
-        body{
-            font-family:Arial, Helvetica, sans-serif;
-            background:#000;
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #050505;
         }
 
-        a{
-            text-decoration:none;
+        a {
+            text-decoration: none;
+            color: inherit;
         }
 
-        button{
-            font-family:inherit;
+        button {
+            font-family: inherit;
         }
 
-        .fondo{
-            position:relative;
-            min-height:100vh;
-            min-height:100svh;
-            overflow:hidden;
+
+        /* =========================================================
+           PORTADA
+        ========================================================= */
+
+        .fondo {
+
+            position: relative;
+
+            width: 100%;
+
+            min-height: 100vh;
+            min-height: 100svh;
+            min-height: 100dvh;
+
             background-image:
+
                 linear-gradient(
                     to bottom,
-                    rgba(0,0,0,0.18) 0%,
-                    rgba(0,0,0,0.08) 35%,
-                    rgba(0,0,0,0.28) 65%,
-                    rgba(0,0,0,0.78) 100%
+                    rgba(0, 0, 0, 0.08) 0%,
+                    rgba(0, 0, 0, 0.02) 35%,
+                    rgba(0, 0, 0, 0.08) 57%,
+                    rgba(0, 0, 0, 0.36) 78%,
+                    rgba(0, 0, 0, 0.67) 100%
                 ),
+
                 url('/static/pena3.jpg');
-            background-size:cover;
-            background-position:center;
+
+            background-size: cover;
+
+            background-position: center;
+
+            display: flex;
+
+            justify-content: center;
+
+            overflow-x: hidden;
+        }
+
+
+        .contenido {
+
+            position: relative;
+
+            z-index: 2;
+
+            width: 100%;
+
+            max-width: 650px;
+
+            min-height: 100svh;
+            min-height: 100dvh;
+
             padding:
-                calc(24px + env(safe-area-inset-top))
+
+                calc(28px + env(safe-area-inset-top))
+
                 5%
+
                 calc(18px + env(safe-area-inset-bottom));
+
+            display: flex;
+
+            flex-direction: column;
         }
 
-        .contenido{
-            width:100%;
-            max-width:620px;
-            margin:0 auto;
-            min-height:calc(100svh - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 42px);
-            display:flex;
-            flex-direction:column;
+
+        /* =========================================================
+           TÍTULO
+        ========================================================= */
+
+        .cabecera {
+
+            margin-top: 35px;
         }
 
-        .cabecera{
-            margin-top:38px;
+
+        .titulo h1 {
+
+            margin: 0;
+
+            max-width: 390px;
+
+            color: #dca84f;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: clamp(52px, 12.5vw, 78px);
+
+            line-height: 0.94;
+
+            font-weight: 500;
+
+            letter-spacing: -1.8px;
+
+            text-shadow:
+                0 4px 15px rgba(0, 0, 0, 0.50);
         }
 
-        .titulo h1{
-            margin:0;
-            color:#e6b55c;
-            font-family:Georgia, "Times New Roman", serif;
-            font-size:clamp(50px, 12vw, 78px);
-            line-height:0.92;
-            font-weight:500;
-            letter-spacing:-1.5px;
-            text-shadow:0 4px 14px rgba(0,0,0,0.55);
-            max-width:360px;
+
+        .linea-titulo {
+
+            width: 76px;
+
+            height: 2px;
+
+            margin-top: 15px;
+
+            background:
+
+                linear-gradient(
+                    90deg,
+                    #dba74f,
+                    rgba(219, 167, 79, 0)
+                );
         }
 
-        .linea-titulo{
-            width:88px;
-            height:2px;
-            margin-top:14px;
-            background:linear-gradient(90deg,#e6b55c,rgba(230,181,92,0.10));
+
+        .subtitulo {
+
+            margin-top: 15px;
+
+            color: rgba(255, 255, 255, 0.94);
+
+            font-size: 14px;
+
+            font-weight: 400;
+
+            letter-spacing: 0.15px;
+
+            line-height: 1.4;
+
+            text-shadow:
+                0 2px 8px rgba(0, 0, 0, 0.85);
         }
 
-        .subtitulo{
-            margin-top:14px;
-            color:rgba(255,255,255,0.95);
-            font-size:14px;
-            line-height:1.45;
-            text-shadow:0 2px 8px rgba(0,0,0,0.8);
+
+        /* =========================================================
+           ZONA INFERIOR
+        ========================================================= */
+
+        .zona-menu {
+
+            width: 100%;
+
+            margin-top: auto;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            padding-top: 55px;
         }
 
-        .zona-menu{
-            margin-top:auto;
-            display:flex;
-            flex-direction:column;
-            align-items:center;
-            padding-top:48px;
-        }
 
-        .menu-etiqueta{
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            gap:12px;
-            margin-bottom:10px;
-            color:#e7b861;
-            font-size:11px;
-            font-weight:700;
-            letter-spacing:4px;
-            text-transform:uppercase;
-            text-shadow:0 2px 8px rgba(0,0,0,0.85);
-        }
+        /* =========================================================
+           BOTÓN PRINCIPAL - VER MENÚ
+        ========================================================= */
 
-        .menu-etiqueta::before,
-        .menu-etiqueta::after{
-            content:"";
-            width:32px;
-            height:1px;
-            background:rgba(231,184,97,0.7);
-        }
+        .btn-menu-principal {
 
-        .btn-menu-principal{
-            width:100%;
-            max-width:560px;
-            min-height:76px;
-            border-radius:28px;
-            border:1.6px solid rgba(241,202,121,0.95);
-            background:rgba(233,190,102,0.76);
-            backdrop-filter:blur(6px);
-            -webkit-backdrop-filter:blur(6px);
-            color:#24180b;
-            display:flex;
-            align-items:center;
-            justify-content:space-between;
-            padding:10px 20px;
-            cursor:pointer;
+            width: 78%;
+
+            max-width: 470px;
+
+            min-height: 72px;
+
+            padding: 9px 18px;
+
+            border-radius: 25px;
+
+            border:
+
+                1px solid
+                rgba(236, 188, 96, 0.82);
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    rgba(153, 103, 37, 0.53),
+                    rgba(92, 58, 23, 0.47)
+                );
+
+            backdrop-filter: blur(8px);
+
+            -webkit-backdrop-filter: blur(8px);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            color: #f0c26c;
+
+            cursor: pointer;
+
             box-shadow:
-                0 8px 24px rgba(0,0,0,0.28),
-                0 0 0 2px rgba(240,198,108,0.08);
-            transition:all .25s ease;
+
+                0 8px 24px
+                rgba(0, 0, 0, 0.26);
+
+            transition:
+                transform .25s ease,
+                background .25s ease,
+                border-color .25s ease;
+
+            -webkit-tap-highlight-color: transparent;
         }
 
-        .btn-menu-principal:hover{
-            transform:translateY(-2px);
-            background:rgba(233,190,102,0.82);
+
+        .btn-menu-principal:hover {
+
+            transform: translateY(-2px);
+
+            border-color: #edbd64;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    rgba(170, 114, 40, 0.63),
+                    rgba(102, 65, 26, 0.58)
+                );
         }
 
-        .menu-icono{
-            width:42px;
-            height:42px;
-            border-radius:12px;
-            border:1px solid rgba(55,35,10,0.35);
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            font-size:20px;
-            background:rgba(255,255,255,0.12);
-            flex-shrink:0;
+
+        .btn-menu-principal:active {
+
+            transform: scale(.98);
         }
 
-        .menu-texto{
-            flex:1;
-            text-align:center;
-            font-family:Georgia, "Times New Roman", serif;
-            font-size:clamp(25px, 5.7vw, 38px);
-            font-weight:500;
+
+        .menu-icono {
+
+            width: 40px;
+
+            height: 40px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-shrink: 0;
+
+            color: #f0c26c;
         }
 
-        .menu-flecha{
-            font-size:34px;
-            line-height:1;
-            flex-shrink:0;
+
+        .menu-icono svg {
+
+            width: 25px;
+
+            height: 25px;
+
+            stroke: currentColor;
         }
 
-        .ayuda-menu{
-            margin-top:12px;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            gap:8px;
-            color:rgba(255,255,255,0.92);
-            font-size:12px;
-            text-shadow:0 2px 8px rgba(0,0,0,0.88);
+
+        .menu-texto {
+
+            flex: 1;
+
+            text-align: center;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 29px;
+
+            font-weight: 400;
+
+            letter-spacing: .2px;
         }
 
-        .ayuda-menu .globo{
-            color:#e7b861;
-            font-size:16px;
+
+        .menu-flecha {
+
+            width: 34px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 36px;
+
+            line-height: 1;
+
+            font-family: Georgia, serif;
+
+            font-weight: 300;
         }
 
-        .acciones{
-            width:100%;
-            display:grid;
-            grid-template-columns:1fr 1fr;
-            gap:10px;
-            margin-top:18px;
+
+        /* =========================================================
+           TEXTO IDIOMA
+        ========================================================= */
+
+        .ayuda-menu {
+
+            margin-top: 11px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 7px;
+
+            color: rgba(255, 255, 255, 0.85);
+
+            font-size: 11.5px;
+
+            font-weight: 400;
+
+            text-shadow:
+                0 2px 8px rgba(0, 0, 0, 0.90);
         }
 
-        .accion-btn{
-            width:100%;
-            min-height:54px;
-            border-radius:20px;
-            border:1px solid rgba(231,184,97,0.92);
-            background:rgba(8,8,8,0.58);
-            backdrop-filter:blur(8px);
-            -webkit-backdrop-filter:blur(8px);
-            color:#f0c874;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            gap:8px;
-            padding:10px 10px;
-            font-size:13px;
-            font-weight:700;
-            cursor:pointer;
-            box-shadow:0 6px 18px rgba(0,0,0,0.26);
-            transition:all .25s ease;
-            text-align:center;
+
+        .ayuda-menu svg {
+
+            width: 16px;
+
+            height: 16px;
+
+            stroke: #e0ad55;
+
+            flex-shrink: 0;
         }
 
-        .accion-btn:hover{
-            transform:translateY(-2px);
-            background:rgba(32,22,11,0.82);
+
+        /* =========================================================
+           BOTONES SECUNDARIOS
+        ========================================================= */
+
+        .acciones {
+
+            width: 90%;
+
+            max-width: 520px;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 9px;
+
+            margin-top: 17px;
         }
 
-        .accion-icono{
-            font-size:17px;
-            line-height:1;
+
+        .accion-btn {
+
+            width: 100%;
+
+            min-height: 52px;
+
+            padding: 8px 10px;
+
+            border-radius: 19px;
+
+            border:
+
+                1px solid
+                rgba(224, 172, 78, 0.78);
+
+            background:
+
+                rgba(8, 8, 8, 0.43);
+
+            backdrop-filter: blur(7px);
+
+            -webkit-backdrop-filter: blur(7px);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 8px;
+
+            color: #e7b45b;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            text-align: center;
+
+            box-shadow:
+
+                0 5px 15px
+                rgba(0, 0, 0, 0.18);
+
+            transition:
+                transform .22s ease,
+                background .22s ease,
+                border-color .22s ease;
+
+            -webkit-tap-highlight-color: transparent;
         }
 
-        .contacto-dev{
-            width:100%;
-            margin-top:16px;
-            display:flex;
-            flex-direction:column;
-            align-items:center;
-            gap:10px;
+
+        .accion-btn:hover {
+
+            transform: translateY(-2px);
+
+            background:
+
+                rgba(49, 32, 14, 0.63);
+
+            border-color: #e4b05a;
         }
 
-        .dev-texto{
-            color:rgba(255,255,255,0.92);
-            font-size:12px;
-            text-shadow:0 2px 8px rgba(0,0,0,0.88);
+
+        .accion-btn:active {
+
+            transform: scale(.98);
         }
 
-        .dev-acciones{
-            display:flex;
-            justify-content:center;
-            gap:10px;
-            flex-wrap:wrap;
-            width:100%;
+
+        .accion-icono {
+
+            width: 21px;
+
+            height: 21px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-shrink: 0;
         }
 
-        .dev-btn{
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            gap:8px;
-            min-height:42px;
-            padding:10px 14px;
-            border-radius:18px;
-            background:rgba(0,0,0,0.42);
-            border:1px solid rgba(231,184,97,0.72);
-            color:#f0c874;
-            font-size:13px;
-            font-weight:700;
-            backdrop-filter:blur(8px);
-            -webkit-backdrop-filter:blur(8px);
-            transition:all .25s ease;
+
+        .accion-icono svg {
+
+            width: 20px;
+
+            height: 20px;
+
+            stroke: currentColor;
         }
 
-        .dev-btn:hover{
-            transform:translateY(-2px);
-            background:rgba(28,18,9,0.80);
+
+        /* =========================================================
+           FIRMA DEL DISEÑADOR
+        ========================================================= */
+
+        .firma-mini {
+
+            width: 100%;
+
+            margin-top: 17px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 8px;
         }
 
-        .footer{
-            margin-top:14px;
-            text-align:center;
-            color:rgba(239,194,107,0.85);
-            font-size:10px;
-            letter-spacing:3px;
-            text-transform:lowercase;
-            text-shadow:0 2px 7px rgba(0,0,0,0.9);
+
+        .firma-mini-texto {
+
+            color:
+                rgba(255, 255, 255, 0.62);
+
+            font-size: 10px;
+
+            font-weight: 400;
+
+            letter-spacing: .35px;
+
+            white-space: nowrap;
+
+            text-shadow:
+
+                0 2px 7px
+                rgba(0, 0, 0, 0.95);
         }
 
-        /* MODAL IDIOMAS */
-        .modal-idiomas{
-            position:fixed;
-            inset:0;
-            z-index:20000;
-            display:none;
-            align-items:center;
-            justify-content:center;
-            padding:22px;
-            background:rgba(0,0,0,0.76);
-            backdrop-filter:blur(8px);
-            -webkit-backdrop-filter:blur(8px);
+
+        .firma-separador {
+
+            width: 1px;
+
+            height: 18px;
+
+            margin: 0 2px;
+
+            background:
+
+                rgba(218, 167, 79, 0.40);
         }
 
-        .modal-idiomas.activo{
-            display:flex;
+
+        .firma-icono {
+
+            width: 27px;
+
+            height: 27px;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color: #dba84f;
+
+            background:
+
+                rgba(0, 0, 0, 0.18);
+
+            border:
+
+                1px solid
+                rgba(219, 168, 79, 0.38);
+
+            backdrop-filter: blur(5px);
+
+            -webkit-backdrop-filter: blur(5px);
+
+            transition:
+                transform .2s ease,
+                background .2s ease,
+                border-color .2s ease;
         }
 
-        .idiomas-contenido{
-            position:relative;
-            width:100%;
-            max-width:410px;
-            padding:28px 18px 20px;
-            border-radius:24px;
-            background:linear-gradient(
-                145deg,
-                rgba(29,22,13,0.98),
-                rgba(10,10,10,0.98)
-            );
-            border:1px solid rgba(233,187,101,0.55);
-            box-shadow:0 20px 60px rgba(0,0,0,0.55);
+
+        .firma-icono svg {
+
+            width: 14px;
+
+            height: 14px;
+
+            fill: none;
+
+            stroke: currentColor;
+
+            stroke-width: 1.8;
         }
 
-        .cerrar-idiomas{
-            position:absolute;
-            top:10px;
-            right:10px;
-            width:36px;
-            height:36px;
-            border-radius:50%;
-            border:1px solid rgba(255,255,255,0.12);
-            background:rgba(255,255,255,0.06);
-            color:#fff;
-            font-size:18px;
-            cursor:pointer;
+
+        .firma-icono:hover {
+
+            transform: translateY(-2px);
+
+            background:
+
+                rgba(44, 29, 12, 0.52);
+
+            border-color:
+
+                rgba(219, 168, 79, 0.75);
         }
 
-        .idiomas-titulo{
-            margin:0;
-            color:#efc46f;
-            text-align:center;
-            font-family:Georgia, "Times New Roman", serif;
-            font-size:28px;
-            font-weight:500;
+
+        /* =========================================================
+           DOMINIO
+        ========================================================= */
+
+        .footer {
+
+            margin-top: 12px;
+
+            text-align: center;
+
+            color:
+
+                rgba(224, 172, 82, 0.72);
+
+            font-size: 8.5px;
+
+            letter-spacing: 3.2px;
+
+            text-transform: lowercase;
+
+            text-shadow:
+
+                0 2px 6px
+                rgba(0, 0, 0, 0.9);
         }
 
-        .idiomas-subtitulo{
-            margin:8px 10px 18px;
-            color:rgba(255,255,255,0.73);
-            text-align:center;
-            font-size:14px;
-            line-height:1.45;
+
+        /* =========================================================
+           MODAL IDIOMAS
+        ========================================================= */
+
+        .modal-idiomas {
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 20000;
+
+            display: none;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 22px;
+
+            background:
+
+                rgba(0, 0, 0, 0.73);
+
+            backdrop-filter: blur(8px);
+
+            -webkit-backdrop-filter: blur(8px);
         }
 
-        .lista-idiomas{
-            display:grid;
-            gap:10px;
+
+        .modal-idiomas.activo {
+
+            display: flex;
         }
 
-        .idioma-opcion{
-            width:100%;
-            min-height:56px;
-            padding:13px 16px;
-            border-radius:16px;
-            border:1px solid rgba(233,187,101,0.30);
-            background:rgba(255,255,255,0.05);
-            color:#fff;
-            display:flex;
-            align-items:center;
-            justify-content:space-between;
-            transition:all .22s ease;
+
+        .idiomas-contenido {
+
+            position: relative;
+
+            width: 100%;
+
+            max-width: 390px;
+
+            padding: 29px 18px 20px;
+
+            border-radius: 24px;
+
+            background:
+
+                linear-gradient(
+                    145deg,
+                    rgba(29, 22, 14, 0.97),
+                    rgba(7, 7, 7, 0.98)
+                );
+
+            border:
+
+                1px solid
+                rgba(224, 172, 82, 0.52);
+
+            box-shadow:
+
+                0 22px 55px
+                rgba(0, 0, 0, 0.58);
         }
 
-        .idioma-opcion:hover{
-            background:rgba(233,187,101,0.12);
-            border-color:rgba(233,187,101,0.82);
-            transform:translateX(3px);
+
+        .cerrar-idiomas {
+
+            position: absolute;
+
+            top: 10px;
+
+            right: 10px;
+
+            width: 35px;
+
+            height: 35px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 50%;
+
+            border:
+
+                1px solid
+                rgba(255, 255, 255, 0.12);
+
+            background:
+
+                rgba(255, 255, 255, 0.05);
+
+            color: white;
+
+            font-size: 19px;
+
+            cursor: pointer;
         }
 
-        .idioma-izquierda{
-            display:flex;
-            align-items:center;
-            gap:12px;
-            font-size:17px;
+
+        .idiomas-titulo {
+
+            margin: 0;
+
+            color: #e5b35c;
+
+            text-align: center;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 27px;
+
+            font-weight: 400;
         }
 
-        .bandera{
-            font-size:24px;
+
+        .idiomas-subtitulo {
+
+            margin:
+
+                7px
+                10px
+                19px;
+
+            color:
+
+                rgba(255, 255, 255, 0.68);
+
+            text-align: center;
+
+            font-size: 13px;
+
+            line-height: 1.45;
         }
 
-        .flecha-idioma{
-            color:#e8b960;
-            font-size:22px;
+
+        .lista-idiomas {
+
+            display: grid;
+
+            gap: 9px;
         }
 
-        /* MODAL VIDEO */
-        .modal-video{
-            display:none;
-            position:fixed;
-            inset:0;
-            z-index:30000;
-            justify-content:center;
-            align-items:center;
-            padding:24px;
-            background:rgba(0,0,0,0.93);
+
+        .idioma-opcion {
+
+            width: 100%;
+
+            min-height: 54px;
+
+            padding: 11px 15px;
+
+            border-radius: 15px;
+
+            border:
+
+                1px solid
+                rgba(225, 174, 82, 0.27);
+
+            background:
+
+                rgba(255, 255, 255, 0.04);
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            transition:
+                background .2s ease,
+                border-color .2s ease,
+                transform .2s ease;
         }
 
-        .modal-contenido{
-            width:100%;
-            max-width:430px;
-            position:relative;
+
+        .idioma-opcion:hover {
+
+            background:
+
+                rgba(225, 174, 82, 0.10);
+
+            border-color:
+
+                rgba(225, 174, 82, 0.70);
+
+            transform:
+
+                translateX(2px);
         }
 
-        .modal-contenido video{
-            display:block;
-            width:100%;
-            max-height:82vh;
-            border-radius:20px;
-            background:#000;
+
+        .idioma-izquierda {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 11px;
+
+            font-size: 16px;
         }
 
-        .cerrar-video{
-            position:absolute;
-            top:-14px;
-            right:-8px;
-            width:42px;
-            height:42px;
-            border-radius:50%;
-            border:1px solid rgba(255,255,255,0.2);
-            background:rgba(0,0,0,0.86);
-            color:#fff;
-            font-size:20px;
-            cursor:pointer;
+
+        .bandera {
+
+            font-size: 22px;
         }
 
-        @media (max-height:720px){
-            .cabecera{
-                margin-top:18px;
+
+        .flecha-idioma {
+
+            color: #dfa94f;
+
+            font-size: 22px;
+        }
+
+
+        /* =========================================================
+           MODAL VIDEO
+        ========================================================= */
+
+        .modal-video {
+
+            display: none;
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 30000;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding: 23px;
+
+            background:
+
+                rgba(0, 0, 0, 0.93);
+        }
+
+
+        .modal-contenido {
+
+            position: relative;
+
+            width: 100%;
+
+            max-width: 430px;
+        }
+
+
+        .modal-contenido video {
+
+            display: block;
+
+            width: 100%;
+
+            max-height: 82vh;
+
+            border-radius: 20px;
+
+            background: black;
+        }
+
+
+        .cerrar-video {
+
+            position: absolute;
+
+            top: -13px;
+
+            right: -8px;
+
+            z-index: 5;
+
+            width: 40px;
+
+            height: 40px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            border-radius: 50%;
+
+            border:
+
+                1px solid
+                rgba(255, 255, 255, 0.18);
+
+            background:
+
+                rgba(0, 0, 0, 0.87);
+
+            color: white;
+
+            font-size: 19px;
+
+            cursor: pointer;
+        }
+
+
+        /* =========================================================
+           CELULARES MÁS PEQUEÑOS
+        ========================================================= */
+
+        @media (max-width: 430px) {
+
+            .contenido {
+
+                padding-left: 5%;
+                padding-right: 5%;
             }
 
-            .titulo h1{
-                font-size:46px;
+
+            .cabecera {
+
+                margin-top: 28px;
             }
 
-            .subtitulo{
-                font-size:13px;
+
+            .titulo h1 {
+
+                font-size:
+
+                    clamp(
+                        47px,
+                        12.5vw,
+                        60px
+                    );
+
+                max-width: 330px;
             }
 
-            .zona-menu{
-                padding-top:26px;
+
+            .subtitulo {
+
+                font-size: 13px;
             }
 
-            .btn-menu-principal{
-                min-height:68px;
+
+            .zona-menu {
+
+                padding-top: 42px;
             }
 
-            .menu-texto{
-                font-size:24px;
+
+            .btn-menu-principal {
+
+                width: 84%;
+
+                min-height: 68px;
+
+                border-radius: 23px;
             }
 
-            .acciones{
-                margin-top:14px;
+
+            .menu-texto {
+
+                font-size: 26px;
             }
 
-            .accion-btn{
-                min-height:50px;
+
+            .acciones {
+
+                width: 94%;
+
+                gap: 8px;
             }
 
-            .contacto-dev{
-                margin-top:12px;
-                gap:8px;
+
+            .accion-btn {
+
+                min-height: 50px;
+
+                font-size: 12.5px;
             }
         }
+
+
+        /* =========================================================
+           PANTALLAS BAJAS
+        ========================================================= */
+
+        @media
+        (max-height: 720px)
+        and
+        (max-width: 700px) {
+
+            .contenido {
+
+                padding-top:
+
+                    calc(
+                        18px +
+                        env(safe-area-inset-top)
+                    );
+            }
+
+
+            .cabecera {
+
+                margin-top: 10px;
+            }
+
+
+            .titulo h1 {
+
+                font-size: 44px;
+            }
+
+
+            .linea-titulo {
+
+                margin-top: 10px;
+            }
+
+
+            .subtitulo {
+
+                margin-top: 10px;
+
+                font-size: 12px;
+            }
+
+
+            .zona-menu {
+
+                padding-top: 22px;
+            }
+
+
+            .btn-menu-principal {
+
+                min-height: 61px;
+
+                width: 76%;
+            }
+
+
+            .menu-texto {
+
+                font-size: 23px;
+            }
+
+
+            .ayuda-menu {
+
+                margin-top: 7px;
+
+                font-size: 10.5px;
+            }
+
+
+            .acciones {
+
+                margin-top: 12px;
+
+                gap: 7px;
+            }
+
+
+            .accion-btn {
+
+                min-height: 44px;
+
+                font-size: 11.5px;
+            }
+
+
+            .firma-mini {
+
+                margin-top: 10px;
+            }
+
+
+            .footer {
+
+                margin-top: 8px;
+            }
+        }
+
+
     </style>
+
 </head>
 
+
 <body>
+
+
     <main class="fondo">
+
+
         <div class="contenido">
 
+
+            <!-- =================================================
+                 CABECERA
+            ================================================== -->
+
             <section class="cabecera">
+
+
                 <div class="titulo">
-                    <h1>La Peña<br>de Marito</h1>
+
+
+                    <h1>
+
+                        La Peña<br>
+
+                        de Marito
+
+                    </h1>
+
+
                     <div class="linea-titulo"></div>
 
+
                     <div class="subtitulo">
+
                         Música en vivo • Cocina regional • Purmamarca
+
                     </div>
+
+
                 </div>
+
+
             </section>
 
+
+
+            <!-- =================================================
+                 ZONA INFERIOR
+            ================================================== -->
+
             <section class="zona-menu">
-                <div class="menu-etiqueta">
-                    Menú digital
-                </div>
+
+
+
+                <!-- BOTÓN PRINCIPAL -->
 
                 <button
                     class="btn-menu-principal"
                     onclick="abrirIdiomas()"
-                    aria-label="Ver menú y elegir idioma"
+                    aria-label="Ver menú digital"
                 >
-                    <span class="menu-icono">🍴</span>
-                    <span class="menu-texto">Ver menú</span>
-                    <span class="menu-flecha">›</span>
+
+
+                    <span class="menu-icono">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke-width="1.7"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+
+                            <path d="M6 3v8"></path>
+
+                            <path d="M3.5 3v5a2.5 2.5 0 0 0 5 0V3"></path>
+
+                            <path d="M6 11v10"></path>
+
+                            <path d="M15 3v18"></path>
+
+                            <path d="M15 3c3 2 3 7 0 9"></path>
+
+                        </svg>
+
+                    </span>
+
+
+                    <span class="menu-texto">
+
+                        Ver menú
+
+                    </span>
+
+
+                    <span class="menu-flecha">
+
+                        ›
+
+                    </span>
+
+
                 </button>
 
+
+
+                <!-- IDIOMA -->
+
                 <div class="ayuda-menu">
-                    <span class="globo">◎</span>
-                    Elegí tu idioma al ingresar
+
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke-width="1.6"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+
+                        <circle cx="12" cy="12" r="9"></circle>
+
+                        <path d="M3 12h18"></path>
+
+                        <path d="M12 3c2.5 2.5 4 5.5 4 9s-1.5 6.5-4 9"></path>
+
+                        <path d="M12 3c-2.5 2.5-4 5.5-4 9s1.5 6.5 4 9"></path>
+
+                    </svg>
+
+
+                    <span>
+
+                        Elegí tu idioma al ingresar
+
+                    </span>
+
+
                 </div>
 
+
+
+                <!-- =================================================
+                     BOTONES PRINCIPALES
+                ================================================== -->
+
                 <div class="acciones">
+
+
+
+                    <!-- RESERVAR -->
+
                     <a
-                        href="https://wa.me/5493886827704?text=Hola%20La%20Peña%20de%20Marito,%20quiero%20realizar%20una%20reserva."
+                        href="https://wa.me/5493886827704?text=Hola%20La%20Pe%C3%B1a%20de%20Marito,%20quiero%20realizar%20una%20reserva."
                         target="_blank"
                         rel="noopener noreferrer"
                         class="accion-btn"
                     >
-                        <span class="accion-icono">▣</span>
-                        <span>Reservar</span>
+
+
+                        <span class="accion-icono">
+
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke-width="1.7"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+
+                                <rect
+                                    x="3"
+                                    y="5"
+                                    width="18"
+                                    height="16"
+                                    rx="2"
+                                ></rect>
+
+                                <path d="M8 3v4"></path>
+
+                                <path d="M16 3v4"></path>
+
+                                <path d="M3 10h18"></path>
+
+                            </svg>
+
+
+                        </span>
+
+
+                        <span>
+
+                            Reservar
+
+                        </span>
+
+
                     </a>
+
+
+
+                    <!-- INSTAGRAM PEÑA -->
 
                     <a
                         href="https://www.instagram.com/restomarito.purma/"
@@ -534,9 +1380,59 @@
                         rel="noopener noreferrer"
                         class="accion-btn"
                     >
-                        <span class="accion-icono">◎</span>
-                        <span>Instagram</span>
+
+
+                        <span class="accion-icono">
+
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke-width="1.7"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+
+                                <rect
+                                    x="3"
+                                    y="3"
+                                    width="18"
+                                    height="18"
+                                    rx="5"
+                                ></rect>
+
+                                <circle
+                                    cx="12"
+                                    cy="12"
+                                    r="4"
+                                ></circle>
+
+                                <circle
+                                    cx="17.5"
+                                    cy="6.5"
+                                    r="0.8"
+                                    fill="currentColor"
+                                    stroke="none"
+                                ></circle>
+
+                            </svg>
+
+
+                        </span>
+
+
+                        <span>
+
+                            Instagram
+
+                        </span>
+
+
                     </a>
+
+
+
+                    <!-- CÓMO LLEGAR -->
 
                     <a
                         href="https://maps.app.goo.gl/LBAqsRqPrycpqDnn7?g_st=ic"
@@ -544,115 +1440,445 @@
                         rel="noopener noreferrer"
                         class="accion-btn"
                     >
-                        <span class="accion-icono">◉</span>
-                        <span>Cómo llegar</span>
+
+
+                        <span class="accion-icono">
+
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke-width="1.7"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+
+                                <path
+                                    d="M12 21s7-6 7-12a7 7 0 1 0-14 0c0 6 7 12 7 12z"
+                                ></path>
+
+                                <circle
+                                    cx="12"
+                                    cy="9"
+                                    r="2.4"
+                                ></circle>
+
+                            </svg>
+
+
+                        </span>
+
+
+                        <span>
+
+                            Cómo llegar
+
+                        </span>
+
+
                     </a>
+
+
+
+                    <!-- VIDEO -->
 
                     <button
                         class="accion-btn"
                         onclick="abrirVideo()"
+                        type="button"
                     >
-                        <span class="accion-icono">▶</span>
-                        <span>Ver la Peña</span>
+
+
+                        <span class="accion-icono">
+
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke-width="1.7"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+
+                                <circle
+                                    cx="12"
+                                    cy="12"
+                                    r="9"
+                                ></circle>
+
+                                <path
+                                    d="M10 8.5l6 3.5-6 3.5z"
+                                ></path>
+
+                            </svg>
+
+
+                        </span>
+
+
+                        <span>
+
+                            Ver la Peña
+
+                        </span>
+
+
                     </button>
+
+
                 </div>
 
-                <div class="contacto-dev">
-                    <div class="dev-texto">
+
+
+                <!-- =================================================
+                     FIRMA MUY DISCRETA
+                ================================================== -->
+
+                <div class="firma-mini">
+
+
+                    <span class="firma-mini-texto">
+
                         Diseño Web · Leandro
-                    </div>
 
-                    <div class="dev-acciones">
-                        <a
-                            href="https://www.instagram.com/leandro_aramayo1/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="dev-btn"
-                        >
-                            <span>📸</span>
-                            <span>Instagram</span>
-                        </a>
+                    </span>
 
-                        <a
-                            href="https://wa.me/5493886865324?text=Hola%20Leandro,%20vi%20la%20p%C3%A1gina%20de%20La%20Pe%C3%B1a%20de%20Marito%20y%20quiero%20consultarte."
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="dev-btn"
+
+                    <span class="firma-separador"></span>
+
+
+
+                    <!-- INSTAGRAM LEANDRO -->
+
+                    <a
+                        href="https://www.instagram.com/leandro_aramayo1/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="firma-icono"
+                        aria-label="Instagram de Leandro"
+                    >
+
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
                         >
-                            <span>💬</span>
-                            <span>WhatsApp</span>
-                        </a>
-                    </div>
+
+                            <rect
+                                x="3"
+                                y="3"
+                                width="18"
+                                height="18"
+                                rx="5"
+                            ></rect>
+
+                            <circle
+                                cx="12"
+                                cy="12"
+                                r="4"
+                            ></circle>
+
+                            <circle
+                                cx="17.5"
+                                cy="6.5"
+                                r="0.8"
+                                fill="currentColor"
+                                stroke="none"
+                            ></circle>
+
+                        </svg>
+
+
+                    </a>
+
+
+
+                    <!-- WHATSAPP LEANDRO -->
+
+                    <a
+                        href="https://wa.me/5493886865324?text=Hola%20Leandro,%20vi%20la%20p%C3%A1gina%20de%20La%20Pe%C3%B1a%20de%20Marito%20y%20quer%C3%ADa%20consultarte."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="firma-icono"
+                        aria-label="WhatsApp de Leandro"
+                    >
+
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+
+                            <path
+                                d="M20 11.5a8 8 0 0 1-12 7L4 20l1.5-3.7A8 8 0 1 1 20 11.5z"
+                            ></path>
+
+                            <path
+                                d="M9 8.7c.3 2.6 2.4 4.7 5 5"
+                            ></path>
+
+                            <path
+                                d="M9 8.7l1.1-.8"
+                            ></path>
+
+                            <path
+                                d="M14 13.7l.9-1"
+                            ></path>
+
+                        </svg>
+
+
+                    </a>
+
+
                 </div>
+
+
+
+                <!-- DOMINIO -->
 
                 <div class="footer">
+
                     peñademarito.com.ar
+
                 </div>
+
+
             </section>
+
+
         </div>
+
+
     </main>
 
 
-    <!-- MODAL IDIOMAS -->
-    <div class="modal-idiomas" id="modalIdiomas">
+
+    <!-- =========================================================
+         MODAL DE IDIOMAS
+    ========================================================== -->
+
+    <div
+        class="modal-idiomas"
+        id="modalIdiomas"
+    >
+
+
         <div class="idiomas-contenido">
+
+
             <button
                 class="cerrar-idiomas"
                 onclick="cerrarIdiomas()"
                 aria-label="Cerrar"
+                type="button"
             >
+
                 ×
+
             </button>
 
+
+
             <h2 class="idiomas-titulo">
+
                 Elegí tu idioma
+
             </h2>
 
+
+
             <div class="idiomas-subtitulo">
+
                 Seleccioná el idioma para ingresar al menú digital.
+
             </div>
+
+
 
             <div class="lista-idiomas">
-                <a href="/menu_es" class="idioma-opcion">
+
+
+
+                <!-- ESPAÑOL -->
+
+                <a
+                    href="/menu_es"
+                    class="idioma-opcion"
+                >
+
+
                     <div class="idioma-izquierda">
-                        <span class="bandera">🇦🇷</span>
-                        <span>Español</span>
+
+                        <span class="bandera">
+
+                            🇦🇷
+
+                        </span>
+
+                        <span>
+
+                            Español
+
+                        </span>
+
                     </div>
-                    <span class="flecha-idioma">›</span>
+
+
+                    <span class="flecha-idioma">
+
+                        ›
+
+                    </span>
+
+
                 </a>
 
-                <a href="/menu_en" class="idioma-opcion">
+
+
+                <!-- INGLÉS -->
+
+                <a
+                    href="/menu_en"
+                    class="idioma-opcion"
+                >
+
+
                     <div class="idioma-izquierda">
-                        <span class="bandera">🇺🇸</span>
-                        <span>English</span>
+
+                        <span class="bandera">
+
+                            🇺🇸
+
+                        </span>
+
+                        <span>
+
+                            English
+
+                        </span>
+
                     </div>
-                    <span class="flecha-idioma">›</span>
+
+
+                    <span class="flecha-idioma">
+
+                        ›
+
+                    </span>
+
+
                 </a>
 
-                <a href="/menu_fr" class="idioma-opcion">
+
+
+                <!-- FRANCÉS -->
+
+                <a
+                    href="/menu_fr"
+                    class="idioma-opcion"
+                >
+
+
                     <div class="idioma-izquierda">
-                        <span class="bandera">🇫🇷</span>
-                        <span>Français</span>
+
+                        <span class="bandera">
+
+                            🇫🇷
+
+                        </span>
+
+                        <span>
+
+                            Français
+
+                        </span>
+
                     </div>
-                    <span class="flecha-idioma">›</span>
+
+
+                    <span class="flecha-idioma">
+
+                        ›
+
+                    </span>
+
+
                 </a>
 
-                <a href="/menu_pt" class="idioma-opcion">
+
+
+                <!-- PORTUGUÉS -->
+
+                <a
+                    href="/menu_pt"
+                    class="idioma-opcion"
+                >
+
+
                     <div class="idioma-izquierda">
-                        <span class="bandera">🇧🇷</span>
-                        <span>Português</span>
+
+                        <span class="bandera">
+
+                            🇧🇷
+
+                        </span>
+
+                        <span>
+
+                            Português
+
+                        </span>
+
                     </div>
-                    <span class="flecha-idioma">›</span>
+
+
+                    <span class="flecha-idioma">
+
+                        ›
+
+                    </span>
+
+
                 </a>
+
+
             </div>
+
+
         </div>
+
+
     </div>
 
 
-    <!-- MODAL VIDEO -->
-    <div class="modal-video" id="modalVideo">
+
+    <!-- =========================================================
+         MODAL VIDEO
+    ========================================================== -->
+
+    <div
+        class="modal-video"
+        id="modalVideo"
+    >
+
+
         <div class="modal-contenido">
-            <button class="cerrar-video" onclick="cerrarVideo()">×</button>
+
+
+            <button
+                class="cerrar-video"
+                onclick="cerrarVideo()"
+                type="button"
+            >
+
+                ×
+
+            </button>
+
+
 
             <video
                 id="videoMarito"
@@ -661,67 +1887,176 @@
                 webkit-playsinline
                 preload="metadata"
             >
+
+
                 <source
                     src="/static/videos/experiencia-marito.mp4"
                     type="video/mp4"
                 >
+
+
             </video>
+
+
         </div>
+
+
     </div>
 
 
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
+
     <script>
+
+
+        /* =============================
+           MODAL IDIOMAS
+        ============================== */
+
         function abrirIdiomas() {
-            document.getElementById("modalIdiomas").classList.add("activo");
+
+            document
+                .getElementById("modalIdiomas")
+                .classList
+                .add("activo");
+
             document.body.style.overflow = "hidden";
+
         }
+
+
 
         function cerrarIdiomas() {
-            document.getElementById("modalIdiomas").classList.remove("activo");
+
+            document
+                .getElementById("modalIdiomas")
+                .classList
+                .remove("activo");
+
             document.body.style.overflow = "";
+
         }
 
-        document.getElementById("modalIdiomas").addEventListener("click", function(event){
-            if(event.target === this){
-                cerrarIdiomas();
-            }
-        });
+
+
+        document
+            .getElementById("modalIdiomas")
+            .addEventListener(
+                "click",
+                function(event) {
+
+                    if (event.target === this) {
+
+                        cerrarIdiomas();
+
+                    }
+
+                }
+            );
+
+
+
+        /* =============================
+           VIDEO
+        ============================== */
 
         function abrirVideo() {
-            const modal = document.getElementById("modalVideo");
-            const video = document.getElementById("videoMarito");
+
+            const modal =
+                document.getElementById("modalVideo");
+
+            const video =
+                document.getElementById("videoMarito");
+
 
             modal.style.display = "flex";
+
             document.body.style.overflow = "hidden";
+
             video.currentTime = 0;
-            video.play().catch(() => {});
+
+            video
+                .play()
+                .catch(() => {});
+
         }
+
+
 
         function cerrarVideo() {
-            const modal = document.getElementById("modalVideo");
-            const video = document.getElementById("videoMarito");
+
+            const modal =
+                document.getElementById("modalVideo");
+
+            const video =
+                document.getElementById("videoMarito");
+
 
             video.pause();
+
             video.currentTime = 0;
+
             modal.style.display = "none";
+
             document.body.style.overflow = "";
+
         }
 
-        document.getElementById("modalVideo").addEventListener("click", function(event){
-            if(event.target === this){
-                cerrarVideo();
-            }
-        });
 
-        document.addEventListener("keydown", function(event){
-            if(event.key === "Escape"){
-                cerrarIdiomas();
 
-                if(document.getElementById("modalVideo").style.display === "flex"){
-                    cerrarVideo();
+        document
+            .getElementById("modalVideo")
+            .addEventListener(
+                "click",
+                function(event) {
+
+                    if (event.target === this) {
+
+                        cerrarVideo();
+
+                    }
+
                 }
+            );
+
+
+
+        /* =============================
+           TECLA ESC
+        ============================== */
+
+        document.addEventListener(
+            "keydown",
+            function(event) {
+
+                if (event.key === "Escape") {
+
+                    cerrarIdiomas();
+
+
+                    if (
+                        document
+                            .getElementById("modalVideo")
+                            .style
+                            .display === "flex"
+                    ) {
+
+                        cerrarVideo();
+
+                    }
+
+                }
+
             }
-        });
+        );
+
+
     </script>
+
+
 </body>
+
 </html>
