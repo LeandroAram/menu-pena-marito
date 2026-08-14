@@ -1,533 +1,1580 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-GW3WP50DQH"></script>
+
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
 
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
         gtag('config', 'G-GW3WP50DQH');
     </script>
 
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
     <title>La Peña de Marito</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
 
-        body{
-            margin:0;
-            padding:0;
-            font-family:Arial;
-            overflow:hidden;
+        * {
+            box-sizing: border-box;
         }
 
-        .fondo{
-            background-image:url('/static/pena3.jpg');
-            background-size:cover;
-            background-position:center;
-            height:100vh;
-            position:relative;
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            min-height: 100%;
         }
 
-        .overlay{
-            width:100%;
-            height:100%;
-            display:flex;
-            flex-direction:column;
-            justify-content:flex-start;
-            align-items:center;
-            padding-top:50px;
-            box-sizing:border-box;
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #070707;
         }
 
-        .titulo{
-            text-align:center;
-            margin-top:20px;
+
+        a {
+            text-decoration: none;
         }
 
-        h1{
-            margin:0;
-            font-size:62px;
-            color:#f7d28b;
-            letter-spacing:1px;
-            text-shadow:0px 4px 10px rgba(0,0,0,0.55);
+
+        button {
+            font-family: inherit;
         }
 
-        .subtitulo{
-            margin-top:10px;
-            color:white;
-            font-size:20px;
-            letter-spacing:2px;
-            text-shadow:0px 2px 8px rgba(0,0,0,0.5);
+
+        /* =========================================
+           PORTADA
+        ========================================= */
+
+        .fondo {
+
+            position: relative;
+
+            width: 100%;
+
+            min-height: 100vh;
+            min-height: 100svh;
+
+            overflow: hidden;
+
+            background-image:
+                linear-gradient(
+                    to bottom,
+                    rgba(1, 5, 13, 0.14) 0%,
+                    rgba(0, 0, 0, 0.02) 42%,
+                    rgba(0, 0, 0, 0.22) 63%,
+                    rgba(0, 0, 0, 0.82) 100%
+                ),
+                url('/static/pena3.jpg');
+
+            background-size: cover;
+
+            background-position: center;
+
+            display: flex;
+
+            flex-direction: column;
+
+            padding:
+                calc(30px + env(safe-area-inset-top))
+                6%
+                calc(24px + env(safe-area-inset-bottom));
         }
 
-        .idiomas{
-            display:flex;
-            gap:12px;
-            margin-top:25px;
-            flex-wrap:wrap;
-            justify-content:center;
+
+        /*
+        Oscurecimiento muy suave solamente arriba.
+        Ayuda a que el título se lea sin tapar la foto.
+        */
+
+        .fondo::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            background:
+
+                radial-gradient(
+                    circle at 30% 10%,
+                    rgba(0, 0, 0, 0.05),
+                    transparent 45%
+                );
+
+            z-index: 0;
         }
 
-        a{
-            text-decoration:none;
+
+        /* =========================================
+           CONTENIDO
+        ========================================= */
+
+        .contenido {
+
+            position: relative;
+
+            z-index: 2;
+
+            width: 100%;
+
+            max-width: 1150px;
+
+            margin: 0 auto;
+
+            min-height:
+                calc(
+                    100vh
+                    - 54px
+                    - env(safe-area-inset-top)
+                    - env(safe-area-inset-bottom)
+                );
+
+            display: flex;
+
+            flex-direction: column;
         }
 
-        .idioma-btn{
-            border:none;
-            padding:12px 18px;
-            border-radius:14px;
-            font-size:17px;
-            cursor:pointer;
-            color:white;
-            background:rgba(0,0,0,0.28);
-            backdrop-filter:blur(4px);
-            -webkit-backdrop-filter:blur(4px);
-            border:1px solid rgba(255,255,255,0.18);
-            transition:0.3s;
-            text-shadow:0px 2px 5px rgba(0,0,0,0.5);
+
+        /* =========================================
+           CABECERA
+        ========================================= */
+
+        .cabecera {
+
+            width: 100%;
+
+            margin-top: 65px;
         }
 
-        .idioma-btn:hover{
-            transform:translateY(-3px);
-            background:rgba(0,0,0,0.42);
+
+        .titulo {
+
+            max-width: 760px;
         }
 
-        /* FIRMA DEL DESARROLLADOR */
 
-        .firma{
-            position:absolute;
-            left:50%;
-            transform:translateX(-50%);
+        .titulo h1 {
 
-            bottom:calc(220px + env(safe-area-inset-bottom));
+            margin: 0;
 
-            width:90%;
+            color: #e7b861;
 
-            text-align:center;
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
 
-            color:rgba(255,255,255,0.88);
+            font-size: clamp(58px, 8vw, 102px);
 
-            font-size:12px;
+            font-weight: 500;
 
-            z-index:9998;
+            line-height: 0.94;
 
-            text-shadow:0px 2px 6px rgba(0,0,0,0.9);
+            letter-spacing: -2px;
+
+            text-shadow:
+                0 4px 18px rgba(0, 0, 0, 0.60);
         }
 
-        .firma a{
-            color:#f7d28b;
-            font-weight:bold;
-            margin-left:8px;
-            transition:0.3s;
+
+        .linea-titulo {
+
+            width: 120px;
+
+            height: 2px;
+
+            margin-top: 24px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #e4af54,
+                    rgba(228, 175, 84, 0.05)
+                );
         }
 
-        .firma a:hover{
-            color:white;
+
+        .subtitulo {
+
+            margin-top: 20px;
+
+            color: rgba(255, 255, 255, 0.94);
+
+            font-size: clamp(15px, 2.2vw, 21px);
+
+            font-weight: 400;
+
+            letter-spacing: 0.4px;
+
+            text-shadow:
+                0 3px 10px rgba(0, 0, 0, 0.90);
         }
 
-        /* BOTONES PRINCIPALES */
 
-        .acciones{
-            position:absolute;
-            left:50%;
-            transform:translateX(-50%);
+        /* =========================================
+           ZONA INFERIOR
+        ========================================= */
 
-            bottom:calc(80px + env(safe-area-inset-bottom));
+        .zona-menu {
 
-            display:grid;
-            grid-template-columns:1fr 1fr;
+            margin-top: auto;
 
-            gap:12px;
+            width: 100%;
 
-            width:90%;
-            max-width:520px;
+            display: flex;
 
-            z-index:9999;
+            flex-direction: column;
+
+            align-items: center;
+
+            padding-top: 60px;
         }
 
-        .whatsapp-btn,
-        .video-btn,
-        .instagram-btn,
-        .maps-btn{
 
-            display:block;
+        .menu-etiqueta {
 
-            width:100%;
+            display: flex;
 
-            box-sizing:border-box;
+            align-items: center;
 
-            background:rgba(18,18,18,0.58);
+            justify-content: center;
 
-            color:white;
+            gap: 14px;
 
-            padding:14px 18px;
+            margin-bottom: 13px;
 
-            border-radius:18px;
+            color: #e5b65d;
 
-            font-size:17px;
+            font-size: 13px;
 
-            font-weight:bold;
+            font-weight: 700;
 
-            text-align:center;
+            letter-spacing: 4px;
 
-            cursor:pointer;
+            text-transform: uppercase;
 
-            transition:all .30s ease;
-
-            border:1px solid rgba(230,195,122,.45);
-
-            backdrop-filter:blur(10px);
-            -webkit-backdrop-filter:blur(10px);
-
-            text-shadow:0px 2px 6px rgba(0,0,0,.8);
-
-            box-shadow:0px 8px 20px rgba(0,0,0,.35);
+            text-shadow:
+                0 2px 8px rgba(0, 0, 0, 0.9);
         }
 
-        .whatsapp-btn:hover,
-        .video-btn:hover,
-        .instagram-btn:hover,
-        .maps-btn:hover{
 
-            transform:translateY(-3px);
+        .menu-etiqueta::before,
+        .menu-etiqueta::after {
 
-            background:#8B5A2B;
+            content: "";
 
-            border-color:#E6C37A;
+            width: 55px;
 
-            box-shadow:0px 10px 28px rgba(0,0,0,.45);
+            height: 1px;
+
+            background:
+                rgba(231, 184, 97, 0.65);
         }
 
-        /* FRASE INFERIOR */
 
-        .frase-final{
-            position:absolute;
+        /* =========================================
+           BOTÓN PRINCIPAL VER MENÚ
+        ========================================= */
 
-            left:50%;
+        .btn-menu-principal {
 
-            transform:translateX(-50%);
+            width: min(660px, 92%);
 
-            bottom:calc(25px + env(safe-area-inset-bottom));
+            min-height: 104px;
 
-            width:90%;
+            border: 1.5px solid #f0c873;
 
-            text-align:center;
+            border-radius: 38px;
 
-            color:white;
+            background:
+                linear-gradient(
+                    135deg,
+                    #f0c66e 0%,
+                    #d99d3c 100%
+                );
 
-            font-size:15px;
+            color: #21170b;
 
-            font-weight:bold;
+            cursor: pointer;
 
-            text-shadow:0px 3px 8px rgba(0,0,0,0.85);
+            display: flex;
 
-            z-index:9998;
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 15px 34px;
+
+            box-shadow:
+                0 0 0 4px rgba(232, 180, 86, 0.12),
+                0 10px 36px rgba(0, 0, 0, 0.36);
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+
+            -webkit-tap-highlight-color: transparent;
         }
 
-        /* VIDEO */
 
-        .modal-video{
-            display:none;
+        .btn-menu-principal:hover {
 
-            position:fixed;
+            transform: translateY(-3px);
 
-            top:0;
-            left:0;
-
-            width:100%;
-            height:100%;
-
-            background:rgba(0,0,0,0.92);
-
-            z-index:10000;
-
-            justify-content:center;
-
-            align-items:center;
+            box-shadow:
+                0 0 0 5px rgba(232, 180, 86, 0.16),
+                0 14px 40px rgba(0, 0, 0, 0.42);
         }
 
-        .modal-contenido{
-            width:90%;
-            max-width:420px;
-            position:relative;
+
+        .btn-menu-principal:active {
+
+            transform: scale(0.98);
         }
 
-        .modal-contenido video{
-            width:100%;
-            border-radius:20px;
+
+        .menu-icono {
+
+            width: 55px;
+
+            height: 55px;
+
+            flex-shrink: 0;
+
+            border: 1.5px solid rgba(43, 28, 8, 0.55);
+
+            border-radius: 12px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 27px;
+
+            background:
+                rgba(65, 43, 11, 0.10);
         }
 
-        .cerrar-video{
-            position:absolute;
 
-            top:15px;
-            right:15px;
+        .menu-texto {
 
-            background:rgba(0,0,0,0.7);
+            flex: 1;
 
-            color:white;
+            text-align: center;
 
-            border:none;
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
 
-            width:45px;
-            height:45px;
+            font-size: clamp(32px, 4.5vw, 48px);
 
-            border-radius:50%;
-
-            font-size:24px;
-
-            cursor:pointer;
-
-            z-index:10001;
-
-            display:flex;
-
-            justify-content:center;
-
-            align-items:center;
+            font-weight: 500;
         }
 
-        /* CELULARES */
 
-        @media(max-width:700px){
+        .menu-flecha {
 
-            h1{
-                font-size:42px;
+            font-size: 48px;
+
+            font-family: Georgia, serif;
+
+            font-weight: 300;
+
+            line-height: 1;
+        }
+
+
+        .ayuda-menu {
+
+            margin-top: 15px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 9px;
+
+            color: rgba(255, 255, 255, 0.90);
+
+            font-size: 14px;
+
+            text-shadow:
+                0 2px 8px rgba(0, 0, 0, 0.90);
+        }
+
+
+        .ayuda-menu .globo {
+
+            color: #e7b861;
+
+            font-size: 18px;
+        }
+
+
+        /* =========================================
+           ACCIONES SECUNDARIAS
+        ========================================= */
+
+        .acciones {
+
+            width: min(720px, 92%);
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 12px;
+
+            margin-top: 22px;
+        }
+
+
+        .accion-btn {
+
+            width: 100%;
+
+            min-height: 64px;
+
+            border-radius: 24px;
+
+            border:
+                1px solid rgba(231, 184, 97, 0.92);
+
+            background:
+                rgba(8, 8, 8, 0.62);
+
+            backdrop-filter: blur(8px);
+
+            -webkit-backdrop-filter: blur(8px);
+
+            color: #f1c979;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 11px;
+
+            padding: 12px 16px;
+
+            font-size: 17px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 6px 20px rgba(0, 0, 0, 0.28);
+
+            transition:
+                background 0.25s ease,
+                transform 0.25s ease,
+                border-color 0.25s ease;
+
+            -webkit-tap-highlight-color: transparent;
+        }
+
+
+        .accion-btn:hover {
+
+            transform: translateY(-2px);
+
+            background:
+                rgba(40, 28, 13, 0.82);
+
+            border-color:
+                #efc56b;
+        }
+
+
+        .accion-btn:active {
+
+            transform: scale(0.98);
+        }
+
+
+        .accion-icono {
+
+            font-size: 22px;
+
+            line-height: 1;
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        .footer {
+
+            margin-top: 24px;
+
+            padding-bottom: 2px;
+
+            text-align: center;
+
+            color:
+                rgba(239, 194, 107, 0.85);
+
+            font-size: 11px;
+
+            letter-spacing: 4px;
+
+            text-transform: lowercase;
+
+            text-shadow:
+                0 2px 7px rgba(0, 0, 0, 0.9);
+        }
+
+
+        /* =========================================
+           MODAL IDIOMAS
+        ========================================= */
+
+        .modal-idiomas {
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 20000;
+
+            display: none;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 25px;
+
+            background:
+                rgba(0, 0, 0, 0.76);
+
+            backdrop-filter: blur(8px);
+
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+
+        .modal-idiomas.activo {
+
+            display: flex;
+
+            animation:
+                aparecerModal 0.22s ease;
+        }
+
+
+        @keyframes aparecerModal {
+
+            from {
+                opacity: 0;
             }
 
-            .subtitulo{
-                font-size:16px;
-            }
-
-            .idiomas{
-                gap:10px;
-            }
-
-            .idioma-btn{
-                font-size:15px;
-                padding:10px 14px;
-            }
-
-            .firma{
-                bottom:calc(220px + env(safe-area-inset-bottom));
-                font-size:11px;
-            }
-
-            .acciones{
-                bottom:calc(80px + env(safe-area-inset-bottom));
-
-                grid-template-columns:1fr 1fr;
-
-                gap:10px;
-
-                width:90%;
-            }
-
-            .whatsapp-btn,
-            .video-btn,
-            .instagram-btn,
-            .maps-btn{
-
-                font-size:15px;
-
-                padding:12px 10px;
-            }
-
-            .frase-final{
-                font-size:13px;
-
-                bottom:calc(25px + env(safe-area-inset-bottom));
+            to {
+                opacity: 1;
             }
         }
+
+
+        .idiomas-contenido {
+
+            position: relative;
+
+            width: min(430px, 100%);
+
+            padding: 30px 22px 24px;
+
+            border-radius: 28px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(31, 24, 15, 0.98),
+                    rgba(10, 10, 10, 0.98)
+                );
+
+            border:
+                1px solid rgba(233, 187, 101, 0.55);
+
+            box-shadow:
+                0 22px 60px rgba(0, 0, 0, 0.58);
+        }
+
+
+        .cerrar-idiomas {
+
+            position: absolute;
+
+            top: 12px;
+
+            right: 12px;
+
+            width: 38px;
+
+            height: 38px;
+
+            border-radius: 50%;
+
+            border: 1px solid
+                rgba(255, 255, 255, 0.12);
+
+            color: white;
+
+            background:
+                rgba(255, 255, 255, 0.06);
+
+            font-size: 19px;
+
+            cursor: pointer;
+        }
+
+
+        .idiomas-titulo {
+
+            margin: 0;
+
+            color: #efc46f;
+
+            text-align: center;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 30px;
+
+            font-weight: 500;
+        }
+
+
+        .idiomas-subtitulo {
+
+            margin:
+                8px 20px 22px;
+
+            color:
+                rgba(255, 255, 255, 0.73);
+
+            text-align: center;
+
+            font-size: 14px;
+
+            line-height: 1.5;
+        }
+
+
+        .lista-idiomas {
+
+            display: grid;
+
+            gap: 10px;
+        }
+
+
+        .idioma-opcion {
+
+            width: 100%;
+
+            min-height: 58px;
+
+            padding: 13px 18px;
+
+            border-radius: 17px;
+
+            border:
+                1px solid rgba(233, 187, 101, 0.30);
+
+            background:
+                rgba(255, 255, 255, 0.055);
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            transition:
+                background 0.22s ease,
+                border-color 0.22s ease,
+                transform 0.22s ease;
+        }
+
+
+        .idioma-opcion:hover {
+
+            background:
+                rgba(233, 187, 101, 0.13);
+
+            border-color:
+                rgba(233, 187, 101, 0.82);
+
+            transform:
+                translateX(3px);
+        }
+
+
+        .idioma-izquierda {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            font-size: 17px;
+        }
+
+
+        .bandera {
+
+            font-size: 24px;
+        }
+
+
+        .flecha-idioma {
+
+            color: #e8b960;
+
+            font-size: 24px;
+        }
+
+
+        /* =========================================
+           MODAL VIDEO
+        ========================================= */
+
+        .modal-video {
+
+            display: none;
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 30000;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding: 25px;
+
+            background:
+                rgba(0, 0, 0, 0.93);
+        }
+
+
+        .modal-contenido {
+
+            width: min(430px, 100%);
+
+            position: relative;
+        }
+
+
+        .modal-contenido video {
+
+            display: block;
+
+            width: 100%;
+
+            max-height: 82vh;
+
+            border-radius: 22px;
+
+            background: black;
+
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.6);
+        }
+
+
+        .cerrar-video {
+
+            position: absolute;
+
+            top: -15px;
+
+            right: -10px;
+
+            z-index: 2;
+
+            width: 43px;
+
+            height: 43px;
+
+            border: 1px solid
+                rgba(255, 255, 255, 0.20);
+
+            border-radius: 50%;
+
+            background:
+                rgba(0, 0, 0, 0.86);
+
+            color: white;
+
+            font-size: 20px;
+
+            cursor: pointer;
+        }
+
+
+        /* =========================================
+           TABLETS / PANTALLAS GRANDES
+        ========================================= */
+
+        @media (min-width: 800px) {
+
+            .fondo {
+
+                padding-left: 8%;
+                padding-right: 8%;
+            }
+
+
+            .cabecera {
+
+                margin-top: 50px;
+            }
+
+
+            .zona-menu {
+
+                padding-bottom: 10px;
+            }
+        }
+
+
+        /* =========================================
+           CELULARES
+        ========================================= */
+
+        @media (max-width: 700px) {
+
+            .fondo {
+
+                padding:
+
+                    calc(22px + env(safe-area-inset-top))
+
+                    5%
+
+                    calc(16px + env(safe-area-inset-bottom));
+
+                background-position:
+                    center center;
+            }
+
+
+            .contenido {
+
+                min-height:
+                    calc(
+                        100svh
+                        - 38px
+                        - env(safe-area-inset-top)
+                        - env(safe-area-inset-bottom)
+                    );
+            }
+
+
+            .cabecera {
+
+                margin-top: 38px;
+            }
+
+
+            .titulo h1 {
+
+                font-size:
+                    clamp(47px, 13vw, 66px);
+
+                max-width: 350px;
+
+                letter-spacing: -1.5px;
+            }
+
+
+            .linea-titulo {
+
+                width: 72px;
+
+                margin-top: 16px;
+            }
+
+
+            .subtitulo {
+
+                margin-top: 13px;
+
+                font-size: 14px;
+
+                line-height: 1.5;
+
+                max-width: 340px;
+            }
+
+
+            .zona-menu {
+
+                padding-top: 40px;
+            }
+
+
+            .menu-etiqueta {
+
+                font-size: 11px;
+
+                letter-spacing: 3px;
+
+                margin-bottom: 9px;
+            }
+
+
+            .menu-etiqueta::before,
+            .menu-etiqueta::after {
+
+                width: 32px;
+            }
+
+
+            .btn-menu-principal {
+
+                width: 100%;
+
+                min-height: 82px;
+
+                border-radius: 29px;
+
+                padding: 10px 20px;
+            }
+
+
+            .menu-icono {
+
+                width: 45px;
+
+                height: 45px;
+
+                font-size: 22px;
+
+                border-radius: 10px;
+            }
+
+
+            .menu-texto {
+
+                font-size: 30px;
+            }
+
+
+            .menu-flecha {
+
+                font-size: 38px;
+            }
+
+
+            .ayuda-menu {
+
+                margin-top: 11px;
+
+                font-size: 12px;
+            }
+
+
+            .acciones {
+
+                width: 100%;
+
+                gap: 9px;
+
+                margin-top: 17px;
+            }
+
+
+            .accion-btn {
+
+                min-height: 55px;
+
+                border-radius: 20px;
+
+                font-size: 14px;
+
+                padding: 9px 8px;
+
+                gap: 7px;
+            }
+
+
+            .accion-icono {
+
+                font-size: 18px;
+            }
+
+
+            .footer {
+
+                margin-top: 15px;
+
+                font-size: 9px;
+
+                letter-spacing: 3px;
+            }
+        }
+
+
+        /* =========================================
+           CELULARES BAJITOS
+        ========================================= */
+
+        @media (max-height: 720px) and (max-width: 700px) {
+
+            .cabecera {
+
+                margin-top: 12px;
+            }
+
+
+            .titulo h1 {
+
+                font-size: 44px;
+            }
+
+
+            .linea-titulo {
+
+                margin-top: 10px;
+            }
+
+
+            .subtitulo {
+
+                margin-top: 9px;
+
+                font-size: 12px;
+            }
+
+
+            .zona-menu {
+
+                padding-top: 22px;
+            }
+
+
+            .btn-menu-principal {
+
+                min-height: 69px;
+
+                border-radius: 24px;
+            }
+
+
+            .menu-icono {
+
+                width: 40px;
+
+                height: 40px;
+
+                font-size: 19px;
+            }
+
+
+            .menu-texto {
+
+                font-size: 26px;
+            }
+
+
+            .acciones {
+
+                margin-top: 13px;
+            }
+
+
+            .accion-btn {
+
+                min-height: 48px;
+
+                font-size: 13px;
+            }
+
+
+            .footer {
+
+                display: none;
+            }
+        }
+
 
     </style>
 
 </head>
 
+
 <body>
 
-    <div class="fondo">
 
-        <div class="overlay">
+    <main class="fondo">
 
-            <div class="titulo">
+        <div class="contenido">
 
-                <h1>La Peña de Marito</h1>
 
-                <div class="subtitulo">
-                    Seleccione su idioma
-                </div>
+            <!-- CABECERA -->
 
-                <div class="idiomas">
+            <section class="cabecera">
 
-                    <a href="/menu_es">
+                <div class="titulo">
 
-                        <button class="idioma-btn">
-                            🇦🇷 Español
-                        </button>
+                    <h1>
+                        La Peña<br>
+                        de Marito
+                    </h1>
 
-                    </a>
+                    <div class="linea-titulo"></div>
 
-                    <a href="/menu_en">
+                    <div class="subtitulo">
 
-                        <button class="idioma-btn">
-                            🇺🇸 English
-                        </button>
+                        Música en vivo • Cocina regional • Purmamarca
 
-                    </a>
-
-                    <a href="/menu_fr">
-
-                        <button class="idioma-btn">
-                            🇫🇷 Français
-                        </button>
-
-                    </a>
-
-                    <a href="/menu_pt">
-
-                        <button class="idioma-btn">
-                            🇧🇷 Português
-                        </button>
-
-                    </a>
+                    </div>
 
                 </div>
 
-            </div>
+            </section>
+
+
+
+            <!-- ZONA PRINCIPAL -->
+
+            <section class="zona-menu">
+
+
+                <div class="menu-etiqueta">
+
+                    Menú digital
+
+                </div>
+
+
+                <!-- BOTÓN PRINCIPAL -->
+
+                <button
+                    class="btn-menu-principal"
+                    onclick="abrirIdiomas()"
+                    aria-label="Ver menú y elegir idioma"
+                >
+
+                    <span class="menu-icono">
+                        🍴
+                    </span>
+
+                    <span class="menu-texto">
+                        Ver menú
+                    </span>
+
+                    <span class="menu-flecha">
+                        ›
+                    </span>
+
+                </button>
+
+
+                <div class="ayuda-menu">
+
+                    <span class="globo">
+                        ◎
+                    </span>
+
+                    Elegí tu idioma al ingresar
+
+                </div>
+
+
+
+                <!-- BOTONES SECUNDARIOS -->
+
+                <div class="acciones">
+
+
+                    <!-- RESERVAR -->
+
+                    <a
+                        href="https://wa.me/5493886827704?text=Hola%20La%20Peña%20de%20Marito,%20quiero%20realizar%20una%20reserva."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+
+                        <div class="accion-btn">
+
+                            <span class="accion-icono">
+                                ▣
+                            </span>
+
+                            <span>
+                                Reservar
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+
+                    <!-- INSTAGRAM -->
+
+                    <a
+                        href="https://www.instagram.com/restomarito.purma/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+
+                        <div class="accion-btn">
+
+                            <span class="accion-icono">
+                                ◎
+                            </span>
+
+                            <span>
+                                Instagram
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+
+                    <!-- UBICACIÓN -->
+
+                    <a
+                        href="https://maps.app.goo.gl/LBAqsRqPrycpqDnn7?g_st=ic"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+
+                        <div class="accion-btn">
+
+                            <span class="accion-icono">
+                                ◉
+                            </span>
+
+                            <span>
+                                Cómo llegar
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+
+                    <!-- VIDEO -->
+
+                    <button
+                        class="accion-btn"
+                        onclick="abrirVideo()"
+                    >
+
+                        <span class="accion-icono">
+                            ▶
+                        </span>
+
+                        <span>
+                            Ver la Peña
+                        </span>
+
+                    </button>
+
+
+                </div>
+
+
+                <div class="footer">
+
+                    peñademarito.com.ar
+
+                </div>
+
+
+            </section>
+
 
         </div>
 
-
-        <!-- FIRMA DEL DESARROLLADOR -->
-
-        <div class="firma">
-
-            Diseño Web · Leandro
-
-            <a
-                href="https://www.instagram.com/leandro_aramayo1/"
-                target="_blank"
-                aria-label="Instagram de Leandro">
-
-                📸
-
-            </a>
-
-            <a
-                href="https://wa.me/5493886865324?text=Hola%20Leandro,%20vi%20la%20página%20de%20La%20Peña%20de%20Marito%20y%20quería%20consultarte."
-                target="_blank"
-                aria-label="WhatsApp de Leandro">
-
-                💬
-
-            </a>
-
-        </div>
+    </main>
 
 
-        <!-- BOTONES PRINCIPALES -->
 
-        <div class="acciones">
+    <!-- =========================================
+         MODAL PARA ELEGIR IDIOMA
+    ========================================== -->
 
-            <a
-                href="https://wa.me/5493886827704?text=Hola%20La%20Peña%20de%20Marito,%20quiero%20realizar%20una%20reserva."
-                target="_blank">
+    <div
+        class="modal-idiomas"
+        id="modalIdiomas"
+    >
 
-                <div class="whatsapp-btn">
-                    📲 Reservar
-                </div>
-
-            </a>
+        <div class="idiomas-contenido">
 
 
             <button
-                class="video-btn"
-                onclick="abrirVideo()">
-
-                ▶ Ver la Peña
-
+                class="cerrar-idiomas"
+                onclick="cerrarIdiomas()"
+                aria-label="Cerrar"
+            >
+                ×
             </button>
 
 
-            <a
-                href="https://www.instagram.com/restomarito.purma/"
-                target="_blank">
+            <h2 class="idiomas-titulo">
 
-                <div class="instagram-btn">
-                    📸 Instagram
-                </div>
+                Elegí tu idioma
 
-            </a>
+            </h2>
 
 
-            <a
-                href="https://maps.app.goo.gl/LBAqsRqPrycpqDnn7?g_st=ic"
-                target="_blank">
+            <div class="idiomas-subtitulo">
 
-                <div class="maps-btn">
-                    📍 Cómo llegar
-                </div>
+                Seleccioná el idioma para ingresar al menú digital.
 
-            </a>
-
-        </div>
+            </div>
 
 
-        <!-- FRASE -->
+            <div class="lista-idiomas">
 
-        <div class="frase-final">
 
-            🎶 Música en vivo • Comida regional • Tradición jujeña
+                <a
+                    href="/menu_es"
+                    class="idioma-opcion"
+                >
+
+                    <div class="idioma-izquierda">
+
+                        <span class="bandera">
+                            🇦🇷
+                        </span>
+
+                        <span>
+                            Español
+                        </span>
+
+                    </div>
+
+                    <span class="flecha-idioma">
+                        ›
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="/menu_en"
+                    class="idioma-opcion"
+                >
+
+                    <div class="idioma-izquierda">
+
+                        <span class="bandera">
+                            🇺🇸
+                        </span>
+
+                        <span>
+                            English
+                        </span>
+
+                    </div>
+
+                    <span class="flecha-idioma">
+                        ›
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="/menu_fr"
+                    class="idioma-opcion"
+                >
+
+                    <div class="idioma-izquierda">
+
+                        <span class="bandera">
+                            🇫🇷
+                        </span>
+
+                        <span>
+                            Français
+                        </span>
+
+                    </div>
+
+                    <span class="flecha-idioma">
+                        ›
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="/menu_pt"
+                    class="idioma-opcion"
+                >
+
+                    <div class="idioma-izquierda">
+
+                        <span class="bandera">
+                            🇧🇷
+                        </span>
+
+                        <span>
+                            Português
+                        </span>
+
+                    </div>
+
+                    <span class="flecha-idioma">
+                        ›
+                    </span>
+
+                </a>
+
+
+            </div>
 
         </div>
 
     </div>
 
 
-    <!-- VIDEO -->
+
+    <!-- =========================================
+         MODAL VIDEO
+    ========================================== -->
 
     <div
         class="modal-video"
-        id="modalVideo">
+        id="modalVideo"
+    >
 
         <div class="modal-contenido">
 
+
             <button
                 class="cerrar-video"
-                onclick="cerrarVideo()">
-
-                ✕
-
+                onclick="cerrarVideo()"
+            >
+                ×
             </button>
+
 
             <video
                 id="videoMarito"
                 controls
                 playsinline
                 webkit-playsinline
-                preload="metadata">
+                preload="metadata"
+            >
 
                 <source
                     src="/static/videos/experiencia-marito.mp4"
-                    type="video/mp4">
+                    type="video/mp4"
+                >
 
             </video>
+
 
         </div>
 
     </div>
 
 
+
     <script>
 
-        function abrirVideo(){
+
+        /* =========================================
+           IDIOMAS
+        ========================================== */
+
+        function abrirIdiomas() {
+
+            document
+                .getElementById("modalIdiomas")
+                .classList
+                .add("activo");
+
+            document.body.style.overflow = "hidden";
+        }
+
+
+
+        function cerrarIdiomas() {
+
+            document
+                .getElementById("modalIdiomas")
+                .classList
+                .remove("activo");
+
+            document.body.style.overflow = "";
+        }
+
+
+
+        document
+            .getElementById("modalIdiomas")
+            .addEventListener(
+                "click",
+                function(event) {
+
+                    if (event.target === this) {
+
+                        cerrarIdiomas();
+
+                    }
+
+                }
+            );
+
+
+
+        /* =========================================
+           VIDEO
+        ========================================== */
+
+        function abrirVideo() {
 
             const modal =
                 document.getElementById("modalVideo");
@@ -537,6 +1584,8 @@
 
             modal.style.display = "flex";
 
+            document.body.style.overflow = "hidden";
+
             video.currentTime = 0;
 
             video.play().catch(() => {});
@@ -544,7 +1593,11 @@
         }
 
 
-        function cerrarVideo(){
+
+        function cerrarVideo() {
+
+            const modal =
+                document.getElementById("modalVideo");
 
             const video =
                 document.getElementById("videoMarito");
@@ -553,23 +1606,62 @@
 
             video.currentTime = 0;
 
-            document.getElementById("modalVideo").style.display = "none";
+            modal.style.display = "none";
+
+            document.body.style.overflow = "";
 
         }
 
 
-        /* También permite cerrar tocando fuera del video */
 
-        document.getElementById("modalVideo")
-            .addEventListener("click", function(event){
+        document
+            .getElementById("modalVideo")
+            .addEventListener(
+                "click",
+                function(event) {
 
-                if(event.target === this){
-                    cerrarVideo();
+                    if (event.target === this) {
+
+                        cerrarVideo();
+
+                    }
+
+                }
+            );
+
+
+
+        /* =========================================
+           ESC PARA CERRAR MODALES
+        ========================================== */
+
+        document.addEventListener(
+            "keydown",
+            function(event) {
+
+                if (event.key === "Escape") {
+
+                    cerrarIdiomas();
+
+                    if (
+                        document
+                            .getElementById("modalVideo")
+                            .style
+                            .display === "flex"
+                    ) {
+
+                        cerrarVideo();
+
+                    }
+
                 }
 
-            });
+            }
+        );
+
 
     </script>
+
 
 </body>
 
