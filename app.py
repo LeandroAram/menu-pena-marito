@@ -1,21 +1,28 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, Response, make_response
 import os
 
 app = Flask(__name__)
 
 
-# =========================
+# =========================================================
+# DOMINIO OFICIAL
+# =========================================================
+
+BASE_URL = "https://xn--peademarito-2db.com.ar"
+
+
+# =========================================================
 # INICIO
-# =========================
+# =========================================================
 
 @app.route('/')
 def inicio():
     return render_template('index.html')
 
 
-# =========================
+# =========================================================
 # ESPAÑOL
-# =========================
+# =========================================================
 
 @app.route('/menu_es')
 def menu_es():
@@ -52,9 +59,9 @@ def menu_dia():
     return render_template('menu-dia.html')
 
 
-# =========================
+# =========================================================
 # INGLÉS
-# =========================
+# =========================================================
 
 @app.route('/menu_en')
 def menu_en():
@@ -91,9 +98,9 @@ def menu_dia_en():
     return render_template('menu-dia_en.html')
 
 
-# =========================
+# =========================================================
 # PORTUGUÉS
-# =========================
+# =========================================================
 
 @app.route('/menu_pt')
 def menu_pt():
@@ -130,9 +137,9 @@ def menu_dia_pt():
     return render_template('menu-dia_pt.html')
 
 
-# =========================
+# =========================================================
 # FRANCÉS
-# =========================
+# =========================================================
 
 @app.route('/menu_fr')
 def menu_fr():
@@ -169,46 +176,136 @@ def menu_dia_fr():
     return render_template('menu-dia_fr.html')
 
 
-# =========================
-# CARRUSEL DE POSTRES
-# =========================
+# =========================================================
+# CARRUSELES
+# No queremos que aparezcan como páginas independientes
+# en los resultados de Google.
+# =========================================================
+
+def render_noindex(template_name):
+
+    response = make_response(
+        render_template(template_name)
+    )
+
+    response.headers["X-Robots-Tag"] = "noindex, follow"
+
+    return response
+
 
 @app.route('/carrusel-postres')
 def carrusel_postres():
-    return render_template('carrusel_postres.html')
+    return render_noindex('carrusel_postres.html')
 
-
-# =========================
-# CARRUSEL DE REGIONALES
-# =========================
 
 @app.route('/carrusel-regionales')
 def carrusel_regionales():
-    return render_template('carrusel_regionales.html')
+    return render_noindex('carrusel_regionales.html')
 
-
-# =========================
-# CARRUSEL DE VINOS
-# =========================
 
 @app.route('/carrusel-vinos')
 def carrusel_vinos():
-    return render_template('carrusel_vinos.html')
+    return render_noindex('carrusel_vinos.html')
 
-
-# =========================
-# CARRUSEL GENERAL
-# REGIONALES + POSTRES
-# =========================
 
 @app.route('/carrusel')
 def carrusel_general():
-    return render_template('carrusel_general.html')
+    return render_noindex('carrusel_general.html')
 
 
-# =========================
+# =========================================================
+# ROBOTS.TXT
+# =========================================================
+
+@app.route('/robots.txt')
+def robots():
+
+    contenido = f"""User-agent: *
+Allow: /
+
+Sitemap: {BASE_URL}/sitemap.xml
+"""
+
+    return Response(
+        contenido,
+        mimetype='text/plain'
+    )
+
+
+# =========================================================
+# SITEMAP.XML
+# =========================================================
+
+@app.route('/sitemap.xml')
+def sitemap():
+
+    paginas = [
+
+        # Principal
+        "/",
+
+        # Español
+        "/menu_es",
+        "/regionales",
+        "/tradicionales",
+        "/pastas",
+        "/entradas",
+        "/postres",
+        "/menu-dia",
+
+        # Inglés
+        "/menu_en",
+        "/regionales_en",
+        "/tradicionales_en",
+        "/pastas_en",
+        "/entradas_en",
+        "/postres_en",
+        "/menu-dia_en",
+
+        # Portugués
+        "/menu_pt",
+        "/regionales_pt",
+        "/tradicionales_pt",
+        "/pastas_pt",
+        "/entradas_pt",
+        "/postres_pt",
+        "/menu-dia_pt",
+
+        # Francés
+        "/menu_fr",
+        "/regionales_fr",
+        "/tradicionales_fr",
+        "/pastas_fr",
+        "/entrees_fr",
+        "/postres_fr",
+        "/menu-dia_fr",
+    ]
+
+    urls = ""
+
+    for pagina in paginas:
+
+        urls += f"""
+    <url>
+        <loc>{BASE_URL}{pagina}</loc>
+    </url>
+"""
+
+    contenido = f"""<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{urls}
+</urlset>
+"""
+
+    return Response(
+        contenido,
+        mimetype='application/xml'
+    )
+
+
+# =========================================================
 # EJECUTAR APLICACIÓN
-# =========================
+# =========================================================
 
 if __name__ == "__main__":
 
