@@ -106,6 +106,7 @@
         "image": "https://xn--peademarito-2db.com.ar/static/pena3.jpg",
         "description": "Peña y restaurante en Purmamarca, Jujuy, con cocina regional, platos tradicionales, música en vivo y folklore.",
         "telephone": "+54 9 3886 82-7704",
+        "email": "mailto:penamarito24@gmail.com",
         "servesCuisine": [
             "Cocina regional jujeña",
             "Comida argentina",
@@ -636,6 +637,29 @@
             height: 20px;
 
             stroke: currentColor;
+        }
+
+
+        /* =========================================================
+           EMAIL DE RESERVAS
+        ========================================================= */
+
+        .email-reservas {
+            grid-column: 1 / -1;
+            min-height: 43px;
+            font-size: 11.5px;
+            color: rgba(255, 255, 255, 0.82);
+            border-color: rgba(224, 172, 78, 0.42);
+            background: rgba(8, 8, 8, 0.32);
+        }
+
+        .email-reservas .accion-icono {
+            color: #e7b45b;
+        }
+
+        .email-reservas strong {
+            color: #e7b45b;
+            font-weight: 500;
         }
 
 
@@ -1639,6 +1663,42 @@
 
 
                     </button>
+
+                    <!-- RESERVAS POR EMAIL -->
+
+                    <a
+                        href="mailto:penamarito24@gmail.com?subject=Reserva%20-%20La%20Pe%C3%B1a%20de%20Marito&body=Hola%20La%20Pe%C3%B1a%20de%20Marito,%20quisiera%20realizar%20una%20reserva."
+                        class="accion-btn email-reservas"
+                        aria-label="Reservar por correo electrónico"
+                    >
+
+                        <span class="accion-icono">
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke-width="1.7"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <rect
+                                    x="3"
+                                    y="5"
+                                    width="18"
+                                    height="14"
+                                    rx="2"
+                                ></rect>
+
+                                <path d="M3 7l9 6 9-6"></path>
+                            </svg>
+
+                        </span>
+
+                        <span>
+                            Reservas: <strong>penamarito24@gmail.com</strong>
+                        </span>
+
+                    </a>
 
 
                 </div>
