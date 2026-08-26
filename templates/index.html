@@ -641,29 +641,6 @@
 
 
         /* =========================================================
-           EMAIL DE RESERVAS
-        ========================================================= */
-
-        .email-reservas {
-            grid-column: 1 / -1;
-            min-height: 43px;
-            font-size: 11.5px;
-            color: rgba(255, 255, 255, 0.82);
-            border-color: rgba(224, 172, 78, 0.42);
-            background: rgba(8, 8, 8, 0.32);
-        }
-
-        .email-reservas .accion-icono {
-            color: #e7b45b;
-        }
-
-        .email-reservas strong {
-            color: #e7b45b;
-            font-weight: 500;
-        }
-
-
-        /* =========================================================
            FIRMA DEL DISEÑADOR
         ========================================================= */
 
@@ -1033,6 +1010,284 @@
             color: #dfa94f;
 
             font-size: 22px;
+        }
+
+
+        /* =========================================================
+           MODAL RESERVAS
+        ========================================================= */
+
+        .modal-reservas {
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 25000;
+
+            display: none;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 22px;
+
+            background:
+
+                rgba(0, 0, 0, 0.73);
+
+            backdrop-filter: blur(8px);
+
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+
+        .modal-reservas.activo {
+
+            display: flex;
+        }
+
+
+        .reservas-contenido {
+
+            position: relative;
+
+            width: 100%;
+
+            max-width: 390px;
+
+            padding: 29px 18px 20px;
+
+            border-radius: 24px;
+
+            background:
+
+                linear-gradient(
+                    145deg,
+                    rgba(29, 22, 14, 0.97),
+                    rgba(7, 7, 7, 0.98)
+                );
+
+            border:
+
+                1px solid
+                rgba(224, 172, 82, 0.52);
+
+            box-shadow:
+
+                0 22px 55px
+                rgba(0, 0, 0, 0.58);
+        }
+
+
+        .cerrar-reservas {
+
+            position: absolute;
+
+            top: 10px;
+
+            right: 10px;
+
+            width: 35px;
+
+            height: 35px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 50%;
+
+            border:
+
+                1px solid
+                rgba(255, 255, 255, 0.12);
+
+            background:
+
+                rgba(255, 255, 255, 0.05);
+
+            color: white;
+
+            font-size: 19px;
+
+            cursor: pointer;
+        }
+
+
+        .reservas-titulo {
+
+            margin: 0;
+
+            color: #e5b35c;
+
+            text-align: center;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 27px;
+
+            font-weight: 400;
+        }
+
+
+        .reservas-subtitulo {
+
+            margin:
+                7px
+                10px
+                19px;
+
+            color:
+                rgba(255, 255, 255, 0.68);
+
+            text-align: center;
+
+            font-size: 13px;
+
+            line-height: 1.45;
+        }
+
+
+        .lista-reservas {
+
+            display: grid;
+
+            gap: 10px;
+        }
+
+
+        .reserva-opcion {
+
+            width: 100%;
+
+            min-height: 58px;
+
+            padding: 12px 15px;
+
+            border-radius: 16px;
+
+            border:
+
+                1px solid
+                rgba(225, 174, 82, 0.27);
+
+            background:
+
+                rgba(255, 255, 255, 0.04);
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 12px;
+
+            transition:
+                background .2s ease,
+                border-color .2s ease,
+                transform .2s ease;
+        }
+
+
+        .reserva-opcion:hover {
+
+            background:
+                rgba(225, 174, 82, 0.10);
+
+            border-color:
+                rgba(225, 174, 82, 0.70);
+
+            transform:
+                translateX(2px);
+        }
+
+
+        .reserva-opcion-izquierda {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 11px;
+
+            text-align: left;
+        }
+
+
+        .reserva-opcion-icono {
+
+            width: 25px;
+
+            height: 25px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color: #dfa94f;
+
+            flex-shrink: 0;
+        }
+
+
+        .reserva-opcion-icono svg {
+
+            width: 22px;
+
+            height: 22px;
+
+            stroke: currentColor;
+        }
+
+
+        .reserva-opcion-texto {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 3px;
+        }
+
+
+        .reserva-opcion-texto strong {
+
+            color: white;
+
+            font-size: 15px;
+
+            font-weight: 600;
+        }
+
+
+        .reserva-opcion-texto span {
+
+            color:
+                rgba(255, 255, 255, 0.68);
+
+            font-size: 11.5px;
+        }
+
+
+        .flecha-reserva {
+
+            color: #dfa94f;
+
+            font-size: 25px;
+
+            flex-shrink: 0;
         }
 
 
@@ -1461,11 +1716,11 @@
 
                     <!-- RESERVAR -->
 
-                    <a
-                        href="https://wa.me/5493886827704?text=Hola%20La%20Pe%C3%B1a%20de%20Marito,%20quiero%20realizar%20una%20reserva."
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    <button
                         class="accion-btn"
+                        onclick="abrirReservas()"
+                        type="button"
+                        aria-label="Abrir opciones de reserva"
                     >
 
 
@@ -1507,7 +1762,7 @@
                         </span>
 
 
-                    </a>
+                    </button>
 
 
 
@@ -1663,42 +1918,6 @@
 
 
                     </button>
-
-                    <!-- RESERVAS POR EMAIL -->
-
-                    <a
-                        href="mailto:penamarito24@gmail.com?subject=Reserva%20-%20La%20Pe%C3%B1a%20de%20Marito&body=Hola%20La%20Pe%C3%B1a%20de%20Marito,%20quisiera%20realizar%20una%20reserva."
-                        class="accion-btn email-reservas"
-                        aria-label="Reservar por correo electrónico"
-                    >
-
-                        <span class="accion-icono">
-
-                            <svg
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke-width="1.7"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                            >
-                                <rect
-                                    x="3"
-                                    y="5"
-                                    width="18"
-                                    height="14"
-                                    rx="2"
-                                ></rect>
-
-                                <path d="M3 7l9 6 9-6"></path>
-                            </svg>
-
-                        </span>
-
-                        <span>
-                            Reservas: <strong>penamarito24@gmail.com</strong>
-                        </span>
-
-                    </a>
 
 
                 </div>
@@ -2031,6 +2250,167 @@
 
 
     <!-- =========================================================
+         MODAL RESERVAS
+    ========================================================== -->
+
+    <div
+        class="modal-reservas"
+        id="modalReservas"
+    >
+
+
+        <div class="reservas-contenido">
+
+
+            <button
+                class="cerrar-reservas"
+                onclick="cerrarReservas()"
+                aria-label="Cerrar"
+                type="button"
+            >
+
+                ×
+
+            </button>
+
+
+
+            <h2 class="reservas-titulo">
+
+                Reservar
+
+            </h2>
+
+
+
+            <div class="reservas-subtitulo">
+
+                Elegí cómo querés hacer tu reserva.
+
+            </div>
+
+
+
+            <div class="lista-reservas">
+
+
+
+                <!-- WHATSAPP -->
+
+                <a
+                    href="https://wa.me/5493886827704?text=Hola%20La%20Pe%C3%B1a%20de%20Marito,%20quiero%20realizar%20una%20reserva."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="reserva-opcion"
+                >
+
+
+                    <div class="reserva-opcion-izquierda">
+
+                        <span class="reserva-opcion-icono">
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke-width="1.7"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+
+                                <path d="M20 11.5a8 8 0 0 1-12 7L4 20l1.5-3.7A8 8 0 1 1 20 11.5z"></path>
+
+                                <path d="M9 8.7c.3 2.6 2.4 4.7 5 5"></path>
+
+                                <path d="M9 8.7l1.1-.8"></path>
+
+                                <path d="M14 13.7l.9-1"></path>
+
+                            </svg>
+
+                        </span>
+
+
+                        <div class="reserva-opcion-texto">
+
+                            <strong>WhatsApp</strong>
+
+                            <span>Reserva rápida por mensaje</span>
+
+                        </div>
+
+                    </div>
+
+
+                    <span class="flecha-reserva">›</span>
+
+
+                </a>
+
+
+
+                <!-- GMAIL / CORREO -->
+
+                <a
+                    href="mailto:penamarito24@gmail.com?subject=Reserva%20-%20La%20Pe%C3%B1a%20de%20Marito&body=Hola%20La%20Pe%C3%B1a%20de%20Marito,%20quisiera%20realizar%20una%20reserva."
+                    class="reserva-opcion"
+                >
+
+
+                    <div class="reserva-opcion-izquierda">
+
+                        <span class="reserva-opcion-icono">
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke-width="1.7"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+
+                                <rect
+                                    x="3"
+                                    y="5"
+                                    width="18"
+                                    height="14"
+                                    rx="2"
+                                ></rect>
+
+                                <path d="M3 7l9 6 9-6"></path>
+
+                            </svg>
+
+                        </span>
+
+
+                        <div class="reserva-opcion-texto">
+
+                            <strong>Correo electrónico</strong>
+
+                            <span>penamarito24@gmail.com</span>
+
+                        </div>
+
+                    </div>
+
+
+                    <span class="flecha-reserva">›</span>
+
+
+                </a>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =========================================================
          MODAL VIDEO
     ========================================================== -->
 
@@ -2135,6 +2515,53 @@
 
 
         /* =============================
+           MODAL RESERVAS
+        ============================== */
+
+        function abrirReservas() {
+
+            document
+                .getElementById("modalReservas")
+                .classList
+                .add("activo");
+
+            document.body.style.overflow = "hidden";
+
+        }
+
+
+
+        function cerrarReservas() {
+
+            document
+                .getElementById("modalReservas")
+                .classList
+                .remove("activo");
+
+            document.body.style.overflow = "";
+
+        }
+
+
+
+        document
+            .getElementById("modalReservas")
+            .addEventListener(
+                "click",
+                function(event) {
+
+                    if (event.target === this) {
+
+                        cerrarReservas();
+
+                    }
+
+                }
+            );
+
+
+
+        /* =============================
            VIDEO
         ============================== */
 
@@ -2210,6 +2637,8 @@
                 if (event.key === "Escape") {
 
                     cerrarIdiomas();
+
+                    cerrarReservas();
 
 
                     if (
