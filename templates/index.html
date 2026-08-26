@@ -2302,6 +2302,7 @@
                     target="_blank"
                     rel="noopener noreferrer"
                     class="reserva-opcion"
+                    onclick="registrarReservaWhatsApp()"
                 >
 
 
@@ -2353,6 +2354,7 @@
                 <a
                     href="mailto:penamarito24@gmail.com?subject=Reserva%20-%20La%20Pe%C3%B1a%20de%20Marito&body=Hola%20La%20Pe%C3%B1a%20de%20Marito,%20quisiera%20realizar%20una%20reserva."
                     class="reserva-opcion"
+                    onclick="registrarReservaGmail()"
                 >
 
 
@@ -2558,6 +2560,42 @@
 
                 }
             );
+
+
+
+        /* =============================
+           GOOGLE ANALYTICS - RESERVAS
+        ============================== */
+
+        function registrarReservaWhatsApp() {
+
+            if (typeof gtag === "function") {
+
+                gtag("event", "reserva_whatsapp", {
+                    metodo_reserva: "whatsapp",
+                    destino_reserva: "5493886827704",
+                    transport_type: "beacon"
+                });
+
+            }
+
+        }
+
+
+
+        function registrarReservaGmail() {
+
+            if (typeof gtag === "function") {
+
+                gtag("event", "reserva_gmail", {
+                    metodo_reserva: "gmail",
+                    destino_reserva: "penamarito24@gmail.com",
+                    transport_type: "beacon"
+                });
+
+            }
+
+        }
 
 
 
