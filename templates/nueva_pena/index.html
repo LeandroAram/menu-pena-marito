@@ -1,0 +1,3762 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <meta name="theme-color" content="#21130d">
+
+    <title>La Peña de Marito | Purmamarca</title>
+
+    <style>
+
+        /* =========================================================
+           GENERAL
+        ========================================================= */
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        html{
+            scroll-behavior:smooth;
+        }
+
+        body{
+            min-height:100vh;
+            overflow-x:hidden;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            color:#2f211a;
+
+            background:
+                linear-gradient(
+                    rgba(247,239,226,0.96),
+                    rgba(240,227,207,0.97)
+                );
+        }
+
+        button{
+            font-family:inherit;
+        }
+
+        img{
+            display:block;
+        }
+
+
+        /* =========================================================
+           PORTADA
+        ========================================================= */
+
+        .hero{
+            position:relative;
+
+            min-height:55vh;
+
+            display:flex;
+            align-items:center;
+            justify-content:center;
+
+            overflow:hidden;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(18,10,6,0.26),
+                    rgba(18,10,6,0.58)
+                ),
+                url("/static/fondo_nueva_pena.jpg");
+
+            background-size:cover;
+            background-position:center;
+        }
+
+        .hero::after{
+            content:"";
+
+            position:absolute;
+            inset:auto 0 0 0;
+
+            height:130px;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    transparent,
+                    rgba(30,17,11,0.68)
+                );
+
+            pointer-events:none;
+        }
+
+
+        /* =========================================================
+           PARTE SUPERIOR
+        ========================================================= */
+
+        .topbar{
+            position:absolute;
+
+            top:0;
+            left:0;
+            right:0;
+
+            z-index:5;
+
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+
+            gap:15px;
+
+            padding:
+                calc(18px + env(safe-area-inset-top))
+                clamp(18px, 5vw, 65px)
+                18px;
+        }
+
+        .marca{
+            color:white;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size:17px;
+            font-weight:600;
+
+            letter-spacing:0.5px;
+
+            text-shadow:
+                0 2px 8px rgba(0,0,0,0.8);
+        }
+
+
+        /* =========================================================
+           IDIOMAS
+        ========================================================= */
+
+        .idiomas{
+            display:flex;
+            align-items:center;
+
+            gap:8px;
+
+            color:
+                rgba(255,255,255,0.62);
+
+            font-size:13px;
+
+            letter-spacing:1px;
+        }
+
+        .idioma{
+            position:relative;
+
+            padding:5px 1px;
+
+            cursor:pointer;
+
+            transition:
+                color 0.25s ease,
+                opacity 0.25s ease;
+        }
+
+        .idioma:hover{
+            color:white;
+        }
+
+        .idioma.activo{
+            color:white;
+            font-weight:700;
+        }
+
+        .idioma.activo::after{
+            content:"";
+
+            position:absolute;
+
+            left:0;
+            right:0;
+            bottom:0;
+
+            height:1px;
+
+            background:white;
+        }
+
+
+        /* =========================================================
+           TEXTO DE PORTADA
+        ========================================================= */
+
+        .hero-contenido{
+            position:relative;
+
+            z-index:3;
+
+            width:100%;
+            max-width:900px;
+
+            padding:
+                100px
+                20px
+                70px;
+
+            text-align:center;
+        }
+
+        .ubicacion{
+            margin-bottom:10px;
+
+            color:#f1d2a3;
+
+            font-size:12px;
+            font-weight:600;
+
+            letter-spacing:4px;
+
+            text-transform:uppercase;
+
+            text-shadow:
+                0 2px 7px rgba(0,0,0,0.75);
+        }
+
+        .hero h1{
+            color:white;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size:
+                clamp(48px, 8vw, 88px);
+
+            font-weight:400;
+
+            line-height:0.95;
+
+            text-shadow:
+                0 4px 18px rgba(0,0,0,0.55);
+        }
+
+        .hero-texto{
+            max-width:590px;
+
+            margin:
+                18px auto 0;
+
+            color:
+                rgba(255,255,255,0.90);
+
+            font-size:15px;
+            line-height:1.6;
+
+            text-shadow:
+                0 2px 7px rgba(0,0,0,0.65);
+        }
+
+        .indicador-scroll{
+            margin-top:24px;
+
+            color:
+                rgba(255,255,255,0.80);
+
+            font-size:23px;
+
+            animation:
+                bajar 1.8s ease-in-out infinite;
+        }
+
+        @keyframes bajar{
+
+            0%,
+            100%{
+                transform:translateY(0);
+            }
+
+            50%{
+                transform:translateY(7px);
+            }
+        }
+
+
+        /* =========================================================
+           NAVEGADOR DE CATEGORÍAS
+           
+           IMPORTANTE:
+           NO está fijo desde el comienzo.
+           
+           Baja normalmente y cuando llega arriba
+           se queda acompañando el scroll.
+        ========================================================= */
+
+        .navegador-categorias{
+            position:sticky;
+
+            top:0;
+
+            z-index:1000;
+
+            width:100%;
+
+            background:
+                rgba(38,22,14,0.95);
+
+            border-bottom:
+                1px solid rgba(228,181,113,0.26);
+
+            box-shadow:
+                0 6px 20px rgba(0,0,0,0.20);
+
+            backdrop-filter:
+                blur(14px);
+
+            -webkit-backdrop-filter:
+                blur(14px);
+        }
+
+        .categorias-scroll{
+            width:100%;
+            max-width:1000px;
+
+            margin:auto;
+
+            display:flex;
+            align-items:center;
+
+            gap:2px;
+
+            padding:
+                0 10px;
+
+            overflow-x:auto;
+
+            scrollbar-width:none;
+
+            -webkit-overflow-scrolling:touch;
+
+            scroll-behavior:smooth;
+        }
+
+        .categorias-scroll::-webkit-scrollbar{
+            display:none;
+        }
+
+        .categoria-link{
+            position:relative;
+
+            flex:0 0 auto;
+
+            min-height:52px;
+
+            display:flex;
+            align-items:center;
+            justify-content:center;
+
+            padding:
+                0 16px;
+
+            border:none;
+
+            outline:none;
+
+            background:transparent;
+
+            color:
+                rgba(255,255,255,0.58);
+
+            font-size:13px;
+
+            cursor:pointer;
+
+            white-space:nowrap;
+
+            transition:
+                color 0.25s ease;
+        }
+
+        .categoria-link:hover{
+            color:white;
+        }
+
+        .categoria-link.activo{
+            color:#f5d39c;
+            font-weight:700;
+        }
+
+        .categoria-link.activo::after{
+            content:"";
+
+            position:absolute;
+
+            left:16px;
+            right:16px;
+            bottom:0;
+
+            height:2px;
+
+            border-radius:10px;
+
+            background:#e7ae62;
+        }
+
+
+        /* =========================================================
+           CONTENIDO DEL MENÚ
+        ========================================================= */
+
+        .menu-completo{
+            width:100%;
+            max-width:1050px;
+
+            margin:auto;
+
+            padding:
+                18px
+                12px
+                70px;
+        }
+
+
+        /* =========================================================
+           SECCIONES
+        ========================================================= */
+
+        .seccion-menu{
+            padding-top:25px;
+
+            scroll-margin-top:62px;
+        }
+
+        .encabezado-seccion{
+            display:flex;
+            align-items:flex-end;
+            justify-content:space-between;
+
+            gap:12px;
+
+            margin:
+                0 2px 14px;
+
+            padding-bottom:10px;
+
+            border-bottom:
+                1px solid rgba(113,70,39,0.22);
+        }
+
+        .encabezado-seccion-izq{
+            display:flex;
+            align-items:center;
+
+            gap:10px;
+        }
+
+        .icono-seccion{
+            font-size:25px;
+        }
+
+        .encabezado-seccion h2{
+            color:#5f321b;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size:
+                clamp(27px, 5vw, 37px);
+
+            font-weight:400;
+        }
+
+        .cantidad{
+            color:#987359;
+
+            font-size:11px;
+
+            white-space:nowrap;
+        }
+
+
+        /* =========================================================
+           CUADRÍCULA
+        ========================================================= */
+
+        .grid-platos{
+            display:grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap:10px;
+        }
+
+
+        /* =========================================================
+           TARJETA DE COMIDA
+        ========================================================= */
+
+        .food-card{
+            min-width:0;
+
+            overflow:hidden;
+
+            display:flex;
+            flex-direction:column;
+
+            border-radius:16px;
+
+            border:
+                1px solid rgba(135,86,48,0.16);
+
+            background:
+                rgba(255,252,246,0.97);
+
+            box-shadow:
+                0 6px 18px rgba(62,36,21,0.09);
+
+            cursor:pointer;
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .food-card:hover{
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 11px 25px rgba(62,36,21,0.16);
+        }
+
+        .food-card:active{
+            transform:
+                scale(0.985);
+        }
+
+
+        /* =========================================================
+           FOTO
+        ========================================================= */
+
+        .foto-plato{
+            position:relative;
+
+            width:100%;
+            height:135px;
+
+            overflow:hidden;
+
+            background:#382317;
+        }
+
+        .foto-plato img{
+            width:100%;
+            height:100%;
+
+            object-fit:cover;
+
+            transition:
+                transform 0.35s ease;
+        }
+
+        .food-card:hover .foto-plato img{
+            transform:scale(1.045);
+        }
+
+        .foto-plato::after{
+            content:"";
+
+            position:absolute;
+            inset:0;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    transparent 60%,
+                    rgba(0,0,0,0.26)
+                );
+
+            pointer-events:none;
+        }
+
+        .mas{
+            position:absolute;
+
+            right:8px;
+            bottom:8px;
+
+            z-index:2;
+
+            width:27px;
+            height:27px;
+
+            display:flex;
+            align-items:center;
+            justify-content:center;
+
+            border:
+                1px solid rgba(255,255,255,0.7);
+
+            border-radius:50%;
+
+            color:white;
+
+            background:
+                rgba(24,13,8,0.54);
+
+            font-size:16px;
+
+            backdrop-filter:
+                blur(6px);
+
+            -webkit-backdrop-filter:
+                blur(6px);
+        }
+
+
+        /* =========================================================
+           INFORMACIÓN DEL PLATO
+        ========================================================= */
+
+        .info-plato{
+            flex:1;
+
+            display:flex;
+            flex-direction:column;
+
+            padding:
+                10px 10px 11px;
+        }
+
+        .nombre-plato{
+            color:#623319;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size:17px;
+
+            line-height:1.1;
+
+            display:-webkit-box;
+
+            -webkit-line-clamp:2;
+            -webkit-box-orient:vertical;
+
+            overflow:hidden;
+        }
+
+        .descripcion-plato{
+            margin-top:6px;
+
+            color:#6f6259;
+
+            font-size:10.5px;
+            line-height:1.35;
+
+            display:-webkit-box;
+
+            -webkit-line-clamp:2;
+            -webkit-box-orient:vertical;
+
+            overflow:hidden;
+        }
+
+        .pie-plato{
+            margin-top:auto;
+            padding-top:9px;
+
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+
+            gap:8px;
+        }
+
+        .precio-plato{
+            color:#9e4f25;
+
+            font-size:17px;
+            font-weight:900;
+        }
+
+        .ver-detalle{
+            color:#947864;
+
+            font-size:9px;
+            font-weight:600;
+
+            white-space:nowrap;
+        }
+
+
+        /* =========================================================
+           MODAL
+        ========================================================= */
+
+        .modal{
+            display:none;
+
+            position:fixed;
+            inset:0;
+
+            z-index:5000;
+
+            align-items:center;
+            justify-content:center;
+
+            padding:
+                calc(
+                    14px +
+                    env(safe-area-inset-top)
+                )
+                14px
+                calc(
+                    14px +
+                    env(safe-area-inset-bottom)
+                );
+
+            background:
+                rgba(10,6,4,0.92);
+
+            backdrop-filter:
+                blur(8px);
+
+            -webkit-backdrop-filter:
+                blur(8px);
+        }
+
+        .modal.activo{
+            display:flex;
+        }
+
+        .modal-contenido{
+            position:relative;
+
+            width:100%;
+            max-width:500px;
+
+            max-height:92vh;
+
+            overflow-y:auto;
+
+            border-radius:22px;
+
+            background:#fffaf2;
+
+            box-shadow:
+                0 25px 65px rgba(0,0,0,0.60);
+        }
+
+        .modal-imagen{
+            width:100%;
+            height:280px;
+
+            object-fit:cover;
+        }
+
+        .cerrar-modal{
+            position:absolute;
+
+            top:11px;
+            right:11px;
+
+            z-index:3;
+
+            width:40px;
+            height:40px;
+
+            display:flex;
+            align-items:center;
+            justify-content:center;
+
+            border:none;
+            border-radius:50%;
+
+            color:white;
+
+            background:
+                rgba(18,10,6,0.76);
+
+            font-size:20px;
+
+            cursor:pointer;
+
+            backdrop-filter:
+                blur(6px);
+
+            -webkit-backdrop-filter:
+                blur(6px);
+        }
+
+        .modal-info{
+            padding:19px;
+        }
+
+        .modal-info h2{
+            color:#63351c;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size:29px;
+            line-height:1.1;
+        }
+
+        .modal-info p{
+            margin-top:10px;
+
+            color:#5c5149;
+
+            font-size:15px;
+            line-height:1.55;
+        }
+
+        .modal-precio{
+            margin-top:15px;
+
+            color:#a34f23;
+
+            font-size:27px;
+            font-weight:900;
+        }
+
+
+        /* =========================================================
+           FINAL
+        ========================================================= */
+
+        .final{
+            margin-top:45px;
+
+            padding:
+                40px 20px;
+
+            text-align:center;
+
+            border-radius:20px;
+
+            color:white;
+
+            background:
+                #2b190f;
+        }
+
+        .final h3{
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size:26px;
+            font-weight:400;
+        }
+
+        .final p{
+            margin-top:9px;
+
+            color:
+                rgba(255,255,255,0.65);
+
+            font-size:12px;
+        }
+
+
+        /* =========================================================
+           CELULARES
+        ========================================================= */
+
+        @media(max-width:600px){
+
+            .hero{
+                min-height:47vh;
+
+                background-position:center;
+            }
+
+            .topbar{
+                padding-left:18px;
+                padding-right:18px;
+            }
+
+            .marca{
+                font-size:14px;
+            }
+
+            .hero h1{
+                font-size:52px;
+            }
+
+            .hero-texto{
+                max-width:350px;
+
+                font-size:13px;
+            }
+
+            .hero-contenido{
+                padding-bottom:52px;
+            }
+
+            .categoria-link{
+                min-height:48px;
+
+                padding:
+                    0 14px;
+
+                font-size:12px;
+            }
+
+            .categoria-link.activo::after{
+                left:14px;
+                right:14px;
+            }
+
+            .menu-completo{
+                padding-left:8px;
+                padding-right:8px;
+            }
+
+            .seccion-menu{
+                padding-top:20px;
+            }
+
+            .foto-plato{
+                height:128px;
+            }
+
+            .info-plato{
+                padding:9px;
+            }
+
+            .nombre-plato{
+                font-size:16px;
+            }
+
+            .descripcion-plato{
+                font-size:10px;
+            }
+
+            .precio-plato{
+                font-size:16px;
+            }
+
+            .ver-detalle{
+                display:none;
+            }
+
+            .modal-imagen{
+                height:250px;
+            }
+        }
+
+
+        /* =========================================================
+           CELULARES MUY ANGOSTOS
+        ========================================================= */
+
+        @media(max-width:360px){
+
+            .grid-platos{
+                gap:7px;
+            }
+
+            .foto-plato{
+                height:112px;
+            }
+
+            .nombre-plato{
+                font-size:15px;
+            }
+
+            .descripcion-plato{
+                font-size:9.5px;
+            }
+
+            .precio-plato{
+                font-size:15px;
+            }
+        }
+
+
+        /* =========================================================
+           TABLET
+        ========================================================= */
+
+        @media(min-width:700px){
+
+            .grid-platos{
+                grid-template-columns:
+                    repeat(3, minmax(0, 1fr));
+
+                gap:14px;
+            }
+
+            .foto-plato{
+                height:165px;
+            }
+
+            .nombre-plato{
+                font-size:19px;
+            }
+
+            .descripcion-plato{
+                font-size:11px;
+            }
+
+            .precio-plato{
+                font-size:18px;
+            }
+        }
+
+
+        /* =========================================================
+           COMPUTADORA
+        ========================================================= */
+
+        @media(min-width:1050px){
+
+            .grid-platos{
+                grid-template-columns:
+                    repeat(4, minmax(0, 1fr));
+            }
+
+            .foto-plato{
+                height:165px;
+            }
+        }
+
+
+        /* =========================================================
+           REDUCIR ANIMACIONES
+        ========================================================= */
+
+        @media(
+            prefers-reduced-motion:reduce
+        ){
+
+            *{
+                scroll-behavior:auto !important;
+
+                animation:none !important;
+
+                transition:none !important;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================================
+         PORTADA
+    ========================================================== -->
+
+    <section class="hero">
+
+        <div class="topbar">
+
+            <div class="marca">
+                Marito Bar
+            </div>
+
+
+            <div class="idiomas">
+
+                <span
+                    id="btn-es"
+                    class="idioma activo"
+                    onclick="cambiarIdioma('es')"
+                >
+                    ES
+                </span>
+
+                <span>
+                    ·
+                </span>
+
+                <span
+                    id="btn-en"
+                    class="idioma"
+                    onclick="cambiarIdioma('en')"
+                >
+                    EN
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-contenido">
+
+            <div
+                class="ubicacion traducible"
+                data-es="PURMAMARCA · JUJUY"
+                data-en="PURMAMARCA · JUJUY"
+            >
+                PURMAMARCA · JUJUY
+            </div>
+
+
+            <h1>
+                Marito Bar<br>
+            </h1>
+
+
+            <p
+                class="hero-texto traducible"
+
+                data-es="Nuestra carta en un solo lugar. Descubrí los sabores del norte y recorré el menú de forma simple."
+
+                data-en="Our entire menu in one place. Discover the flavors of Northern Argentina and explore our dishes easily."
+            >
+                Nuestra carta en un solo lugar.
+                Descubrí los sabores del norte
+                y recorré el menú de forma simple.
+            </p>
+
+
+            <div class="indicador-scroll">
+                ↓
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================================
+         NAVEGACIÓN DE CATEGORÍAS
+    ========================================================== -->
+
+    <nav class="navegador-categorias">
+
+        <div class="categorias-scroll">
+
+
+            <button
+                class="categoria-link activo"
+                data-seccion="entradas"
+                onclick="irASeccion('entradas')"
+            >
+
+                <span
+                    class="traducible"
+                    data-es="Entradas"
+                    data-en="Starters"
+                >
+                    Entradas
+                </span>
+
+            </button>
+
+
+            <button
+                class="categoria-link"
+                data-seccion="regionales"
+                onclick="irASeccion('regionales')"
+            >
+
+                <span
+                    class="traducible"
+                    data-es="Regionales"
+                    data-en="Regional"
+                >
+                    Regionales
+                </span>
+
+            </button>
+
+
+            <button
+                class="categoria-link"
+                data-seccion="tradicionales"
+                onclick="irASeccion('tradicionales')"
+            >
+
+                <span
+                    class="traducible"
+                    data-es="Tradicionales"
+                    data-en="Classics"
+                >
+                    Tradicionales
+                </span>
+
+            </button>
+
+
+            <button
+                class="categoria-link"
+                data-seccion="postres"
+                onclick="irASeccion('postres')"
+            >
+
+                <span
+                    class="traducible"
+                    data-es="Postres"
+                    data-en="Desserts"
+                >
+                    Postres
+                </span>
+
+            </button>
+
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =========================================================
+         MENÚ COMPLETO
+    ========================================================== -->
+
+    <main class="menu-completo">
+
+
+        <!-- =====================================================
+             ENTRADAS
+        ====================================================== -->
+
+        <section
+            id="entradas"
+            class="seccion-menu"
+        >
+
+            <div class="encabezado-seccion">
+
+                <div class="encabezado-seccion-izq">
+
+                    <div class="icono-seccion">
+                        🥟
+                    </div>
+
+                    <h2
+                        class="traducible"
+                        data-es="Entradas"
+                        data-en="Starters"
+                    >
+                        Entradas
+                    </h2>
+
+                </div>
+
+                <span class="cantidad">
+                    4
+                </span>
+
+            </div>
+
+
+            <div class="grid-platos">
+
+
+                <!-- =================================================
+                     CAMBIÁ EL PRECIO EN:
+                     data-price="$ --"
+                ================================================== -->
+
+
+                <!-- EMPANADAS -->
+
+                <article
+                    class="food-card"
+
+                    data-image="/static/comidas/empanadas.jpg"
+
+                    data-name-es="Empanadas Regionales"
+
+                    data-name-en="Regional Empanadas"
+
+                    data-desc-es="Empanadas jujeñas de carne, queso o queso de cabra, preparadas con especias tradicionales."
+
+                    data-desc-en="Traditional Jujuy empanadas filled with beef, cheese or regional goat cheese."
+
+                    data-price="$ --"
+                >
+
+                    <div class="foto-plato">
+
+                        <img
+                            src="/static/comidas/empanadas.jpg"
+                            alt="Empanadas Regionales"
+                            loading="lazy"
+                        >
+
+                        <span class="mas">
+                            +
+                        </span>
+
+                    </div>
+
+                    <div class="info-plato">
+
+                        <h3 class="nombre-plato"></h3>
+
+                        <p class="descripcion-plato"></p>
+
+                        <div class="pie-plato">
+
+                            <strong class="precio-plato"></strong>
+
+                            <span
+                                class="ver-detalle traducible"
+                                data-es="Ver detalle"
+                                data-en="Details"
+                            >
+                                Ver detalle
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- HUMITAS -->
+
+                <article
+                    class="food-card"
+
+                    data-image="/static/comidas/humita.jpg"
+
+                    data-name-es="Humitas"
+
+                    data-name-en="Humitas"
+
+                    data-desc-es="Humitas suaves elaboradas con maíz y rellenas con queso de cabra regional."
+
+                    data-desc-en="Soft traditional corn humitas filled with regional goat cheese."
+
+                    data-price="$ --"
+                >
+
+                    <div class="foto-plato">
+
+                        <img
+                            src="/static/comidas/humita.jpg"
+                            alt="Humitas"
+                            loading="lazy"
+                        >
+
+                        <span class="mas">
+                            +
+                        </span>
+
+                    </div>
+
+                    <div class="info-plato">
+
+                        <h3 class="nombre-plato"></h3>
+
+                        <p class="descripcion-plato"></p>
+
+                        <div class="pie-plato">
+
+                            <strong class="precio-plato"></strong>
+
+                            <span
+                                class="ver-detalle traducible"
+                                data-es="Ver detalle"
+                                data-en="Details"
+                            >
+                                Ver detalle
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- TAMAL -->
+
+                <article
+                    class="food-card"
+
+                    data-image="/static/comidas/tamal.jpg"
+
+                    data-name-es="Tamal"
+
+                    data-name-en="Tamal"
+
+                    data-desc-es="Tamal casero relleno de carne, verduras y especias tradicionales del Norte Argentino."
+
+                    data-desc-en="Homemade tamal filled with beef, vegetables and traditional Northern Argentine spices."
+
+                    data-price="$ --"
+                >
+
+                    <div class="foto-plato">
+
+                        <img
+                            src="/static/comidas/tamal.jpg"
+                            alt="Tamal"
+                            loading="lazy"
+                        >
+
+                        <span class="mas">
+                            +
+                        </span>
+
+                    </div>
+
+                    <div class="info-plato">
+
+                        <h3 class="nombre-plato"></h3>
+
+                        <p class="descripcion-plato"></p>
+
+                        <div class="pie-plato">
+
+                            <strong class="precio-plato"></strong>
+
+                            <span
+                                class="ver-detalle traducible"
+                                data-es="Ver detalle"
+                                data-en="Details"
+                            >
+                                Ver detalle
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- PAPINES -->
+
+                <article
+                    class="food-card"
+
+                    data-image="/static/comidas/papines.jpg"
+
+                    data-name-es="Papines Andinos"
+
+                    data-name-en="Andean Potatoes"
+
+                    data-desc-es="Papines andinos salteados al romero y acompañados con queso de cabra."
+
+                    data-desc-en="Andean potatoes sautéed with rosemary and served with regional goat cheese."
+
+                    data-price="$ --"
+                >
+
+                    <div class="foto-plato">
+
+                        <img
+                            src="/static/comidas/papines.jpg"
+                            alt="Papines Andinos"
+                            loading="lazy"
+                        >
+
+                        <span class="mas">
+                            +
+                        </span>
+
+                    </div>
+
+                    <div class="info-plato">
+
+                        <h3 class="nombre-plato"></h3>
+
+                        <p class="descripcion-plato"></p>
+
+                        <div class="pie-plato">
+
+                            <strong class="precio-plato"></strong>
+
+                            <span
+                                class="ver-detalle traducible"
+                                data-es="Ver detalle"
+                                data-en="Details"
+                            >
+                                Ver detalle
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             REGIONALES
+        ====================================================== -->
+
+        <section
+            id="regionales"
+            class="seccion-menu"
+        >
+
+            <div class="encabezado-seccion">
+
+                <div class="encabezado-seccion-izq">
+
+                    <div class="icono-seccion">
+                        🍲
+                    </div>
+
+                    <h2
+                        class="traducible"
+                        data-es="Platos Regionales"
+                        data-en="Regional Dishes"
+                    >
+                        Platos Regionales
+                    </h2>
+
+                </div>
+
+                <span class="cantidad">
+                    12
+                </span>
+
+            </div>
+
+
+            <div class="grid-platos">
+
+
+                <!-- LOCRO -->
+
+                <article
+                    class="food-card"
+
+                    data-image="/static/comidas/locro.jpg"
+
+                    data-name-es="Locro Norteño"
+
+                    data-name-en="Northern Locro"
+
+                    data-desc-es="Tradicional guiso norteño a base de maíz blanco, zapallo, carne vacuna, panceta y embutidos, sazonado con comino y pimentón regional."
+
+                    data-desc-en="Traditional northern stew with white corn, squash, beef, bacon, sausage, cumin and regional paprika."
+
+                    data-price="$ --"
+                >
+
+                    <div class="foto-plato">
+
+                        <img
+                            src="/static/comidas/locro.jpg"
+                            alt="Locro Norteño"
+                            loading="lazy"
+                        >
+
+                        <span class="mas">
+                            +
+                        </span>
+
+                    </div>
+
+                    <div class="info-plato">
+
+                        <h3 class="nombre-plato"></h3>
+
+                        <p class="descripcion-plato"></p>
+
+                        <div class="pie-plato">
+
+                            <strong class="precio-plato"></strong>
+
+                            <span
+                                class="ver-detalle traducible"
+                                data-es="Ver detalle"
+                                data-en="Details"
+                            >
+                                Ver detalle
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- CABRITO / CORDERO -->
+
+                <article
+                    class="food-card"
+
+                    data-image="/static/comidas/cabrito.jpg"
+
+                    data-name-es="Asado de Cabrito/Cordero"
+
+                    data-name-en="Roasted Goat/Lamb"
+
+                    data-desc-es="Tierno cabrito o cordero al horno de barro, acompañado de papines al romero, ensalada mixta tradicional y queso de cabra."
+
+                    data-desc-en="Tender goat or lamb roasted in a clay oven, served with rosemary potatoes, mixed salad and goat cheese."
+
+                    data-price="$ --"
+                >
+
+                    <div class="foto-plato">
+
+                        <img
+                            src="/static/comidas/cabrito.jpg"
+                            alt="Asado de Cabrito o Cordero"
+                            loading="lazy"
+                        >
+
+                        <span class="mas">
+                            +
+                        </span>
+
+                    </div>
+
+                    <div class="info-plato">
+
+                        <h3 class="nombre-plato"></h3>
+
+                        <p class="descripcion-plato"></p>
+
+                        <div class="pie-plato">
+
+                            <strong class="precio-plato"></strong>
+
+                            <span
+                                class="ver-detalle traducible"
+                                data-es="Ver detalle"
+                                data-en="Details"
+                            >
+                                Ver detalle
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- LLAMA MALBEC -->
+
+                <article
+                    class="food-card"
+
+                    data-image="/static/comidas/llama-malbec.jpg"
+
+                    data-name-es="Llama al Malbec"
+
+                    data-name-en="Llama in Malbec"
+
+                    data-desc-es="Tiernos cortes de llama cocidos lentamente en reducción de vino Malbec, acompañados con papines andinos."
+
+                    data-desc-en="Tender llama cuts slowly cooked in a Malbec wine reduction and served with Andean potatoes."
+
+                    data-price="$ --"
+                >
+
+                    <div class="foto-plato">
+
+                        <img
+                            src="/static/comidas/llama-malbec.jpg"
+                            alt="Llama al Malbec"
+                            loading="lazy"
+                        >
+
+                        <span class="mas">
+                            +
+                        </span>
+
+                    </div>
+
+                    <div class="info-plato">
+
+                        <h3 class="nombre-plato"></h3>
+
+                        <p class="descripcion-plato"></p>
+
+                        <div class="pie-plato">
+
+                            <strong class="precio-plato"></strong>
+
+                            <span
+                                class="ver-detalle traducible"
+                                data-es="Ver detalle"
+                                data-en="Details"
+                            >
+                                Ver detalle
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- LOMO LLAMA -->
+
+                <article
+                    class="food-card"
+
+                    data-image="/static/comidas/lomo-llama.jpg"
+
+                    data-name-es="Lomo de Llama a la Salsa Blanca"
+
+                    data-name-en="Llama Loin with White Sauce"
+
+                    data-desc-es="Lomo de llama en su punto con salsa blanca, acompañado de quinoa de la región y papines salteados al romero."
+
+                    data-desc-en="Llama loin with white sauce, served with regional quinoa and rosemary sautéed potatoes."
+
+                    data-price="$ --"
+                >
+
+                    <div class="foto-plato">
+
+                        <img
+                            src="/static/comidas/lomo-llama.jpg"
+                            alt="Lomo de Llama"
+                            loading="lazy"
+                        >
+
+                        <span class="mas">
+                            +
+                        </span>
+
+                    </div>
+
+                    <div class="info-plato">
+
+                        <h3 class="nombre-plato"></h3>
+
+                        <p class="descripcion-plato"></p>
+
+                        <div class="pie-plato">
+
+                            <strong class="precio-plato"></strong>
+
+                            <span
+                                class="ver-detalle traducible"
+                                data-es="Ver detalle"
+                                data-en="Details"
+                            >
+                                Ver detalle
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- MEDALLÓN QUINOA -->
+
+                <article
+                    class="food-card"
+
+                    data-image="/static/comidas/medallon.jpg"
+
+                    data-name-es="Medallón de Quinoa"
+
+                    data-name-en="Quinoa Medallion"
+
+                    data-desc-es="Preparado a base de quinoa natural, acompañado de papines salteados al romero y ensalada mixta."
+
+                    data-desc-en="Made with natural quinoa and served with rosemary sautéed potatoes and mixed salad."
+
+                    data-price="$ --"
+                >
+
+                    <div class="foto-plato">
+
+                        <img
+                            src="/static/comidas/medallon.jpg"
+                            alt="Medallón de Quinoa"
+                            loading="lazy"
+                        >
+
+                        <span class="mas">
+                            +
+                        </span>
+
+                    </div>
+
+                    <div class="info-plato">
+
+                        <h3 class="nombre-plato"></h3>
+
+                        <p class="descripcion-plato"></p>
+
+                        <div class="pie-plato">
+
+                            <strong class="precio-plato"></strong>
+
+                            <span
+                                class="ver-detalle traducible"
+                                data-es="Ver detalle"
+                                data-en="Details"
+                            >
+                                Ver detalle
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- MILANESA QUESILLO -->
+
+                <article
+                    class="food-card"
+
+                    data-image="/static/comidas/quesse.jpg"
+
+                    data-name-es="Milanesa de Quesillo"
+
+                    data-name-en="Breaded Quesillo"
+
+                    data-desc-es="Milanesa de quesillo acompañada con papines salteados al romero, huevo frito y ensalada mixta tradicional."
+
+                    data-desc-en="Breaded regional quesillo served with rosemary potatoes, fried egg and mixed salad."
+
+                    data-price="$ --"
+                >
+
+                    <div class="foto-plato">
+
+                        <img
+                            src="/static/comidas/quesse.jpg"
+                            alt="Milanesa de Quesillo"
+                            loading="lazy"
+                        >
+
+                        <span class="mas">
+                            +
+                        </span>
+
+                    </div>
+
+                    <div class="info-plato">
+
+                        <h3 class="nombre-plato"></h3>
+
+                        <p class="descripcion-plato"></p>
+
+                        <div class="pie-plato">
+
+                            <strong class="precio-plato"></strong>
+
+                            <span
+                                class="ver-detalle traducible"
+                                data-es="Ver detalle"
+                                data-en="Details"
+                            >
+                                Ver detalle
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- MILANESA LLAMA -->
+
+                <article
+                    class="food-card"
+
+                    data-image="/static/comidas/milanesa-llama.jpg"
+
+                    data-name-es="Milanesa de Llama"
+
+                    data-name-en="Breaded Llama"
+
+                    data-desc-es="Milanesa de llama acompañada con papas fritas, huevo frito y ensalada mixta tradicional."
+
+                    data-desc-en="Breaded llama served with French fries, fried egg and traditional mixed salad."
+
+                    data-price="$ --"
+                >
+
+                    <div class="foto-plato">
+
+                        <img
+                            src="/static/comidas/milanesa-llama.jpg"
+                            alt="Milanesa de Llama"
+                            loading="lazy"
+                        >
+
+                        <span class="mas">
+                            +
+                        </span>
+
+                    </div>
+
+                    <div class="info-plato">
+
+                        <h3 class="nombre-plato"></h3>
+
+                        <p class="descripcion-plato"></p>
+
+                        <div class="pie-plato">
+
+                            <strong class="precio-plato"></strong>
+
+                            <span
+                                class="ver-detalle traducible"
+                                data-es="Ver detalle"
+                                data-en="Details"
+                            >
+                                Ver detalle
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- LLAMA A CABALLO -->
+
+                <article
+                    class="food-card"
+
+                    data-image="/static/comidas/llamacaballo.jpg"
+
+                    data-name-es="Milanesa de Llama a Caballo"
+
+                    data-name-en="Breaded Llama a Caballo"
+
+                    data-desc-es="Milanesa de llama acompañada con papas fritas y dos huevos fritos."
+
+                    data-desc-en="Breaded llama served with French fries and two fried eggs."
+
+                    data-price="$ --"
+                >
+
+                    <div class="foto-plato">
+
+                        <img
+                            src="/static/comidas/llamacaballo.jpg"
+                            alt="Milanesa de Llama a Caballo"
+                            loading="lazy"
+                        >
+
+                        <span class="mas">
+                            +
+                        </span>
+
+                    </div>
+
+                    <div class="info-plato">
+
+                        <h3 class="nombre-plato"></h3>
+
+                        <p class="descripcion-plato"></p>
+
+                        <div class="pie-plato">
+
+                            <strong class="precio-plato"></strong>
+
+                            <span
+                                class="ver-detalle traducible"
+                                data-es="Ver detalle"
+                                data-en="Details"
+                            >
+                                Ver detalle
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- NAPOLITANA LLAMA -->
+
+                <article
+                    class="food-card"
+
+                    data-image="/static/comidas/napollama.jpg"
+
+                    data-name-es="Napolitana de Llama"
+
+                    data-name-en="Llama Napolitana"
+
+                    data-desc-es="Napolitana de llama acompañada con papas fritas y huevo frito."
+
+                    data-desc-en="Llama Napolitana served with French fries and a fried egg."
+
+                    data-price="$ --"
+                >
+
+                    <div class="foto-plato">
+
+                        <img
+                            src="/static/comidas/napollama.jpg"
+                            alt="Napolitana de Llama"
+                            loading="lazy"
+                        >
+
+                        <span class="mas">
+                            +
+                        </span>
+
+                    </div>
+
+                    <div class="info-plato">
+
+                        <h3 class="nombre-plato"></h3>
+
+                        <p class="descripcion-plato"></p>
+
+                        <div class="pie-plato">
+
+                            <strong class="precio-plato"></strong>
+
+                            <span
+                                class="ver-detalle traducible"
+                                data-es="Ver detalle"
+                                data-en="Details"
+                            >
+                                Ver detalle
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- CAZUELA CABRITO -->
+
+                <article
+                    class="food-card"
+
+                    data-image="/static/comidas/cazuela-cabrito.jpg"
+
+                    data-name-es="Cazuela de Cabrito"
+
+                    data-name-en="Goat Stew"
+
+                    data-desc-es="Cazuela de cabrito norteña cocida en su caldo con especias regionales, servida con papines salteados al romero."
+
+                    data-desc-en="Northern goat stew slowly cooked in its broth with regional spices and served with rosemary potatoes."
+
+                    data-price="$ --"
+                >
+
+                    <div class="foto-plato">
+
+                        <img
+                            src="/static/comidas/cazuela-cabrito.jpg"
+                            alt="Cazuela de Cabrito"
+                            loading="lazy"
+                        >
+
+                        <span class="mas">
+                            +
+                        </span>
+
+                    </div>
+
+                    <div class="info-plato">
+
+                        <h3 class="nombre-plato"></h3>
+
+                        <p class="descripcion-plato"></p>
+
+                        <div class="pie-plato">
+
+                            <strong class="precio-plato"></strong>
+
+                            <span
+                                class="ver-detalle traducible"
+                                data-es="Ver detalle"
+                                data-en="Details"
+                            >
+                                Ver detalle
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- CAZUELA LLAMA -->
+
+                <article
+                    class="food-card"
+
+                    data-image="/static/comidas/cazuela-llama.jpg"
+
+                    data-name-es="Cazuela de Llama"
+
+                    data-name-en="Llama Stew"
+
+                    data-desc-es="Cazuela de llama norteña cocida lentamente en su caldo con especias regionales, servida con papines salteados al romero."
+
+                    data-desc-en="Northern llama stew slowly cooked in its broth with regional spices and served with rosemary potatoes."
+
+                    data-price="$ --"
+                >
+
+                    <div class="foto-plato">
+
+                        <img
+                            src="/static/comidas/cazuela-llama.jpg"
+                            alt="Cazuela de Llama"
+                            loading="lazy"
+                        >
+
+                        <span class="mas">
+                            +
+                        </span>
+
+                    </div>
+
+                    <div class="info-plato">
+
+                        <h3 class="nombre-plato"></h3>
+
+                        <p class="descripcion-plato"></p>
+
+                        <div class="pie-plato">
+
+                            <strong class="precio-plato"></strong>
+
+                            <span
+                                class="ver-detalle traducible"
+                                data-es="Ver detalle"
+                                data-en="Details"
+                            >
+                                Ver detalle
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- CAZUELA CORDERO -->
+
+                <article
+                    class="food-card"
+
+                    data-image="/static/comidas/cazuela-cordero.jpg"
+
+                    data-name-es="Cazuela de Cordero"
+
+                    data-name-en="Lamb Stew"
+
+                    data-desc-es="Cazuela de cordero norteña cocida lentamente en su caldo con especias regionales, servida con papines salteados al romero."
+
+                    data-desc-en="Northern lamb stew slowly cooked in its broth with regional spices and served with rosemary potatoes."
+
+                    data-price="$ --"
+                >
+
+                    <div class="foto-plato">
+
+                        <img
+                            src="/static/comidas/cazuela-cordero.jpg"
+                            alt="Cazuela de Cordero"
+                            loading="lazy"
+                        >
+
+                        <span class="mas">
+                            +
+                        </span>
+
+                    </div>
+
+                    <div class="info-plato">
+
+                        <h3 class="nombre-plato"></h3>
+
+                        <p class="descripcion-plato"></p>
+
+                        <div class="pie-plato">
+
+                            <strong class="precio-plato"></strong>
+
+                            <span
+                                class="ver-detalle traducible"
+                                data-es="Ver detalle"
+                                data-en="Details"
+                            >
+                                Ver detalle
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             TRADICIONALES
+        ====================================================== -->
+
+        <section
+            id="tradicionales"
+            class="seccion-menu"
+        >
+
+            <div class="encabezado-seccion">
+
+                <div class="encabezado-seccion-izq">
+
+                    <div class="icono-seccion">
+                        🍽️
+                    </div>
+
+                    <h2
+                        class="traducible"
+                        data-es="Platos Tradicionales"
+                        data-en="Classic Dishes"
+                    >
+                        Platos Tradicionales
+                    </h2>
+
+                </div>
+
+                <span class="cantidad">
+                    7
+                </span>
+
+            </div>
+
+
+            <div class="grid-platos">
+
+
+                <!-- LOMO TERNERA -->
+
+                <article
+                    class="food-card"
+
+                    data-image="/static/comidas/ternera.jpg"
+
+                    data-name-es="Lomo de Ternera"
+
+                    data-name-en="Beef Loin"
+
+                    data-desc-es="Lomo de ternera acompañado con papas fritas o papines al romero, ensalada mixta y huevo frito."
+
+                    data-desc-en="Beef loin served with French fries or rosemary potatoes, mixed salad and a fried egg."
+
+                    data-price="$ --"
+                >
+
+                    <div class="foto-plato">
+
+                        <img
+                            src="/static/comidas/ternera.jpg"
+                            alt="Lomo de Ternera"
+                            loading="lazy"
+                        >
+
+                        <span class="mas">
+                            +
+                        </span>
+
+                    </div>
+
+                    <div class="info-plato">
+
+                        <h3 class="nombre-plato"></h3>
+
+                        <p class="descripcion-plato"></p>
+
+                        <div class="pie-plato">
+
+                            <strong class="precio-plato"></strong>
+
+                            <span
+                                class="ver-detalle traducible"
+                                data-es="Ver detalle"
+                                data-en="Details"
+                            >
+                                Ver detalle
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- MATAMBRE -->
+
+                <article
+                    class="food-card"
+
+                    data-image="/static/comidas/matambre.jpg"
+
+                    data-name-es="Matambre a la Pizza"
+
+                    data-name-en="Pizza-Style Matambre"
+
+                    data-desc-es="Matambre a la pizza acompañado con papas fritas y huevo frito."
+
+                    data-desc-en="Pizza-style matambre served with French fries and a fried egg."
+
+                    data-price="$ --"
+                >
+
+                    <div class="foto-plato">
+
+                        <img
+                            src="/static/comidas/matambre.jpg"
+                            alt="Matambre a la Pizza"
+                            loading="lazy"
+                        >
+
+                        <span class="mas">
+                            +
+                        </span>
+
+                    </div>
+
+                    <div class="info-plato">
+
+                        <h3 class="nombre-plato"></h3>
+
+                        <p class="descripcion-plato"></p>
+
+                        <div class="pie-plato">
+
+                            <strong class="precio-plato"></strong>
+
+                            <span
+                                class="ver-detalle traducible"
+                                data-es="Ver detalle"
+                                data-en="Details"
+                            >
+                                Ver detalle
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- PECHUGA -->
+
+                <article
+                    class="food-card"
+
+                    data-image="/static/comidas/pechuga.jpg"
+
+                    data-name-es="Pechuga de Pollo Grillada"
+
+                    data-name-en="Grilled Chicken Breast"
+
+                    data-desc-es="Pechuga de pollo grillada, acompañada con papas fritas, ensalada mixta y huevo frito."
+
+                    data-desc-en="Grilled chicken breast served with French fries, mixed salad and a fried egg."
+
+                    data-price="$ --"
+                >
+
+                    <div class="foto-plato">
+
+                        <img
+                            src="/static/comidas/pechuga.jpg"
+                            alt="Pechuga de Pollo Grillada"
+                            loading="lazy"
+                        >
+
+                        <span class="mas">
+                            +
+                        </span>
+
+                    </div>
+
+                    <div class="info-plato">
+
+                        <h3 class="nombre-plato"></h3>
+
+                        <p class="descripcion-plato"></p>
+
+                        <div class="pie-plato">
+
+                            <strong class="precio-plato"></strong>
+
+                            <span
+                                class="ver-detalle traducible"
+                                data-es="Ver detalle"
+                                data-en="Details"
+                            >
+                                Ver detalle
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- MILANESA POLLO -->
+
+                <article
+                    class="food-card"
+
+                    data-image="/static/comidas/pollo.jpg"
+
+                    data-name-es="Milanesa de Pollo"
+
+                    data-name-en="Breaded Chicken"
+
+                    data-desc-es="Milanesa de pollo acompañada con papas fritas, ensalada mixta y huevo frito."
+
+                    data-desc-en="Breaded chicken served with French fries, mixed salad and a fried egg."
+
+                    data-price="$ --"
+                >
+
+                    <div class="foto-plato">
+
+                        <img
+                            src="/static/comidas/pollo.jpg"
+                            alt="Milanesa de Pollo"
+                            loading="lazy"
+                        >
+
+                        <span class="mas">
+                            +
+                        </span>
+
+                    </div>
+
+                    <div class="info-plato">
+
+                        <h3 class="nombre-plato"></h3>
+
+                        <p class="descripcion-plato"></p>
+
+                        <div class="pie-plato">
+
+                            <strong class="precio-plato"></strong>
+
+                            <span
+                                class="ver-detalle traducible"
+                                data-es="Ver detalle"
+                                data-en="Details"
+                            >
+                                Ver detalle
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- MILANESA TERNERA -->
+
+                <article
+                    class="food-card"
+
+                    data-image="/static/comidas/milaternera.jpg"
+
+                    data-name-es="Milanesa de Ternera"
+
+                    data-name-en="Breaded Beef"
+
+                    data-desc-es="Milanesa de ternera acompañada con papas fritas, ensalada mixta y huevo frito."
+
+                    data-desc-en="Breaded beef served with French fries, mixed salad and a fried egg."
+
+                    data-price="$ --"
+                >
+
+                    <div class="foto-plato">
+
+                        <img
+                            src="/static/comidas/milaternera.jpg"
+                            alt="Milanesa de Ternera"
+                            loading="lazy"
+                        >
+
+                        <span class="mas">
+                            +
+                        </span>
+
+                    </div>
+
+                    <div class="info-plato">
+
+                        <h3 class="nombre-plato"></h3>
+
+                        <p class="descripcion-plato"></p>
+
+                        <div class="pie-plato">
+
+                            <strong class="precio-plato"></strong>
+
+                            <span
+                                class="ver-detalle traducible"
+                                data-es="Ver detalle"
+                                data-en="Details"
+                            >
+                                Ver detalle
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- MILANESA CABALLO -->
+
+                <article
+                    class="food-card"
+
+                    data-image="/static/comidas/milacaballo.jpg"
+
+                    data-name-es="Milanesa de Ternera a Caballo"
+
+                    data-name-en="Breaded Beef a Caballo"
+
+                    data-desc-es="Milanesa de ternera acompañada con papas fritas y dos huevos fritos."
+
+                    data-desc-en="Breaded beef served with French fries and two fried eggs."
+
+                    data-price="$ --"
+                >
+
+                    <div class="foto-plato">
+
+                        <img
+                            src="/static/comidas/milacaballo.jpg"
+                            alt="Milanesa de Ternera a Caballo"
+                            loading="lazy"
+                        >
+
+                        <span class="mas">
+                            +
+                        </span>
+
+                    </div>
+
+                    <div class="info-plato">
+
+                        <h3 class="nombre-plato"></h3>
+
+                        <p class="descripcion-plato"></p>
+
+                        <div class="pie-plato">
+
+                            <strong class="precio-plato"></strong>
+
+                            <span
+                                class="ver-detalle traducible"
+                                data-es="Ver detalle"
+                                data-en="Details"
+                            >
+                                Ver detalle
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- NAPOLITANA -->
+
+                <article
+                    class="food-card"
+
+                    data-image="/static/comidas/napolitana.jpg"
+
+                    data-name-es="Napolitana de Ternera"
+
+                    data-name-en="Beef Napolitana"
+
+                    data-desc-es="Napolitana de ternera acompañada con papas fritas y huevo frito."
+
+                    data-desc-en="Beef Napolitana served with French fries and a fried egg."
+
+                    data-price="$ --"
+                >
+
+                    <div class="foto-plato">
+
+                        <img
+                            src="/static/comidas/napolitana.jpg"
+                            alt="Napolitana de Ternera"
+                            loading="lazy"
+                        >
+
+                        <span class="mas">
+                            +
+                        </span>
+
+                    </div>
+
+                    <div class="info-plato">
+
+                        <h3 class="nombre-plato"></h3>
+
+                        <p class="descripcion-plato"></p>
+
+                        <div class="pie-plato">
+
+                            <strong class="precio-plato"></strong>
+
+                            <span
+                                class="ver-detalle traducible"
+                                data-es="Ver detalle"
+                                data-en="Details"
+                            >
+                                Ver detalle
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             POSTRES
+        ====================================================== -->
+
+        <section
+            id="postres"
+            class="seccion-menu"
+        >
+
+            <div class="encabezado-seccion">
+
+                <div class="encabezado-seccion-izq">
+
+                    <div class="icono-seccion">
+                        🍰
+                    </div>
+
+                    <h2
+                        class="traducible"
+                        data-es="Postres"
+                        data-en="Desserts"
+                    >
+                        Postres
+                    </h2>
+
+                </div>
+
+                <span class="cantidad">
+                    7
+                </span>
+
+            </div>
+
+
+            <div class="grid-platos">
+
+
+                <!-- QUESILLO CAYOTE -->
+
+                <article
+                    class="food-card"
+
+                    data-image="/static/comidas/heladodeccayote.jpg"
+
+                    data-name-es="Quesillo con Cayote"
+
+                    data-name-en="Quesillo with Cayote"
+
+                    data-desc-es="Quesillo artesanal regional acompañado con dulce de cayote, nueces y un toque de miel de caña."
+
+                    data-desc-en="Regional artisanal quesillo served with cayote jam, walnuts and a touch of cane honey."
+
+                    data-price="$ --"
+                >
+
+                    <div class="foto-plato">
+
+                        <img
+                            src="/static/comidas/heladodeccayote.jpg"
+                            alt="Quesillo con Cayote"
+                            loading="lazy"
+                        >
+
+                        <span class="mas">
+                            +
+                        </span>
+
+                    </div>
+
+                    <div class="info-plato">
+
+                        <h3 class="nombre-plato"></h3>
+
+                        <p class="descripcion-plato"></p>
+
+                        <div class="pie-plato">
+
+                            <strong class="precio-plato"></strong>
+
+                            <span
+                                class="ver-detalle traducible"
+                                data-es="Ver detalle"
+                                data-en="Details"
+                            >
+                                Ver detalle
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- PERA MALBEC -->
+
+                <article
+                    class="food-card"
+
+                    data-image="/static/comidas/malbec.jpg"
+
+                    data-name-es="Pera al Malbec"
+
+                    data-name-en="Malbec Pear"
+
+                    data-desc-es="Pera cocida lentamente en vino Malbec, acompañada con especias y reducción artesanal."
+
+                    data-desc-en="Pear slowly cooked in Malbec wine with spices and an artisanal reduction."
+
+                    data-price="$ --"
+                >
+
+                    <div class="foto-plato">
+
+                        <img
+                            src="/static/comidas/malbec.jpg"
+                            alt="Pera al Malbec"
+                            loading="lazy"
+                        >
+
+                        <span class="mas">
+                            +
+                        </span>
+
+                    </div>
+
+                    <div class="info-plato">
+
+                        <h3 class="nombre-plato"></h3>
+
+                        <p class="descripcion-plato"></p>
+
+                        <div class="pie-plato">
+
+                            <strong class="precio-plato"></strong>
+
+                            <span
+                                class="ver-detalle traducible"
+                                data-es="Ver detalle"
+                                data-en="Details"
+                            >
+                                Ver detalle
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- HELADO CAYOTE -->
+
+                <article
+                    class="food-card"
+
+                    data-image="/static/comidas/helcay.jpg"
+
+                    data-name-es="Helado de Cayote"
+
+                    data-name-en="Cayote Ice Cream"
+
+                    data-desc-es="Helado de cayote con crema americana, acompañado de nueces regionales y miel de caña."
+
+                    data-desc-en="Cayote ice cream with vanilla cream, regional walnuts and cane honey."
+
+                    data-price="$ --"
+                >
+
+                    <div class="foto-plato">
+
+                        <img
+                            src="/static/comidas/helcay.jpg"
+                            alt="Helado de Cayote"
+                            loading="lazy"
+                        >
+
+                        <span class="mas">
+                            +
+                        </span>
+
+                    </div>
+
+                    <div class="info-plato">
+
+                        <h3 class="nombre-plato"></h3>
+
+                        <p class="descripcion-plato"></p>
+
+                        <div class="pie-plato">
+
+                            <strong class="precio-plato"></strong>
+
+                            <span
+                                class="ver-detalle traducible"
+                                data-es="Ver detalle"
+                                data-en="Details"
+                            >
+                                Ver detalle
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- HELADO CHOCOLATE -->
+
+                <article
+                    class="food-card"
+
+                    data-image="/static/comidas/heladochol.jpg"
+
+                    data-name-es="Helado de Chocolate"
+
+                    data-name-en="Chocolate Ice Cream"
+
+                    data-desc-es="Helado de chocolate cremoso, elaborado con ingredientes especialmente seleccionados."
+
+                    data-desc-en="Creamy chocolate ice cream made with carefully selected ingredients."
+
+                    data-price="$ --"
+                >
+
+                    <div class="foto-plato">
+
+                        <img
+                            src="/static/comidas/heladochol.jpg"
+                            alt="Helado de Chocolate"
+                            loading="lazy"
+                        >
+
+                        <span class="mas">
+                            +
+                        </span>
+
+                    </div>
+
+                    <div class="info-plato">
+
+                        <h3 class="nombre-plato"></h3>
+
+                        <p class="descripcion-plato"></p>
+
+                        <div class="pie-plato">
+
+                            <strong class="precio-plato"></strong>
+
+                            <span
+                                class="ver-detalle traducible"
+                                data-es="Ver detalle"
+                                data-en="Details"
+                            >
+                                Ver detalle
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- HELADO CEREZA -->
+
+                <article
+                    class="food-card"
+
+                    data-image="/static/comidas/helcer.jpg"
+
+                    data-name-es="Helado de Cereza"
+
+                    data-name-en="Cherry Ice Cream"
+
+                    data-desc-es="Helado artesanal de cereza fresca, cremoso y elaborado con ingredientes seleccionados."
+
+                    data-desc-en="Creamy artisanal fresh cherry ice cream made with selected ingredients."
+
+                    data-price="$ --"
+                >
+
+                    <div class="foto-plato">
+
+                        <img
+                            src="/static/comidas/helcer.jpg"
+                            alt="Helado de Cereza"
+                            loading="lazy"
+                        >
+
+                        <span class="mas">
+                            +
+                        </span>
+
+                    </div>
+
+                    <div class="info-plato">
+
+                        <h3 class="nombre-plato"></h3>
+
+                        <p class="descripcion-plato"></p>
+
+                        <div class="pie-plato">
+
+                            <strong class="precio-plato"></strong>
+
+                            <span
+                                class="ver-detalle traducible"
+                                data-es="Ver detalle"
+                                data-en="Details"
+                            >
+                                Ver detalle
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- CHOCOLATE CEREZA -->
+
+                <article
+                    class="food-card"
+
+                    data-image="/static/comidas/helcercho.jpg"
+
+                    data-name-es="Helado de Chocolate y Cereza"
+
+                    data-name-en="Chocolate & Cherry Ice Cream"
+
+                    data-desc-es="Combinación de helado de chocolate y cereza, cremosa y elaborada con ingredientes seleccionados."
+
+                    data-desc-en="Creamy combination of chocolate and cherry ice cream made with selected ingredients."
+
+                    data-price="$ --"
+                >
+
+                    <div class="foto-plato">
+
+                        <img
+                            src="/static/comidas/helcercho.jpg"
+                            alt="Helado de Chocolate y Cereza"
+                            loading="lazy"
+                        >
+
+                        <span class="mas">
+                            +
+                        </span>
+
+                    </div>
+
+                    <div class="info-plato">
+
+                        <h3 class="nombre-plato"></h3>
+
+                        <p class="descripcion-plato"></p>
+
+                        <div class="pie-plato">
+
+                            <strong class="precio-plato"></strong>
+
+                            <span
+                                class="ver-detalle traducible"
+                                data-es="Ver detalle"
+                                data-en="Details"
+                            >
+                                Ver detalle
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- FLAN QUINOA -->
+
+                <article
+                    class="food-card"
+
+                    data-image="/static/comidas/flanquinoa.jpg"
+
+                    data-name-es="Flan de Quinoa"
+
+                    data-name-en="Quinoa Flan"
+
+                    data-desc-es="Flan suave de quinoa andina con caramelo artesanal, inspirado en sabores regionales."
+
+                    data-desc-en="Soft Andean quinoa flan with artisanal caramel, inspired by regional flavors."
+
+                    data-price="$ --"
+                >
+
+                    <div class="foto-plato">
+
+                        <img
+                            src="/static/comidas/flanquinoa.jpg"
+                            alt="Flan de Quinoa"
+                            loading="lazy"
+                        >
+
+                        <span class="mas">
+                            +
+                        </span>
+
+                    </div>
+
+                    <div class="info-plato">
+
+                        <h3 class="nombre-plato"></h3>
+
+                        <p class="descripcion-plato"></p>
+
+                        <div class="pie-plato">
+
+                            <strong class="precio-plato"></strong>
+
+                            <span
+                                class="ver-detalle traducible"
+                                data-es="Ver detalle"
+                                data-en="Details"
+                            >
+                                Ver detalle
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             FINAL
+        ====================================================== -->
+
+        <section class="final">
+
+            <h3>
+                Marito Bar
+            </h3>
+
+            <p
+                class="traducible"
+
+                data-es="Purmamarca · Jujuy · Argentina"
+
+                data-en="Purmamarca · Jujuy · Argentina"
+            >
+                Purmamarca · Jujuy · Argentina
+            </p>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================================================
+         MODAL
+    ========================================================== -->
+
+    <div
+        id="modal"
+        class="modal"
+    >
+
+        <div class="modal-contenido">
+
+            <button
+                id="cerrar-modal"
+                class="cerrar-modal"
+                type="button"
+                aria-label="Cerrar"
+            >
+                ✕
+            </button>
+
+
+            <img
+                id="modal-imagen"
+                class="modal-imagen"
+                src=""
+                alt=""
+            >
+
+
+            <div class="modal-info">
+
+                <h2 id="modal-nombre"></h2>
+
+                <p id="modal-descripcion"></p>
+
+                <div
+                    id="modal-precio"
+                    class="modal-precio"
+                ></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
+
+    <script>
+
+        /* =========================================================
+           VARIABLES
+        ========================================================= */
+
+        let idiomaActual = "es";
+
+        let platoAbierto = null;
+
+
+        const tarjetas =
+            document.querySelectorAll(
+                ".food-card"
+            );
+
+
+        const secciones =
+            document.querySelectorAll(
+                ".seccion-menu"
+            );
+
+
+        const botonesCategorias =
+            document.querySelectorAll(
+                ".categoria-link"
+            );
+
+
+        const modal =
+            document.getElementById(
+                "modal"
+            );
+
+
+        const modalImagen =
+            document.getElementById(
+                "modal-imagen"
+            );
+
+
+        const modalNombre =
+            document.getElementById(
+                "modal-nombre"
+            );
+
+
+        const modalDescripcion =
+            document.getElementById(
+                "modal-descripcion"
+            );
+
+
+        const modalPrecio =
+            document.getElementById(
+                "modal-precio"
+            );
+
+
+
+        /* =========================================================
+           IDIOMA
+        ========================================================= */
+
+        function cambiarIdioma(
+            idioma
+        ){
+
+            idiomaActual =
+                idioma;
+
+
+            document.documentElement.lang =
+                idioma;
+
+
+            document
+                .getElementById(
+                    "btn-es"
+                )
+                .classList
+                .toggle(
+                    "activo",
+                    idioma === "es"
+                );
+
+
+            document
+                .getElementById(
+                    "btn-en"
+                )
+                .classList
+                .toggle(
+                    "activo",
+                    idioma === "en"
+                );
+
+
+            document
+                .querySelectorAll(
+                    ".traducible"
+                )
+                .forEach(
+                    elemento => {
+
+                        const texto =
+                            elemento.dataset[
+                                idioma
+                            ];
+
+                        if(
+                            texto
+                        ){
+                            elemento.textContent =
+                                texto;
+                        }
+
+                    }
+                );
+
+
+            actualizarTarjetas();
+
+
+            if(
+                platoAbierto
+            ){
+                mostrarDatosModal(
+                    platoAbierto
+                );
+            }
+
+        }
+
+
+
+        /* =========================================================
+           CARGAR NOMBRE, DESCRIPCIÓN Y PRECIO
+        ========================================================= */
+
+        function actualizarTarjetas(){
+
+            tarjetas.forEach(
+                tarjeta => {
+
+                    const nombre =
+                        tarjeta.dataset[
+                            "name" +
+                            idiomaActual
+                                .charAt(0)
+                                .toUpperCase() +
+                            idiomaActual
+                                .slice(1)
+                        ];
+
+
+                    const descripcion =
+                        tarjeta.dataset[
+                            "desc" +
+                            idiomaActual
+                                .charAt(0)
+                                .toUpperCase() +
+                            idiomaActual
+                                .slice(1)
+                        ];
+
+
+                    tarjeta
+                        .querySelector(
+                            ".nombre-plato"
+                        )
+                        .textContent =
+                        nombre;
+
+
+                    tarjeta
+                        .querySelector(
+                            ".descripcion-plato"
+                        )
+                        .textContent =
+                        descripcion;
+
+
+                    tarjeta
+                        .querySelector(
+                            ".precio-plato"
+                        )
+                        .textContent =
+                        tarjeta.dataset.price;
+
+                }
+            );
+
+        }
+
+
+
+        /* =========================================================
+           ABRIR PLATO
+        ========================================================= */
+
+        tarjetas.forEach(
+            tarjeta => {
+
+                tarjeta.addEventListener(
+                    "click",
+                    () => {
+
+                        platoAbierto =
+                            tarjeta;
+
+                        mostrarDatosModal(
+                            tarjeta
+                        );
+
+                        modal
+                            .classList
+                            .add(
+                                "activo"
+                            );
+
+                        document.body.style.overflow =
+                            "hidden";
+
+                    }
+                );
+
+            }
+        );
+
+
+
+        function mostrarDatosModal(
+            tarjeta
+        ){
+
+            const sufijo =
+                idiomaActual
+                    .charAt(0)
+                    .toUpperCase() +
+                idiomaActual
+                    .slice(1);
+
+
+            modalImagen.src =
+                tarjeta.dataset.image;
+
+
+            modalNombre.textContent =
+                tarjeta.dataset[
+                    "name" +
+                    sufijo
+                ];
+
+
+            modalDescripcion.textContent =
+                tarjeta.dataset[
+                    "desc" +
+                    sufijo
+                ];
+
+
+            modalPrecio.textContent =
+                tarjeta.dataset.price;
+
+        }
+
+
+
+        /* =========================================================
+           CERRAR MODAL
+        ========================================================= */
+
+        function cerrarModal(){
+
+            modal
+                .classList
+                .remove(
+                    "activo"
+                );
+
+
+            document.body.style.overflow =
+                "";
+
+
+            platoAbierto =
+                null;
+
+        }
+
+
+        document
+            .getElementById(
+                "cerrar-modal"
+            )
+            .addEventListener(
+                "click",
+                cerrarModal
+            );
+
+
+        modal.addEventListener(
+            "click",
+            event => {
+
+                if(
+                    event.target ===
+                    modal
+                ){
+                    cerrarModal();
+                }
+
+            }
+        );
+
+
+        document.addEventListener(
+            "keydown",
+            event => {
+
+                if(
+                    event.key ===
+                    "Escape"
+                ){
+                    cerrarModal();
+                }
+
+            }
+        );
+
+
+
+        /* =========================================================
+           IR A UNA CATEGORÍA
+        ========================================================= */
+
+        function irASeccion(
+            id
+        ){
+
+            const seccion =
+                document.getElementById(
+                    id
+                );
+
+
+            if(
+                seccion
+            ){
+
+                seccion.scrollIntoView({
+
+                    behavior:
+                        "smooth",
+
+                    block:
+                        "start"
+
+                });
+
+            }
+
+        }
+
+
+
+        /* =========================================================
+           DETECTAR AUTOMÁTICAMENTE QUÉ CATEGORÍA ESTAMOS VIENDO
+        ========================================================= */
+
+        let categoriaActual =
+            "entradas";
+
+
+        function actualizarCategoriaActiva(){
+
+            const alturaNav =
+                document
+                    .querySelector(
+                        ".navegador-categorias"
+                    )
+                    .offsetHeight;
+
+
+            let encontrada =
+                secciones[0].id;
+
+
+            secciones.forEach(
+                seccion => {
+
+                    const posicion =
+                        seccion
+                            .getBoundingClientRect()
+                            .top;
+
+
+                    if(
+                        posicion <=
+                        alturaNav + 90
+                    ){
+
+                        encontrada =
+                            seccion.id;
+
+                    }
+
+                }
+            );
+
+
+            if(
+                encontrada !==
+                categoriaActual
+            ){
+
+                categoriaActual =
+                    encontrada;
+
+
+                botonesCategorias
+                    .forEach(
+                        boton => {
+
+                            boton
+                                .classList
+                                .toggle(
+                                    "activo",
+                                    boton.dataset.seccion ===
+                                    encontrada
+                                );
+
+                        }
+                    );
+
+
+                const botonActivo =
+                    document.querySelector(
+                        '.categoria-link[data-seccion="' +
+                        encontrada +
+                        '"]'
+                    );
+
+
+                if(
+                    botonActivo
+                ){
+
+                    botonActivo.scrollIntoView({
+
+                        behavior:
+                            "smooth",
+
+                        inline:
+                            "center",
+
+                        block:
+                            "nearest"
+
+                    });
+
+                }
+
+            }
+
+        }
+
+
+
+        /* =========================================================
+           HACERLO SUAVE PARA NO CARGAR EL CELULAR
+        ========================================================= */
+
+        let esperandoScroll =
+            false;
+
+
+        window.addEventListener(
+            "scroll",
+            () => {
+
+                if(
+                    !esperandoScroll
+                ){
+
+                    window.requestAnimationFrame(
+                        () => {
+
+                            actualizarCategoriaActiva();
+
+                            esperandoScroll =
+                                false;
+
+                        }
+                    );
+
+
+                    esperandoScroll =
+                        true;
+
+                }
+
+            },
+            {
+                passive:true
+            }
+        );
+
+
+
+        /* =========================================================
+           INICIAR
+        ========================================================= */
+
+        actualizarTarjetas();
+
+        actualizarCategoriaActiva();
+
+    </script>
+
+
+</body>
+
+</html>
