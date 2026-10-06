@@ -1,0 +1,26 @@
+{
+  "id": "/",
+  "name": "La Peña de Marito",
+  "short_name": "Peña de Marito",
+  "description": "Carta y reservas de La Peña de Marito, Purmamarca.",
+  "lang": "es-AR",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#14110f",
+  "theme_color": "#14110f",
+  "icons": [
+    {
+      "src": "/static/pwa/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/static/pwa/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,500 +1,244 @@
-from flask import (
-    Flask,
-    render_template,
-    Response,
-    make_response,
-    redirect
-)
-
+from flask import Flask, render_template, Response, make_response, redirect, send_from_directory, request
 import os
 
-
 app = Flask(__name__)
-
-
-# =========================================================
-# DOMINIO OFICIAL
-# =========================================================
-
 BASE_URL = "https://xn--peademarito-2db.com.ar"
 
 
-# =========================================================
-# FUNCIÓN PARA PÁGINAS QUE NO QUEREMOS INDEXAR
-# =========================================================
-
 def render_noindex(template_name):
-
-    response = make_response(
-        render_template(template_name)
-    )
-
+    response = make_response(render_template(template_name))
     response.headers["X-Robots-Tag"] = "noindex, follow"
-
     return response
 
 
-# =========================================================
-# INICIO
-# NUEVA VERSIÓN OFICIAL DE LA PEÑA DE MARITO
-# =========================================================
-
 @app.route('/')
 def inicio():
+    return render_template('pena_nueva/index.html')
 
-    return render_template(
-        'pena_nueva/index.html'
-    )
-
-
-# =========================================================
-# RUTA ANTIGUA DE PRUEBA
-# AHORA REDIRIGE AL DOMINIO PRINCIPAL
-# =========================================================
 
 @app.route('/pena-nueva')
 def pena_nueva():
+    return redirect('/', code=302)
 
-    return redirect(
-        '/',
-        code=302
-    )
-
-
-# =========================================================
-# PÁGINA ANTERIOR
-# LA GUARDAMOS COMO RESPALDO
-# NO SE INDEXA EN GOOGLE
-# =========================================================
 
 @app.route('/pena-anterior')
 def pena_anterior():
+    return render_noindex('index.html')
 
-    return render_noindex(
-        'index.html'
-    )
-
-
-# =========================================================
-# MARITO BAR
-# LO MANTENEMOS SEPARADO
-# =========================================================
 
 @app.route('/nueva-pena')
 def nueva_pena():
+    return render_noindex('nueva_pena/index.html')
 
-    return render_noindex(
-        'nueva_pena/index.html'
-    )
-
-
-# =========================================================
-# ESPAÑOL
-# =========================================================
 
 @app.route('/menu_es')
 def menu_es():
-
-    return render_template(
-        'menu_es.html'
-    )
+    return render_template('menu_es.html')
 
 
 @app.route('/regionales')
 def regionales():
-
-    return render_template(
-        'regionales.html'
-    )
+    return render_template('regionales.html')
 
 
 @app.route('/tradicionales')
 def tradicionales():
-
-    return render_template(
-        'tradicionales.html'
-    )
+    return render_template('tradicionales.html')
 
 
 @app.route('/pastas')
 def pastas():
-
-    return render_template(
-        'pastas.html'
-    )
+    return render_template('pastas.html')
 
 
 @app.route('/entradas')
 def entradas():
-
-    return render_template(
-        'entradas.html'
-    )
+    return render_template('entradas.html')
 
 
 @app.route('/postres')
 def postres():
-
-    return render_template(
-        'postres.html'
-    )
+    return render_template('postres.html')
 
 
 @app.route('/menu-dia')
 def menu_dia():
+    return render_template('menu-dia.html')
 
-    return render_template(
-        'menu-dia.html'
-    )
-
-
-# =========================================================
-# INGLÉS
-# =========================================================
 
 @app.route('/menu_en')
 def menu_en():
-
-    return render_template(
-        'menu_en.html'
-    )
+    return render_template('menu_en.html')
 
 
 @app.route('/regionales_en')
 def regionales_en():
-
-    return render_template(
-        'regionales_en.html'
-    )
+    return render_template('regionales_en.html')
 
 
 @app.route('/tradicionales_en')
 def tradicionales_en():
-
-    return render_template(
-        'tradicionales_en.html'
-    )
+    return render_template('tradicionales_en.html')
 
 
 @app.route('/pastas_en')
 def pastas_en():
-
-    return render_template(
-        'pastas_en.html'
-    )
+    return render_template('pastas_en.html')
 
 
 @app.route('/entradas_en')
 def entradas_en():
-
-    return render_template(
-        'entradas_en.html'
-    )
+    return render_template('entradas_en.html')
 
 
 @app.route('/postres_en')
 def postres_en():
-
-    return render_template(
-        'postres_en.html'
-    )
+    return render_template('postres_en.html')
 
 
 @app.route('/menu-dia_en')
 def menu_dia_en():
+    return render_template('menu-dia_en.html')
 
-    return render_template(
-        'menu-dia_en.html'
-    )
-
-
-# =========================================================
-# PORTUGUÉS
-# =========================================================
 
 @app.route('/menu_pt')
 def menu_pt():
-
-    return render_template(
-        'menu_pt.html'
-    )
+    return render_template('menu_pt.html')
 
 
 @app.route('/regionales_pt')
 def regionales_pt():
-
-    return render_template(
-        'regionales_pt.html'
-    )
+    return render_template('regionales_pt.html')
 
 
 @app.route('/tradicionales_pt')
 def tradicionales_pt():
-
-    return render_template(
-        'tradicionales_pt.html'
-    )
+    return render_template('tradicionales_pt.html')
 
 
 @app.route('/pastas_pt')
 def pastas_pt():
-
-    return render_template(
-        'pastas_pt.html'
-    )
+    return render_template('pastas_pt.html')
 
 
 @app.route('/entradas_pt')
 def entradas_pt():
-
-    return render_template(
-        'entradas_pt.html'
-    )
+    return render_template('entradas_pt.html')
 
 
 @app.route('/postres_pt')
 def postres_pt():
-
-    return render_template(
-        'postres_pt.html'
-    )
+    return render_template('postres_pt.html')
 
 
 @app.route('/menu-dia_pt')
 def menu_dia_pt():
+    return render_template('menu-dia_pt.html')
 
-    return render_template(
-        'menu-dia_pt.html'
-    )
-
-
-# =========================================================
-# FRANCÉS
-# =========================================================
 
 @app.route('/menu_fr')
 def menu_fr():
-
-    return render_template(
-        'menu_fr.html'
-    )
+    return render_template('menu_fr.html')
 
 
 @app.route('/regionales_fr')
 def regionales_fr():
-
-    return render_template(
-        'regionales_fr.html'
-    )
+    return render_template('regionales_fr.html')
 
 
 @app.route('/tradicionales_fr')
 def tradicionales_fr():
-
-    return render_template(
-        'tradicionales_fr.html'
-    )
+    return render_template('tradicionales_fr.html')
 
 
 @app.route('/pastas_fr')
 def pastas_fr():
-
-    return render_template(
-        'pastas_fr.html'
-    )
+    return render_template('pastas_fr.html')
 
 
 @app.route('/entrees_fr')
 def entrees_fr():
-
-    return render_template(
-        'entrees_fr.html'
-    )
+    return render_template('entrees_fr.html')
 
 
 @app.route('/postres_fr')
 def postres_fr():
-
-    return render_template(
-        'postres_fr.html'
-    )
+    return render_template('postres_fr.html')
 
 
 @app.route('/menu-dia_fr')
 def menu_dia_fr():
+    return render_template('menu-dia_fr.html')
 
-    return render_template(
-        'menu-dia_fr.html'
-    )
-
-
-# =========================================================
-# CARRUSELES
-# NO QUEREMOS QUE APAREZCAN COMO PÁGINAS INDEPENDIENTES
-# EN GOOGLE
-# =========================================================
 
 @app.route('/carrusel-postres')
 def carrusel_postres():
-
-    return render_noindex(
-        'carrusel_postres.html'
-    )
+    return render_noindex('carrusel_postres.html')
 
 
 @app.route('/carrusel-regionales')
 def carrusel_regionales():
-
-    return render_noindex(
-        'carrusel_regionales.html'
-    )
+    return render_noindex('carrusel_regionales.html')
 
 
 @app.route('/carrusel-vinos')
 def carrusel_vinos():
-
-    return render_noindex(
-        'carrusel_vinos.html'
-    )
+    return render_noindex('carrusel_vinos.html')
 
 
 @app.route('/carrusel')
 def carrusel_general():
+    return render_noindex('carrusel_general.html')
 
-    return render_noindex(
-        'carrusel_general.html'
+
+# PWA: el service worker se sirve en la raíz para controlar la carta completa.
+@app.route('/sw.js')
+def service_worker():
+    response = send_from_directory(
+        os.path.join(app.static_folder, 'pwa'), 'sw.js',
+        mimetype='application/javascript', max_age=0
+    )
+    response.headers['Cache-Control'] = 'no-cache'
+    response.headers['Service-Worker-Allowed'] = '/'
+    return response
+
+
+@app.route('/manifest.webmanifest')
+def manifest():
+    return send_from_directory(
+        os.path.join(app.static_folder, 'pwa'), 'manifest.webmanifest',
+        mimetype='application/manifest+json', max_age=0
     )
 
 
-# =========================================================
-# ROBOTS.TXT
-# =========================================================
+@app.after_request
+def cache_headers(response):
+    # Si se reemplaza el video, usar un nombre nuevo (v2, v3...).
+    if request.path == '/static/videos/pena-portada-horizontal-v1.mp4' and response.status_code in (200, 206, 304):
+        response.headers['Cache-Control'] = 'public, max-age=604800, immutable'
+    elif response.mimetype == 'text/html':
+        # Verificar cambios del menú/precios en cada consulta con conexión.
+        response.headers['Cache-Control'] = 'no-cache'
+    return response
+
 
 @app.route('/robots.txt')
 def robots():
+    contenido = f"User-agent: *\nAllow: /\n\nSitemap: {BASE_URL}/sitemap.xml\n"
+    return Response(contenido, mimetype='text/plain')
 
-    contenido = f"""User-agent: *
-Allow: /
-
-Sitemap: {BASE_URL}/sitemap.xml
-"""
-
-    return Response(
-        contenido,
-        mimetype='text/plain'
-    )
-
-
-# =========================================================
-# SITEMAP.XML
-# =========================================================
 
 @app.route('/sitemap.xml')
 def sitemap():
-
-    paginas = [
-
-        # =====================================================
-        # PÁGINA PRINCIPAL
-        # =====================================================
-
-        "/",
-
-
-        # =====================================================
-        # ESPAÑOL
-        # =====================================================
-
-        "/menu_es",
-        "/regionales",
-        "/tradicionales",
-        "/pastas",
-        "/entradas",
-        "/postres",
-        "/menu-dia",
-
-
-        # =====================================================
-        # INGLÉS
-        # =====================================================
-
-        "/menu_en",
-        "/regionales_en",
-        "/tradicionales_en",
-        "/pastas_en",
-        "/entradas_en",
-        "/postres_en",
-        "/menu-dia_en",
-
-
-        # =====================================================
-        # PORTUGUÉS
-        # =====================================================
-
-        "/menu_pt",
-        "/regionales_pt",
-        "/tradicionales_pt",
-        "/pastas_pt",
-        "/entradas_pt",
-        "/postres_pt",
-        "/menu-dia_pt",
-
-
-        # =====================================================
-        # FRANCÉS
-        # =====================================================
-
-        "/menu_fr",
-        "/regionales_fr",
-        "/tradicionales_fr",
-        "/pastas_fr",
-        "/entrees_fr",
-        "/postres_fr",
-        "/menu-dia_fr",
-
-    ]
-
-
-    urls = ""
-
-
-    for pagina in paginas:
-
-        urls += f"""
-    <url>
-        <loc>{BASE_URL}{pagina}</loc>
-    </url>
-"""
-
-
-    contenido = f"""<?xml version="1.0" encoding="UTF-8"?>
+    paginas = ['/', '/menu_es', '/regionales', '/tradicionales', '/pastas', '/entradas', '/postres', '/menu-dia', '/menu_en', '/regionales_en', '/tradicionales_en', '/pastas_en', '/entradas_en', '/postres_en', '/menu-dia_en', '/menu_pt', '/regionales_pt', '/tradicionales_pt', '/pastas_pt', '/entradas_pt', '/postres_pt', '/menu-dia_pt', '/menu_fr', '/regionales_fr', '/tradicionales_fr', '/pastas_fr', '/entrees_fr', '/postres_fr', '/menu-dia_fr']
+    urls = "".join(f"    <url><loc>{BASE_URL}{pagina}</loc></url>\n" for pagina in paginas)
+    contenido = f'''<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-{urls}
-</urlset>
-"""
+{urls}</urlset>
+'''
+    return Response(contenido, mimetype='application/xml')
 
 
-    return Response(
-        contenido,
-        mimetype='application/xml'
-    )
-
-
-# =========================================================
-# EJECUTAR APLICACIÓN
-# =========================================================
-
-if __name__ == "__main__":
-
-    port = int(
-        os.environ.get(
-            "PORT",
-            10000
-        )
-    )
-
-
-    app.run(
-        host="0.0.0.0",
-        port=port
-    )
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 10000))
+    app.run(host='0.0.0.0', port=port)

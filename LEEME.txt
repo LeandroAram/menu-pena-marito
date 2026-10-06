@@ -1,0 +1,52 @@
+LA PEÑA DE MARITO — PORTADA HORIZONTAL Y EFECTOS AL DESLIZAR
+
+Copiá el contenido de este ZIP dentro de C:\menu_qr y aceptá reemplazar los
+archivos coincidentes. Conservá las demás carpetas y las plantillas del menú.
+Si habías instalado el paquete anterior, usá este paquete actualizado completo.
+
+CAMBIOS
+- Portada horizontal 16:9 y mucho más baja en celular.
+- Video de 40 segundos a 30 fps, adaptado a 1280 x 720 con laterales desenfocados.
+  La imagen original queda completa en el centro: no se estira ni se corta.
+- Foto inicial durante al menos 3 segundos y fundido al video cuando está listo.
+- Se quitó «Diseño Web · Leandro» de la parte superior. El crédito del pie sigue.
+- Aparición suave de secciones y platos al desplazarse, pequeña barra de
+  progreso y sombra en la navegación cuando queda fija. No altera el scroll.
+- Las animaciones se desactivan con la preferencia de movimiento reducido.
+- Se mantienen las reservas al 3884844813 y la PWA con caché.
+
+ARCHIVOS PRINCIPALES
+app.py
+templates\pena_nueva\index.html
+static\pwa\portada-v3.css
+static\pwa\portada-v3.js
+static\pwa\sw.js
+static\videos\pena-portada-horizontal-v1.mp4
+Además se incluyen el manifest, los íconos y la página sin conexión.
+
+PROBAR
+1. Si el servidor estaba encendido, detenelo con Ctrl+C.
+2. Ejecutá python app.py y abrí http://localhost:10000.
+3. Recargá con Ctrl+F5 para ver los cambios; luego podés recargar normalmente.
+4. Bajá por la carta para ver las animaciones.
+La publicación en DonWeb queda a tu cargo.
+
+NOTAS
+- El video no tiene audio, se repite y cuenta con un botón de pausa.
+- Se pausa al cambiar de pestaña o salir de la portada.
+- Con ahorro de datos o movimiento reducido se conserva la foto inicial.
+- Las páginas y precios se consultan a la red; ante un fallo se usa la última
+  copia guardada de cada sección con aviso. Secciones no visitadas pueden no
+  estar disponibles sin conexión. Las imágenes se verifican en segundo plano.
+- El navegador puede liberar la caché. La primera visita descarga recursos.
+- La PWA requiere HTTPS en producción; para probarla localmente usá localhost.
+- Para futuras modificaciones, versioná los nombres de los recursos cambiados
+  y actualizá VERSION en static\pwa\sw.js.
+
+VERIFICACIÓN
+Se probó en Chromium a 390 x 844 y 1440 x 900: reproducción del video, altura
+compacta, ausencia del crédito superior, reservas, cambio de idioma, efectos y
+preferencia de movimiento reducido. No se detectaron errores de JavaScript.
+Las categorías se simularon para esa comprobación porque sus archivos no fueron
+adjuntados; las plantillas reales del menú de tu proyecto se conservan.
+No se publicó nada en DonWeb.
