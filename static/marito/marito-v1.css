@@ -1,0 +1,39 @@
+#marito-widget{--ink:#513723;--paper:#fffaf1;--rust:#93462f;position:fixed;right:18px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:3600;font-family:Arial,sans-serif;color:var(--ink);font-size:14px;line-height:1.5;text-align:left}
+#marito-widget *{box-sizing:border-box}
+#marito-widget button,#marito-widget input,#marito-widget a{font:inherit}
+#marito-widget button{cursor:pointer}
+#marito-widget button:focus-visible,#marito-widget a:focus-visible,#marito-widget input:focus-visible,#marito-widget [tabindex]:focus-visible{outline:3px solid #21817c;outline-offset:3px}
+#marito-widget [hidden]{display:none!important}
+#marito-widget .marito-launch{display:flex;align-items:center;gap:4px;padding:0;background:none;border:0;color:var(--ink);text-align:left}
+#marito-widget .marito-launch img{object-fit:contain;filter:drop-shadow(0 3px 2px #51372322)}
+#marito-widget .marito-invite{background:var(--paper);padding:11px 15px;border:1px solid #dcc6ac;border-radius:18px 18px 3px 18px;box-shadow:0 4px 20px #38211417}
+#marito-widget .marito-invite strong,#marito-widget .marito-invite span{display:block}
+#marito-widget .marito-invite strong{font-family:Georgia,serif;font-size:18px;font-weight:normal}
+#marito-widget .marito-invite span{font-size:12px;margin-top:2px}
+#marito-widget.marito-open .marito-launch{display:none}
+#marito-widget #marito-panel{width:370px;height:min(620px,calc(100dvh - 30px));display:flex;flex-direction:column;background:var(--paper);border:1px solid #d9c2a5;border-radius:22px;box-shadow:0 14px 55px #3e261238;overflow:hidden}
+#marito-widget .marito-header{display:flex;align-items:center;gap:10px;padding:10px 16px;background:#f0e4d0;border-bottom:3px solid #b96843;flex-shrink:0}
+#marito-widget .marito-header img{object-fit:contain}
+#marito-widget .marito-header h2{margin:0;color:var(--ink);font:26px Georgia,serif;letter-spacing:0}
+#marito-widget .marito-header p{margin:1px 0 0;font-size:12px;color:#69513e}
+#marito-widget .marito-close{margin-left:auto;width:42px;height:42px;border:0;background:transparent;font-size:28px;border-radius:50%;color:var(--ink)}
+#marito-widget .marito-close:hover{background:#e4d3b8}
+#marito-widget .marito-messages{flex:1;min-height:90px;overflow-y:auto;overscroll-behavior:contain;padding:16px;scrollbar-width:thin}
+#marito-widget .marito-message{white-space:pre-line;background:#f1e8d9;border-radius:3px 16px 16px;padding:12px 14px;margin:0 24px 12px 0;overflow-wrap:anywhere;font-size:14px;line-height:1.55}
+#marito-widget .marito-message.marito-user{background:#7c452f;color:white;margin:0 0 12px 30px;border-radius:16px 3px 16px 16px}
+#marito-widget .marito-message a{display:block;margin-top:10px;color:#6c3522;text-decoration:underline;font-weight:bold}
+#marito-widget .marito-options{display:grid;grid-template-columns:1fr 1fr;gap:7px;padding:8px 14px;flex-shrink:0;border-top:1px solid #ebdecb}
+#marito-widget .marito-options button{background:#fffdf8;border:1px solid #d7bfa0;border-radius:10px;color:var(--ink);padding:9px 5px;min-height:42px;font-size:12px}
+#marito-widget .marito-options button:hover{background:#f1e4ce}
+#marito-widget .marito-links{display:flex;gap:8px;padding:3px 14px 11px;flex-shrink:0}
+#marito-widget .marito-links a{flex:1;text-align:center;border-radius:10px;padding:10px 4px;background:var(--rust);color:white;text-decoration:none;font-size:13px;font-weight:bold}
+#marito-widget .marito-links a+a{background:#e6dbc6;color:var(--ink)}
+#marito-widget .marito-form{display:flex;align-items:center;gap:8px;border-top:1px solid #e3d3bc;padding:10px 12px;background:#fffcf7;flex-shrink:0}
+#marito-widget .marito-form input{width:0;flex:1;min-width:0;border:1px solid #d9c5aa;border-radius:10px;padding:11px 10px;background:white;color:var(--ink);font-size:16px}
+#marito-widget .marito-form button{border:0;border-radius:10px;background:var(--rust);color:white;width:44px;height:44px;font-size:24px}
+#marito-widget .marito-sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+/* Marito replaces the old floating contact button; the page contact section remains. */
+body:has(#marito-widget) .contact-fab,body:has(#marito-widget) .contact-flyout{display:none!important}
+body.locked #marito-widget{visibility:hidden}
+@media(max-width:480px){#marito-widget{right:10px;bottom:calc(8px + env(safe-area-inset-bottom))}#marito-widget #marito-panel{width:calc(100vw - 20px);height:min(610px,calc(100dvh - 20px - env(safe-area-inset-bottom)))}#marito-widget .marito-launch img{width:64px;height:96px}#marito-widget .marito-invite{padding:9px 12px}#marito-widget .marito-invite strong{font-size:17px}}
+@media(max-height:520px){#marito-widget .marito-header{padding:4px 12px}#marito-widget .marito-header img{height:38px}#marito-widget .marito-options{grid-template-columns:repeat(3,1fr);padding:5px 12px;gap:4px}#marito-widget .marito-options button{min-height:32px;padding:5px 2px}#marito-widget .marito-links{padding-bottom:5px}#marito-widget .marito-links a{padding:6px}#marito-widget .marito-form{padding:5px 12px}}

@@ -1,9 +1,9 @@
-const VERSION='20261006-v3';
+const VERSION='20261016-marito-v1';
 const PREFIX='pena-marito-';
 const PAGES=PREFIX+'pages-'+VERSION;
 const ASSETS=PREFIX+'assets-'+VERSION;
 const VIDEO=PREFIX+'video-'+VERSION;
-const CORE=['/','/static/pwa/offline.html','/static/pwa/portada-v3.css','/static/pwa/portada-v3.js','/static/pwa/icon-192.png','/static/pwa/icon-512.png'];
+const CORE=['/static/marito/marito-v1.css','/static/marito/marito-v1.js','/static/marito/marito-v1.png','/','/static/pwa/offline.html','/static/pwa/portada-v3.css','/static/pwa/portada-v3.js','/static/pwa/icon-192.png','/static/pwa/icon-512.png'];
 const MENU=/^\/(?:menu_(?:es|en|pt|fr)|(?:menu-dia|entradas|regionales|tradicionales|pastas|postres)(?:_(?:en|pt|fr))?|entrees_fr)$/;
 self.addEventListener('install',event => {
   event.waitUntil((async () => {const cache=await caches.open(ASSETS);await cache.addAll(CORE);await self.skipWaiting();})());
@@ -73,3 +73,4 @@ self.addEventListener('fetch',event => {
   })();
   event.respondWith(work);
 });
+
